@@ -64,7 +64,7 @@ dependencies {
     include("org.gt-reimagined:gtcore-forge:${rootProject.gt_core_version}-${rootProject.minecraft_version}"){
         transitive = false
     }
-    modRuntimeOnly(include("io.github.reforgedmods.terraform-api:terraform-wood-api-v1:3.1.5"))
+    modRuntimeOnly(include("dev.trinsdar:terraform-wood-api-v1:3.1.5"))
     modRuntimeOnly("com.gtnewhorizon.structurelib:structurelib-forge:${project.structurelib_version}-${project.minecraft_version}")
     modRuntimeOnly("dev.latvian.mods:kubejs-forge:${rootProject.kubejs_version}")
     modRuntimeOnly("curse.maven:the-one-probe-245211:${rootProject.top_forge_file}")
