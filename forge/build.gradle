@@ -47,7 +47,7 @@ dependencies {
         transitive = false;
     }
     modImplementation("earth.terrarium:botarium-forge-1.18.2:${project.botarium_version}")
-    modImplementation("io.github.reforgedmods.terraform-api:terraform-utils-v1:3.1.5")
+    modImplementation("dev.trinsdar:terraform-utils-v1:3.1.5")
     modImplementation("com.teamresourceful.resourcefullib:resourcefullib-forge-1.18.2:${project.resourcefullib_version}")
     //JEI
     //modRuntimeOnly("mezz.jei:jei-${rootProject.minecraft_version}-forge:${rootProject.jei_version}")
