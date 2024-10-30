@@ -28,7 +28,7 @@ dependencies{
     modImplementation("net.feltmc:felt-enchanting-api:1.1.0") { transitive false }
     modImplementation("earth.terrarium:botarium-common-1.18.2:${project.botarium_version}")
     modImplementation "maven.modrinth:carbon-config:${project.carbon_config_fabric_version}"
-    modCompileOnly("io.github.trinsdar:arrp:0.6.7")
+    modCompileOnly("dev.trinsdar:arrp:0.6.7")
     modCompileOnly "me.shedaniel:RoughlyEnoughItems-api:${rootProject.rei_version}"
     modCompileOnly("mezz.jei:jei-${rootProject.minecraft_version}-common-api:${rootProject.jei_version}")
 }

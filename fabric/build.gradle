@@ -44,7 +44,7 @@ dependencies{
     modImplementation("net.feltmc:felt-enchanting-api:1.1.0") { transitive false }
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }
-    modImplementation("com.github.Trinsdar:ARRP:0.6.7-hotfix")
+    modImplementation("dev.trinsdar:arrp:0.6.7")
     include("org.gt-reimagined:gtcore-fabric:${rootProject.gt_core_version}-${rootProject.minecraft_version}")
     modImplementation("org.gt-reimagined:gtcore-fabric:${rootProject.gt_core_version}-${rootProject.minecraft_version}"){
         transitive = false
