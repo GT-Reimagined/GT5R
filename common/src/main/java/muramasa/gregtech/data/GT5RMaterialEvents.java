@@ -222,7 +222,7 @@ public class GT5RMaterialEvents {
         event.setMaterial(Fireclay).asDust();
         event.setMaterial(Fluorite).asDust();
         event.setMaterial(GreenSchist).asDust(ROCK);
-        event.setMaterial(IndiumGalliumPhosphide).asDust();
+        event.setMaterial(IndiumGalliumPhosphide).asSolid(349, PLATE, MOLTEN);
         event.setMaterial(IridiumSodiumOxide).asDust();
         event.setMaterial(Kimberlite).asDust(ROCK);
         event.setMaterial(Komatiite).asDust(ROCK);
@@ -370,7 +370,7 @@ public class GT5RMaterialEvents {
         /**
          **  Misc
          **/
-        event.setMaterial(GalliumArsenide).asSolid(295, 1200);
+        event.setMaterial(GalliumArsenide).asSolid(295, 1200, PLATE);
         event.setMaterial(Superconductor).asSolid(PLATE);
         /**
          ***  Fluids
