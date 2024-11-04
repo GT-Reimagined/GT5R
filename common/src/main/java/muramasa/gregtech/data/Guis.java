@@ -272,9 +272,7 @@ public class Guis {
         HATCH_FLUID_I.add(LV, HATCH_FLUID_I, ULV);
         HATCH_FLUID_I.add(MV, HATCH_FLUID_I, ULV);
         HATCH_FLUID_I.add(HV, HATCH_FLUID_I, ULV);
-        HATCH_FLUID_I.add(EV, FL_IN, 61, 16).add(EV, FL_IN, 79, 16).add(EV, FL_IN, 97, 16).add(EV, FL_IN, 61, 34)
-                .add(EV, FL_IN, 79, 34).add(EV, FL_IN, 97, 34).add(EV, FL_IN, 61, 52).add(EV, FL_IN, 79, 52)
-                .add(EV, FL_IN, 97, 52);
+        HATCH_FLUID_I.add(EV, HATCH_FLUID_I, ULV);
         HATCH_FLUID_I.add(IV, HATCH_FLUID_I, ULV);
         HATCH_FLUID_I.add(LUV, HATCH_FLUID_I, ULV);
         HATCH_FLUID_I.add(ZPM, HATCH_FLUID_I, ULV);
@@ -289,9 +287,7 @@ public class Guis {
         HATCH_FLUID_O.add(IV, HATCH_FLUID_O, ULV);
         HATCH_FLUID_O.add(LUV, HATCH_FLUID_O, ULV);
         HATCH_FLUID_O.add(ZPM, HATCH_FLUID_O, ULV);
-        HATCH_FLUID_O.add(UV, FL_OUT, 61, 16).add(UV, FL_OUT, 79, 16).add(UV, FL_OUT, 97, 16).add(UV, FL_OUT, 61, 34)
-                .add(UV, FL_OUT, 79, 34).add(UV, FL_OUT, 97, 34).add(UV, FL_OUT, 61, 52).add(UV, FL_OUT, 79, 52)
-                .add(UV, FL_OUT, 97, 52);
+        HATCH_FLUID_I.add(UV, HATCH_FLUID_O, ULV);
         HATCH_FLUID_O.add(UHV, HATCH_FLUID_O, ULV);
         ELECTRIC_ITEM_FILTER
                 .add(DISPLAY_SETTABLE, 18, 6, new ResourceLocation(GT5RRef.ID, "blank")).add(DISPLAY_SETTABLE, 35, 6, new ResourceLocation(GT5RRef.ID, "blank")).add(DISPLAY_SETTABLE, 52, 6, new ResourceLocation(GT5RRef.ID, "blank"))
