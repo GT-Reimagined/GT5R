@@ -365,20 +365,6 @@ public class RemappingEvents {
     }
 
     @SubscribeEvent
-    public static void onAttachCapabilitiesEvent(AttachCapabilitiesEvent<BlockEntity> event){
-        /*if (event.getObject() instanceof BlockEntityHatchHeat<?> heat){
-            event.addCapability(new ResourceLocation(GT5RRef.ID, "heat_hatch"), new ICapabilityProvider() {
-                @NotNull
-                @Override
-                public <T> LazyOptional<T> getCapability(@NotNull Capability<T> capability, @Nullable Direction arg) {
-                    if (capability == TesseractCaps.HEAT_CAPABILITY && heat.heatHandler.isPresent()) return ForgeCommonEvents.fromHolder(heat.heatHandler, arg).cast();
-                    return LazyOptional.empty();
-                }
-            });
-        }*/
-    }
-
-    @SubscribeEvent
     public static void onWorldUnload(WorldEvent.Unload event){
         MiningPipeStructureCache.onWorldUnload(event.getWorld());
     }
