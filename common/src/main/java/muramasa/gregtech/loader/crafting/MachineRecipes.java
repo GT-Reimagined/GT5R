@@ -765,41 +765,41 @@ public class MachineRecipes {
         Arrays.stream(Tier.getAllElectric()).forEach(tier -> {
             Item hull = HULL.getItem(tier);
             if (hull == null) return;
-            add(HATCH_ITEM_I, tier, (m,item) ->  provider.addItemRecipe(output, "machines", item,
+            add(INPUT_BUS, tier, (m, item) ->  provider.addItemRecipe(output, "machines", item,
                     ImmutableMap.<Character, Object>builder()
                             .put('C', ForgeCTags.CHESTS)
                             .put('H', hull)
                             .build(), "C", "H"));
 
-            add(HATCH_FLUID_I, tier, (m,item) ->  provider.addItemRecipe(output, "machines", item,
+            add(INPUT_HATCH, tier, (m, item) ->  provider.addItemRecipe(output, "machines", item,
                     ImmutableMap.<Character, Object>builder()
                             .put('G', Items.GLASS)
                             .put('H', hull)
                             .build(), "G", "H"));
 
-            add(HATCH_ITEM_O, tier, (m,item) ->  provider.addItemRecipe(output, "machines", item,
+            add(OUTPUT_BUS, tier, (m, item) ->  provider.addItemRecipe(output, "machines", item,
                     ImmutableMap.<Character, Object>builder()
                             .put('C', ForgeCTags.CHESTS)
                             .put('H', hull)
                             .build(), "H", "C"));
 
-            add(HATCH_FLUID_O, tier, (m,item) ->  provider.addItemRecipe(output, "machines", item,
+            add(OUTPUT_HATCH, tier, (m, item) ->  provider.addItemRecipe(output, "machines", item,
                     ImmutableMap.<Character, Object>builder()
                             .put('G', Items.GLASS)
                             .put('H', hull)
                             .build(), "H", "G"));
 
-            add(HATCH_ENERGY, tier, (m,item) ->  provider.addItemRecipe(output, "machines", item,
+            add(ENERGY_HATCH, tier, (m, item) ->  provider.addItemRecipe(output, "machines", item,
                     ImmutableMap.<Character, Object>builder()
                             .put('C', CABLE_GETTER.apply(PipeSize.VTINY, tier, false))
                             .put('H', hull)
                             .build(), "CH"));
-            add(HATCH_DYNAMO, tier, (m,item) ->  provider.addItemRecipe(output, "machines", item,
+            add(DYNAMO_HATCH, tier, (m, item) ->  provider.addItemRecipe(output, "machines", item,
                     ImmutableMap.<Character, Object>builder()
                             .put('C', CABLE_GETTER.apply(PipeSize.VTINY, tier, false))
                             .put('H', hull)
                             .build(), "HC"));
-            add(HATCH_MUFFLER, tier, (m,item) ->  provider.addItemRecipe(output, "machines", item,
+            add(MUFFLER_HATCH, tier, (m, item) ->  provider.addItemRecipe(output, "machines", item,
                     ImmutableMap.<Character, Object>builder()
                             .put('C', GT5RBlocks.FLUID_PIPE_STEEL.getBlockItem(PipeSize.NORMAL))
                             .put('H', hull)

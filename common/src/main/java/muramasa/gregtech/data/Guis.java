@@ -234,28 +234,28 @@ public class Guis {
                 .add(IT_OUT, 125, 25, new ResourceLocation(GT5RRef.ID, "primitive_dust"))
                 .add(IT_OUT, 143, 25, new ResourceLocation(GT5RRef.ID, "primitive_dust"));
 
-        HATCH_MUFFLER.add(IT_IN, 79, 34);
+        MUFFLER_HATCH.add(IT_IN, 79, 34);
 
-        HATCH_ITEM_I.add(ULV, IT_IN, 79, 34);
-        HATCH_ITEM_I.add(LV, IT_IN, 70, 25).add(LV, IT_IN, 88, 25).add(LV, IT_IN, 70, 43).add(LV, IT_IN, 88, 43);
-        HATCH_ITEM_I.add(MV, IT_IN, 61, 16).add(MV, IT_IN, 79, 16).add(MV, IT_IN, 97, 16).add(MV, IT_IN, 61, 34)
+        INPUT_BUS.add(ULV, IT_IN, 79, 34);
+        INPUT_BUS.add(LV, IT_IN, 70, 25).add(LV, IT_IN, 88, 25).add(LV, IT_IN, 70, 43).add(LV, IT_IN, 88, 43);
+        INPUT_BUS.add(MV, IT_IN, 61, 16).add(MV, IT_IN, 79, 16).add(MV, IT_IN, 97, 16).add(MV, IT_IN, 61, 34)
                 .add(MV, IT_IN, 79, 34).add(MV, IT_IN, 97, 34).add(MV, IT_IN, 61, 52).add(MV, IT_IN, 79, 52)
                 .add(MV, IT_IN, 97, 52);
-        HATCH_ITEM_I.add(HV, IT_IN, 52, 7).add(HV, IT_IN, 70, 7).add(HV, IT_IN, 88, 7).add(HV, IT_IN, 106, 7)
+        INPUT_BUS.add(HV, IT_IN, 52, 7).add(HV, IT_IN, 70, 7).add(HV, IT_IN, 88, 7).add(HV, IT_IN, 106, 7)
                 .add(HV, IT_IN, 52, 25).add(HV, IT_IN, 70, 25).add(HV, IT_IN, 88, 25).add(HV, IT_IN, 106, 25)
                 .add(HV, IT_IN, 52, 43).add(HV, IT_IN, 70, 43).add(HV, IT_IN, 88, 43).add(HV, IT_IN, 106, 43)
                 .add(HV, IT_IN, 52, 61).add(HV, IT_IN, 70, 61).add(HV, IT_IN, 88, 61).add(HV, IT_IN, 106, 61);
-        HATCH_ITEM_O.add(ULV, IT_OUT, 79, 34);
-        HATCH_ITEM_O.add(LV, IT_OUT, 70, 25).add(LV, IT_OUT, 88, 25).add(LV, IT_OUT, 70, 43).add(LV, IT_OUT, 88, 43);
-        HATCH_ITEM_O.add(MV, IT_OUT, 61, 16).add(MV, IT_OUT, 79, 16).add(MV, IT_OUT, 97, 16).add(MV, IT_OUT, 61, 34)
+        OUTPUT_BUS.add(ULV, IT_OUT, 79, 34);
+        OUTPUT_BUS.add(LV, IT_OUT, 70, 25).add(LV, IT_OUT, 88, 25).add(LV, IT_OUT, 70, 43).add(LV, IT_OUT, 88, 43);
+        OUTPUT_BUS.add(MV, IT_OUT, 61, 16).add(MV, IT_OUT, 79, 16).add(MV, IT_OUT, 97, 16).add(MV, IT_OUT, 61, 34)
                 .add(MV, IT_OUT, 79, 34).add(MV, IT_OUT, 97, 34).add(MV, IT_OUT, 61, 52).add(MV, IT_OUT, 79, 52)
                 .add(MV, IT_OUT, 97, 52);
-        HATCH_ITEM_O.add(HV, IT_OUT, 52, 7).add(HV, IT_OUT, 70, 7).add(HV, IT_OUT, 88, 7).add(HV, IT_OUT, 106, 7)
+        OUTPUT_BUS.add(HV, IT_OUT, 52, 7).add(HV, IT_OUT, 70, 7).add(HV, IT_OUT, 88, 7).add(HV, IT_OUT, 106, 7)
                 .add(HV, IT_OUT, 52, 25).add(HV, IT_OUT, 70, 25).add(HV, IT_OUT, 88, 25).add(HV, IT_OUT, 106, 25)
                 .add(HV, IT_OUT, 52, 43).add(HV, IT_OUT, 70, 43).add(HV, IT_OUT, 88, 43).add(HV, IT_OUT, 106, 43)
                 .add(HV, IT_OUT, 52, 61).add(HV, IT_OUT, 70, 61).add(HV, IT_OUT, 88, 61).add(HV, IT_OUT, 106, 61);
-        HATCH_FLUID_I.add(FL_IN, 79, 34).add(CELL_IN, 9, 22).add(CELL_OUT, 9, 58);
-        HATCH_FLUID_O.add(FL_OUT, 79, 34).add(CELL_IN, 9, 22).add(CELL_OUT, 9, 58);
+        INPUT_HATCH.add(FL_IN, 79, 34).add(CELL_IN, 9, 22).add(CELL_OUT, 9, 58);
+        OUTPUT_HATCH.add(FL_OUT, 79, 34).add(CELL_IN, 9, 22).add(CELL_OUT, 9, 58);
         ELECTRIC_ITEM_FILTER
                 .add(DISPLAY_SETTABLE, 18, 6, new ResourceLocation(GT5RRef.ID, "blank")).add(DISPLAY_SETTABLE, 35, 6, new ResourceLocation(GT5RRef.ID, "blank")).add(DISPLAY_SETTABLE, 52, 6, new ResourceLocation(GT5RRef.ID, "blank"))
                 .add(DISPLAY_SETTABLE, 18, 23, new ResourceLocation(GT5RRef.ID, "blank")).add(DISPLAY_SETTABLE, 35, 23, new ResourceLocation(GT5RRef.ID, "blank")).add(DISPLAY_SETTABLE, 52, 23, new ResourceLocation(GT5RRef.ID, "blank"))

@@ -276,13 +276,13 @@ public class Machines {
     /**
      ** Hatches
      **/
-    public static HatchMachine HATCH_DYNAMO = new HatchMachine(GT5RRef.ID, "dynamo_hatch", COVER_DYNAMO_COLORED).addFlags(EU).overlayTexture(Textures.HATCH_OVERLAY_HANDLER);
-    public static HatchMachine HATCH_ENERGY = new HatchMachine(GT5RRef.ID, "energy_hatch", COVER_ENERGY_COLORED).addFlags(EU).overlayTexture(Textures.HATCH_OVERLAY_HANDLER);
-    public static HatchMachine HATCH_FLUID_I = new HatchMachine(GT5RRef.ID, "fluid_input_hatch", COVERINPUT).addFlags(GUI, FLUID, CELL);
-    public static HatchMachine HATCH_FLUID_O = new HatchMachine(GT5RRef.ID, "fluid_output_hatch", COVEROUTPUT).addFlags(GUI, FLUID, CELL);
-    public static HatchMachine HATCH_ITEM_I = new HatchMachine(GT5RRef.ID, "item_input_hatch", COVERINPUT).setTiers(ULV, LV, MV, HV).addFlags(GUI, ITEM).setTile(BlockEntityInputBus::new);
-    public static HatchMachine HATCH_ITEM_O = new HatchMachine(GT5RRef.ID, "item_output_hatch", COVEROUTPUT).setTiers(ULV, LV, MV, HV).addFlags(GUI, ITEM);
-    public static HatchMachine HATCH_MUFFLER = new HatchMachine(GT5RRef.ID, "muffler_hatch", COVERMUFFLER).addFlags(GUI, ITEM).setClientTicking();
+    public static HatchMachine DYNAMO_HATCH = new HatchMachine(GT5RRef.ID, "dynamo_hatch", COVER_DYNAMO_COLORED, "dynamo").addFlags(EU).overlayTexture(Textures.HATCH_OVERLAY_HANDLER);
+    public static HatchMachine ENERGY_HATCH = new HatchMachine(GT5RRef.ID, "energy_hatch", COVER_ENERGY_COLORED, "energy").addFlags(EU).overlayTexture(Textures.HATCH_OVERLAY_HANDLER);
+    public static HatchMachine INPUT_HATCH = new HatchMachine(GT5RRef.ID, "input_hatch", COVERINPUT, "fluid_input").addFlags(GUI, FLUID, CELL);
+    public static HatchMachine OUTPUT_HATCH = new HatchMachine(GT5RRef.ID, "output_hatch", COVEROUTPUT, "fluid_output").addFlags(GUI, FLUID, CELL);
+    public static HatchMachine INPUT_BUS = new HatchMachine(GT5RRef.ID, "input_bus", COVERINPUT, "item_input").setTiers(ULV, LV, MV, HV).addFlags(GUI, ITEM).setTile(BlockEntityInputBus::new);
+    public static HatchMachine OUTPUT_BUS = new HatchMachine(GT5RRef.ID, "output_bus", COVEROUTPUT, "item_output").setTiers(ULV, LV, MV, HV).addFlags(GUI, ITEM);
+    public static HatchMachine MUFFLER_HATCH = new HatchMachine(GT5RRef.ID, "muffler_hatch", COVERMUFFLER, "muffler").setTiers(LV).addFlags(GUI, ITEM).setClientTicking();
     /**
      ** Tanks
      **/
