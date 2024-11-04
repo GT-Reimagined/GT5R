@@ -280,9 +280,8 @@ public class Machines {
     public static HatchMachine HATCH_ENERGY = new HatchMachine(GT5RRef.ID, "energy_hatch", COVER_ENERGY_COLORED).addFlags(EU).overlayTexture(Textures.HATCH_OVERLAY_HANDLER);
     public static HatchMachine HATCH_FLUID_I = new HatchMachine(GT5RRef.ID, "fluid_input_hatch", COVERINPUT).addFlags(GUI, FLUID, CELL);
     public static HatchMachine HATCH_FLUID_O = new HatchMachine(GT5RRef.ID, "fluid_output_hatch", COVEROUTPUT).addFlags(GUI, FLUID, CELL);
-    //public static final HeatHatch HATCH_HEAT_COPPER = new HeatHatch(GT5RRef.ID, "copper_heat", Copper, 386);
-    public static HatchMachine HATCH_ITEM_I = new HatchMachine(GT5RRef.ID, "item_input_hatch", COVERINPUT).addFlags(GUI, ITEM).setTile(BlockEntityInputBus::new);
-    public static HatchMachine HATCH_ITEM_O = new HatchMachine(GT5RRef.ID, "item_output_hatch", COVEROUTPUT).addFlags(GUI, ITEM);
+    public static HatchMachine HATCH_ITEM_I = new HatchMachine(GT5RRef.ID, "item_input_hatch", COVERINPUT).setTiers(ULV, LV, MV, HV).addFlags(GUI, ITEM).setTile(BlockEntityInputBus::new);
+    public static HatchMachine HATCH_ITEM_O = new HatchMachine(GT5RRef.ID, "item_output_hatch", COVEROUTPUT).setTiers(ULV, LV, MV, HV).addFlags(GUI, ITEM);
     public static HatchMachine HATCH_MUFFLER = new HatchMachine(GT5RRef.ID, "muffler_hatch", COVERMUFFLER).addFlags(GUI, ITEM).setClientTicking();
     /**
      ** Tanks

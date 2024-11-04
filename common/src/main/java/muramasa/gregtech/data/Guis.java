@@ -245,13 +245,6 @@ public class Guis {
                 .add(HV, IT_IN, 52, 25).add(HV, IT_IN, 70, 25).add(HV, IT_IN, 88, 25).add(HV, IT_IN, 106, 25)
                 .add(HV, IT_IN, 52, 43).add(HV, IT_IN, 70, 43).add(HV, IT_IN, 88, 43).add(HV, IT_IN, 106, 43)
                 .add(HV, IT_IN, 52, 61).add(HV, IT_IN, 70, 61).add(HV, IT_IN, 88, 61).add(HV, IT_IN, 106, 61);
-        HATCH_ITEM_I.add(EV, HATCH_ITEM_I, HV);
-        HATCH_ITEM_I.add(IV, HATCH_ITEM_I, HV);
-        HATCH_ITEM_I.add(LUV, HATCH_ITEM_I, HV);
-        HATCH_ITEM_I.add(ZPM, HATCH_ITEM_I, HV);
-        HATCH_ITEM_I.add(UV, HATCH_ITEM_I, HV);
-        HATCH_ITEM_I.add(UHV, HATCH_ITEM_I, HV);
-
         HATCH_ITEM_O.add(ULV, IT_OUT, 79, 34);
         HATCH_ITEM_O.add(LV, IT_OUT, 70, 25).add(LV, IT_OUT, 88, 25).add(LV, IT_OUT, 70, 43).add(LV, IT_OUT, 88, 43);
         HATCH_ITEM_O.add(MV, IT_OUT, 61, 16).add(MV, IT_OUT, 79, 16).add(MV, IT_OUT, 97, 16).add(MV, IT_OUT, 61, 34)
@@ -261,34 +254,8 @@ public class Guis {
                 .add(HV, IT_OUT, 52, 25).add(HV, IT_OUT, 70, 25).add(HV, IT_OUT, 88, 25).add(HV, IT_OUT, 106, 25)
                 .add(HV, IT_OUT, 52, 43).add(HV, IT_OUT, 70, 43).add(HV, IT_OUT, 88, 43).add(HV, IT_OUT, 106, 43)
                 .add(HV, IT_OUT, 52, 61).add(HV, IT_OUT, 70, 61).add(HV, IT_OUT, 88, 61).add(HV, IT_OUT, 106, 61);
-        HATCH_ITEM_O.add(EV, HATCH_ITEM_O, HV);
-        HATCH_ITEM_O.add(IV, HATCH_ITEM_O, HV);
-        HATCH_ITEM_O.add(LUV, HATCH_ITEM_O, HV);
-        HATCH_ITEM_O.add(ZPM, HATCH_ITEM_O, HV);
-        HATCH_ITEM_O.add(UV, HATCH_ITEM_O, HV);
-        HATCH_ITEM_O.add(UHV, HATCH_ITEM_O, HV);
-
         HATCH_FLUID_I.add(FL_IN, 79, 34).add(CELL_IN, 9, 22).add(CELL_OUT, 9, 58);
-        HATCH_FLUID_I.add(LV, HATCH_FLUID_I, ULV);
-        HATCH_FLUID_I.add(MV, HATCH_FLUID_I, ULV);
-        HATCH_FLUID_I.add(HV, HATCH_FLUID_I, ULV);
-        HATCH_FLUID_I.add(EV, HATCH_FLUID_I, ULV);
-        HATCH_FLUID_I.add(IV, HATCH_FLUID_I, ULV);
-        HATCH_FLUID_I.add(LUV, HATCH_FLUID_I, ULV);
-        HATCH_FLUID_I.add(ZPM, HATCH_FLUID_I, ULV);
-        HATCH_FLUID_I.add(UV, HATCH_FLUID_I, ULV);
-        HATCH_FLUID_I.add(UHV, HATCH_FLUID_I, ULV);
-
         HATCH_FLUID_O.add(FL_OUT, 79, 34).add(CELL_IN, 9, 22).add(CELL_OUT, 9, 58);
-        HATCH_FLUID_O.add(LV, HATCH_FLUID_O, ULV);
-        HATCH_FLUID_O.add(MV, HATCH_FLUID_O, ULV);
-        HATCH_FLUID_O.add(HV, HATCH_FLUID_O, ULV);
-        HATCH_FLUID_O.add(EV, HATCH_FLUID_O, ULV);
-        HATCH_FLUID_O.add(IV, HATCH_FLUID_O, ULV);
-        HATCH_FLUID_O.add(LUV, HATCH_FLUID_O, ULV);
-        HATCH_FLUID_O.add(ZPM, HATCH_FLUID_O, ULV);
-        HATCH_FLUID_I.add(UV, HATCH_FLUID_O, ULV);
-        HATCH_FLUID_O.add(UHV, HATCH_FLUID_O, ULV);
         ELECTRIC_ITEM_FILTER
                 .add(DISPLAY_SETTABLE, 18, 6, new ResourceLocation(GT5RRef.ID, "blank")).add(DISPLAY_SETTABLE, 35, 6, new ResourceLocation(GT5RRef.ID, "blank")).add(DISPLAY_SETTABLE, 52, 6, new ResourceLocation(GT5RRef.ID, "blank"))
                 .add(DISPLAY_SETTABLE, 18, 23, new ResourceLocation(GT5RRef.ID, "blank")).add(DISPLAY_SETTABLE, 35, 23, new ResourceLocation(GT5RRef.ID, "blank")).add(DISPLAY_SETTABLE, 52, 23, new ResourceLocation(GT5RRef.ID, "blank"))
