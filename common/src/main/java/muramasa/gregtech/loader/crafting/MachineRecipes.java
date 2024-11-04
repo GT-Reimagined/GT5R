@@ -506,15 +506,11 @@ public class MachineRecipes {
         provider.addItemRecipe(output, "solar_panels", SOLAR_PANEL.getItem(NONE),
                 of('S', GT5RItems.Wafer, 'G', Items.GLASS_PANE, 'C', CIRCUITS_BASIC,
                         'P', PLATE.getMaterialTag(Carbon), 'H', HULL.getItem(ULV), 'W', GT5RBlocks.CABLE_SOLDERING_ALLOY.getBlockItem(PipeSize.VTINY)), "SGS", "CPC", "WHW");
-        provider.addItemRecipe(output, GT5RRef.ID, "ulv_solar_upgrade", "solar_panels", SOLAR_PANEL.getItem(ULV),
-                of('S', SOLAR_PANEL.getItem(NONE), 'C', CIRCUITS_ADVANCED), "SSS", "SCS", "SSS");
         provider.addItemRecipe(output, "solar_panels", SOLAR_PANEL.getItem(ULV),
-                of('W', GT5RItems.GlowstoneDopedWafer, 'G', ForgeCTags.GLASS_PANES, 'C', CIRCUITS_ADVANCED, 'g', GT5RBlocks.WIRE_GRAPHENE.getBlock(PipeSize.SMALL), 'P', PLATE.getMaterialTag(GalliumArsenide), 'H', HULL.getItem(ULV)), "WGW", "CgC", "PHP");
-        provider.addItemRecipe(output, GT5RRef.ID, "lv_solar_upgrade", "solar_panels", SOLAR_PANEL.getItem(LV),
-                of('S', SOLAR_PANEL.getItem(ULV), 'T', TRANSFORMER.getItem(ULV), 'C', TIER_CIRCUITS.apply(IV)), "CSC", "STS","CSC");
+                of('W', GT5RItems.Wafer, 'G', ForgeCTags.GLASS_PANES, 'C', CIRCUITS_ADVANCED, 'g', GT5RBlocks.WIRE_GRAPHENE.getBlock(PipeSize.SMALL), 'P', PLATE.getMaterialTag(GalliumArsenide), 'H', HULL.getItem(ULV)), "WGW", "CgC", "PHP");
         //TODO reinforced glass
         provider.addItemRecipe(output, "solar_panels", SOLAR_PANEL.getItem(LV),
-                of('W', GT5RItems.NaquadahDopedWafer, 'G', Items.GLASS, 'C', TIER_CIRCUITS.apply(IV), 'g', GT5RBlocks.WIRE_GRAPHENE.getBlock(PipeSize.HUGE), 'P', PLATE.getMaterialTag(IndiumGalliumPhosphide), 'H', HULL.getItem(LV)), "WGW", "CgC", "PHP");
+                of('W', GT5RItems.Wafer, 'G', Items.GLASS, 'C', TIER_CIRCUITS.apply(IV), 'g', GT5RBlocks.WIRE_GRAPHENE.getBlock(PipeSize.HUGE), 'P', PLATE.getMaterialTag(IndiumGalliumPhosphide), 'H', HULL.getItem(LV)), "WGW", "CgC", "PHP");
 
         provider.addItemRecipe(output, "machines", NUCLEAR_REACTOR_CORE.getItem(NONE),
                 of('C', TIER_CIRCUITS.apply(Tier.IV), 'P', GT5RItems.PistonEV, 'L', GT5RBlocks.CASING_DENSE_LEAD), "PCP", "CLC", "PCP");
