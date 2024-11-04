@@ -58,7 +58,7 @@ dependencies {
     modImplementation "maven.modrinth:carbon-config:${project.carbon_config_forge_version}"
     implementation("io.github.llamalad7:mixinextras-forge:0.3.5")
     minecraftRuntimeLibraries(group: 'com.github.Speiger', name: 'Primitive-Collections', version: '[0.8,0.9)')
-    modImplementation("org.gt-reimagined:gtcore-forge:${rootProject.gt_core_version}-${rootProject.minecraft_version}:deobf"){
+    implementation("org.gt-reimagined:gtcore-forge:${rootProject.gt_core_version}-${rootProject.minecraft_version}:deobf"){
         transitive = false
     }
     include("org.gt-reimagined:gtcore-forge:${rootProject.gt_core_version}-${rootProject.minecraft_version}"){
