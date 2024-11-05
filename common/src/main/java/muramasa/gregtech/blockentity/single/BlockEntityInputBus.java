@@ -1,10 +1,12 @@
 package muramasa.gregtech.blockentity.single;
 
 import muramasa.antimatter.blockentity.multi.BlockEntityHatch;
+import muramasa.antimatter.capability.item.TrackedItemHandler;
 import muramasa.antimatter.capability.machine.MachineCoverHandler;
 import muramasa.antimatter.capability.machine.MachineItemHandler;
 import muramasa.antimatter.cover.ICover;
 import muramasa.antimatter.data.AntimatterDefaultTools;
+import muramasa.antimatter.gui.SlotType;
 import muramasa.antimatter.machine.types.HatchMachine;
 import muramasa.antimatter.tool.AntimatterToolType;
 import muramasa.antimatter.util.Utils;
@@ -20,10 +22,24 @@ import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
 
 public class BlockEntityInputBus extends BlockEntityHatch<BlockEntityInputBus> {
-    boolean diversityFiltering;
+    boolean diversityFiltering = false;
     public BlockEntityInputBus(HatchMachine type, BlockPos pos, BlockState state) {
         super(type, pos, state);
         this.itemHandler.set(() -> new MachineItemHandler<>(this){
+            @Override
+            protected TrackedItemHandler<BlockEntityInputBus> createTrackedHandler(SlotType<?> type, BlockEntityInputBus tile) {
+                if (type == SlotType.IT_IN){
+                    int count = tile.getMachineType().getCount(tile.getMachineTier(), type);
+                    return new TrackedItemHandler<>(tile, type, count, type.output, type.input, type.tester){
+                        @Override
+                        public boolean hasSlotDiversity() {
+                            return diversityFiltering;
+                        }
+                    };
+                }
+                return super.createTrackedHandler(type, tile);
+            }
+
             @Override
             public boolean allowsInput(Direction side) {
                 return side == coverHandler.map(MachineCoverHandler::getOutputFacing).orElse(null);
@@ -43,6 +59,7 @@ public class BlockEntityInputBus extends BlockEntityHatch<BlockEntityInputBus> {
                 }
             }
             diversityFiltering = !diversityFiltering;
+            player.sendMessage(Utils.translatable("tooltip.gt5r.diversity_filter." + (diversityFiltering ? "on" : "off")), player.getUUID());
             Utils.damageStack(stack, player);
             return InteractionResult.SUCCESS;
         }

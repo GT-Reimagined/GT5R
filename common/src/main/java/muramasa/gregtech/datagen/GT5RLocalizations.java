@@ -121,6 +121,8 @@ public class GT5RLocalizations {
             add("tooltip.gt5r.spray_can.used", "Used");
             add("tooltip.gt5r.spray_can.0", "Can color things in %s");
             add("tooltip.gt5r.spray_can.1", "Remaining uses: %s");
+            add("tooltip.gt5r.diversity_filter.on", "Diversity Filter: ON");
+            add("tooltip.gt5r.diversity_filter.off", "Diversity Filter: OFF");
             add("tooltip.macerator.0", "Crushes Raw ores down to crushed ore and byproducts. Macerator gives no byproducts, Pulverizer gives byproducts");
             structureTranslations();
             advancements();
