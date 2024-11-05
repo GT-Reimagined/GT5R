@@ -278,7 +278,7 @@ public class Machines {
      **/
     public static HatchMachine DYNAMO_HATCH = new HatchMachine(GT5RRef.ID, "dynamo_hatch", COVER_DYNAMO_COLORED, "dynamo").addFlags(EU).overlayTexture(Textures.HATCH_OVERLAY_HANDLER);
     public static HatchMachine ENERGY_HATCH = new HatchMachine(GT5RRef.ID, "energy_hatch", COVER_ENERGY_COLORED, "energy").addFlags(EU).overlayTexture(Textures.HATCH_OVERLAY_HANDLER);
-    public static HatchMachine INPUT_HATCH = new HatchMachine(GT5RRef.ID, "input_hatch", COVERINPUT, "fluid_input").addFlags(GUI, FLUID, CELL);
+    public static HatchMachine INPUT_HATCH = new HatchMachine(GT5RRef.ID, "input_hatch", COVERINPUT, "fluid_input").addFlags(GUI, FLUID, CELL).setTile(BlockEntityInputHatch::new);
     public static HatchMachine OUTPUT_HATCH = new HatchMachine(GT5RRef.ID, "output_hatch", COVEROUTPUT, "fluid_output").addFlags(GUI, FLUID, CELL);
     public static HatchMachine INPUT_BUS = new HatchMachine(GT5RRef.ID, "input_bus", COVERINPUT, "item_input").setTiers(ULV, LV, MV, HV).addFlags(GUI, ITEM).setTile(BlockEntityInputBus::new);
     public static HatchMachine OUTPUT_BUS = new HatchMachine(GT5RRef.ID, "output_bus", COVEROUTPUT, "item_output").setTiers(ULV, LV, MV, HV).addFlags(GUI, ITEM);
