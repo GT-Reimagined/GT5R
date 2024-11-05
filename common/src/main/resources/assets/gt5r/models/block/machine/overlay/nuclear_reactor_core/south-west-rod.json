@@ -1,10 +1,10 @@
 {
 	"credit": "Made with Blockbench",
     "textures": {
-	 	"base-side": "gti:block/machine/base/reactor_rods/sides",
-	 	"base-top": "gti:block/machine/base/reactor_rods/top",
-	 	"overlay-top": "gti:block/machine/overlay/nuclear_reactor_core/rod_top",
-	 	"overlay-side": "gti:block/machine/overlay/nuclear_reactor_core/rod_sides"
+	 	"base-side": "gt5r:block/machine/base/reactor_rods/sides",
+	 	"base-top": "gt5r:block/machine/base/reactor_rods/top",
+	 	"overlay-top": "gt5r:block/machine/overlay/nuclear_reactor_core/rod_top",
+	 	"overlay-side": "gt5r:block/machine/overlay/nuclear_reactor_core/rod_sides"
 	}, 
 	"elements": [
 		{
