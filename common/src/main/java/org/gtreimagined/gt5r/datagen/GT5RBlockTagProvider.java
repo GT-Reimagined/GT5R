@@ -1,12 +1,10 @@
 package org.gtreimagined.gt5r.datagen;
 
-import gtreimagined.gt5r.block.*;
 import muramasa.antimatter.AntimatterAPI;
 import muramasa.antimatter.data.AntimatterDefaultTools;
 import muramasa.antimatter.datagen.providers.AntimatterBlockTagProvider;
 import muramasa.antimatter.machine.Tier;
 import org.gtreimagined.gt5r.GT5RRef;
-import muramasa.gt5r.block.*;
 import org.gtreimagined.gt5r.block.BlockAsphalt;
 import org.gtreimagined.gt5r.block.BlockAsphaltSlab;
 import org.gtreimagined.gt5r.block.BlockAsphaltStair;
@@ -18,7 +16,6 @@ import org.gtreimagined.gt5r.data.GT5RBlocks;
 import org.gtreimagined.gt5r.data.GT5RTags;
 import org.gtreimagined.gt5r.data.Machines;
 import net.minecraft.tags.BlockTags;
-import org.gtreimagined.block.*;
 
 import static muramasa.antimatter.data.AntimatterMaterials.Wood;
 

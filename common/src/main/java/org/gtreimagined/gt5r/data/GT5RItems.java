@@ -2,16 +2,14 @@ package org.gtreimagined.gt5r.data;
 
 import org.gtreimagined.gt5r.GT5RRef;
 import org.gtreimagined.gt5r.GT5Reimagined;
-import gtreimagined.gt5r.items.*;
 import muramasa.antimatter.item.ItemBasic;
 import muramasa.antimatter.item.ItemBattery;
 import muramasa.antimatter.item.ItemFluidCell;
 import muramasa.antimatter.machine.Tier;
-import muramasa.gt5r.items.*;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import org.gtreimagined.gt5r.items.*;
-import org.gtreimagined.items.*;
+
 
 public class GT5RItems {
     public static ItemBasic<?> ComputerMonitor = new ItemBasic<>(GT5RRef.ID, "computer_monitor").tip("Can be placed on machines as a cover");

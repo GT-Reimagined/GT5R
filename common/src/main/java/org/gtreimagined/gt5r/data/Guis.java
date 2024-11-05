@@ -17,7 +17,6 @@ import muramasa.antimatter.gui.widget.ProgressWidget;
 import muramasa.antimatter.gui.widget.WidgetSupplier;
 import muramasa.antimatter.machine.Tier;
 import muramasa.antimatter.registration.Side;
-import muramasa.gt5r.gui.widgets.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import org.gtreimagined.gt5r.gui.widgets.*;

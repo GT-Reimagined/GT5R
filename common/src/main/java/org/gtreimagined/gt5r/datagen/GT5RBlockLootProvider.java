@@ -1,6 +1,5 @@
 package org.gtreimagined.gt5r.datagen;
 
-import gtreimagined.gt5r.block.*;
 import org.gtreimagined.gt5r.block.BlockAsphalt;
 import org.gtreimagined.gt5r.block.BlockAsphaltSlab;
 import org.gtreimagined.gt5r.block.BlockAsphaltStair;
@@ -15,14 +14,12 @@ import muramasa.antimatter.Ref;
 import muramasa.antimatter.data.AntimatterStoneTypes;
 import muramasa.antimatter.datagen.providers.AntimatterBlockLootProvider;
 import muramasa.antimatter.ore.CobbleStoneType;
-import muramasa.gt5r.block.*;
 import org.gtreimagined.gt5r.data.GT5RBlocks;
 import org.gtreimagined.gt5r.data.Materials;
 import net.minecraft.data.loot.BlockLoot;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
-import org.gtreimagined.block.*;
 
 import static muramasa.antimatter.data.AntimatterMaterialTypes.RAW_ORE;
 import static muramasa.antimatter.data.AntimatterMaterials.*;

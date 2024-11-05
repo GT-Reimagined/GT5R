@@ -3,7 +3,6 @@ package org.gtreimagined.gt5r.data;
 import earth.terrarium.botarium.common.fluid.base.PlatformFluidItemHandler;
 import earth.terrarium.botarium.common.fluid.utils.FluidHooks;
 import org.gtreimagined.gt5r.GT5RRef;
-import gtreimagined.gt5r.cover.*;
 import org.gtreimagined.gt5r.cover.*;
 import org.gtreimagined.gt5r.cover.redstone.*;
 import org.gtreimagined.gt5r.items.ItemCoverCustomTooltip;
@@ -13,13 +12,10 @@ import muramasa.antimatter.cover.CoverFactory;
 import muramasa.antimatter.item.ItemCover;
 import muramasa.antimatter.machine.Tier;
 import muramasa.antimatter.texture.Texture;
-import muramasa.gt5r.cover.*;
-import muramasa.gt5r.cover.redstone.*;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.world.item.ItemStack;
-import org.gtreimagined.cover.*;
 import tesseract.FluidPlatformUtils;
 
 public class GT5RCovers {

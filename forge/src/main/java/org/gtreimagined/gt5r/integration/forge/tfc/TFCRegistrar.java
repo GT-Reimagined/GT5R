@@ -44,6 +44,7 @@ import java.util.function.BiConsumer;
 
 import static muramasa.antimatter.data.AntimatterMaterialTypes.DUST;
 import static net.dries007.tfc.common.blocks.soil.SoilBlockType.GRASS_PATH;
+import static org.gtreimagined.gt5r.data.Materials.*;
 
 public class TFCRegistrar implements IAntimatterRegistrar {
 

@@ -2,7 +2,6 @@ package org.gtreimagined.gt5r.loader.crafting;
 
 import com.google.common.collect.ImmutableMap;
 import org.gtreimagined.gt5r.GT5RRef;
-import gtreimagined.gt5r.block.*;
 import muramasa.antimatter.AntimatterAPI;
 import muramasa.antimatter.data.AntimatterDefaultTools;
 import muramasa.antimatter.data.AntimatterMaterialTypes;
@@ -13,7 +12,6 @@ import muramasa.antimatter.pipe.PipeItemBlock;
 import muramasa.antimatter.pipe.PipeSize;
 import muramasa.antimatter.pipe.types.PipeType;
 import muramasa.antimatter.util.AntimatterPlatformUtils;
-import muramasa.gt5r.block.*;
 import org.gtreimagined.gt5r.data.GT5RBlocks;
 import org.gtreimagined.gt5r.data.GT5RTags;
 import net.minecraft.data.recipes.FinishedRecipe;

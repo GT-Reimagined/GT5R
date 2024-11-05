@@ -1,8 +1,6 @@
 package org.gtreimagined.gt5r;
 
 import org.gtreimagined.gt5r.client.GT5RModelManager;
-import gtreimagined.gt5r.data.*;
-import gtreimagined.gt5r.datagen.*;
 import org.gtreimagined.gt5r.data.*;
 import org.gtreimagined.gt5r.datagen.*;
 import org.gtreimagined.gt5r.loader.crafting.*;
@@ -12,7 +10,6 @@ import org.gtreimagined.gt5r.proxy.CommonHandler;
 import org.gtreimagined.gt5r.integration.AppliedEnergisticsRegistrar;
 import org.gtreimagined.gt5r.integration.SpaceModRegistrar;
 import org.gtreimagined.gt5r.integration.rei.REIRegistrar;
-import org.gtreimagined.datagen.*;
 import org.gtreimagined.gt5r.loader.machines.generator.Fuels;
 import org.gtreimagined.gt5r.loader.machines.generator.LargeBoilerLoader;
 import org.gtreimagined.gt5r.loader.machines.generator.SolidFuelBoilerLoader;
@@ -37,19 +34,13 @@ import muramasa.antimatter.registration.Side;
 import muramasa.antimatter.tool.IAntimatterTool;
 import muramasa.antimatter.util.AntimatterPlatformUtils;
 import org.gtreimagined.gt5r.block.BlockAsphalt;
-import muramasa.gt5r.data.*;
-import muramasa.gt5r.datagen.*;
-import muramasa.gt5r.loader.crafting.*;
 import org.gtreimagined.gt5r.loader.items.Circuitry;
-import muramasa.gt5r.loader.machines.*;
-import muramasa.gt5r.loader.multi.*;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.level.block.state.BlockState;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.gtreimagined.data.*;
 import org.gtreimagined.gtcore.data.GTCoreItems;
 
 import java.util.Arrays;

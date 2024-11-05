@@ -24,6 +24,7 @@ import static muramasa.antimatter.data.AntimatterMaterialTypes.DUST;
 import static muramasa.antimatter.data.AntimatterMaterials.*;
 import static muramasa.antimatter.material.MaterialTags.MACERATE_INTO;
 import static muramasa.antimatter.material.MaterialTags.ORE_MULTI;
+import static org.gtreimagined.gt5r.data.Materials.*;
 import static org.gtreimagined.gt5r.data.RecipeMaps.FLUID_PRESS;
 import static net.dries007.tfc.common.blocks.rock.Ore.*;
 

@@ -13,6 +13,7 @@ import net.minecraft.resources.ResourceLocation;
 
 import static muramasa.antimatter.data.AntimatterDefaultTools.*;
 import static muramasa.antimatter.data.AntimatterMaterials.Copper;
+import static org.gtreimagined.gt5r.data.Materials.*;
 
 public class TFCItemTagProvider extends AntimatterItemTagProvider {
     public TFCItemTagProvider(String providerDomain, String providerName, boolean replace, AntimatterBlockTagProvider p) {

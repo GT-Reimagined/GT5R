@@ -5,7 +5,6 @@ import com.gtnewhorizon.structurelib.structure.StructureUtility;
 import muramasa.antimatter.structure.FakeTileElement;
 import muramasa.antimatter.util.int3;
 import org.gtreimagined.gt5r.block.BlockCoil;
-import muramasa.gt5r.blockentity.multi.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.ItemStack;

@@ -1,7 +1,6 @@
 package org.gtreimagined.gt5r.data;
 
 import org.gtreimagined.gt5r.GT5RRef;
-import gtreimagined.gt5r.block.*;
 import muramasa.antimatter.AntimatterAPI;
 import muramasa.antimatter.block.BlockBasic;
 import muramasa.antimatter.data.AntimatterMaterials;
@@ -12,7 +11,6 @@ import muramasa.antimatter.pipe.types.FluidPipe;
 import muramasa.antimatter.pipe.types.ItemPipe;
 import muramasa.antimatter.pipe.types.Wire;
 import muramasa.antimatter.texture.Texture;
-import muramasa.gt5r.block.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
@@ -25,7 +23,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
-import org.gtreimagined.block.*;
 import org.gtreimagined.gt5r.block.*;
 
 public class GT5RBlocks {

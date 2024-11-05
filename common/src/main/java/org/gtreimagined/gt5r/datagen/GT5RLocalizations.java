@@ -1,14 +1,12 @@
 package org.gtreimagined.gt5r.datagen;
 
 
-import gtreimagined.gt5r.block.*;
 import muramasa.antimatter.AntimatterAPI;
 import muramasa.antimatter.Ref;
 import muramasa.antimatter.datagen.providers.AntimatterLanguageProvider;
 import muramasa.antimatter.item.ItemBasic;
 import muramasa.antimatter.util.Utils;
 import org.gtreimagined.gt5r.GT5RRef;
-import muramasa.gt5r.block.*;
 import org.gtreimagined.gt5r.block.BlockAsphalt;
 import org.gtreimagined.gt5r.block.BlockAsphaltSlab;
 import org.gtreimagined.gt5r.block.BlockAsphaltStair;
@@ -21,7 +19,6 @@ import org.gtreimagined.gt5r.data.GT5RCovers;
 import org.gtreimagined.gt5r.data.GT5RItems;
 import org.gtreimagined.gt5r.items.ItemDepletedRod;
 import org.gtreimagined.gt5r.items.ItemNuclearFuelRod;
-import org.gtreimagined.block.*;
 
 import static muramasa.antimatter.machine.Tier.*;
 import static muramasa.antimatter.util.Utils.lowerUnderscoreToUpperSpaced;

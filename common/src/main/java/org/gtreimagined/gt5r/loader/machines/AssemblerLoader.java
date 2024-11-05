@@ -25,7 +25,6 @@ import org.gtreimagined.gt5r.GT5Reimagined;
 import org.gtreimagined.gt5r.block.BlockCasing;
 import org.gtreimagined.gt5r.block.BlockCoil;
 import org.gtreimagined.gt5r.block.BlockColoredWall;
-import muramasa.gt5r.data.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
