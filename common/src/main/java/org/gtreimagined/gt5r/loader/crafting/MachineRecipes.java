@@ -510,13 +510,12 @@ public class MachineRecipes {
                 of('O', PLATE.getMaterialTag(Obsidian), 'I', PLATE.getMaterialTag(Iron), 'E', Items.ENDER_EYE), "OOO", "OEO", "III");
 
         provider.addItemRecipe(output, "solar_panels", SOLAR_PANEL.getItem(NONE),
-                of('S', GT5RItems.Wafer, 'G', Items.GLASS_PANE, 'C', CIRCUITS_BASIC,
+                of('S', GT5RItems.Wafer, 'G', ForgeCTags.GLASS_PANES, 'C', CIRCUITS_BASIC,
                         'P', PLATE.getMaterialTag(Carbon), 'H', HULL.getItem(ULV), 'W', GT5RBlocks.CABLE_SOLDERING_ALLOY.getBlockItem(PipeSize.VTINY)), "SGS", "CPC", "WHW");
         provider.addItemRecipe(output, "solar_panels", SOLAR_PANEL.getItem(ULV),
                 of('W', GT5RItems.Wafer, 'G', ForgeCTags.GLASS_PANES, 'C', CIRCUITS_ADVANCED, 'g', GT5RBlocks.WIRE_GRAPHENE.getBlock(PipeSize.SMALL), 'P', PLATE.getMaterialTag(GalliumArsenide), 'H', HULL.getItem(ULV)), "WGW", "CgC", "PHP");
-        //TODO reinforced glass
         provider.addItemRecipe(output, "solar_panels", SOLAR_PANEL.getItem(LV),
-                of('W', GT5RItems.Wafer, 'G', Items.GLASS, 'C', TIER_CIRCUITS.apply(IV), 'g', GT5RBlocks.WIRE_GRAPHENE.getBlock(PipeSize.HUGE), 'P', PLATE.getMaterialTag(IndiumGalliumPhosphide), 'H', HULL.getItem(LV)), "WGW", "CgC", "PHP");
+                of('W', GT5RItems.Wafer, 'G', GTCoreBlocks.REINFORCED_GLASS, 'C', TIER_CIRCUITS.apply(IV), 'g', GT5RBlocks.WIRE_GRAPHENE.getBlock(PipeSize.HUGE), 'P', PLATE.getMaterialTag(IndiumGalliumPhosphide), 'H', HULL.getItem(LV)), "WGW", "CgC", "PHP");
 
         provider.addItemRecipe(output, "machines", NUCLEAR_REACTOR_CORE.getItem(NONE),
                 of('C', TIER_CIRCUITS.apply(Tier.IV), 'P', GT5RItems.PistonEV, 'L', GT5RBlocks.CASING_DENSE_LEAD), "PCP", "CLC", "PCP");
