@@ -1,5 +1,11 @@
 package org.gtreimagined.gt5r;
 
+import muramasa.antimatter.AntimatterConfig;
+import muramasa.antimatter.worldgen.IAntimatterWorldgenFunction;
+import net.minecraft.data.worldgen.biome.Biomes;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.levelgen.GenerationStep;
+import net.minecraft.world.level.levelgen.feature.Feature;
 import org.gtreimagined.gt5r.client.GT5RModelManager;
 import org.gtreimagined.gt5r.data.*;
 import org.gtreimagined.gt5r.datagen.*;
@@ -47,6 +53,7 @@ import java.util.Arrays;
 import java.util.function.BiConsumer;
 
 import static muramasa.antimatter.data.AntimatterMaterialTypes.PLATE;
+import static muramasa.antimatter.worldgen.AntimatterWorldGenerator.removeDecoratedFeatureFromAllBiomes;
 
 public class GT5Reimagined extends AntimatterMod {
 
@@ -195,6 +202,14 @@ public class GT5Reimagined extends AntimatterMod {
                 Guis.init(side);
                 Models.init();
                 GT5RSounds.init();
+                if (AntimatterPlatformUtils.INSTANCE.isForge()){
+                    IAntimatterWorldgenFunction function = (name, climate, category, effects, gen ,spawns) -> {
+                        if (AntimatterConfig.VANILLA_ORE_GEN.get()) {
+                            removeDecoratedFeatureFromAllBiomes(gen, GenerationStep.Decoration.UNDERGROUND_DECORATION, Feature.ORE, Blocks.NETHER_QUARTZ_ORE.defaultBlockState(), Blocks.NETHER_GOLD_ORE.defaultBlockState());
+                        }
+                    };
+                    AntimatterAPI.register(IAntimatterWorldgenFunction.class, "removed_ores", GT5RRef.ID, function);
+                }
                 if (AntimatterAPI.isModLoaded(Ref.MOD_REI) && side.isClient()){
                     REIRegistrar.init();
                 }
