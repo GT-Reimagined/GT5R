@@ -4,11 +4,14 @@ import muramasa.antimatter.data.AntimatterMaterialTypes;
 import muramasa.antimatter.data.AntimatterMaterials;
 import muramasa.antimatter.material.Material;
 import muramasa.antimatter.material.MaterialTags;
+import muramasa.antimatter.recipe.ingredient.RecipeIngredient;
 import org.gtreimagined.gt5r.data.GT5RItems;
 import org.gtreimagined.gt5r.data.GT5RMaterialTags;
 import org.gtreimagined.gt5r.data.Materials;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import org.gtreimagined.gtcore.data.GTCoreItems;
+import org.gtreimagined.gtcore.data.GTCoreTags;
 
 import java.util.function.ToLongFunction;
 
@@ -47,5 +50,6 @@ public class BenderLoader {
         BENDER.RB().ii(PLATE.getMaterialIngredient(Materials.TungstenSteel,2), SELECTOR_TAG_INGREDIENTS.get(4)).io(GT5RItems.CellTungstensteel.getDefaultInstance()).add("tungstensteel_cell",80,384);
         BENDER.RB().ii(PLATE.getMaterialIngredient(Materials.Zirconium,1), SELECTOR_TAG_INGREDIENTS.get(1)).io(GT5RItems.EmptyNuclearFuelRod).add("empty_fuel_rod",80,96);
         BENDER.RB().ii(PLATE.getMaterialIngredient(AntimatterMaterials.Iron, 3), SELECTOR_TAG_INGREDIENTS.get(3)).io(new ItemStack(Items.BUCKET)).add("bucket", 200, 16);
+        BENDER.RB().ii(RecipeIngredient.of(GTCoreTags.INGOTS_MIXED_METAL, 1).setIgnoreNbt(), SELECTOR_TAG_INGREDIENTS.get(1)).io(GTCoreItems.AdvancedAlloy).add("advanced_alloy", 100, 8);
     }
 }

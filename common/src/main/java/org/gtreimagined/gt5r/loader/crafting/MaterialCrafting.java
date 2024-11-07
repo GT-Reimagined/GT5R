@@ -1,6 +1,8 @@
 package org.gtreimagined.gt5r.loader.crafting;
 
 import com.google.common.collect.ImmutableMap;
+import muramasa.antimatter.material.Material;
+import muramasa.antimatter.util.Utils;
 import org.gtreimagined.gt5r.GT5RRef;
 import muramasa.antimatter.AntimatterAPI;
 import muramasa.antimatter.data.AntimatterMaterialTypes;
@@ -15,6 +17,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import org.gtreimagined.gtcore.data.GTCoreItems;
 
 import java.util.function.Consumer;
 
@@ -43,6 +46,63 @@ public class MaterialCrafting {
                 DUST.getMaterialTag(Brass), DUST.getMaterialTag(Brass), DUST.getMaterialTag(Brass), DUST.getMaterialTag(Brass), DUST.getMaterialTag(Aluminium), DUST.getMaterialTag(Cobalt));
         provider.shapeless(output, GT5RRef.ID, "", "dusts", AntimatterMaterialTypes.DUST_SMALL.get(Clay, 2), MORTAR.getTag(), Items.CLAY_BALL);
         loadAutoRecipes(output, provider);
+        loadMixedMetal(output, provider);
+    }
+
+    public static void loadMixedMetal(Consumer<FinishedRecipe> consumer, AntimatterRecipeProvider provider){
+        mixedMetalRecipe(consumer, provider, Iron, Bronze, Tin, 1);
+        mixedMetalRecipe(consumer, provider, Iron, Bronze, Zinc, 1);
+        mixedMetalRecipe(consumer, provider, Iron, Bronze, Aluminium, 1);
+        mixedMetalRecipe(consumer, provider, Iron, Brass, Tin, 1);
+        mixedMetalRecipe(consumer, provider, Iron, Brass, Zinc, 1);
+        mixedMetalRecipe(consumer, provider, Iron, Brass, Aluminium, 1);
+        mixedMetalRecipe(consumer, provider, Nickel, Bronze, Tin, 1);
+        mixedMetalRecipe(consumer, provider, Nickel, Bronze, Zinc, 1);
+        mixedMetalRecipe(consumer, provider, Nickel, Bronze, Aluminium, 1);
+        mixedMetalRecipe(consumer, provider, Nickel, Brass, Tin, 1);
+        mixedMetalRecipe(consumer, provider, Nickel, Brass, Zinc, 1);
+        mixedMetalRecipe(consumer, provider, Nickel, Brass, Aluminium, 1);
+        mixedMetalRecipe(consumer, provider, Invar, Bronze, Tin, 2);
+        mixedMetalRecipe(consumer, provider, Invar, Bronze, Zinc, 2);
+        mixedMetalRecipe(consumer, provider, Invar, Bronze, Aluminium, 3);
+        mixedMetalRecipe(consumer, provider, Invar, Brass, Tin, 2);
+        mixedMetalRecipe(consumer, provider, Invar, Brass, Zinc, 2);
+        mixedMetalRecipe(consumer, provider, Invar, Brass, Aluminium, 3);
+        mixedMetalRecipe(consumer, provider, Steel, Bronze, Tin, 2);
+        mixedMetalRecipe(consumer, provider, Steel, Bronze, Zinc, 2);
+        mixedMetalRecipe(consumer, provider, Steel, Bronze, Aluminium, 3);
+        mixedMetalRecipe(consumer, provider, Steel, Brass, Tin, 2);
+        mixedMetalRecipe(consumer, provider, Steel, Brass, Zinc, 2);
+        mixedMetalRecipe(consumer, provider, Steel, Brass, Aluminium, 3);
+        mixedMetalRecipe(consumer, provider, StainlessSteel, Bronze, Tin, 3);
+        mixedMetalRecipe(consumer, provider, StainlessSteel, Bronze, Zinc, 3);
+        mixedMetalRecipe(consumer, provider, StainlessSteel, Bronze, Aluminium, 4);
+        mixedMetalRecipe(consumer, provider, StainlessSteel, Brass, Tin, 3);
+        mixedMetalRecipe(consumer, provider, StainlessSteel, Brass, Zinc, 3);
+        mixedMetalRecipe(consumer, provider, StainlessSteel, Brass, Aluminium, 4);
+        mixedMetalRecipe(consumer, provider, Titanium, Bronze, Tin, 3);
+        mixedMetalRecipe(consumer, provider, Titanium, Bronze, Zinc, 3);
+        mixedMetalRecipe(consumer, provider, Titanium, Bronze, Aluminium, 4);
+        mixedMetalRecipe(consumer, provider, Titanium, Brass, Tin, 3);
+        mixedMetalRecipe(consumer, provider, Titanium, Brass, Zinc, 3);
+        mixedMetalRecipe(consumer, provider, Titanium, Brass, Aluminium, 4);
+        mixedMetalRecipe(consumer, provider, Tungsten, Bronze, Tin, 3);
+        mixedMetalRecipe(consumer, provider, Tungsten, Bronze, Zinc, 3);
+        mixedMetalRecipe(consumer, provider, Tungsten, Bronze, Aluminium, 4);
+        mixedMetalRecipe(consumer, provider, Tungsten, Brass, Tin, 3);
+        mixedMetalRecipe(consumer, provider, Tungsten, Brass, Zinc, 3);
+        mixedMetalRecipe(consumer, provider, Tungsten, Brass, Aluminium, 4);
+        mixedMetalRecipe(consumer, provider, TungstenSteel, Bronze, Tin, 5);
+        mixedMetalRecipe(consumer, provider, TungstenSteel, Bronze, Zinc, 5);
+        mixedMetalRecipe(consumer, provider, TungstenSteel, Bronze, Aluminium, 6);
+        mixedMetalRecipe(consumer, provider, TungstenSteel, Brass, Tin, 5);
+        mixedMetalRecipe(consumer, provider, TungstenSteel, Brass, Zinc, 5);
+        mixedMetalRecipe(consumer, provider, TungstenSteel, Brass, Aluminium, 6);
+    }
+
+    public static void mixedMetalRecipe(Consumer<FinishedRecipe> consumer, AntimatterRecipeProvider provider, Material top, Material middle, Material bottom, int amount){
+        provider.addStackRecipe(consumer, GT5RRef.ID, "mixed_metal_from_" + top.getId() + "_" + middle.getId() + "_" + bottom.getId(), "mixed_metal", Utils.ca(amount, GTCoreItems.MixedMetalIngot.getMixedMetalIngot(top, middle, bottom)),
+                of('T', PLATE.getMaterialTag(top), 'M', PLATE.getMaterialTag(middle), 'B', PLATE.getMaterialTag(bottom)), "T", "M", "B");
     }
 
     public static void loadAutoRecipes(Consumer<FinishedRecipe> consumer, AntimatterRecipeProvider provider){
