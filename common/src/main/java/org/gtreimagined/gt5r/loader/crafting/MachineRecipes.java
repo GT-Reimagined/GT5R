@@ -519,7 +519,7 @@ public class MachineRecipes {
 
         provider.addItemRecipe(output, "machines", NUCLEAR_REACTOR_CORE.getItem(NONE),
                 of('C', TIER_CIRCUITS.apply(Tier.IV), 'P', GT5RItems.PistonEV, 'L', GT5RBlocks.CASING_DENSE_LEAD), "PCP", "CLC", "PCP");
-        provider.addItemRecipe(output, "machines", SMALL_HEAT_EXCHANGER.getItem(NONE),
+        provider.addItemRecipe(output, "machines", INVAR_SMALL_HEAT_EXCHANGER.getItem(NONE),
                 of('L', PLATE.getMaterialTag(Lead), 'H', GT5RBlocks.CASING_HEAT_PROOF, 'P', GT5RBlocks.FLUID_PIPE_COPPER.getBlock(PipeSize.SMALL), 'C', PLATE.getMaterialTag(Copper)), "LCL", "PHP", "LCL");
     }
 

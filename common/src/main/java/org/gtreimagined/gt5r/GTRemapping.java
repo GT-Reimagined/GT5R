@@ -37,6 +37,7 @@ public class GTRemapping {
         remap("coke_oven_bronze", "coke_oven");
         remap("primitive_blast_furnace_bronze", "primitive_blast_furnace");
         remap("heat_exchanger_ev", "large_heat_exchanger");
+        AntimatterRemapping.remapMachine("small_heat_exchanger", INVAR_SMALL_HEAT_EXCHANGER);
         AntimatterRemapping.remapBlockEntity(new ResourceLocation(GT5RRef.ID, "heat_exchanger"), new ResourceLocation(GT5RRef.ID, "large_heat_exchanger"));
         AntimatterRemapping.remapMachine("item_input_hatch", INPUT_BUS);
         AntimatterRemapping.remapMachine("item_output_hatch", OUTPUT_BUS);
