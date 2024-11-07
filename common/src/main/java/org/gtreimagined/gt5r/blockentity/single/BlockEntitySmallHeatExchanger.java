@@ -10,6 +10,7 @@ import muramasa.antimatter.material.Material;
 import muramasa.antimatter.recipe.IRecipe;
 import muramasa.antimatter.util.Utils;
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
@@ -21,8 +22,9 @@ import static org.gtreimagined.gt5r.data.Materials.Steam;
 
 public class BlockEntitySmallHeatExchanger extends BlockEntitySecondaryOutput<BlockEntitySmallHeatExchanger> {
     boolean hadNoWater = false;
+    int rate = 16;
 
-    public BlockEntitySmallHeatExchanger(Machine type, BlockPos pos, BlockState state) {
+    public BlockEntitySmallHeatExchanger(Machine<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
         heatHandler.set(() -> new DefaultHeatHandler(this, Integer.MAX_VALUE, 80, 0));
         recipeHandler.set(() -> new MachineRecipeHandler<>(this){
@@ -34,17 +36,12 @@ public class BlockEntitySmallHeatExchanger extends BlockEntitySecondaryOutput<Bl
 
             @Override
             protected boolean canRecipeContinue() {
-                return super.canRecipeContinue() && heatHandler.map(h -> h.getHeat() + (activeRecipe.getTotalPower()) <= h.getHeatCap()).orElse(false);
+                return super.canRecipeContinue() && heatHandler.map(h -> h.getHeat() < rate * 2).orElse(false);
             }
 
             @Override
             public boolean consumeResourceForRecipe(boolean simulate) {
-                return tile.heatHandler.map(e -> e.insert((int) getPower() / 5, simulate) >= getPower() / 5).orElse(false);
-            }
-
-            @Override
-            protected void calculateDurations() {
-                maxProgress = activeRecipe.getDuration() * 5;
+                return tile.heatHandler.map(e -> e.insert((int) getPower(), simulate) >= getPower()).orElse(false);
             }
 
             @Override
@@ -60,9 +57,18 @@ public class BlockEntitySmallHeatExchanger extends BlockEntitySecondaryOutput<Bl
         });
     }
 
+    int steamHeat = 0;
+
     @Override
     public void serverTick(Level level, BlockPos pos, BlockState state) {
         super.serverTick(level, pos, state);
+        heatHandler.ifPresent(h -> {
+            if (h.getHeat() > 0){
+                int tempRate = Math.min(h.getHeat(), rate);
+                steamHeat += tempRate;
+                h.extractInternal(tempRate, false);
+            }
+        });
         if (level.getGameTime() % 20 == 0){
             fluidHandler.ifPresent(f -> {
                 heatHandler.ifPresent(h -> {
@@ -70,8 +76,8 @@ public class BlockEntitySmallHeatExchanger extends BlockEntitySecondaryOutput<Bl
                         Utils.createExplosion(this.level, worldPosition, 6.0F, Explosion.BlockInteraction.DESTROY);
                         return;
                     }
-                    if (h.getHeat() >= 80){
-                        int heatMultiplier = Math.min(6, h.getHeat() / 80);
+                    if (steamHeat >= 80){
+                        int heatMultiplier = Math.min(6, steamHeat / 80);
                         int waterToExtract = 0;
                         int waterTankId = f.getInputTanks().getFirstAvailableTank(DistilledWater.getLiquid(1), true);
                         if (waterTankId < 0){
@@ -100,7 +106,7 @@ public class BlockEntitySmallHeatExchanger extends BlockEntitySecondaryOutput<Bl
                                 waterToExtract = Math.min(waterToExtract, successfulSteam);
                                 waterTank.internalExtract(Utils.ca(waterToExtract, waterTank.getStoredFluid()), false);
                                 f.getOutputTanks().internalInsert(steam.getGas(waterToExtract * waterMultiplier), false);
-                                h.extractInternal(waterToExtract * 80, false);
+                                steamHeat -= waterToExtract * 80;
                             }
                             hadNoWater = false;
                         } else {
@@ -112,5 +118,17 @@ public class BlockEntitySmallHeatExchanger extends BlockEntitySecondaryOutput<Bl
             });
         }
 
+    }
+
+    @Override
+    public void load(CompoundTag tag) {
+        super.load(tag);
+        steamHeat = tag.getInt("steamHeat");
+    }
+
+    @Override
+    public void saveAdditional(CompoundTag tag) {
+        super.saveAdditional(tag);
+        tag.putInt("steamHeat", steamHeat);
     }
 }
