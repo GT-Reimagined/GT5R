@@ -3,6 +3,7 @@ package org.gtreimagined.gt5r.machine;
 import muramasa.antimatter.cover.ICover;
 import muramasa.antimatter.machine.MachineState;
 import muramasa.antimatter.texture.Texture;
+import muramasa.antimatter.util.Utils;
 import org.gtreimagined.gt5r.GT5RRef;
 import org.gtreimagined.gt5r.blockentity.single.BlockEntitySmallHeatExchanger;
 import org.gtreimagined.gt5r.data.GT5RCovers;
@@ -38,6 +39,10 @@ public class HeatExchangerMachine extends SecondaryOutputMachine {
         setTiers(NONE);
         baseTexture(new Texture(GT5RRef.ID, "block/machine/base/" + id));
         setMap(RecipeMaps.HEAT_EXCHANGER).addFlags(GUI, ITEM, FLUID).frontCovers().allowFrontIO();
+        addTooltipInfo((machine, stack, world, tooltip, flag) -> {
+            tooltip.add(Utils.translatable("tooltip.gt5r.small_heat_exchanger.heat_rate", rate));
+            tooltip.add(Utils.translatable("tooltip.gt5r.small_heat_exchanger.efficiency", ((double)efficiency / 100.0) + "%"));
+        });
     }
 
     public HeatExchangerMachine setEfficiency(int efficiency) {

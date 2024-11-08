@@ -129,6 +129,8 @@ public class GT5RLocalizations {
             add("tooltip.gt5r.spray_can.1", "Remaining uses: %s");
             add("tooltip.gt5r.diversity_filter.on", "Diversity Filter: ON");
             add("tooltip.gt5r.diversity_filter.off", "Diversity Filter: OFF");
+            add("tooltip.gt5r.small_heat_exchanger.heat_rate", "Rate of heating: %s HU/tick");
+            add("tooltip.gt5r.small_heat_exchanger.efficiency", "Efficiency: %s");
             add("tooltip.macerator.0", "Crushes Raw ores down to crushed ore and byproducts. Macerator gives no byproducts, Pulverizer gives byproducts");
             structureTranslations();
             advancements();
@@ -391,15 +393,7 @@ public class GT5RLocalizations {
                     .replace("Iv", "(IV)")));
             AntimatterAPI.all(ItemNuclearFuelRod.class, domain).forEach(i -> override(i.getDescriptionId(), Utils.getLocalizedType(i.getMaterial()) + " Fuel Rod"));
             AntimatterAPI.all(ItemDepletedRod.class, domain).forEach(i -> override(i.getDescriptionId(), "Depleted " + Utils.getLocalizedType(i.getMaterial()) + " Fuel Rod"));
-            String[] fluids = new String[]{"hot_molten_lithium_chloride", "hot_molten_tin", "hot_molten_sodium"};
-            for (String s : fluids) {
-                override("fluid_type.antimatter_shared.liquid_" + s, Utils.lowerUnderscoreToUpperSpaced(s));
-                override("item.antimatter_shared.liquid_" + s + "_bucket", Utils.lowerUnderscoreToUpperSpaced(s) + " Bucket");
-            }
-            override("fluid_type.antimatter_shared.liquid_nitrogen", Utils.lowerUnderscoreToUpperSpaced("liquid_nitrogen"));
-            override("item.antimatter_shared.liquid_nitrogen_bucket", Utils.lowerUnderscoreToUpperSpaced("liquid_nitrogen") + " Bucket");
-            override("fluid_type.antimatter_shared.concrete", "Wet Concrete");
-            override("item.antimatter_shared.concrete_bucket", "Wet Concrete Bucket");
+
 //            AntimatterAPI.all(ItemPowerUnit.class, domain).stream().filter(i -> i.getId().startsWith("power_unit") || i.getId().startsWith("small_power_unit")).forEach(i -> override(i.getDescriptionId(), lowerUnderscoreToUpperSpaced(i.getId())));
             override(LARGE_TURBINE, HV, "Large Steam Turbine");
             override(LARGE_TURBINE, EV, "Large Gas Turbine");
@@ -423,6 +417,15 @@ public class GT5RLocalizations {
 
         @Override
         protected void overrides() {
+            String[] fluids = new String[]{"hot_molten_lithium_chloride", "hot_molten_tin", "hot_molten_sodium"};
+            for (String s : fluids) {
+                override("fluid_type.antimatter_shared.liquid_" + s, Utils.lowerUnderscoreToUpperSpaced(s));
+                override("item.antimatter_shared.liquid_" + s + "_bucket", Utils.lowerUnderscoreToUpperSpaced(s) + " Bucket");
+            }
+            override("fluid_type.antimatter_shared.liquid_nitrogen", Utils.lowerUnderscoreToUpperSpaced("liquid_nitrogen"));
+            override("item.antimatter_shared.liquid_nitrogen_bucket", Utils.lowerUnderscoreToUpperSpaced("liquid_nitrogen") + " Bucket");
+            override("fluid_type.antimatter_shared.concrete", "Wet Concrete");
+            override("item.antimatter_shared.concrete_bucket", "Wet Concrete Bucket");
             override(Ref.ID, "jei.category.pulverizer", "Macerator/Pulverizer");
         }
     }
