@@ -209,7 +209,7 @@ public class GT5RMaterialEvents {
         event.setMaterial(Materials.CalciumChloride).asDust();
         event.setMaterial(Materials.CalciumSulfate).asDust();
         event.setMaterial(Materials.CobaltOxide).asDust();
-        event.setMaterial(Materials.Concrete).asDust(300);
+        event.setMaterial(Materials.Concrete).asDust(300).asFluid();
         event.setMaterial(Materials.DialuminiumTrioxide).asDust();
         event.setMaterial(Materials.Energium).asDust();
         event.setMaterial(Materials.FerricChloride).asDust();
@@ -671,7 +671,7 @@ public class GT5RMaterialEvents {
         event.setMaterial(Materials.CalciumChloride).mats(of(Materials.Calcium, 1, Materials.Chlorine, 2)).elecTicks(1024);
         event.setMaterial(Materials.CalciumSulfate).mats(of(Materials.Calcium, 1, Materials.Sulfur, 1, Materials.Oxygen, 4));
         event.setMaterial(Materials.CobaltOxide).mats(of(Materials.Cobalt, 1, Materials.Oxygen, 1)).elecTicks(68);
-        event.setMaterial(Materials.Concrete).mats(of(Stone, 1)).asFluid();
+        event.setMaterial(Materials.Concrete).mats(of(Stone, 1));
         event.setMaterial(Materials.DialuminiumTrioxide).mats(of(Materials.Aluminium,2, Materials.Oxygen,3));
         event.setMaterial(Materials.Energium).mats(of(Redstone,5, Materials.Ruby,4));
         event.setMaterial(Materials.FerricChloride).mats(of(Iron, 1, Materials.Chlorine, 3)).elecTicks(876);
