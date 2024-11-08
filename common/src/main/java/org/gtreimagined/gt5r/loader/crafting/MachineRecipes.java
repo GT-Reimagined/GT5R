@@ -521,6 +521,10 @@ public class MachineRecipes {
                 of('C', TIER_CIRCUITS.apply(Tier.IV), 'P', GT5RItems.PistonEV, 'L', GT5RBlocks.CASING_DENSE_LEAD), "PCP", "CLC", "PCP");
         provider.addItemRecipe(output, "machines", INVAR_SMALL_HEAT_EXCHANGER.getItem(NONE),
                 of('L', PLATE.getMaterialTag(Lead), 'H', GT5RBlocks.CASING_HEAT_PROOF, 'P', GT5RBlocks.FLUID_PIPE_COPPER.getBlock(PipeSize.SMALL), 'C', PLATE.getMaterialTag(Copper)), "LCL", "PHP", "LCL");
+        provider.addItemRecipe(output, "machines", TUNGSTEN_SMALL_HEAT_EXCHANGER.getItem(NONE),
+                of('L', PLATE.getMaterialTag(Lead), 'H', GT5RBlocks.CASING_TUNGSTEN, 'P', GT5RBlocks.FLUID_PIPE_COPPER.getBlock(PipeSize.SMALL), 'C', PLATE.getMaterialTag(Copper)), "LCL", "PHP", "LCL");
+        provider.addItemRecipe(output, "machines", TUNGSTENSTEEL_SMALL_HEAT_EXCHANGER.getItem(NONE),
+                of('L', PLATE.getMaterialTag(Lead), 'H', GT5RBlocks.CASING_TUNGSTENSTEEL, 'P', GT5RBlocks.FLUID_PIPE_COPPER.getBlock(PipeSize.SMALL), 'C', PLATE.getMaterialTag(Copper)), "LCL", "PHP", "LCL");
     }
 
     private static void addStorageTransformerRecipes(Consumer<FinishedRecipe> output, AntimatterRecipeProvider provider){
