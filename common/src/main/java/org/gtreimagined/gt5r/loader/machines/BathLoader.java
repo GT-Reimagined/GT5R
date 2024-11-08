@@ -22,6 +22,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.material.Fluid;
+import org.gtreimagined.gtcore.data.GTCoreBlocks;
 import org.gtreimagined.gtcore.data.GTCoreFluids;
 import org.gtreimagined.gtcore.data.GTCoreItems;
 import org.gtreimagined.gtcore.data.GTCoreMaterials;
@@ -60,6 +61,7 @@ public class BathLoader {
                 .add("netherized_diamond_recipe",144);
         BATH.RB().ii(DUST.getMaterialIngredient(Tungstate, 7)).fi(HydrochloricAcid.getLiquid(4000)).io(DUST.get(LithiumChloride, 4), DUST.get(TungsticAcid, 7)).add("tungstate", 512);
         BATH.RB().ii(DUST.getMaterialIngredient(Scheelite, 6)).fi(HydrochloricAcid.getLiquid(4000)).io(DUST.get(CalciumChloride, 3), DUST.get(TungsticAcid, 7)).add("scheelite", 512);
+        BATH.RB().ii(RecipeIngredient.of(FRAME.getMaterialTag(Steel))).fi(Concrete.getLiquid(L)).io(GTCoreBlocks.REINFORCED_STONE.asItem()).add("reinforced_stone", 200, 4);
         if (GT5RConfig.HARDER_CIRCUITS) {
             BATH.RB().ii(GTCoreItems.CarbonFibre).fi(EpoxyResin.getLiquid(L)).io(PLATE.get(FiberReinforcedEpoxyResin)).add("fiber_reinforced_epoxy_resin", 240);
         }
