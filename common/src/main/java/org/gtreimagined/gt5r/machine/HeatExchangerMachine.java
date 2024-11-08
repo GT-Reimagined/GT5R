@@ -1,8 +1,17 @@
 package org.gtreimagined.gt5r.machine;
 
+import muramasa.antimatter.cover.ICover;
 import muramasa.antimatter.machine.MachineState;
 import muramasa.antimatter.texture.Texture;
+import org.gtreimagined.gt5r.GT5RRef;
 import org.gtreimagined.gt5r.blockentity.single.BlockEntitySmallHeatExchanger;
+import org.gtreimagined.gt5r.data.GT5RCovers;
+import org.gtreimagined.gt5r.data.RecipeMaps;
+
+import static muramasa.antimatter.Data.COVEROUTPUT;
+import static muramasa.antimatter.machine.MachineFlag.*;
+import static muramasa.antimatter.machine.MachineFlag.FLUID;
+import static muramasa.antimatter.machine.Tier.NONE;
 
 public class HeatExchangerMachine extends SecondaryOutputMachine {
     int rate;
@@ -23,6 +32,12 @@ public class HeatExchangerMachine extends SecondaryOutputMachine {
                     new Texture(domain, "block/machine/overlay/small_heat_exchanger/" + stateDir + "side"),
             };
         });
+        removeFlags(EU);
+        setSecondaryOutputCover(GT5RCovers.COVER_OUTPUT_SECONDARY);
+        covers(ICover.emptyFactory, ICover.emptyFactory, ICover.emptyFactory, COVEROUTPUT, GT5RCovers.COVER_OUTPUT_SECONDARY, ICover.emptyFactory);
+        setTiers(NONE);
+        baseTexture(new Texture(GT5RRef.ID, "block/machine/base/" + id));
+        setMap(RecipeMaps.HEAT_EXCHANGER).addFlags(GUI, ITEM, FLUID).frontCovers().allowFrontIO();
     }
 
     public HeatExchangerMachine setEfficiency(int efficiency) {
