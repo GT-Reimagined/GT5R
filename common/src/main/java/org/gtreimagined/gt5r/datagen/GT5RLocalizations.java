@@ -125,6 +125,7 @@ public class GT5RLocalizations {
             add("message.gt5r.needs_maintenance.unscaled.inverted", "Outputs a flat signal (Inverted)");
             add("tooltip.gt5r.spray_can.full", "Full");
             add("tooltip.gt5r.spray_can.used", "Used");
+            add("tooltip.gt5r.spray_can_chlorine", "Cleans dyed pipes.");
             add("tooltip.gt5r.spray_can.0", "Can color things in %s");
             add("tooltip.gt5r.spray_can.1", "Remaining uses: %s");
             add("tooltip.gt5r.diversity_filter.on", "Diversity Filter: ON");

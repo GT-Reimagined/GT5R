@@ -43,6 +43,7 @@ public class FluidCannerLoader {
             Material chemDye = Material.get("chemical_" + dyeName + "_dye");
             FLUID_CANNER.RB().ii(GT5RItems.EmptySprayCan).fi(chemDye.getLiquid(2304)).io(sprayCan).add(dyeName +"_spray_can", 37, 1);
         }
+        FLUID_CANNER.RB().ii(GT5RItems.EmptySprayCan).fi(Chlorine.getGas(5000)).io(GT5RItems.ChlorineSprayCan).add("chlorine_spray_can", 37, 1);
         AntimatterPlatformUtils.INSTANCE.getAllFluids().forEach(fluid -> {
             Item bucket = fluid.getBucket();
             if (bucket == Items.AIR) return;

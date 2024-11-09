@@ -48,6 +48,7 @@ public class GT5RItems {
     public static ItemBasic<?> SensorEV = new ItemBasic<>(GT5RRef.ID, "sensor_ev");
     public static ItemBasic<?> SensorIV = new ItemBasic<>(GT5RRef.ID, "sensor_iv");
     public static ItemBasic<?> EmptySprayCan = new ItemBasic<>(GT5RRef.ID, "empty_spray_can", "spray_cans/").tip("Used for making Sprays");
+    public static ItemBasic<?> ChlorineSprayCan = new ItemChlorineSprayCan();
     public static ItemBasic<?> WhiteSprayCan = new ItemSprayCan(DyeColor.WHITE);
     public static ItemBasic<?> OrangeSprayCan = new ItemSprayCan(DyeColor.ORANGE);
     public static ItemBasic<?> MagentaSprayCan = new ItemSprayCan(DyeColor.MAGENTA);
