@@ -52,8 +52,8 @@ public class ItemChlorineSprayCan extends ItemBasic<ItemChlorineSprayCan> implem
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltipComponents, TooltipFlag isAdvanced) {
         super.appendHoverText(stack, level, tooltipComponents, isAdvanced);
-        tooltipComponents.add(Utils.translatable("tooltip." + getDomain() + ".spray_can_chlorine"));
         tooltipComponents.add(Utils.translatable("tooltip." + getDomain() + "." + "spray_can" + (stack.isDamaged() ? ".used" : ".full")));
+        tooltipComponents.add(Utils.translatable("tooltip." + getDomain() + ".spray_can_chlorine"));
         tooltipComponents.add(Utils.translatable("tooltip." + getDomain() + "." + "spray_can.1", stack.getMaxDamage() - stack.getDamageValue()));
     }
 }
