@@ -142,6 +142,8 @@ public class GT5RCovers {
     public static CoverFactory COVER_ENERGY_COLORED = CoverFactory.builder(CoverEnergyColored::new).addTextures(new Texture(Ref.ID, "block/cover/energy")).build(GT5RRef.ID, "energy");
     public static CoverFactory COVER_SHUTTER = CoverFactory.builder(CoverShutter::new).item((a, b) ->
             new ItemCover(GT5RRef.ID, "shutter").tip("can be placed as a pipe cover")).addTextures(new Texture(GT5RRef.ID, "block/cover/shutter")).build(GT5RRef.ID, "shutter");
+    public static CoverFactory COVER_MUFFLER = CoverFactory.builder(CoverMuffler::new).item((a, b) ->
+            new ItemCover(GT5RRef.ID, "muffler").tip("Can be placed as machine cover")).addTextures(new Texture(GT5RRef.ID, "block/cover/muffler")).build(GT5RRef.ID, "muffler");
 
     public static void init(){
 
