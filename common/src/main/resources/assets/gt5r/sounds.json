@@ -1,23 +1,23 @@
 {
   "wrench": {
-    "sounds": [ "gti:wrench" ]
+    "sounds": [ "gt5r:wrench" ]
   },
   "drill": {
-    "sounds": [ "gti:drill" ]
+    "sounds": [ "gt5r:drill" ]
   },
   "extractor": {
-    "sounds": [ "gti:extractor" ]
+    "sounds": [ "gt5r:extractor" ]
   },
   "furnace": {
-    "sounds": [ "gti:furnace" ]
+    "sounds": [ "gt5r:furnace" ]
   },
   "macerator": {
-    "sounds": [ "gti:macerator" ]
+    "sounds": [ "gt5r:macerator" ]
   },
   "magnetizer": {
-    "sounds": [ "gti:magnetizer" ]
+    "sounds": [ "gt5r:magnetizer" ]
   },
   "treetap": {
-    "sounds": [ "gti:treetap" ]
+    "sounds": [ "gt5r:treetap" ]
   }
 }
