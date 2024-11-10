@@ -195,6 +195,13 @@ public class Structures {
                 }, ofBlock(GT5RBlocks.ORE_WASHING_PARTS)))
                 .at('C', GT5RBlocks.TITANIUM_WALL, INPUT_BUS, INPUT_HATCH, OUTPUT_BUS, ENERGY_HATCH)
                 .offset(1, 2, 0).min(1, ENERGY_HATCH, INPUT_HATCH, INPUT_BUS, OUTPUT_BUS).build());
+        LARGE_SIFTER.setStructure(BlockEntityLargeSifter.class, b -> b.part("main")
+                .of("SSS", "SSS", "SSS").of("CCC", "C-C", "CCC").of(1).of(1).of(1).of("H~H", "HHH", "HHH").build()
+                .at('S', GT5RBlocks.ORE_WASHING_PARTS)
+                .at('C', GT5RBlocks.CASING_TITANIUM)
+                .at('H', GT5RBlocks.CASING_TITANIUM, INPUT_BUS, OUTPUT_BUS, ENERGY_HATCH)
+                .min(1, INPUT_BUS, OUTPUT_BUS, ENERGY_HATCH)
+                .offset(1, 5, 0).build());
         LARGE_TURBINE.setStructure(BlockEntityLargeTurbine.class, b -> b.part("main")
                 .of("CCC", "CCC", "CCC", "CCC").of("C~C", "H-H", "H-H", "CEC").of(0).build()
                 .atElement('C', StructureUtility.lazy(t -> ofBlock(t.getCasing())))
