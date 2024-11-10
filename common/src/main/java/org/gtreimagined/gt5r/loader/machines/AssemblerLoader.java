@@ -176,6 +176,8 @@ public class AssemblerLoader {
         addCoverRecipe(GT5RCovers.COVER_ENERGY_DETECTOR.getItem(), of(PLATES_IRON_ALUMINIUM, 1), of(CIRCUITS_BASIC, 1));
         addCoverRecipe(GT5RCovers.COVER_FLUID_DETECTOR.getItem(), of(PLATES_IRON_ALUMINIUM, 1), of(Items.HEAVY_WEIGHTED_PRESSURE_PLATE, 1));
         addCoverRecipe(GT5RCovers.COVER_ITEM_DETECTOR.getItem(), of(PLATES_IRON_ALUMINIUM, 1), of(Items.LIGHT_WEIGHTED_PRESSURE_PLATE, 1));
+        ASSEMBLER.RB().ii(of(PLATES_IRON_ALUMINIUM, 1), DUST.getMaterialIngredient(Plastic, 2)).io(GT5RCovers.COVER_MUFFLER.getItem()).add("muffler", 1600, 2);
+        ASSEMBLER.RB().ii(of(PLATES_IRON_ALUMINIUM, 1), DUST.getMaterialIngredient(Wood, 2)).io(GT5RCovers.COVER_MUFFLER.getItem()).add("muffler_1", 1600, 2);
         ASSEMBLER.RB().ii(of(CarbonFibre, 2), SELECTOR_TAG_INGREDIENTS.get(2)).io(CarbonMesh).add("carbon_mesh", 800, 2);
         ASSEMBLER.RB().ii(of(CarbonFibre, 4), FOIL.getMaterialIngredient(Zinc, 16), SELECTOR_TAG_INGREDIENTS.get(0)).io(GT5RCovers.COVER_ITEM_FILTER.getItem()).add("item_filter", 1600, 32);
         ASSEMBLER.RB().ii(WIRE_FINE.getMaterialIngredient(Steel, 64), FOIL.getMaterialIngredient(Zinc, 16), SELECTOR_TAG_INGREDIENTS.get(0)).io(GT5RCovers.COVER_ITEM_FILTER.getItem()).add("item_filter_cheap", 1600, 32);
