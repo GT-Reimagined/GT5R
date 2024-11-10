@@ -46,7 +46,7 @@ import static muramasa.antimatter.data.AntimatterMaterials.Wood;
 import static muramasa.antimatter.machine.MachineFlag.*;
 import static muramasa.antimatter.machine.Tier.*;
 
-public class Machines {
+public class GT5RMachines {
     public static BasicMachine HULL = new BasicMachine(GT5RRef.ID, "hull").setTiers(Tier.getAllElectric()).overlayTexture(Textures.STATE_IGNORANT_TIER_SPECIFIC_OVERLAY_HANDLER).noCovers().addFlags(GUI, ITEM, FLUID).setTile(BlockEntityHull::new).addTooltipInfo((machine, stack, world, tooltip, flag) -> {
         tooltip.remove(tooltip.size() - 1);
         tooltip.remove(tooltip.size() - 1);
@@ -200,7 +200,7 @@ public class Machines {
             tooltip.add(Utils.translatable("machine.power.capacity").append(": ").append(Utils.literal("" + 80).withStyle(ChatFormatting.BLUE)));
         }
     });
-    public static BasicMachine NUCLEAR_REACTOR_CORE = new SecondaryOutputMachine(GT5RRef.ID, "nuclear_reactor_core").setSecondaryOutputCover(GT5RCovers.COVER_REACTOR_OUTPUT_SECONDARY).removeFlags(EU).setTiers(NONE).addFlags(GUI, ITEM, FLUID, UNCULLED).renderContainedLiquids(false).custom().overlayTexture(Textures.REACTOR_CORE_OVERLAY_HANDLER).baseTexture(Textures.REACTOR_CORE_BASE_HANDLER).modelLoader(GT5RModelManager.LOADER_REACTOR).setTile(BlockEntityNuclearReactorCore::new).blockColorHandler(Machines::getBlockColorNuclear).itemColorHandler((stack, block, i) -> i == 0 ? Materials.Lead.getRGB() : -1).frontCovers().allowFrontIO().setNoTextureRotation(true).setOutputCover(GT5RCovers.COVER_REACTOR_OUTPUT).covers(ICover.emptyFactory, ICover.emptyFactory, GT5RCovers.COVER_REACTOR_OUTPUT, GT5RCovers.COVER_REACTOR_OUTPUT_SECONDARY, ICover.emptyFactory, ICover.emptyFactory);
+    public static BasicMachine NUCLEAR_REACTOR_CORE = new SecondaryOutputMachine(GT5RRef.ID, "nuclear_reactor_core").setSecondaryOutputCover(GT5RCovers.COVER_REACTOR_OUTPUT_SECONDARY).removeFlags(EU).setTiers(NONE).addFlags(GUI, ITEM, FLUID, UNCULLED).renderContainedLiquids(false).custom().overlayTexture(Textures.REACTOR_CORE_OVERLAY_HANDLER).baseTexture(Textures.REACTOR_CORE_BASE_HANDLER).modelLoader(GT5RModelManager.LOADER_REACTOR).setTile(BlockEntityNuclearReactorCore::new).blockColorHandler(GT5RMachines::getBlockColorNuclear).itemColorHandler((stack, block, i) -> i == 0 ? Materials.Lead.getRGB() : -1).frontCovers().allowFrontIO().setNoTextureRotation(true).setOutputCover(GT5RCovers.COVER_REACTOR_OUTPUT).covers(ICover.emptyFactory, ICover.emptyFactory, GT5RCovers.COVER_REACTOR_OUTPUT, GT5RCovers.COVER_REACTOR_OUTPUT_SECONDARY, ICover.emptyFactory, ICover.emptyFactory);
     public static BasicMachine INVAR_SMALL_HEAT_EXCHANGER = new HeatExchangerMachine(GT5RRef.ID, "invar_small_heat_exchanger", 16);
     public static BasicMachine TUNGSTEN_SMALL_HEAT_EXCHANGER = new HeatExchangerMachine(GT5RRef.ID, "tungsten_small_heat_exchanger", 128);
     public static BasicMachine TUNGSTENSTEEL_SMALL_HEAT_EXCHANGER = new HeatExchangerMachine(GT5RRef.ID, "tungstensteel_small_heat_exchanger", 128).setEfficiency(9000);

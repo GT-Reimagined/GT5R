@@ -24,7 +24,7 @@ import org.gtreimagined.gt5r.gui.widgets.*;
 import static muramasa.antimatter.gui.SlotType.*;
 import static muramasa.antimatter.gui.Widget.builder;
 import static muramasa.antimatter.machine.Tier.*;
-import static org.gtreimagined.gt5r.data.Machines.*;
+import static org.gtreimagined.gt5r.data.GT5RMachines.*;
 
 public class Guis {
 

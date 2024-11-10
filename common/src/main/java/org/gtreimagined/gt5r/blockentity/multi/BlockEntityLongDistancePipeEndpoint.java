@@ -18,7 +18,7 @@ import muramasa.antimatter.structure.StructureCache;
 import org.gtreimagined.gt5r.GT5Reimagined;
 import org.gtreimagined.gt5r.block.BlockCasing;
 import org.gtreimagined.gt5r.data.GT5RBlocks;
-import org.gtreimagined.gt5r.data.Machines;
+import org.gtreimagined.gt5r.data.GT5RMachines;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -162,9 +162,9 @@ public class BlockEntityLongDistancePipeEndpoint extends BlockEntityBasicMultiMa
     }
 
     protected Block getPipeline(){
-        if (type == Machines.LONG_DISTANCE_FLUID_ENDPOINT) return GT5RBlocks.LONG_DIST_FLUID_PIPE;
-        if (type == Machines.LONG_DISTANCE_ITEM_ENDPOINT) return GT5RBlocks.LONG_DIST_ITEM_PIPE;
-        if (type == Machines.LONG_DISTANCE_TRANSFORMER_ENDPOINT){
+        if (type == GT5RMachines.LONG_DISTANCE_FLUID_ENDPOINT) return GT5RBlocks.LONG_DIST_FLUID_PIPE;
+        if (type == GT5RMachines.LONG_DISTANCE_ITEM_ENDPOINT) return GT5RBlocks.LONG_DIST_ITEM_PIPE;
+        if (type == GT5RMachines.LONG_DISTANCE_TRANSFORMER_ENDPOINT){
             Block block = GT5Reimagined.get(BlockCasing.class, "long_distance_wire_" + this.tier.getId());
             if (block != null) return block;
         }

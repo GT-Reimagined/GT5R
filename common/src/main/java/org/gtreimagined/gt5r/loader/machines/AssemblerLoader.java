@@ -1,12 +1,8 @@
 package org.gtreimagined.gt5r.loader.machines;
 
 import com.google.common.collect.ImmutableSet;
-import org.gtreimagined.gt5r.data.GT5RBlocks;
-import org.gtreimagined.gt5r.data.GT5RCovers;
-import org.gtreimagined.gt5r.data.GT5RItems;
-import org.gtreimagined.gt5r.data.GT5RMaterialTypes;
-import org.gtreimagined.gt5r.data.Machines;
-import org.gtreimagined.gt5r.data.ToolTypes;
+import org.gtreimagined.gt5r.data.*;
+import org.gtreimagined.gt5r.data.GT5RMachines;
 import muramasa.antimatter.AntimatterAPI;
 import muramasa.antimatter.item.ItemBasic;
 import muramasa.antimatter.machine.Tier;
@@ -46,7 +42,7 @@ import static muramasa.antimatter.data.AntimatterMaterials.*;
 import static muramasa.antimatter.machine.Tier.*;
 import static muramasa.antimatter.recipe.ingredient.RecipeIngredient.of;
 import static muramasa.antimatter.recipe.ingredient.RecipeIngredient.ofObject;
-import static org.gtreimagined.gt5r.data.Machines.HULL;
+import static org.gtreimagined.gt5r.data.GT5RMachines.HULL;
 import static org.gtreimagined.gt5r.data.Materials.*;
 import static org.gtreimagined.gt5r.data.RecipeMaps.ASSEMBLER;
 import static org.gtreimagined.gt5r.data.TierMaps.*;
@@ -168,9 +164,9 @@ public class AssemblerLoader {
 
     private static void misc(){
         ASSEMBLER.RB().ii(GT5RItems.PrintedPages, Items.LEATHER).fi(Glue.getLiquid(20)).io(Items.WRITTEN_BOOK).fake().add("written_book", 32, 8);
-        ASSEMBLER.RB().ii(of(Machines.TRANSFORMER.getItem(ULV), 8), of(Machines.TRANSFORMER.getItem(LV), 4), of(Machines.TRANSFORMER.getItem(MV), 2),
-                of(Machines.TRANSFORMER.getItem(HV), 1), of(GT5RItems.ComputerMonitor), of(TIER_CIRCUITS.apply(EV), 4)).io(Machines.ADJUSTABLE_TRANSFORMER.getItem(EV)).add("ev_adjustable_transformer", 50, 1920);
-        ASSEMBLER.RB().ii(of(Machines.TRANSFORMER.getItem(EV), 1), of(Machines.ADJUSTABLE_TRANSFORMER.getItem(EV), 2), of(GT5RItems.ComputerMonitor), of(TIER_CIRCUITS.apply(IV), 4)).io(Machines.ADJUSTABLE_TRANSFORMER.getItem(IV)).add("iv_adjustable_transformer", 50, 1920);
+        ASSEMBLER.RB().ii(of(GT5RMachines.TRANSFORMER.getItem(ULV), 8), of(GT5RMachines.TRANSFORMER.getItem(LV), 4), of(GT5RMachines.TRANSFORMER.getItem(MV), 2),
+                of(GT5RMachines.TRANSFORMER.getItem(HV), 1), of(GT5RItems.ComputerMonitor), of(TIER_CIRCUITS.apply(EV), 4)).io(GT5RMachines.ADJUSTABLE_TRANSFORMER.getItem(EV)).add("ev_adjustable_transformer", 50, 1920);
+        ASSEMBLER.RB().ii(of(GT5RMachines.TRANSFORMER.getItem(EV), 1), of(GT5RMachines.ADJUSTABLE_TRANSFORMER.getItem(EV), 2), of(GT5RItems.ComputerMonitor), of(TIER_CIRCUITS.apply(IV), 4)).io(GT5RMachines.ADJUSTABLE_TRANSFORMER.getItem(IV)).add("iv_adjustable_transformer", 50, 1920);
         ASSEMBLER.RB().ii(of(ItemTags.PLANKS,8), SELECTOR_TAG_INGREDIENTS.get(8)).io(new ItemStack(Items.CHEST,1)).add("chest",100,4);
 
         ASSEMBLER.RB().ii(of(GT5RItems.EmitterMV), PLATE.getMaterialIngredient(Aluminium, 1)).io(GT5RCovers.COVER_NEEDS_MAINTENANCE_COVER.getItem()).add("needs_maintenance_cover", 600, 24);

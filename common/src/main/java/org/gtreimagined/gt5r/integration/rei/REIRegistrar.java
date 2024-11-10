@@ -5,8 +5,8 @@ import me.shedaniel.rei.api.common.entry.type.VanillaEntryTypes;
 import muramasa.antimatter.data.AntimatterMaterialTypes;
 import muramasa.antimatter.integration.rei.REIUtils;
 import muramasa.antimatter.machine.Tier;
+import org.gtreimagined.gt5r.data.GT5RMachines;
 import org.gtreimagined.gt5r.data.GT5RMaterialTags;
-import org.gtreimagined.gt5r.data.Machines;
 import net.minecraft.world.item.ItemStack;
 
 public class REIRegistrar {
@@ -15,21 +15,21 @@ public class REIRegistrar {
         REIUtils.addExtraCategory(r -> {
             OreProcessingCategory cat = new OreProcessingCategory();
             r.add(cat);
-            r.addWorkstations(cat.getCategoryIdentifier(), EntryStack.of(VanillaEntryTypes.ITEM,  new ItemStack(Machines.MACERATOR.getItem(Tier.LV))));
-            r.addWorkstations(cat.getCategoryIdentifier(), EntryStack.of(VanillaEntryTypes.ITEM,  new ItemStack(Machines.ORE_WASHER.getItem(Tier.LV))));
-            r.addWorkstations(cat.getCategoryIdentifier(), EntryStack.of(VanillaEntryTypes.ITEM,  new ItemStack(Machines.CENTRIFUGE.getItem(Tier.LV))));
-            r.addWorkstations(cat.getCategoryIdentifier(), EntryStack.of(VanillaEntryTypes.ITEM,  new ItemStack(Machines.THERMAL_CENTRIFUGE.getItem(Tier.LV))));
-            r.addWorkstations(cat.getCategoryIdentifier(), EntryStack.of(VanillaEntryTypes.ITEM,  new ItemStack(Machines.BATH.getItem(Tier.LV))));
-            r.addWorkstations(cat.getCategoryIdentifier(), EntryStack.of(VanillaEntryTypes.ITEM,  new ItemStack(Machines.ELECTROMAGNETIC_SEPARATOR.getItem(Tier.LV))));
-            r.addWorkstations(cat.getCategoryIdentifier(), EntryStack.of(VanillaEntryTypes.ITEM,  new ItemStack(Machines.SIFTER.getItem(Tier.LV))));
+            r.addWorkstations(cat.getCategoryIdentifier(), EntryStack.of(VanillaEntryTypes.ITEM,  new ItemStack(GT5RMachines.MACERATOR.getItem(Tier.LV))));
+            r.addWorkstations(cat.getCategoryIdentifier(), EntryStack.of(VanillaEntryTypes.ITEM,  new ItemStack(GT5RMachines.ORE_WASHER.getItem(Tier.LV))));
+            r.addWorkstations(cat.getCategoryIdentifier(), EntryStack.of(VanillaEntryTypes.ITEM,  new ItemStack(GT5RMachines.CENTRIFUGE.getItem(Tier.LV))));
+            r.addWorkstations(cat.getCategoryIdentifier(), EntryStack.of(VanillaEntryTypes.ITEM,  new ItemStack(GT5RMachines.THERMAL_CENTRIFUGE.getItem(Tier.LV))));
+            r.addWorkstations(cat.getCategoryIdentifier(), EntryStack.of(VanillaEntryTypes.ITEM,  new ItemStack(GT5RMachines.BATH.getItem(Tier.LV))));
+            r.addWorkstations(cat.getCategoryIdentifier(), EntryStack.of(VanillaEntryTypes.ITEM,  new ItemStack(GT5RMachines.ELECTROMAGNETIC_SEPARATOR.getItem(Tier.LV))));
+            r.addWorkstations(cat.getCategoryIdentifier(), EntryStack.of(VanillaEntryTypes.ITEM,  new ItemStack(GT5RMachines.SIFTER.getItem(Tier.LV))));
             MaterialTreeCategory cat2 = new MaterialTreeCategory();
             r.add(cat2);
-            r.addWorkstations(cat2.getCategoryIdentifier(), EntryStack.of(VanillaEntryTypes.ITEM,  new ItemStack(Machines.LATHE.getItem(Tier.LV))));
-            r.addWorkstations(cat2.getCategoryIdentifier(), EntryStack.of(VanillaEntryTypes.ITEM,  new ItemStack(Machines.BENDER.getItem(Tier.LV))));
-            r.addWorkstations(cat2.getCategoryIdentifier(), EntryStack.of(VanillaEntryTypes.ITEM,  new ItemStack(Machines.CUTTER.getItem(Tier.LV))));
-            r.addWorkstations(cat2.getCategoryIdentifier(), EntryStack.of(VanillaEntryTypes.ITEM,  new ItemStack(Machines.ASSEMBLER.getItem(Tier.LV))));
-            r.addWorkstations(cat2.getCategoryIdentifier(), EntryStack.of(VanillaEntryTypes.ITEM,  new ItemStack(Machines.COMPRESSOR.getItem(Tier.LV))));
-            r.addWorkstations(cat2.getCategoryIdentifier(), EntryStack.of(VanillaEntryTypes.ITEM,  new ItemStack(Machines.FLUID_PRESS.getItem(Tier.LV))));
+            r.addWorkstations(cat2.getCategoryIdentifier(), EntryStack.of(VanillaEntryTypes.ITEM,  new ItemStack(GT5RMachines.LATHE.getItem(Tier.LV))));
+            r.addWorkstations(cat2.getCategoryIdentifier(), EntryStack.of(VanillaEntryTypes.ITEM,  new ItemStack(GT5RMachines.BENDER.getItem(Tier.LV))));
+            r.addWorkstations(cat2.getCategoryIdentifier(), EntryStack.of(VanillaEntryTypes.ITEM,  new ItemStack(GT5RMachines.CUTTER.getItem(Tier.LV))));
+            r.addWorkstations(cat2.getCategoryIdentifier(), EntryStack.of(VanillaEntryTypes.ITEM,  new ItemStack(GT5RMachines.ASSEMBLER.getItem(Tier.LV))));
+            r.addWorkstations(cat2.getCategoryIdentifier(), EntryStack.of(VanillaEntryTypes.ITEM,  new ItemStack(GT5RMachines.COMPRESSOR.getItem(Tier.LV))));
+            r.addWorkstations(cat2.getCategoryIdentifier(), EntryStack.of(VanillaEntryTypes.ITEM,  new ItemStack(GT5RMachines.FLUID_PRESS.getItem(Tier.LV))));
         });
         REIUtils.addExtraDisplay(r -> {
             AntimatterMaterialTypes.ORE.all().forEach(m -> {

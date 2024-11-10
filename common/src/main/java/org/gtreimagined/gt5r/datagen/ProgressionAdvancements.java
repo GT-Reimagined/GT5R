@@ -25,7 +25,7 @@ import static muramasa.antimatter.machine.Tier.NONE;
 import static muramasa.antimatter.util.TagUtils.getForgelikeItemTag;
 import static muramasa.antimatter.util.Utils.hasItem;
 import static muramasa.antimatter.util.Utils.hasItems;
-import static org.gtreimagined.gt5r.data.Machines.*;
+import static org.gtreimagined.gt5r.data.GT5RMachines.*;
 import static org.gtreimagined.gt5r.data.Materials.*;
 
 public class ProgressionAdvancements implements Consumer<Consumer<Advancement>> {

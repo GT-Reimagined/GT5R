@@ -23,7 +23,7 @@ import org.gtreimagined.gt5r.items.ItemNuclearFuelRod;
 import static muramasa.antimatter.machine.Tier.*;
 import static muramasa.antimatter.util.Utils.lowerUnderscoreToUpperSpaced;
 import static muramasa.antimatter.util.Utils.lowerUnderscoreToUpperSpacedRotated;
-import static org.gtreimagined.gt5r.data.Machines.*;
+import static org.gtreimagined.gt5r.data.GT5RMachines.*;
 
 public class GT5RLocalizations {
 

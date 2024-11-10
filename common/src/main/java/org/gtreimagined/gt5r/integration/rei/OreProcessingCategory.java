@@ -21,8 +21,8 @@ import muramasa.antimatter.machine.types.Machine;
 import muramasa.antimatter.material.Material;
 import muramasa.antimatter.util.Utils;
 import org.gtreimagined.gt5r.GT5RRef;
+import org.gtreimagined.gt5r.data.GT5RMachines;
 import org.gtreimagined.gt5r.data.GT5RMaterialTags;
-import org.gtreimagined.gt5r.data.Machines;
 import org.gtreimagined.gt5r.data.Materials;
 import net.minecraft.client.gui.GuiComponent;
 import net.minecraft.client.renderer.GameRenderer;
@@ -124,8 +124,8 @@ public class OreProcessingCategory implements DisplayCategory<OreProcessingDispl
     private List<Widget> setupSecondaryFurnaceSlots(OreProcessingDisplay display, Rectangle bounds){
         List<Widget> widgets = new ArrayList<>();
         if (display.ore.has(GT5RMaterialTags.NEEDS_BLAST_FURNACE)){
-            widgets.add(Widgets.createSlot(xy(122, 111, bounds)).entries(ofMachine(Machines.BLAST_FURNACE)).markOutput().disableBackground());
-            widgets.add(Widgets.createSlot(xy(72, 146, bounds)).entries(ofMachine(Machines.BLAST_FURNACE)).markOutput().disableBackground());
+            widgets.add(Widgets.createSlot(xy(122, 111, bounds)).entries(ofMachine(GT5RMachines.BLAST_FURNACE)).markOutput().disableBackground());
+            widgets.add(Widgets.createSlot(xy(72, 146, bounds)).entries(ofMachine(GT5RMachines.BLAST_FURNACE)).markOutput().disableBackground());
             if(display.ore.has(INGOT_HOT)){
                 widgets.add(Widgets.createSlot(xy(97, 146, bounds)).entries(List.of(EntryStack.of(VanillaEntryTypes.ITEM, new ItemStack(INGOT_HOT.get(display.ore),1)))).markOutput().disableBackground());
             }else{
@@ -147,39 +147,39 @@ public class OreProcessingCategory implements DisplayCategory<OreProcessingDispl
 
     private List<Widget> setupBaseMachineSlots(OreProcessingDisplay display, Rectangle bounds){
         List<Widget> widgets = new ArrayList<>();
-        widgets.add(Widgets.createSlot(xy(4, 26, bounds)).entries(ofMachine(Machines.MACERATOR)).markInput().disableBackground());
+        widgets.add(Widgets.createSlot(xy(4, 26, bounds)).entries(ofMachine(GT5RMachines.MACERATOR)).markInput().disableBackground());
         widgets.add(Widgets.createSlot(xy(4, 48, bounds)).entries(List.of(EntryStack.of(VanillaEntryTypes.ITEM, CRUSHED.get(display.ore, 2 * ORE_MULTI.getInt(display.ore))))).markOutput().disableBackground());
         widgets.add(Widgets.createSlot(xy(4, 66, bounds)).entries(List.of(EntryStack.of(VanillaEntryTypes.ITEM, new ItemStack(DUST.get(display.byProduct1),1)))).markOutput().disableBackground());
-        widgets.add(Widgets.createSlot(xy(25, 72, bounds)).entries(ofMachine(Machines.MACERATOR)).markInput().disableBackground());
+        widgets.add(Widgets.createSlot(xy(25, 72, bounds)).entries(ofMachine(GT5RMachines.MACERATOR)).markInput().disableBackground());
         widgets.add(Widgets.createSlot(xy(25, 93, bounds)).entries(List.of(EntryStack.of(VanillaEntryTypes.ITEM, DUST_IMPURE.get(display.ore, 1)))).markOutput().disableBackground());
         widgets.add(Widgets.createSlot(xy(25, 111, bounds)).entries(List.of(EntryStack.of(VanillaEntryTypes.ITEM, new ItemStack(DUST.get(display.byProduct1),1)))).markOutput().disableBackground());
-        widgets.add(Widgets.createSlot(xy(29, 26, bounds)).entries(ofMachine(Machines.ORE_WASHER)).markInput().disableBackground());
+        widgets.add(Widgets.createSlot(xy(29, 26, bounds)).entries(ofMachine(GT5RMachines.ORE_WASHER)).markInput().disableBackground());
         widgets.add(Widgets.createSlot(xy(50, 26, bounds)).entries(ofFluid(AntimatterMaterials.Water, 1000)).markInput().disableBackground());
         widgets.add(Widgets.createSlot(xy(72, 26, bounds)).entries(List.of(EntryStack.of(VanillaEntryTypes.ITEM, CRUSHED_PURIFIED.get(display.ore, 1)))).markOutput().disableBackground());
         widgets.add(Widgets.createSlot(xy(90, 26, bounds)).entries(List.of(EntryStack.of(VanillaEntryTypes.ITEM, new ItemStack(DUST_TINY.get(display.byProduct1),3)))).markOutput().disableBackground());
-        widgets.add(Widgets.createSlot(xy(120, 48, bounds)).entries(ofMachine(Machines.MACERATOR)).markInput().disableBackground());
+        widgets.add(Widgets.createSlot(xy(120, 48, bounds)).entries(ofMachine(GT5RMachines.MACERATOR)).markInput().disableBackground());
         widgets.add(Widgets.createSlot(xy(148, 48, bounds)).entries(List.of(EntryStack.of(VanillaEntryTypes.ITEM, DUST_PURE.get(display.ore, 1)))).markOutput().disableBackground());
         widgets.add(Widgets.createSlot(xy(166, 48, bounds)).entries(List.of(EntryStack.of(VanillaEntryTypes.ITEM, new ItemStack(DUST.get(display.byProduct2),1)))).markOutput().disableBackground());
-        widgets.add(Widgets.createSlot(xy(97, 72, bounds)).entries(ofMachine(Machines.THERMAL_CENTRIFUGE)).markInput().disableBackground());
+        widgets.add(Widgets.createSlot(xy(97, 72, bounds)).entries(ofMachine(GT5RMachines.THERMAL_CENTRIFUGE)).markInput().disableBackground());
         widgets.add(Widgets.createSlot(xy(97, 93, bounds)).entries(List.of(EntryStack.of(VanillaEntryTypes.ITEM, CRUSHED_REFINED.get(display.ore, 1)))).markOutput().disableBackground());
         widgets.add(Widgets.createSlot(xy(97, 111, bounds)).entries(List.of(EntryStack.of(VanillaEntryTypes.ITEM, new ItemStack(DUST_TINY.get(display.byProduct2),3)))).markOutput().disableBackground());
-        widgets.add(Widgets.createSlot(xy(148, 72, bounds)).entries(ofMachine(Machines.CENTRIFUGE)).markInput().disableBackground());
+        widgets.add(Widgets.createSlot(xy(148, 72, bounds)).entries(ofMachine(GT5RMachines.CENTRIFUGE)).markInput().disableBackground());
         widgets.add(Widgets.createSlot(xy(148, 93, bounds)).entries(List.of(EntryStack.of(VanillaEntryTypes.ITEM, DUST.get(display.ore, 1)))).markOutput().disableBackground());
         widgets.add(Widgets.createSlot(xy(148, 111, bounds)).entries(List.of(EntryStack.of(VanillaEntryTypes.ITEM, new ItemStack(DUST_TINY.get(display.byProduct2),1)))).markOutput().disableBackground());
-        widgets.add(Widgets.createSlot(xy(50, 81, bounds)).entries(ofMachine(Machines.CENTRIFUGE)).markInput().disableBackground());
+        widgets.add(Widgets.createSlot(xy(50, 81, bounds)).entries(ofMachine(GT5RMachines.CENTRIFUGE)).markInput().disableBackground());
         widgets.add(Widgets.createSlot(xy(50, 102, bounds)).entries(List.of(EntryStack.of(VanillaEntryTypes.ITEM, DUST.get(display.ore, 1)))).markOutput().disableBackground());
         widgets.add(Widgets.createSlot(xy(50, 120, bounds)).entries(List.of(EntryStack.of(VanillaEntryTypes.ITEM, new ItemStack(DUST_TINY.get(display.byProduct1),1)))).markOutput().disableBackground());
-        widgets.add(Widgets.createSlot(xy(72, 81, bounds)).entries(ofMachine(Machines.MACERATOR)).markInput().disableBackground());
+        widgets.add(Widgets.createSlot(xy(72, 81, bounds)).entries(ofMachine(GT5RMachines.MACERATOR)).markInput().disableBackground());
         widgets.add(Widgets.createSlot(xy(72, 102, bounds)).entries(List.of(EntryStack.of(VanillaEntryTypes.ITEM, DUST.get(display.ore, 1)))).markOutput().disableBackground());
         widgets.add(Widgets.createSlot(xy(72, 120, bounds)).entries(List.of(EntryStack.of(VanillaEntryTypes.ITEM, new ItemStack(DUST.get(display.byProduct3),1)))).markOutput().disableBackground());
-        widgets.add(Widgets.createSlot(xy(4, 128, bounds)).entries(ofMachine(Machines.ORE_WASHER, Items.CAULDRON)).markInput().disableBackground());
+        widgets.add(Widgets.createSlot(xy(4, 128, bounds)).entries(ofMachine(GT5RMachines.ORE_WASHER, Items.CAULDRON)).markInput().disableBackground());
         widgets.add(Widgets.createSlot(xy(25, 146, bounds)).entries(List.of(EntryStack.of(VanillaEntryTypes.ITEM, DUST.get(display.ore, 1)))).markOutput().disableBackground());
         return widgets;
     }
 
     private List<Widget> setupChemMachineSlots(OreProcessingDisplay display, Rectangle bounds){
         List<Widget> widgets = new ArrayList<>();
-        widgets.add(Widgets.createSlot(xy(29, 48, bounds)).entries(ofMachine(Machines.BATH)).markInput().disableBackground());
+        widgets.add(Widgets.createSlot(xy(29, 48, bounds)).entries(ofMachine(GT5RMachines.BATH)).markInput().disableBackground());
         if(display.bathingMode == OreProcessingDisplay.BathingMode.MERCURY){
             widgets.add(Widgets.createSlot(xy(50, 48, bounds)).entries(ofFluid(Materials.Mercury,1000)).markInput().disableBackground());
             widgets.add(Widgets.createSlot(xy(90, 48, bounds)).entries(List.of(EntryStack.of(VanillaEntryTypes.ITEM, new ItemStack(DUST.get(GT5RMaterialTags.BATH_MERCURY.getMapping(display.ore)),1)))).markOutput().disableBackground());
@@ -193,7 +193,7 @@ public class OreProcessingCategory implements DisplayCategory<OreProcessingDispl
 
     private List<Widget> setupSiftMachineSlots(OreProcessingDisplay display, Rectangle bounds){
         List<Widget> widgets = new ArrayList<>();
-        widgets.add(Widgets.createSlot(xy(110, 25, bounds)).entries(ofMachine(Machines.SIFTER)).markInput().disableBackground());
+        widgets.add(Widgets.createSlot(xy(110, 25, bounds)).entries(ofMachine(GT5RMachines.SIFTER)).markInput().disableBackground());
         boolean e = display.ore.has(GEM_EXQUISITE);
         widgets.add(Widgets.createSlot(xy(130, 4, bounds)).entries(List.of(EntryStack.of(VanillaEntryTypes.ITEM, new ItemStack(e ? GEM_EXQUISITE.get(display.ore) : GEM.get(display.ore),1)))).markOutput().disableBackground());
         widgets.add(Widgets.createSlot(xy(148, 4, bounds)).entries(List.of(EntryStack.of(VanillaEntryTypes.ITEM, new ItemStack(e ? GEM_FLAWLESS.get(display.ore) : GEM.get(display.ore),1)))).markOutput().disableBackground());
@@ -217,7 +217,7 @@ public class OreProcessingCategory implements DisplayCategory<OreProcessingDispl
             dust = DUST_SMALL.get(Materials.Neodymium);
             nugget = NUGGET.get(Materials.Neodymium);
         }
-        widgets.add(Widgets.createSlot(xy(166, 72, bounds)).entries(ofMachine(Machines.ELECTROMAGNETIC_SEPARATOR)).markInput().disableBackground());
+        widgets.add(Widgets.createSlot(xy(166, 72, bounds)).entries(ofMachine(GT5RMachines.ELECTROMAGNETIC_SEPARATOR)).markInput().disableBackground());
         widgets.add(Widgets.createSlot(xy(166, 93, bounds)).entries(List.of(EntryStack.of(VanillaEntryTypes.ITEM, new ItemStack(DUST.get(display.ore),1)))).markOutput().disableBackground());
         widgets.add(Widgets.createSlot(xy(166, 111, bounds)).entries(List.of(EntryStack.of(VanillaEntryTypes.ITEM, new ItemStack(dust,2)))).markOutput().disableBackground());
         widgets.add(Widgets.createSlot(xy(166, 129, bounds)).entries(List.of(EntryStack.of(VanillaEntryTypes.ITEM, new ItemStack(nugget,1)))).markOutput().disableBackground());
@@ -226,7 +226,7 @@ public class OreProcessingCategory implements DisplayCategory<OreProcessingDispl
 
     private List<Widget> setupVacMachineSlots(OreProcessingDisplay display, Rectangle bounds){
         List<Widget> widgets = new ArrayList<>();
-        widgets.add(Widgets.createSlot(xy(123, 146, bounds)).entries(ofMachine(Machines.VACUUM_FREEZER)).markInput().disableBackground());
+        widgets.add(Widgets.createSlot(xy(123, 146, bounds)).entries(ofMachine(GT5RMachines.VACUUM_FREEZER)).markInput().disableBackground());
         widgets.add(Widgets.createSlot(xy(148, 146, bounds)).entries(List.of(EntryStack.of(VanillaEntryTypes.ITEM, new ItemStack(INGOT.get(display.ore),1)))).markOutput().disableBackground());
         return widgets;
     }

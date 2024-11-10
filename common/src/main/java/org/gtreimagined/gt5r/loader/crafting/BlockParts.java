@@ -39,7 +39,7 @@ import static muramasa.antimatter.data.AntimatterMaterialTypes.*;
 import static muramasa.antimatter.data.AntimatterMaterials.Copper;
 import static muramasa.antimatter.data.AntimatterMaterials.Wood;
 import static muramasa.antimatter.machine.Tier.*;
-import static org.gtreimagined.gt5r.data.Machines.HULL;
+import static org.gtreimagined.gt5r.data.GT5RMachines.HULL;
 import static org.gtreimagined.gt5r.data.Materials.*;
 import static org.gtreimagined.gt5r.data.TierMaps.*;
 

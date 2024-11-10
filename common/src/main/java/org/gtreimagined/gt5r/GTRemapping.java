@@ -10,7 +10,7 @@ import org.gtreimagined.gtcore.GTCore;
 
 import java.util.Map;
 
-import static org.gtreimagined.gt5r.data.Machines.*;
+import static org.gtreimagined.gt5r.data.GT5RMachines.*;
 
 public class GTRemapping {
     private static final Map<String, String> REMAPPING_MAP = new Object2ObjectArrayMap<>();

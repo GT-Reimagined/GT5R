@@ -2,7 +2,6 @@ package org.gtreimagined.gt5r;
 
 import muramasa.antimatter.AntimatterConfig;
 import muramasa.antimatter.worldgen.IAntimatterWorldgenFunction;
-import net.minecraft.data.worldgen.biome.Biomes;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -197,7 +196,7 @@ public class GT5Reimagined extends AntimatterMod {
                 GT5RCovers.init();
                 GT5RItems.init();
                 GT5RBlocks.init();
-                Machines.init();
+                GT5RMachines.init();
                 MenuHandlers.init();
                 Guis.init(side);
                 Models.init();
@@ -254,7 +253,7 @@ public class GT5Reimagined extends AntimatterMod {
                 AntimatterPlatformUtils.INSTANCE.setBurnTime(GT5RBlocks.SOLID_SUPER_FUEL.asItem(), 100000);
                 AntimatterPlatformUtils.INSTANCE.setBurnTime(GT5RItems.WoodPellet, 200);
                 AntimatterPlatformUtils.INSTANCE.setFlammability(GT5RBlocks.WOOD_WALL, 5, 20);
-                AntimatterPlatformUtils.INSTANCE.setFlammability(Machines.WOOD_TANK.getBlockState(Tier.NONE), 5, 20);
+                AntimatterPlatformUtils.INSTANCE.setFlammability(GT5RMachines.WOOD_TANK.getBlockState(Tier.NONE), 5, 20);
                 CommonHandler.setup();
               //  if (side == Dist.CLIENT) StructureInfo.init();
                 TierMaps.providerInit();

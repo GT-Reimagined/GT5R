@@ -7,7 +7,7 @@ import muramasa.antimatter.machine.Tier;
 import muramasa.antimatter.pipe.PipeSize;
 import muramasa.antimatter.util.TagUtils;
 import org.gtreimagined.gt5r.data.GT5RBlocks;
-import org.gtreimagined.gt5r.data.Machines;
+import org.gtreimagined.gt5r.data.GT5RMachines;
 import org.gtreimagined.gt5r.data.Materials;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.item.Items;
@@ -35,7 +35,7 @@ public class SteamMachines {
         Object hullSteel = GT5RBlocks.CASING_STEEL;
         Object brickedBronzeHull = GT5RBlocks.CASING_BRICKED_BRONZE;
         Object brickedSteelHull = GT5RBlocks.CASING_BRICKED_STEEL;
-        provider.addItemRecipe(output, "steam_machines", Machines.SOLID_FUEL_BOILER.getItem(Tier.BRONZE),
+        provider.addItemRecipe(output, "steam_machines", GT5RMachines.SOLID_FUEL_BOILER.getItem(Tier.BRONZE),
                 ImmutableMap.of(
                         'P', bronzePlate,
                         'W', wrench,
@@ -47,80 +47,80 @@ public class SteamMachines {
                         'P', bronzePlate,
                         'W', HAMMER.getTag()
                 ), "PPP", "PWP", "PPP");
-        provider.addItemRecipe(output, "steam_machines", Machines.SOLID_FUEL_BOILER.getItem(Tier.STEEL),
+        provider.addItemRecipe(output, "steam_machines", GT5RMachines.SOLID_FUEL_BOILER.getItem(Tier.STEEL),
                 ImmutableMap.of(
                         'P', steelPlate,
                         'W', wrench,
                         'B', bricks,
                         'F', furnace
                 ), "PPP", "PWP", "BFB");
-        provider.addItemRecipe(output, "steam_machines", Machines.LAVA_BOILER.getItem(Tier.STEEL),
+        provider.addItemRecipe(output, "steam_machines", GT5RMachines.LAVA_BOILER.getItem(Tier.STEEL),
                 ImmutableMap.of(
                         'P', steelPlate,
                         'G', glass,
                         'H', brickedSteelHull
                 ), "PPP", "GGG", "PHP");
-        provider.addItemRecipe(output, "steam_machines", Machines.SOLAR_BOILER.getItem(Tier.BRONZE),
+        provider.addItemRecipe(output, "steam_machines", GT5RMachines.SOLAR_BOILER.getItem(Tier.BRONZE),
                 ImmutableMap.of(
                         'P', silverPlate,
                         'G', glass,
                         'I', bronzePipe,
                         'H', brickedBronzeHull
                 ), "GGG", "PPP", "IHI");
-        provider.addItemRecipe(output, "steam_machines", Machines.STEAM_MACERATOR.getItem(Tier.BRONZE),
+        provider.addItemRecipe(output, "steam_machines", GT5RMachines.STEAM_MACERATOR.getItem(Tier.BRONZE),
                 ImmutableMap.of(
                         'B', bronzePipe,
                         'H', brickedBronzeHull,
                         'P', piston,
                         'D', diamond
                 ), "DBD", "BHB", "PBP");
-        provider.addItemRecipe(output, "steam_machines", Machines.STEAM_EXTRACTOR.getItem(Tier.BRONZE),
+        provider.addItemRecipe(output, "steam_machines", GT5RMachines.STEAM_EXTRACTOR.getItem(Tier.BRONZE),
                 ImmutableMap.of(
                         'B', bronzePipe,
                         'H', hullBronze,
                         'P', piston,
                         'G', glass
                 ), "BBB", "PHG", "BBB");
-        provider.addItemRecipe(output, "steam_machines", Machines.STEAM_FORGE_HAMMER.getItem(Tier.BRONZE),
+        provider.addItemRecipe(output, "steam_machines", GT5RMachines.STEAM_FORGE_HAMMER.getItem(Tier.BRONZE),
                 ImmutableMap.of(
                         'B', bronzePipe,
                         'H', hullBronze,
                         'P', piston,
                         'A', Items.ANVIL
                 ), "BPB", "BHB", "BAB");
-        provider.addItemRecipe(output, "steam_machines", Machines.STEAM_COMPRESSOR.getItem(Tier.BRONZE),
+        provider.addItemRecipe(output, "steam_machines", GT5RMachines.STEAM_COMPRESSOR.getItem(Tier.BRONZE),
                 ImmutableMap.of(
                         'B', bronzePipe,
                         'H', hullBronze,
                         'P', piston
                 ), "BBB", "PHP", "BBB");
-        provider.addItemRecipe(output, "steam_machines", Machines.STEAM_ALLOY_SMELTER.getItem(Tier.BRONZE),
+        provider.addItemRecipe(output, "steam_machines", GT5RMachines.STEAM_ALLOY_SMELTER.getItem(Tier.BRONZE),
                 ImmutableMap.of(
                         'B', bronzePipe,
                         'H', brickedBronzeHull,
                         'F', Items.FURNACE
                 ), "BBB", "FHF", "BBB");
-        provider.addItemRecipe(output, "steam_machines", Machines.STEAM_SIFTER.getItem(Tier.BRONZE),
+        provider.addItemRecipe(output, "steam_machines", GT5RMachines.STEAM_SIFTER.getItem(Tier.BRONZE),
                 ImmutableMap.of(
                         'B', bronzePipe,
                         'H', hullBronze,
                         'P', piston,
                         'S', GT5RBlocks.WIRE_STEEL.getBlock(PipeSize.VTINY)
                 ), "SSS", "PHP", "BBB");
-        provider.addItemRecipe(output, "steam_machines", Machines.STEAM_FURNACE.getItem(Tier.BRONZE),
+        provider.addItemRecipe(output, "steam_machines", GT5RMachines.STEAM_FURNACE.getItem(Tier.BRONZE),
                 ImmutableMap.of(
                         'B', bronzePipe,
                         'H', brickedBronzeHull,
                         'F', Items.FURNACE
                 ), "BBB", "BHB", "BFB");
 
-        provider.addItemRecipe(output, "steam_machines", Machines.STEAM_FURNACE.getItem(Tier.STEEL),
+        provider.addItemRecipe(output, "steam_machines", GT5RMachines.STEAM_FURNACE.getItem(Tier.STEEL),
                 ImmutableMap.<Character, Object>builder()
                         .put('H', brickedSteelHull)
                         .put('F', Items.FURNACE)
                         .put('P', steelPipe).build(), "PPP", "PHP", "PFP");
 
-        provider.addItemRecipe(output, "steam_machines", Machines.STEAM_MACERATOR.getItem(Tier.STEEL),
+        provider.addItemRecipe(output, "steam_machines", GT5RMachines.STEAM_MACERATOR.getItem(Tier.STEEL),
                 ImmutableMap.of(
                         'B', steelPipe,
                         'H', brickedSteelHull,
@@ -128,14 +128,14 @@ public class SteamMachines {
                         'D', diamond
                 ), "DBD", "BHB", "PBP");
 
-        provider.addItemRecipe(output, "steam_machines", Machines.STEAM_ALLOY_SMELTER.getItem(Tier.STEEL),
+        provider.addItemRecipe(output, "steam_machines", GT5RMachines.STEAM_ALLOY_SMELTER.getItem(Tier.STEEL),
                 ImmutableMap.of(
                         'B', steelPipe,
                         'H', brickedSteelHull,
                         'F', Items.FURNACE
                 ), "BBB", "FHF", "BBB");
 
-        provider.addItemRecipe(output, "steam_machines", Machines.STEAM_EXTRACTOR.getItem(Tier.STEEL),
+        provider.addItemRecipe(output, "steam_machines", GT5RMachines.STEAM_EXTRACTOR.getItem(Tier.STEEL),
                 ImmutableMap.of(
                         'B', steelPipe,
                         'H', hullSteel,
@@ -143,21 +143,21 @@ public class SteamMachines {
                         'G', glass
                 ), "BBB", "PHG", "BBB");
 
-        provider.addItemRecipe(output, "steam_machines", Machines.STEAM_COMPRESSOR.getItem(Tier.STEEL),
+        provider.addItemRecipe(output, "steam_machines", GT5RMachines.STEAM_COMPRESSOR.getItem(Tier.STEEL),
                 ImmutableMap.of(
                         'B', steelPipe,
                         'H', hullSteel,
                         'P', piston
                 ), "BBB", "PHP", "BBB");
 
-        provider.addItemRecipe(output, "steam_machines", Machines.STEAM_FORGE_HAMMER.getItem(Tier.STEEL),
+        provider.addItemRecipe(output, "steam_machines", GT5RMachines.STEAM_FORGE_HAMMER.getItem(Tier.STEEL),
                 ImmutableMap.of(
                         'B', steelPipe,
                         'H', hullSteel,
                         'P', piston,
                         'A', Items.ANVIL
                 ), "BPB", "BHB", "BAB");
-        provider.addItemRecipe(output, "steam_machines", Machines.STEAM_SIFTER.getItem(Tier.STEEL),
+        provider.addItemRecipe(output, "steam_machines", GT5RMachines.STEAM_SIFTER.getItem(Tier.STEEL),
                 ImmutableMap.of(
                         'B', steelPipe,
                         'H', hullSteel,

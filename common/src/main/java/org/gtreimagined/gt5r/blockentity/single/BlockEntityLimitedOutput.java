@@ -8,7 +8,7 @@ import muramasa.antimatter.gui.SlotType;
 import muramasa.antimatter.machine.types.Machine;
 import muramasa.antimatter.tool.AntimatterToolType;
 import muramasa.antimatter.util.Utils;
-import org.gtreimagined.gt5r.data.Machines;
+import org.gtreimagined.gt5r.data.GT5RMachines;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -99,7 +99,7 @@ public class BlockEntityLimitedOutput<T extends BlockEntityLimitedOutput<T>> ext
 
         public LimitedOutputItemHandler(T tile) {
             super(tile);
-            int count = tile.getMachineType() == Machines.SUPER_BUFFER ? 256 : tile.getMachineType().getCount(tile.getMachineTier(), SlotType.STORAGE);
+            int count = tile.getMachineType() == GT5RMachines.SUPER_BUFFER ? 256 : tile.getMachineType().getCount(tile.getMachineTier(), SlotType.STORAGE);
             this.inventories.put(SlotType.STORAGE, new TrackedItemHandler<>(tile, SlotType.STORAGE, count, true, true, (t, s) -> true){
                 @NotNull
                 @Override

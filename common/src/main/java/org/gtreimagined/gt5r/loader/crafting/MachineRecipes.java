@@ -46,7 +46,7 @@ import static muramasa.antimatter.data.AntimatterDefaultTools.*;
 import static muramasa.antimatter.data.AntimatterMaterialTypes.*;
 import static muramasa.antimatter.data.AntimatterMaterials.*;
 import static muramasa.antimatter.machine.Tier.*;
-import static org.gtreimagined.gt5r.data.Machines.*;
+import static org.gtreimagined.gt5r.data.GT5RMachines.*;
 import static org.gtreimagined.gt5r.data.Materials.*;
 import static org.gtreimagined.gt5r.data.TierMaps.*;
 import static org.gtreimagined.gtcore.data.GTCoreItems.*;

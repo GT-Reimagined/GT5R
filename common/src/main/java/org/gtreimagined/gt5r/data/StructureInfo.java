@@ -4,7 +4,7 @@ import muramasa.antimatter.structure.PatternBuilder;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.Blocks;
 
-import static org.gtreimagined.gt5r.data.Machines.*;
+import static org.gtreimagined.gt5r.data.GT5RMachines.*;
 
 public class StructureInfo {
 

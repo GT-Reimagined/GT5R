@@ -26,7 +26,7 @@ import static muramasa.antimatter.machine.Tier.HV;
 import static muramasa.antimatter.machine.Tier.LUV;
 import static muramasa.antimatter.structure.AntimatterStructureUtility.ofHatch;
 import static muramasa.antimatter.structure.AntimatterStructureUtility.ofHatchMinTier;
-import static org.gtreimagined.gt5r.data.Machines.*;
+import static org.gtreimagined.gt5r.data.GT5RMachines.*;
 
 public class Structures {
 

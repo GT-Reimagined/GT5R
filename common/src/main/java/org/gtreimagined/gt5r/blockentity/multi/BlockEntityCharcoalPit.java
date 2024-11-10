@@ -8,7 +8,7 @@ import muramasa.antimatter.tool.AntimatterToolType;
 import muramasa.antimatter.util.Utils;
 import muramasa.antimatter.util.int3;
 import org.gtreimagined.gt5r.data.GT5RBlocks;
-import org.gtreimagined.gt5r.data.Machines;
+import org.gtreimagined.gt5r.data.GT5RMachines;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
@@ -124,7 +124,7 @@ public class BlockEntityCharcoalPit extends BlockEntityMachine<BlockEntityCharco
             if (!toAdd.contains(getRelativePos(aX, aY + 1, aZ)) && (!toCheck.contains(new int3(aX, aY + 1, aZ))))
                 p3 = true;
         }else if (!(tBlock.defaultBlockState().is(BlockTags.DIRT) ||
-                (aX == 0 && aY == -1 && aZ == 0 && tBlock == Machines.CHARCOAL_PIT.getBlockState(Tier.NONE)))) {
+                (aX == 0 && aY == -1 && aZ == 0 && tBlock == GT5RMachines.CHARCOAL_PIT.getBlockState(Tier.NONE)))) {
             return false;
         }
 

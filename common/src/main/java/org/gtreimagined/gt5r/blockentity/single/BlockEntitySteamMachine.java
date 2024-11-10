@@ -15,7 +15,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import tesseract.TesseractGraphWrappers;
 
 import static muramasa.antimatter.machine.Tier.BRONZE;
-import static org.gtreimagined.gt5r.data.Machines.STEAM_FORGE_HAMMER;
+import static org.gtreimagined.gt5r.data.GT5RMachines.STEAM_FORGE_HAMMER;
 
 public class BlockEntitySteamMachine extends BlockEntityMachine<BlockEntitySteamMachine> {
 
