@@ -12,7 +12,10 @@ import muramasa.antimatter.ore.CobbleStoneType;
 import muramasa.antimatter.ore.StoneType;
 import muramasa.antimatter.recipe.ingredient.RecipeIngredient;
 import muramasa.antimatter.recipe.map.RecipeMap;
+import muramasa.antimatter.util.AntimatterPlatformUtils;
 import muramasa.antimatter.util.Utils;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.DyeColor;
 import org.gtreimagined.gt5r.data.Materials;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
@@ -145,6 +148,9 @@ public class MaceratorLoader {
                 PULVERIZER.RB().ii(RecipeIngredient.of(((CobbleStoneType)s).getBlock("cobble").asItem(), 1)).io(DUST.get(s.getMaterial(), 9)).add("cobbled_" + s.getId() + "_to_" + s.getMaterial().getId() + "_dust",400, 2);
             }
         });
+        for (DyeColor color : DyeColor.values()) {
+            PULVERIZER.RB().ii(AntimatterPlatformUtils.INSTANCE.getItemFromID(new ResourceLocation(color.getSerializedName().toLowerCase() + "_concrete"))).io(AntimatterPlatformUtils.INSTANCE.getItemFromID(new ResourceLocation(color.getSerializedName().toLowerCase() + "_concrete_powder"))).add(color.getId() + "_concrete",400,2);
+        }
     }
 
     public static void init(){
