@@ -90,7 +90,11 @@ public class CoverConveyor extends CoverBasicTransport implements IFilterableHan
             BlockPos pos = handler.getTile().getBlockPos();
             ItemStack stack = TesseractCapUtils.INSTANCE.getItemHandler(handler.getTile(), side).map(Utils::extractAny).orElse(ItemStack.EMPTY);
             if (stack.isEmpty()) return;
-            world.addFreshEntity(new ItemEntity(world, pos.getX() + side.getStepX(), pos.getY() + side.getStepY(), pos.getZ() + side.getStepZ(), stack));
+            double x = pos.getX() + side.getStepX() + 0.5;
+            double y = pos.getY() + side.getStepY() + 0.5;
+            double z = pos.getZ() + side.getStepZ() + 0.5;
+            ItemEntity entity = new ItemEntity(world, x, y, z, stack, 0.0, 0.0, 0.0);
+            world.addFreshEntity(entity);
         }
         if (!(state.hasBlockEntity())) return;
         BlockEntity adjTile = BlockEntityCache.getBlockEntity(handler.getTile().getLevel(), handler.getTile().getBlockPos().relative(side));

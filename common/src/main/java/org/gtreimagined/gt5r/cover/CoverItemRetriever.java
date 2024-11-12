@@ -115,7 +115,11 @@ public class CoverItemRetriever extends BaseCover {
                                             BlockPos pos = handler.getTile().getBlockPos();
                                             ItemStack stack = Utils.extractAny(itemHandler);
                                             if (!stack.isEmpty()){
-                                                world.addFreshEntity(new ItemEntity(world, pos.getX() + side.getStepX(), pos.getY() + side.getStepY(), pos.getZ() + side.getStepZ(), stack));
+                                                double x = pos.getX() + side.getStepX() + 0.5;
+                                                double y = pos.getY() + side.getStepY() + 0.5;
+                                                double z = pos.getZ() + side.getStepZ() + 0.5;
+                                                ItemEntity entity = new ItemEntity(world, x, y, z, stack, 0.0, 0.0, 0.0);
+                                                world.addFreshEntity(entity);
                                                 for (BlockEntityItemPipe<?> tUsedPipe : tUsedPipes) {
                                                     tUsedPipe.incrementTransferCounter(1);
                                                 }
