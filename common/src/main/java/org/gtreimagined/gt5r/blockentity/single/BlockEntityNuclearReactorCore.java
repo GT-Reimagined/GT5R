@@ -65,7 +65,7 @@ public class BlockEntityNuclearReactorCore extends BlockEntitySecondaryOutput<Bl
 
     public BlockEntityNuclearReactorCore(Machine<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
-        this.fluidHandler.set(() -> new MachineFluidHandler<>(this, 64000, 1000, 1, 1));
+        this.fluidHandler.set(() -> new MachineFluidHandler<>(this, 64000, 1, 1));
         this.itemHandler.set(() -> new MachineItemHandler<>(this){
             @Override
             protected TrackedItemHandler<BlockEntityNuclearReactorCore> createTrackedHandler(SlotType<?> type, BlockEntityNuclearReactorCore tile) {

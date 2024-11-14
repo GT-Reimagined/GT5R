@@ -40,7 +40,7 @@ public class BlockEntityLongDistancePipeEndpoint extends BlockEntityBasicMultiMa
     public BlockEntityLongDistancePipeEndpoint(Machine<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
         if (type.has(MachineFlag.FLUID)){
-            this.fluidHandler.set(() -> new MachineFluidHandler<>(this, 0, 0, 0, 0){
+            this.fluidHandler.set(() -> new MachineFluidHandler<>(this, 0, 0, 0){
                 @Override
                 public boolean canInput(Direction direction) {
                     return direction == tile.getFacing();

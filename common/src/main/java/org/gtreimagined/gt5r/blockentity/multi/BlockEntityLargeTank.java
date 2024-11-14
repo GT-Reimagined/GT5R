@@ -37,7 +37,7 @@ public class BlockEntityLargeTank extends BlockEntityMaterialBasicMultiMachine<B
     MultiblockTankMachine tankMachine;
     public BlockEntityLargeTank(MultiblockTankMachine type, BlockPos pos, BlockState state) {
         super(type, pos, state);
-        this.fluidHandler.set(() -> new LargeTankFluidHandler(this, type.getCapacity(), 10000, 1, 0));
+        this.fluidHandler.set(() -> new LargeTankFluidHandler(this, type.getCapacity(), 1, 0));
         this.tankMachine = type;
     }
 
@@ -65,8 +65,8 @@ public class BlockEntityLargeTank extends BlockEntityMaterialBasicMultiMachine<B
 
     public static class LargeTankFluidHandler extends MachineFluidHandler<BlockEntityLargeTank> {
 
-        public LargeTankFluidHandler(BlockEntityLargeTank tile, int capacity, int pressure, int inputCount, int outputCount) {
-            super(tile, capacity, pressure, inputCount, outputCount);
+        public LargeTankFluidHandler(BlockEntityLargeTank tile, int capacity, int inputCount, int outputCount) {
+            super(tile, capacity, inputCount, outputCount);
         }
 
         @Nullable

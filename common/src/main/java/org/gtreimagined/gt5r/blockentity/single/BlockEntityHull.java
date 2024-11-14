@@ -18,7 +18,7 @@ import org.jetbrains.annotations.Nullable;
 public class BlockEntityHull extends BlockEntityMachine<BlockEntityHull> {
     public BlockEntityHull(Machine<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
-        fluidHandler.set(() -> new MachineFluidHandler<>(this, 1000 + (1000 * getMachineTier().getIntegerId()), 2000){
+        fluidHandler.set(() -> new MachineFluidHandler<>(this, 1000 + (1000 * getMachineTier().getIntegerId())){
             @Override
             public FluidHolder[] getOutputs() {
                 return getInputs();

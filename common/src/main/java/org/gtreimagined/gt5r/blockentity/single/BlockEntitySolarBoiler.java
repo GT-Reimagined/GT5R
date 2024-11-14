@@ -178,7 +178,7 @@ public class BlockEntitySolarBoiler extends BlockEntityMachine<BlockEntitySolarB
 
     public static class LavaBoilerFluidHandler extends MachineFluidHandler<BlockEntitySolarBoiler> {
         public LavaBoilerFluidHandler(BlockEntitySolarBoiler tile) {
-            super(tile, 16000, 1000 * (250 + tile.getMachineTier().getIntegerId()));
+            super(tile);
             tanks.put(FluidDirection.INPUT, FluidTanks.create(tile, SlotType.FL_IN, b -> {
                 b.tank(p -> p.getFluid() == Fluids.WATER || p.getFluid() == DistilledWater.getLiquid(), 16000);
                 return b;
