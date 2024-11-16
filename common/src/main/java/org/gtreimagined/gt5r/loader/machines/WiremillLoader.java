@@ -37,8 +37,8 @@ public class WiremillLoader {
             }
         });
         WIRE_MILL.RB().ii(FLUID_PIPE_STEEL.getBlockItem(PipeSize.TINY)).io(GT5RBlocks.MINING_PIPE_THIN.asItem()).add("mining_pipe", 200, 16);
-        if (!GT5RConfig.HARD_CARBON.get()){
+        //if (!GT5RConfig.HARD_CARBON.get()){
             WIRE_MILL.RB().ii(DUST.getMaterialIngredient(Carbon, 8)).io(GTCoreItems.CarbonFibre).add("carbon_fibre", 400, 2);
-        }
+        //}
     }
 }
