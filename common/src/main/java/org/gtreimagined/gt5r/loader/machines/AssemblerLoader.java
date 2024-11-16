@@ -188,6 +188,7 @@ public class AssemblerLoader {
         ASSEMBLER.RB().ii(of(Match, 64), of(Items.PAPER, 2)).fi(Glue.getLiquid(10)).io(MatchBook).add("matchbook", 100, 16);
         ASSEMBLER.RB().ii(PLATE.getMaterialIngredient(Iron, 2), SELECTOR_TAG_INGREDIENTS.get(2)).io(Items.HEAVY_WEIGHTED_PRESSURE_PLATE).add("heavy_weighted_pressure_plate", 800, 16);
         ASSEMBLER.RB().ii(PLATE.getMaterialIngredient(Gold, 2), SELECTOR_TAG_INGREDIENTS.get(2)).io(Items.LIGHT_WEIGHTED_PRESSURE_PLATE).add("light_weighted_pressure_plate", 800, 16);
+        ASSEMBLER.RB().ii(ROD.getMaterialIngredient(Iron, 6), SELECTOR_TAG_INGREDIENTS.get(6)).io(new ItemStack(Items.IRON_BARS, 8)).add("iron_bars", 800, 16);
         ASSEMBLER.RB().ii(DUST.getMaterialIngredient(Redstone, 1), of(GT5RItems.CellTin)).io(GT5RItems.EmptySprayCan).add("empty_spray_can", 800, 1);
         ASSEMBLER.RB().ii(of(Items.PAPER, 3), SELECTOR_TAG_INGREDIENTS.get(3)).fi(Glue.getLiquid(1000)).io(Tape).add("tape", 200, 16);
         ASSEMBLER.RB().ii(FOIL.getMaterialIngredient(Plastic, 3), SELECTOR_TAG_INGREDIENTS.get(3)).fi(Glue.getLiquid(1000)).io(DuctTape).add("duct_tape", 200, 16);
