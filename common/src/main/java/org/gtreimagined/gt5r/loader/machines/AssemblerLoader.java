@@ -118,6 +118,7 @@ public class AssemblerLoader {
         addCasing(Lead, GT5RBlocks.CASING_RADIATION_PROOF);
         addCasing(Plastic, GT5RBlocks.CASING_PLASTIC);
         addCasing(BlackBronze, GT5RBlocks.CASING_BLACK_BRONZE);
+        addCasing(Tungsten, GT5RBlocks.CASING_TUNGSTEN);
         ASSEMBLER.RB().ii(of(GT5RBlocks.CASING_SOLID_STEEL), SELECTOR_TAG_INGREDIENTS.get(6)).fi(Polytetrafluoroethylene.getLiquid(L + (L / 2))).io(GT5RBlocks.CASING_CHEMICALLY_INERT.asItem()).add("chemically_inert_casing", 50, 16);
     }
 
