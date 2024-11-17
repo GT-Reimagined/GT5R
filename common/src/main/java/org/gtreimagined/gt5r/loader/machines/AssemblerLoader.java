@@ -194,6 +194,7 @@ public class AssemblerLoader {
         ASSEMBLER.RB().ii(of(Items.PAPER, 3), SELECTOR_TAG_INGREDIENTS.get(3)).fi(Glue.getLiquid(1000)).io(Tape).add("tape", 200, 16);
         ASSEMBLER.RB().ii(FOIL.getMaterialIngredient(Plastic, 3), SELECTOR_TAG_INGREDIENTS.get(3)).fi(Glue.getLiquid(1000)).io(DuctTape).add("duct_tape", 200, 16);
         ASSEMBLER.RB().ii(FOIL.getMaterialIngredient(Tungsten, 3), SELECTOR_TAG_INGREDIENTS.get(3)).fi(Glue.getLiquid(1000)).io(FALDuctTape).add("fal_duct_tape", 200, 16);
+        ASSEMBLER.RB().ii(DUST.getMaterialIngredient(Graphite, 8), FOIL.getMaterialIngredient(Silicon, 1)).fi(Glue.getLiquid(250)).io(DUST_SMALL.get(Graphene)).add("graphene_dust", 480, 240);
     }
 
     private static void carpet(){

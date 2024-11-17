@@ -13,7 +13,9 @@ import org.gtreimagined.gtcore.data.GTCoreItems;
 
 import static muramasa.antimatter.data.AntimatterMaterialTypes.*;
 import static org.gtreimagined.gt5r.data.GT5RBlocks.FLUID_PIPE_STEEL;
+import static org.gtreimagined.gt5r.data.GT5RBlocks.WIRE_GRAPHENE;
 import static org.gtreimagined.gt5r.data.Materials.Carbon;
+import static org.gtreimagined.gt5r.data.Materials.Graphene;
 import static org.gtreimagined.gt5r.data.RecipeMaps.WIRE_MILL;
 
 public class WiremillLoader {
@@ -36,6 +38,7 @@ public class WiremillLoader {
                 WIRE_MILL.RB().ii(wireItem).io(WIRE_FINE.get(t.getMaterial(),4)).add(t.getMaterial().getId() + "_wire_fine", 200,8);
             }
         });
+        WIRE_MILL.RB().ii(DUST.getMaterialIngredient(Graphene, 1)).io(WIRE_GRAPHENE.getBlockItem(PipeSize.VTINY)).add("graphene_wire", 400, 2);
         WIRE_MILL.RB().ii(FLUID_PIPE_STEEL.getBlockItem(PipeSize.TINY)).io(GT5RBlocks.MINING_PIPE_THIN.asItem()).add("mining_pipe", 200, 16);
         //if (!GT5RConfig.HARD_CARBON.get()){
             WIRE_MILL.RB().ii(DUST.getMaterialIngredient(Carbon, 8)).io(GTCoreItems.CarbonFibre).add("carbon_fibre", 400, 2);
