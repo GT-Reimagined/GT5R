@@ -45,6 +45,7 @@ public class AlloySmelterLoader {
         addAlloyRecipes(AnnealedCopper, 1, Nickel, 1, Cupronickel, 2);
         addAlloyRecipes(AnnealedCopper, 1, Redstone, 4, RedAlloy, 1);
         addAlloyRecipes(Bismuth, 1, Brass, 4, BismuthBronze, 5);
+        addAlloyRecipes(Gallium, 1, Arsenic, 1, GalliumArsenide, 2);
         //pre Chemical Reactor Rubber
         ALLOY_SMELTER.RB().ii(of(DUST.get(RawRubber), 3), of(DUST.getMaterialTag(Sulfur), 1))
                 .io(INGOT.get(Rubber, 1)).add("rubber_via_alloy_smelter",20, 10);
