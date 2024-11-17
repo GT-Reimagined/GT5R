@@ -44,6 +44,8 @@ public class MaterialCrafting {
                 DUST.getMaterialTag(Steel), DUST.getMaterialTag(Steel), DUST.getMaterialTag(BismuthBronze), DUST.getMaterialTag(SterlingSilver));
         addShapelessDustRecipe(output, provider, "cobalt_brass", DUST.get(CobaltBrass, 9), DUST.getMaterialTag(Brass), DUST.getMaterialTag(Brass), DUST.getMaterialTag(Brass),
                 DUST.getMaterialTag(Brass), DUST.getMaterialTag(Brass), DUST.getMaterialTag(Brass), DUST.getMaterialTag(Brass), DUST.getMaterialTag(Aluminium), DUST.getMaterialTag(Cobalt));
+        addShapelessDustRecipe(output, provider, "gallium_arsenide", DUST.get(GalliumArsenide, 2), DUST.getMaterialTag(Gallium), DUST.getMaterialTag(Arsenic));
+        addShapelessDustRecipe(output, provider, "indium_gallium_phosphide", DUST.get(IndiumGalliumPhosphide, 3), DUST.getMaterialTag(Indium), DUST.getMaterialTag(Gallium), DUST.getMaterialTag(Phosphor));
         provider.shapeless(output, GT5RRef.ID, "", "dusts", AntimatterMaterialTypes.DUST_SMALL.get(Clay, 2), MORTAR.getTag(), Items.CLAY_BALL);
         loadAutoRecipes(output, provider);
         loadMixedMetal(output, provider);
