@@ -10,6 +10,8 @@ import org.gtreimagined.gt5r.data.GT5RCovers;
 import org.gtreimagined.gt5r.data.RecipeMaps;
 
 import static muramasa.antimatter.Data.COVEROUTPUT;
+import static muramasa.antimatter.gui.SlotType.*;
+import static muramasa.antimatter.gui.SlotType.FL_OUT;
 import static muramasa.antimatter.machine.MachineFlag.*;
 import static muramasa.antimatter.machine.MachineFlag.FLUID;
 import static muramasa.antimatter.machine.Tier.NONE;
@@ -43,6 +45,8 @@ public class HeatExchangerMachine extends SecondaryOutputMachine {
             tooltip.add(Utils.translatable("tooltip.gt5r.small_heat_exchanger.heat_rate", rate));
             tooltip.add(Utils.translatable("tooltip.gt5r.small_heat_exchanger.efficiency", ((double)efficiency / 100.0) + "%"));
         });
+        add(IT_IN, 53, 25).add(IT_OUT, 107, 25).add(FL_IN, 44, 63).add(FL_IN, 62, 63)
+                .add(FL_OUT,107,63).add(FL_OUT,125,63);
     }
 
     public HeatExchangerMachine setEfficiency(int efficiency) {
