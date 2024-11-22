@@ -2,6 +2,8 @@ package org.gtreimagined.gt5r.data;
 
 import com.gtnewhorizon.structurelib.structure.IStructureElement;
 import com.gtnewhorizon.structurelib.structure.StructureUtility;
+import muramasa.antimatter.blockentity.BlockEntityMachine;
+import muramasa.antimatter.machine.Tier;
 import muramasa.antimatter.structure.FakeTileElement;
 import muramasa.antimatter.util.int3;
 import org.gtreimagined.gt5r.block.BlockCoil;
@@ -69,6 +71,8 @@ public class Structures {
                 .at('M', GT5RBlocks.CASING_STAINLESS_STEEL, INPUT_BUS, INPUT_HATCH, OUTPUT_BUS, ENERGY_HATCH)
                 .offset(2, 1, 0).max(1, OUTPUT_HATCH).min(2, INPUT_HATCH).min(1, ENERGY_HATCH).build()
         );
+
+
 
         DISTLLATION_TOWER.setStructure(BlockEntityDistillationTower.class, b -> b.part("bottom")
                 .of("H~H", "HHH", "HHH").build()
@@ -195,13 +199,36 @@ public class Structures {
                 }, ofBlock(GT5RBlocks.ORE_WASHING_PARTS)))
                 .at('C', GT5RBlocks.TITANIUM_WALL, INPUT_BUS, INPUT_HATCH, OUTPUT_BUS, ENERGY_HATCH)
                 .offset(1, 2, 0).min(1, ENERGY_HATCH, INPUT_HATCH, INPUT_BUS, OUTPUT_BUS).build());
-        LARGE_SIFTER.setStructure(BlockEntityLargeSifter.class, b -> b.part("main")
-                .of("SSS", "SSS", "SSS").of("CCC", "C-C", "CCC").of(1).of(1).of(1).of("H~H", "HHH", "HHH").build()
-                .at('S', GT5RBlocks.ORE_WASHING_PARTS)
-                .at('C', GT5RBlocks.CASING_TITANIUM)
-                .at('H', GT5RBlocks.CASING_TITANIUM, INPUT_BUS, OUTPUT_BUS, ENERGY_HATCH)
-                .min(1, INPUT_BUS, OUTPUT_BUS, ENERGY_HATCH)
-                .offset(1, 5, 0).build());
+        LARGE_SIFTER.setStructure(BlockEntityLargeSifter.class, b -> b.part("bottom")
+                .of("HH~HH", "HHHHH", "HHHHH").build()
+                .part("layer").of("OOOOO", "OFFFO", "OOOOO").offsetFunction((i, int3) -> new int3(int3.getX(), int3.getY() + i, int3.getZ())).max(5).min(5).build()
+                .part("top").of("IIIII", "IFFFI", "IIIII").offsetFunction((i, int3) -> new int3(int3.getX(), int3.getY() + i, int3.getZ())).build()
+                .atElement('H', ofChain(StructureUtility.<BlockEntityLargeSifter>ofBlock(GT5RBlocks.CASING_TITANIUM), ofHatch(OUTPUT_BUS, (largeSifter, world, pos, machine, handler) -> {
+                    if (!(handler.getTile() instanceof BlockEntityMachine<?> machineTile)) return false;
+                    if (machineTile.getMachineTier() != Tier.ULV){
+                        return false;
+                    }
+                    int currentY = pos.getY() - largeSifter.getBlockPos().getY();
+                    if (largeSifter.HATCH_LAYERS.contains(currentY)) return false;
+                    largeSifter.HATCH_LAYERS.add(currentY);
+                    largeSifter.addComponent(machine.getId(), handler);
+                    return true;
+                }), ofHatchMinTier(ENERGY_HATCH, HV)))
+                .atElement('O', ofChain(StructureUtility.<BlockEntityLargeSifter>ofBlock(GT5RBlocks.CASING_TITANIUM), ofHatch(OUTPUT_BUS, (largeSifter, world, pos, machine, handler) -> {
+                    if (!(handler.getTile() instanceof BlockEntityMachine<?> machineTile)) return false;
+                    if (machineTile.getMachineTier() != Tier.ULV){
+                        return false;
+                    }
+                    int currentY = pos.getY() - largeSifter.getBlockPos().getY();
+                    if (largeSifter.HATCH_LAYERS.contains(currentY)) return false;
+                    largeSifter.HATCH_LAYERS.add(currentY);
+                    largeSifter.addComponent(machine.getId(), handler);
+                    return true;
+                })))
+                .at('I', GT5RBlocks.CASING_TITANIUM, INPUT_BUS)
+                .at('F', GT5RBlocks.FILTER_CASING)
+                .offset(2, 0, 0).min(1, INPUT_BUS, ENERGY_HATCH).exact(6, OUTPUT_BUS).build()
+        );
         LARGE_TURBINE.setStructure(BlockEntityLargeTurbine.class, b -> b.part("main")
                 .of("CCC", "CCC", "CCC", "CCC").of("C~C", "H-H", "H-H", "CEC").of(0).build()
                 .atElement('C', StructureUtility.lazy(t -> ofBlock(t.getCasing())))

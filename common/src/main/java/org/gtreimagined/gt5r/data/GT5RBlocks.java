@@ -165,6 +165,7 @@ public class GT5RBlocks {
     public static final BlockSidedCasing GRINDING_WHEELS = new BlockSidedCasing(GT5RRef.ID, "grinding_wheels", "tungstensteel", "grinding_wheels_top");
     public static final BlockCasing ELECTROLYTIC_CELL = new BlockCasing(GT5RRef.ID, "electrolytic_cell");
     public static final BlockSidedCasing ORE_WASHING_PARTS = new BlockSidedCasing(GT5RRef.ID, "ore_washing_parts", "titanium", "ore_washing_parts_top");
+    public static final BlockCasing FILTER_CASING = new BlockCasing(GT5RRef.ID, "filter_casing");
     public static final BlockCoil COIL_CUPRONICKEL = new BlockCoil(GT5RRef.ID, "cupronickel_coil", new BlockCoil.CoilData(1800, 0.5f, 8, 0));
     public static final BlockCoil COIL_KANTHAL = new BlockCoil(GT5RRef.ID, "kanthal_coil", new BlockCoil.CoilData(2700, 1.0f, 16, 1));
     public static final BlockCoil COIL_NICHROME = new BlockCoil(GT5RRef.ID, "nichrome_coil", new BlockCoil.CoilData(3600, 1.5f, 32, 2));
