@@ -139,8 +139,8 @@ public class BlockEntitySmallHeatExchanger extends BlockEntitySecondaryOutput<Bl
         public SmallHeatExchangerFluidHandler(BlockEntitySmallHeatExchanger tile) {
             super(tile);
             tanks.put(FluidDirection.INPUT, FluidTanks.create(tile, SlotType.FL_IN, b -> {
-                b.tank(this::acceptsRecipe, 1000);
-                b.tank(this::acceptWater, 4000);
+                b.tank(this::acceptWater, 1000);
+                b.tank(this::acceptsRecipe, 4000);
                 return b;
             }));
             tanks.put(FluidDirection.OUTPUT, FluidTanks.create(tile, SlotType.FL_OUT, b -> {
