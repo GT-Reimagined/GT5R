@@ -59,9 +59,9 @@ public class GT5RMachines {
     /**
      ** Steam Singleblock Machines
      **/
-    public static SteamMachine SOLID_FUEL_BOILER = new SteamMachine(GT5RRef.ID, "solid_fuel_boiler").setTiers(BRONZE, STEEL).setMap(RecipeMaps.SOLID_FUEL_BOILERS).addFlags(GUI, STEAM, ITEM, FLUID, CELL).baseTexture(Textures.BOILER_HANDLER).setTile(BlockEntityCoalBoiler::new).noCovers();
-    public static SteamMachine LAVA_BOILER = new SteamMachine(GT5RRef.ID, "lava_boiler").setTiers(STEEL).addFlags(GUI, STEAM, ITEM, FLUID).setTile(BlockEntityLavaBoiler::new).noCovers();
-    public static SteamMachine SOLAR_BOILER = new SteamMachine(GT5RRef.ID, "solar_boiler").setTiers(BRONZE).addFlags(GUI, STEAM, ITEM, FLUID).setTile(BlockEntitySolarBoiler::new).allowFrontIO().noCovers();
+    public static SteamMachine SOLID_FUEL_BOILER = new SteamMachine(GT5RRef.ID, "solid_fuel_boiler").setTiers(BRONZE, STEEL).setMap(RecipeMaps.SOLID_FUEL_BOILERS).addFlags(GUI, STEAM, ITEM, FLUID, CELL).baseTexture(Textures.BOILER_HANDLER).setTile(BlockEntityCoalBoiler::new).noCovers().addTooltipInfo("tooltip.gt5r.boiler");
+    public static SteamMachine LAVA_BOILER = new SteamMachine(GT5RRef.ID, "lava_boiler").setTiers(STEEL).addFlags(GUI, STEAM, ITEM, FLUID).setTile(BlockEntityLavaBoiler::new).noCovers().addTooltipInfo("tooltip.gt5r.boiler");
+    public static SteamMachine SOLAR_BOILER = new SteamMachine(GT5RRef.ID, "solar_boiler").setTiers(BRONZE).addFlags(GUI, STEAM, ITEM, FLUID).setTile(BlockEntitySolarBoiler::new).allowFrontIO().noCovers().addTooltipInfo("tooltip.gt5r.boiler");
     public static SteamMachine STEAM_ALLOY_SMELTER = new SteamMachine(GT5RRef.ID, "steam_alloy_smelter").setTiers(BRONZE, STEEL).setMap(RecipeMaps.STEAM_ALLOY_SMELTER).addFlags(GUI, ITEM, FLUID).setSound(GT5RSounds.FURNACE,  0.6f).covers(GT5RCovers.COVER_STEAM_VENT);
     public static SteamMachine STEAM_COMPRESSOR = new SteamMachine(GT5RRef.ID, "steam_compressor").setTiers(BRONZE, STEEL).setMap(RecipeMaps.STEAM_COMPRESSOR).addFlags(GUI, ITEM, FLUID).covers(GT5RCovers.COVER_STEAM_VENT);
     public static SteamMachine STEAM_EXTRACTOR = new SteamMachine(GT5RRef.ID, "steam_extractor").setTiers(BRONZE, STEEL).setMap(RecipeMaps.STEAM_EXTRACTOR).addFlags(GUI, ITEM, FLUID).setSound(GT5RSounds.EXTRACTOR,  0.6f).covers(GT5RCovers.COVER_STEAM_VENT);

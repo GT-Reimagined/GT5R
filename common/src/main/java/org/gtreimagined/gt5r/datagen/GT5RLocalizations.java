@@ -132,6 +132,7 @@ public class GT5RLocalizations {
             add("tooltip.gt5r.diversity_filter.off", "Diversity Filter: OFF");
             add("tooltip.gt5r.small_heat_exchanger.heat_rate", "Rate of heating: %s HU/tick");
             add("tooltip.gt5r.small_heat_exchanger.efficiency", "Efficiency: %s");
+            add("tooltip.gt5r.boiler", "Generates Steam from water.");
             add("tooltip.macerator.0", "Crushes Raw ores down to crushed ore and byproducts. Macerator gives no byproducts, Pulverizer gives byproducts");
             structureTranslations();
             advancements();
