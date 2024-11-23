@@ -13,6 +13,7 @@ import muramasa.antimatter.pipe.PipeSize;
 import muramasa.antimatter.pipe.types.PipeType;
 import muramasa.antimatter.util.AntimatterPlatformUtils;
 import org.gtreimagined.gt5r.data.GT5RBlocks;
+import org.gtreimagined.gt5r.data.GT5RCovers;
 import org.gtreimagined.gt5r.data.GT5RTags;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.SingleItemRecipeBuilder;
@@ -108,7 +109,7 @@ public class BlockParts {
                 of('G', GEAR.getMaterialTag(TungstenSteel), 'M', GT5RBlocks.CASING_TUNGSTENSTEEL, 'D', GT5RTags.GRIND_HEADS), "GDG", "GMG");
         provider.addItemRecipe(output, "casings", GT5RBlocks.ORE_WASHING_PARTS,
                 of('G', GEAR.getMaterialTag(Titanium), 'P', GT5RBlocks.FLUID_PIPE_TITANIUM.getBlock(PipeSize.NORMAL),'C', GT5RBlocks.CASING_TITANIUM, 'W', WRENCH.getTag()), "GGG", "PCP", "PWP");
-
+        provider.addItemRecipe(output, "casings", GT5RBlocks.FILTER_CASING, of('C', GT5RBlocks.CASING_TITANIUM, 'I', GT5RCovers.COVER_ITEM_FILTER.getItem()), " I ", "ICI", " I ");
         addCoil(output, provider, GT5RBlocks.WIRE_CUPRONICKEL.getBlockItem(PipeSize.TINY), GT5RBlocks.COIL_CUPRONICKEL);
         addCoil(output, provider, GT5RBlocks.WIRE_KANTHAL.getBlockItem(PipeSize.TINY), GT5RBlocks.COIL_KANTHAL);
         addCoil(output, provider, GT5RBlocks.WIRE_NICHROME.getBlockItem(PipeSize.TINY), GT5RBlocks.COIL_NICHROME);
