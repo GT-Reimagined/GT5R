@@ -34,6 +34,7 @@ import org.gtreimagined.gt5r.data.Materials;
 import org.gtreimagined.gt5r.data.TierMaps;
 import org.gtreimagined.gtcore.GTCore;
 import org.gtreimagined.gtcore.data.GTCoreBlocks;
+import org.gtreimagined.gtcore.data.GTCoreItems;
 import org.gtreimagined.gtcore.data.GTCoreMaterials;
 import org.gtreimagined.gtcore.machine.*;
 
@@ -924,6 +925,8 @@ public class MachineRecipes {
                         .put('W', GT5RBlocks.TITANIUM_WALL)
                         .put('C', TIER_CIRCUITS.apply(IV))
                         .put('c', TIER_CIRCUITS.apply(EV)).build(), "GGG", "RWR", "cCc"));
+        add(LARGE_SIFTER, EV, (m, item) -> provider.addItemRecipe(output, "machines", item,
+                of('C', TIER_CIRCUITS.apply(IV), 'M', MotorHV, 'c', GT5RCovers.COVER_CONVEYOR.getItem(HV), 'T', GT5RBlocks.CASING_TITANIUM), "McM", "cTc", "MCM"));
         Arrays.stream(getStandard()).forEach(tier -> {
             Block firebox = tier == LV ? GT5RBlocks.CASING_FIREBOX_BRONZE : tier == MV ? GT5RBlocks.CASING_FIREBOX_STEEL : tier == HV ? GT5RBlocks.CASING_FIREBOX_TITANIUM : GT5RBlocks.CASING_FIREBOX_TUNGSTENSTEEL;
             Tier circuitTier = tier == LV ? tier : tier == MV ? HV : tier == HV ? EV : IV;
