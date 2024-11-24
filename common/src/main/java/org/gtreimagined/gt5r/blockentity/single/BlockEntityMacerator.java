@@ -16,7 +16,7 @@ public class BlockEntityMacerator extends BlockEntityMachine<BlockEntityMacerato
         super(type, pos, state);
         recipeHandler.set(() -> new MachineRecipeHandler<>(this){
             @Override
-            protected IRecipeMap getRecipeMap() {
+            public IRecipeMap getRecipeMap() {
                 if (tile.getMachineTier() == LV || tile.getMachineTier() == MV) return RecipeMaps.MACERATOR;
                 return super.getRecipeMap();
             }
