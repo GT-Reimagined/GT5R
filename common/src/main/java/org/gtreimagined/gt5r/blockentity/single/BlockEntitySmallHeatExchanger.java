@@ -10,6 +10,7 @@ import muramasa.antimatter.gui.SlotType;
 import muramasa.antimatter.machine.types.Machine;
 import muramasa.antimatter.material.Material;
 import muramasa.antimatter.recipe.IRecipe;
+import muramasa.antimatter.recipe.map.IRecipeMap;
 import muramasa.antimatter.util.CodeUtils;
 import muramasa.antimatter.util.Utils;
 import net.minecraft.core.BlockPos;
@@ -139,8 +140,8 @@ public class BlockEntitySmallHeatExchanger extends BlockEntitySecondaryOutput<Bl
         public SmallHeatExchangerFluidHandler(BlockEntitySmallHeatExchanger tile) {
             super(tile);
             tanks.put(FluidDirection.INPUT, FluidTanks.create(tile, SlotType.FL_IN, b -> {
-                b.tank(this::acceptWater, 1000);
-                b.tank(this::acceptsRecipe, 4000);
+                b.tank(this::acceptsRecipe, 1000);
+                b.tank(this::acceptWater, 4000);
                 return b;
             }));
             tanks.put(FluidDirection.OUTPUT, FluidTanks.create(tile, SlotType.FL_OUT, b -> {
@@ -151,7 +152,10 @@ public class BlockEntitySmallHeatExchanger extends BlockEntitySecondaryOutput<Bl
         }
 
         public boolean acceptsRecipe(FluidHolder stack) {
-            return tile.recipeHandler.map(t -> t.accepts(stack)).orElse(true);
+            return tile.recipeHandler.map(t -> {
+                IRecipeMap map = t.getRecipeMap();
+                return map == null || map.acceptsFluid(stack);
+            }).orElse(true);
         }
 
         public boolean acceptWater(FluidHolder stack) {
