@@ -1,13 +1,19 @@
 package org.gtreimagined.gt5r.loader.machines;
 
+import com.google.common.collect.ImmutableMap;
 import muramasa.antimatter.material.Material;
 import muramasa.antimatter.material.MaterialStack;
 import muramasa.antimatter.recipe.ingredient.RecipeIngredient;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.crafting.Ingredient;
+import org.gtreimagined.gt5r.GT5RConfig;
 import org.gtreimagined.gt5r.data.GT5RMaterialTags;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import org.gtreimagined.gtcore.data.GTCoreItems;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static muramasa.antimatter.data.AntimatterMaterialTypes.*;
@@ -24,28 +30,19 @@ public class AlloySmelterLoader {
         INGOT.all().forEach(t -> {
             if (t.has(GT5RMaterialTags.NEEDS_BLAST_FURNACE)) return;
             if (!t.has(METAL)) return;
+            if (t == BlackBronze || t == BismuthBronze) return;
             List<MaterialStack> stacks = t.getProcessInto();
-            if (stacks.size() != 2) return;
-            int cumulative = t == RedAlloy ? 1 : stacks.get(0).s + stacks.get(1).s;
-            MaterialStack first = stacks.get(0);
-            MaterialStack second = stacks.get(1);
-            ALLOY_SMELTER.RB().ii(of(DUST.getMaterialTag(first.m),first.s),of(DUST.getMaterialTag(second.m),second.s)).io(new ItemStack(INGOT.get(t),cumulative)).add(t.getId() +"_ingot",100, 16);
-            boolean firstIngot = first.m.has(INGOT);
-            boolean secondIngot = second.m.has(INGOT);
-            if (firstIngot && secondIngot) ALLOY_SMELTER.RB().ii(of(INGOT.getMaterialTag(first.m),first.s),of(INGOT.getMaterialTag(second.m),second.s)).io(new ItemStack(INGOT.get(t),cumulative)).add(t.getId() +"_ingot_2",100, 12);
-            if (firstIngot) ALLOY_SMELTER.RB().ii(of(INGOT.getMaterialTag(first.m),first.s),of(DUST.getMaterialTag(second.m),second.s)).io(new ItemStack(INGOT.get(t),cumulative)).add(t.getId() +"_ingot_3",100, 12);
-            if (secondIngot) ALLOY_SMELTER.RB().ii(of(DUST.getMaterialTag(first.m),first.s),of(INGOT.getMaterialTag(second.m),second.s)).io(new ItemStack(INGOT.get(t),cumulative)).add(t.getId() +"_ingot_4",100, 12);
+            ImmutableMap.Builder<Material, Integer> builder = ImmutableMap.builder();
+            int cumulative = 0;
+            for (MaterialStack stack : stacks) {
+                builder.put(stack.m, stack.s);
+                cumulative += stack.s;
+            }
+            cumulative = t == RedAlloy ? 1 : cumulative;
+            addAlloyRecipes(builder.build(), t, cumulative);
         });
-        addAlloyRecipes(Copper, 3,Electrum, 2, BlackBronze, 5);
-        addAlloyRecipes(AnnealedCopper, 3,Electrum, 2, BlackBronze, 5);
-        addAlloyRecipes(AnnealedCopper, 3, Tin, 1, Bronze, 4);
-        addAlloyRecipes(AnnealedCopper, 3, Zinc, 1, Brass, 4);
-        addAlloyRecipes(AnnealedCopper, 1, Silver, 4, SterlingSilver, 5);
-        addAlloyRecipes(AnnealedCopper, 1, Gold, 4, RoseGold, 5);
-        addAlloyRecipes(AnnealedCopper, 1, Nickel, 1, Cupronickel, 2);
-        addAlloyRecipes(AnnealedCopper, 1, Redstone, 4, RedAlloy, 1);
-        addAlloyRecipes(Bismuth, 1, Brass, 4, BismuthBronze, 5);
-        addAlloyRecipes(Gallium, 1, Arsenic, 1, GalliumArsenide, 2);
+        addAlloyRecipes(ImmutableMap.of(Copper, 3, Electrum, 2), BlackBronze, 5);
+        addAlloyRecipes(ImmutableMap.of(Bismuth, 1, Brass, 4), BismuthBronze, 5);
         //pre Chemical Reactor Rubber
         ALLOY_SMELTER.RB().ii(of(DUST.get(RawRubber), 3), of(DUST.getMaterialTag(Sulfur), 1))
                 .io(INGOT.get(Rubber, 1)).add("rubber_via_alloy_smelter",20, 10);
@@ -77,6 +74,26 @@ public class AlloySmelterLoader {
         ALLOY_SMELTER.RB().ii(DUST.getMaterialIngredient(Glass, 1), RecipeIngredient.of(GTCoreItems.MoldBall, 1).setNoConsume()).io(GTCoreItems.GlassTube).add("glass_tube", 160, 8);
         ALLOY_SMELTER.RB().ii(DUST.getMaterialIngredient(Glass, 1), RecipeIngredient.of(GTCoreItems.MoldBottle, 1).setNoConsume()).io(Items.GLASS_BOTTLE).add("glass_bottle", 64, 4);
         ALLOY_SMELTER.RB().ii(INGOT.getMaterialIngredient(Iron, 31), RecipeIngredient.of(GTCoreItems.MoldAnvil, 1).setNoConsume()).io(Items.ANVIL).add("anvil", 512, 64);
+    }
+
+    private static void addAlloyRecipes(ImmutableMap<Material, Integer> inputs, Material output, int amount){
+        if (inputs.size() > 1){
+            List<Ingredient> ingredients = new ArrayList<>();
+            inputs.forEach((m, i) -> {
+                List<TagKey<Item>> tags = new ArrayList<>();
+                if (m.has(DUST)){
+                    tags.add(DUST.getMaterialTag(m));
+                }
+                if (m.has(INGOT)) {
+                    tags.add(INGOT.getMaterialTag(m));
+                }
+                if (m == Copper){
+                    tags.add(INGOT.getMaterialTag(AnnealedCopper));
+                }
+                ingredients.add(RecipeIngredient.of(i, tags.toArray(TagKey[]::new)));
+            });
+            ALLOY_SMELTER.RB().ii(ingredients).io(INGOT.get(output, amount)).add(output.getId() + "_ingot", 100, 12);
+        }
     }
 
     private static void addAlloyRecipes(Material input1, int count1, Material input2, int count2, Material output, int countO){

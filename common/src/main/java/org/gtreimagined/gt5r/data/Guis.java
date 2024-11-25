@@ -35,6 +35,10 @@ public class Guis {
             .add(IT_OUT, 125, 34).add(IT_OUT, 143, 34).add(FL_IN, 17, 63).add(FL_IN, 35, 63).add(FL_IN, 53, 63)
             .add(FL_OUT, 107, 63).add(FL_OUT, 125, 63).add(FL_OUT, 143, 63));
 
+    public static GuiData ALLOY_SMELTER_DISPLAY = new GuiData(GT5RRef.ID, "alloy_smelter").setSlots(ISlotProvider.DEFAULT()
+            .add(IT_IN, 35, 16).add(IT_IN, 53, 16).add(IT_IN, 35, 34).add(IT_IN, 53, 34)
+            .add(IT_OUT, 107, 25));
+
     public static GuiData SIMPLE_DISPLAY = new GuiData(GT5RRef.ID, "simple_display").setSlots(ISlotProvider.DEFAULT()
             .add(IT_IN, 53, 25).add(IT_OUT, 107, 25));
 

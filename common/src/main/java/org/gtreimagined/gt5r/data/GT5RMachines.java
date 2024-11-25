@@ -1,5 +1,6 @@
 package org.gtreimagined.gt5r.data;
 
+import muramasa.antimatter.AntimatterAPI;
 import org.gtreimagined.gt5r.GT5RRef;
 import org.gtreimagined.gt5r.GT5Reimagined;
 import org.gtreimagined.gt5r.blockentity.miniportals.BlockEntityMiniEndPortal;
@@ -257,7 +258,7 @@ public class GT5RMachines {
         }
         return new Object[0];
     });
-    public static MultiMachine MULTI_SMELTER = new MultiMachine(GT5RRef.ID, "multi_smelter").setTiers(HV).setMap(RecipeMaps.ELECTRIC_FURNACE).addFlags(GUI, ITEM, EU).addStructureTooltip(9).setTile(BlockEntityMultiSmelter::new).custom().setTextureBlock(GT5RBlocks.CASING_HEAT_PROOF);
+    public static MultiMachine MULTI_SMELTER = new MultiMachine(GT5RRef.ID, "multi_smelter").setTiers(HV).setMap(RecipeMaps.ELECTRIC_FURNACE).addFlags(GUI, ITEM, EU).addStructureTooltip(10).setTile(BlockEntityMultiSmelter::new).custom().setTextureBlock(GT5RBlocks.CASING_HEAT_PROOF);
     public static MultiMachine OIL_DRILLING_RIG = new MultiMachine(GT5RRef.ID, "oil_drilling_rig").setTiers(MV).addFlags(GUI, ITEM, FLUID, EU).addStructureTooltip(9).setTile(BlockEntityOilDrillingRig::new).custom().setTextureBlock(GT5RBlocks.CASING_SOLID_STEEL);
     public static MultiMachine PROCESSING_ARRAY = new MultiMachine(GT5RRef.ID, "processing_array").setTiers(EV).addFlags(GUI, ITEM, FLUID, EU, RECIPE).addStructureTooltip(8).setTile(BlockEntityProcessingArray::new).custom().setTextureBlock(GT5RBlocks.CASING_TUNGSTENSTEEL);
     public static MultiMachine PYROLYSIS_OVEN = new MultiMachine(GT5RRef.ID, "pyrolysis_oven").setTiers(MV).setMap(RecipeMaps.PYROLYSIS_OVEN).addFlags(GUI, ITEM, FLUID, EU).setTile(BlockEntityPyrolysisOven::new).custom().setTextureBlock(GT5RBlocks.CASING_ULV);
@@ -317,6 +318,7 @@ public class GT5RMachines {
     }
 
     public static void init() {
+        AntimatterAPI.registerJEICategoryWorkstation(RecipeMaps.ALLOY_SMELTER, MULTI_SMELTER, HV);
     }
 
     private static int getBlockColorNuclear(BlockState state, @Nullable BlockGetter world, @Nullable BlockPos pos, @Nullable BlockEntityMachine<?> machine, int i) {

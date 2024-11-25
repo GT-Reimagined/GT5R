@@ -1,6 +1,11 @@
 package org.gtreimagined.gt5r.blockentity.multi;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import muramasa.antimatter.gui.SlotType;
+import muramasa.antimatter.machine.event.IMachineEvent;
+import muramasa.antimatter.recipe.map.IRecipeMap;
+import net.minecraft.world.item.ItemStack;
+import org.gtreimagined.gt5r.data.RecipeMaps;
 import org.gtreimagined.gt5r.machine.caps.ParallelRecipeHandler;
 import muramasa.antimatter.blockentity.multi.BlockEntityMultiMachine;
 import muramasa.antimatter.gui.GuiInstance;
@@ -15,31 +20,29 @@ import org.gtreimagined.gt5r.block.BlockCoil;
 import net.minecraft.client.gui.Font;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.state.BlockState;
+import org.gtreimagined.gtcore.item.ItemSelectorTag;
 
 import java.util.List;
 
 public class BlockEntityMultiSmelter extends BlockEntityMultiMachine<BlockEntityMultiSmelter> {
     private BlockCoil.CoilData coilData;
+    private IRecipeMap recipeMap = RecipeMaps.ELECTRIC_FURNACE;
 
     public BlockEntityMultiSmelter(Machine<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
         this.recipeHandler.set(() -> new ParallelRecipeHandler<>(this, 1){
             @Override
             protected int maxSimultaneousRecipes(){
+                if (coilData == null) return 0;
                 return coilData.maxSimultaneousRecipes();
+            }
+
+            @Override
+            public IRecipeMap getRecipeMap() {
+                return recipeMap;
             }
         });
     }
-
-//    @Override
-//    public void onRecipeFound() {
-////        this.mEfficiency = (10000 - (getIdealStatus() - getRepairStatus()) * 1000);
-////        this.mEfficiencyIncrease = 10000;
-//
-//        int tier = Utils.getVoltageTier(getMaxInputVoltage());
-//        EUt = (-4 * (1 << tier - 1) * (1 << tier - 1) * level / discount);
-//        maxProgress = Math.max(1, 512 / (1 << tier - 1));
-//    }
 
     public void setCoilData(BlockCoil.CoilData coilData) {
         this.coilData = coilData;
@@ -62,6 +65,19 @@ public class BlockEntityMultiSmelter extends BlockEntityMultiMachine<BlockEntity
             return superDraw + 8;
         }
         return superDraw;
+    }
+
+    @Override
+    public void onMachineEvent(IMachineEvent event, Object... data) {
+        if (event == SlotType.STORAGE){
+            ItemStack circuit = itemHandler.map(i -> i.getHandler(SlotType.STORAGE).getItem(0)).orElse(ItemStack.EMPTY);
+            if (circuit.getItem() instanceof ItemSelectorTag tag && tag.circuitId == 1){
+                this.recipeMap = RecipeMaps.ALLOY_SMELTER;
+            } else {
+                this.recipeMap = RecipeMaps.ELECTRIC_FURNACE;
+            }
+        }
+        super.onMachineEvent(event, data);
     }
 
     @Override

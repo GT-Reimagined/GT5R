@@ -342,7 +342,34 @@ public class RecipeMaps {
             renderString(stack, formattedText, fontRenderer, 5 + stringWidth(euT, fontRenderer), 10, Tier.EV.getRarityFormatting().getColor(), guiOffsetX, guiOffsetY);
             renderString(stack, amps, fontRenderer, 5, 20, guiOffsetX, guiOffsetY);
             renderString(stack, total, fontRenderer, 5, 30, guiOffsetX, guiOffsetY);
-            renderString(stack, "Secondary outputs only available in pulverizers and large macerator", fontRenderer, 5, 40, guiOffsetX, guiOffsetY);
+            renderString(stack, "Secondary outputs only available in pulverizers", fontRenderer, 5, 40, guiOffsetX, guiOffsetY);
+        }
+
+        @Override
+        public int getRows() {
+            return 5;
+        }
+    };
+
+    public static final IRecipeInfoRenderer ALLOY_SMELTER_RENDERER = new IRecipeInfoRenderer() {
+        public void render(PoseStack stack, IRecipe recipe, Font fontRenderer, int guiOffsetX, int guiOffsetY) {
+            if (recipe.getDuration() == 0 && recipe.getPower() == 0) return;
+            String additional = recipe.getDuration() < 1200 ? "" : recipe.getDuration() < 36000 ? " (" + (recipe.getDuration() / 20.0f) + " secs)" : " (" + (recipe.getDuration() / 1200.0f) + " mins)";
+            String power = "Duration: " + recipe.getDuration() + " ticks" + additional;
+            String euT = "EU/t: " + recipe.getPower();
+            String amps = "Amps: " + recipe.getAmps();
+            String total = "Total: " + recipe.getPower() * recipe.getDuration() + " EU";
+            Tier tier = Tier.getTier((recipe.getPower() / recipe.getAmps()));
+            String formattedText = " (" + tier.getId().toUpperCase() + ")";
+            renderString(stack, power, fontRenderer, 5, 0, guiOffsetX, guiOffsetY);
+            renderString(stack, euT, fontRenderer, 5, 10, guiOffsetX, guiOffsetY);
+            renderString(stack, formattedText, fontRenderer, 5 + stringWidth(euT, fontRenderer), 10, Tier.EV.getRarityFormatting().getColor(), guiOffsetX, guiOffsetY);
+            renderString(stack, amps, fontRenderer, 5, 20, guiOffsetX, guiOffsetY);
+            renderString(stack, total, fontRenderer, 5, 30, guiOffsetX, guiOffsetY);
+            if (recipe.getInputItems().size() > 2){
+                renderString(stack, "Multi Smelter only", fontRenderer, 5, 40, guiOffsetX, guiOffsetY);
+            }
+
         }
 
         @Override
@@ -359,12 +386,12 @@ public class RecipeMaps {
         NAQUADAH_FUELS.setGuiData(Guis.MULTI_DISPLAY);
         ORE_BYPRODUCTS.setGuiData(Guis.ORE_BYPRODUCTS);
         PLASMA_FUELS.setGuiData(Guis.MULTI_DISPLAY);
-        // SMELTING.setGuiData(Guis.MULTI_DISPLAY_COMPACT);
         STEAM_FUELS.setGuiData(Guis.MULTI_DISPLAY);
         HP_STEAM_FUELS.setGuiData(Guis.MULTI_DISPLAY);
         TREE_GROWTH_SIMULATOR.setGuiData(Guis.MULTI_DISPLAY);
         DISTILLATION.setGuiData(Guis.MULTI_DISPLAY_DISTILLATION);
         CRYO_DISTILLATION.setGuiData(Guis.MULTI_DISPLAY_DISTILLATION);
+        ALLOY_SMELTER.setGuiData(Guis.ALLOY_SMELTER_DISPLAY);
     }
 
     public static void clientMaps() {
@@ -372,6 +399,7 @@ public class RecipeMaps {
         PRIMITIVE_BLAST_FURNACE.setInfoRenderer(InfoRenderers.BASIC_RENDERER);
         COKE_OVEN.setInfoRenderer(InfoRenderers.BASIC_RENDERER);
         SOLID_FUEL_BOILERS.setInfoRenderer(InfoRenderers.BASIC_RENDERER);
+        ALLOY_SMELTER.setInfoRenderer(ALLOY_SMELTER_RENDERER);
         BATH.setInfoRenderer(InfoRenderers.BASIC_RENDERER);
         COMBUSTION_FUELS.setInfoRenderer(InfoRenderers.FUEL_RENDERER);
         GAS_FUELS.setInfoRenderer(InfoRenderers.FUEL_RENDERER);

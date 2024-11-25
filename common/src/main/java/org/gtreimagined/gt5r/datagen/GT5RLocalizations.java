@@ -290,14 +290,15 @@ public class GT5RLocalizations {
             add("tooltip.large_turbine.7", "Output depending on Rotor: %sEU/t");
 
             add("tooltip.multi_smelter.0", "Controller Block for the Multi Smelter");
-            add("tooltip.multi_smelter.1", "Smelts up to 8-1024 Items at once");
-            add("tooltip.multi_smelter.2", "Size(WxHxD):3x3x3 (Hollow), Controller (Front middle at bottom)");
-            add("tooltip.multi_smelter.3", "8x Heating Coils (Middle layer, hollow)");
-            add("tooltip.multi_smelter.4", "1x Item Input Hatch (One of bottom)");
-            add("tooltip.multi_smelter.5", "1x Item Output Hatch (One of bottom)");
-            add("tooltip.multi_smelter.6", "1x Muffler Hatch (Top middle)");
-            add("tooltip.multi_smelter.7", "1x Energy Hatch (One of bottom)");
-            add("tooltip.multi_smelter.8", "Heat Proof Casings for the rest");
+            add("tooltip.multi_smelter.1", "Can make alloys if a selector tag with id of 1 is placed in the controller.");
+            add("tooltip.multi_smelter.2", "Smelts up to 8-1024 Items at once");
+            add("tooltip.multi_smelter.3", "Size(WxHxD):3x3x3 (Hollow), Controller (Front middle at bottom)");
+            add("tooltip.multi_smelter.4", "8x Heating Coils (Middle layer, hollow)");
+            add("tooltip.multi_smelter.5", "1x Item Input Hatch (One of bottom)");
+            add("tooltip.multi_smelter.6", "1x Item Output Hatch (One of bottom)");
+            add("tooltip.multi_smelter.7", "1x Muffler Hatch (Top middle)");
+            add("tooltip.multi_smelter.8", "1x Energy Hatch (One of bottom)");
+            add("tooltip.multi_smelter.9", "Heat Proof Casings for the rest");
 
             add("tooltip.oil_drilling_rig.0", "Controller Block for the Oil Drilling Rig");
             add("tooltip.oil_drilling_rig.1", "Size(WxHxD):3x7x3");
