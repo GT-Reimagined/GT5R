@@ -25,6 +25,7 @@ public class GT5RMaterialTags {
     public static final MaterialTag CRACK = new MaterialTag("crack"); //Add Cracking Recipes
     public static final MaterialTag SMELTG = new MaterialTag("smelt_g"); //Add Smelting to Gem Recipes
     public static final MaterialTag SMELTF = new MaterialTag("smelt_f"); //Add Smelting to Fluid Recipes
+    public static final MaterialTag ALLOY = new MaterialTag("alloy"); //Add alloy smelting recipes
 
     public static final MaterialTag SEMIFUELS = new MaterialTag("semi_fuels");
     public static final MaterialTag GRINDABLE = new MaterialTag("grindable"); //Is Grindable with the Mortar

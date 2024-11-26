@@ -21,6 +21,7 @@ import static muramasa.antimatter.data.AntimatterMaterials.*;
 import static muramasa.antimatter.material.MaterialTags.METAL;
 import static muramasa.antimatter.material.MaterialTags.RUBBERTOOLS;
 import static muramasa.antimatter.recipe.ingredient.RecipeIngredient.of;
+import static org.gtreimagined.gt5r.data.GT5RMaterialTags.ALLOY;
 import static org.gtreimagined.gt5r.data.Materials.*;
 import static org.gtreimagined.gt5r.data.RecipeMaps.ALLOY_SMELTER;
 
@@ -29,8 +30,9 @@ public class AlloySmelterLoader {
     public static void init() {
         INGOT.all().forEach(t -> {
             if (t.has(GT5RMaterialTags.NEEDS_BLAST_FURNACE)) return;
-            if (!t.has(METAL)) return;
+            if (!t.has(ALLOY)) return;
             if (t == BlackBronze || t == BismuthBronze) return;
+            if (t == Magnalium && !GT5RConfig.HARDER_ALUMINIUM_PROCESSING.get()) return;
             List<MaterialStack> stacks = t.getProcessInto();
             ImmutableMap.Builder<Material, Integer> builder = ImmutableMap.builder();
             int cumulative = 0;
