@@ -89,7 +89,7 @@ public class BlockEntityLargeTank extends BlockEntityMaterialBasicMultiMachine<B
         public void onUpdate() {
             super.onUpdate();
             Direction dir = tile.getFacing();
-            if (getTank(0).getStoredFluid().getFluidAmount() > 0 && dir != UP){
+            if (getTank(0).getStoredFluid().getFluidAmount() > 0 && (dir != UP || FluidPlatformUtils.INSTANCE.getFluidDensity(getTank(0).getStoredFluid().getFluid()) < 0)){
                 Optional<PlatformFluidHandler> cap = BlockEntityCache.getFluidHandlerCached(tile.getLevel(), tile.getBlockPos().relative(dir), dir.getOpposite());
                 cap.ifPresent(other -> Utils.transferFluids(this.getOutputTanks(), other, 1000));
             }
