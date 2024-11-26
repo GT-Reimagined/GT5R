@@ -367,7 +367,7 @@ public class RecipeMaps {
             renderString(stack, amps, fontRenderer, 5, 20, guiOffsetX, guiOffsetY);
             renderString(stack, total, fontRenderer, 5, 30, guiOffsetX, guiOffsetY);
             if (recipe.getInputItems().size() > 2){
-                renderString(stack, "Multi Smelter only", fontRenderer, 5, 40, guiOffsetX, guiOffsetY);
+                renderString(stack, "Multi Smelter only", fontRenderer, 5, 40, 0xFF0000, guiOffsetX, guiOffsetY);
             }
 
         }
