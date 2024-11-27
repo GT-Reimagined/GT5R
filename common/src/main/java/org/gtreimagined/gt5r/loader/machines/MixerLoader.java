@@ -92,6 +92,7 @@ public class MixerLoader {
             Material dyeMaterial = Material.get("water_mixed_" + dyeName);
             MIXER.RB().ii(of(dye.getTag())).fi(Water.getLiquid(L)).fo(dyeMaterial.getLiquid(L + (L / 2))).add("water_mixed_" + dyeName, 16, 4);
             MIXER.RB().ii(of(dye.getTag())).fi(DistilledWater.getLiquid(L)).fo(dyeMaterial.getLiquid(L + (L / 2))).add("water_mixed_" + dyeName + "_distilled_water", 16, 4);
+            MIXER.RB().fi(Material.get("chemical_" + dyeName).getLiquid(L), Concrete.getLiquid(L)).fo(Material.get(dye.getName() + "_concrete").getLiquid(L)).add(dye.getName() + "_concrete", 16, 4);
         }
     }
 

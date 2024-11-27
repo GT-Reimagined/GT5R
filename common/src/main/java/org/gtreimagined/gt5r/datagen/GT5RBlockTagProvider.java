@@ -4,6 +4,9 @@ import muramasa.antimatter.AntimatterAPI;
 import muramasa.antimatter.data.AntimatterDefaultTools;
 import muramasa.antimatter.datagen.providers.AntimatterBlockTagProvider;
 import muramasa.antimatter.machine.Tier;
+import muramasa.antimatter.util.AntimatterPlatformUtils;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.DyeColor;
 import org.gtreimagined.gt5r.GT5RRef;
 import org.gtreimagined.gt5r.block.BlockAsphalt;
 import org.gtreimagined.gt5r.block.BlockAsphaltSlab;
@@ -45,6 +48,9 @@ public class GT5RBlockTagProvider extends AntimatterBlockTagProvider {
         AntimatterAPI.all(BlockFakeCasing.class, GT5RRef.ID, cas -> {
             this.tag(AntimatterDefaultTools.PICKAXE.getToolType()).add(cas);
         });
+        for (DyeColor color : DyeColor.values()) {
+            this.tag(GT5RTags.ASPHALT).add(AntimatterPlatformUtils.INSTANCE.getBlockFromId(new ResourceLocation(color.getName() + "_concrete")));
+        }
         AntimatterAPI.all(BlockAsphalt.class, GT5RRef.ID, cas -> {
             this.tag(GT5RTags.ASPHALT).add(cas);
             this.tag(AntimatterDefaultTools.PICKAXE.getToolType()).add(cas);

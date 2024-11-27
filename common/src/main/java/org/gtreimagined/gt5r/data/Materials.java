@@ -438,6 +438,23 @@ public class Materials {
     public static Material ChemicalRedDye = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "chemical_red_dye", GT5RData.getColorFromDyeColor(DyeColor.RED), NONE));
     public static Material ChemicalBlackDye = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "chemical_black_dye", GT5RData.getColorFromDyeColor(DyeColor.BLACK), NONE));
 
+    public static Material WhiteConcrete = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "white_concrete", GT5RData.getColorFromDyeColor(DyeColor.WHITE), NONE));
+    public static Material OrangeConcrete = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "orange_concrete", GT5RData.getColorFromDyeColor(DyeColor.ORANGE), NONE));
+    public static Material MagentaConcrete = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "magenta_concrete", GT5RData.getColorFromDyeColor(DyeColor.MAGENTA), NONE));
+    public static Material LightBlueConcrete = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "light_blue_concrete", GT5RData.getColorFromDyeColor(DyeColor.LIGHT_BLUE), NONE));
+    public static Material YellowConcrete = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "yellow_concrete", GT5RData.getColorFromDyeColor(DyeColor.YELLOW), NONE));
+    public static Material LimeConcrete = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "lime_concrete", GT5RData.getColorFromDyeColor(DyeColor.LIME), NONE));
+    public static Material PinkConcrete = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "pink_concrete", GT5RData.getColorFromDyeColor(DyeColor.PINK), NONE));
+    public static Material GrayConcrete = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "gray_concrete", GT5RData.getColorFromDyeColor(DyeColor.GRAY), NONE));
+    public static Material LightGrayConcrete = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "light_gray_concrete", GT5RData.getColorFromDyeColor(DyeColor.LIGHT_GRAY), NONE));
+    public static Material CyanConcrete = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "cyan_concrete", GT5RData.getColorFromDyeColor(DyeColor.CYAN), NONE));
+    public static Material PurpleConcrete = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "purple_concrete", GT5RData.getColorFromDyeColor(DyeColor.PURPLE), NONE));
+    public static Material BlueConcrete = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "blue_concrete", GT5RData.getColorFromDyeColor(DyeColor.BLUE), NONE));
+    public static Material BrownConcrete = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "brown_concrete", GT5RData.getColorFromDyeColor(DyeColor.BROWN), NONE));
+    public static Material GreenConcrete = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "green_concrete", GT5RData.getColorFromDyeColor(DyeColor.GREEN), NONE));
+    public static Material RedConcrete = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "red_concrete", GT5RData.getColorFromDyeColor(DyeColor.RED), NONE));
+    public static Material BlackConcrete = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "black_concrete", GT5RData.getColorFromDyeColor(DyeColor.BLACK), NONE));
+
     /**
      ** Organic
      **/

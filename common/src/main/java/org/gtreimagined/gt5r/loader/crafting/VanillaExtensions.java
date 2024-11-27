@@ -1,5 +1,7 @@
 package org.gtreimagined.gt5r.loader.crafting;
 
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.DyeColor;
 import org.gtreimagined.gt5r.GT5RRef;
 import muramasa.antimatter.data.AntimatterMaterialTypes;
 import muramasa.antimatter.data.AntimatterMaterials;
@@ -12,6 +14,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Blocks;
+import org.gtreimagined.gtcore.GTCoreConfig;
 
 import java.util.function.Consumer;
 
@@ -68,6 +71,10 @@ public class VanillaExtensions {
         provider.shapeless(consumer, GT5RRef.ID, "cyan_dye_from_lazurite_gem", "dyes", Items.CYAN_DYE.getDefaultInstance(), GEM.getMaterialTag(Lazurite));
         provider.shapeless(consumer, GT5RRef.ID, "green_dye_from_blue_and_yellow", "dyes", new ItemStack(Items.GREEN_DYE, 2), Items.YELLOW_DYE, Items.BLUE_DYE);
         provider.shapeless(consumer, GT5RRef.ID, "brown_dye_from_primaries", "dyes", new ItemStack(Items.BROWN_DYE, 3), Items.YELLOW_DYE, Items.BLUE_DYE, Items.RED_DYE);
-
+        if (GTCoreConfig.VANILLA_OVERRIDES.get()){
+            for (DyeColor dye : DyeColor.values()){
+                provider.removeRecipe(new ResourceLocation(dye.getName() + "_concrete_powder"));
+            }
+        }
     }
 }

@@ -408,6 +408,22 @@ public class GT5RMaterialEvents {
         event.setMaterial(Materials.ChemicalGreenDye).asFluid();
         event.setMaterial(Materials.ChemicalRedDye).asFluid();
         event.setMaterial(Materials.ChemicalBlackDye).asFluid();
+        event.setMaterial(Materials.WhiteConcrete).asFluid();
+        event.setMaterial(Materials.OrangeConcrete).asFluid();
+        event.setMaterial(Materials.MagentaConcrete).asFluid();
+        event.setMaterial(Materials.LightBlueConcrete).asFluid();
+        event.setMaterial(Materials.YellowConcrete).asFluid();
+        event.setMaterial(Materials.LimeConcrete).asFluid();
+        event.setMaterial(Materials.PinkConcrete).asFluid();
+        event.setMaterial(Materials.GrayConcrete).asFluid();
+        event.setMaterial(Materials.LightGrayConcrete).asFluid();
+        event.setMaterial(Materials.CyanConcrete).asFluid();
+        event.setMaterial(Materials.PurpleConcrete).asFluid();
+        event.setMaterial(Materials.BlueConcrete).asFluid();
+        event.setMaterial(Materials.BrownConcrete).asFluid();
+        event.setMaterial(Materials.GreenConcrete).asFluid();
+        event.setMaterial(Materials.RedConcrete).asFluid();
+        event.setMaterial(Materials.BlackConcrete).asFluid();
 
         /**
          *  Organic

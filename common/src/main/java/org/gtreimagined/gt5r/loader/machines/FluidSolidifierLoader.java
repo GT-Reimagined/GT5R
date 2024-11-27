@@ -5,6 +5,8 @@ import muramasa.antimatter.data.AntimatterMaterialTypes;
 import muramasa.antimatter.material.Material;
 import muramasa.antimatter.recipe.ingredient.RecipeIngredient;
 import muramasa.antimatter.util.AntimatterPlatformUtils;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Items;
 import org.gtreimagined.gtcore.data.GTCoreItems;
 
@@ -12,8 +14,10 @@ import static muramasa.antimatter.Ref.L;
 import static muramasa.antimatter.Ref.L9;
 import static muramasa.antimatter.data.AntimatterMaterialTypes.*;
 import static muramasa.antimatter.data.AntimatterMaterials.*;
+import static net.minecraft.world.item.crafting.Ingredient.of;
 import static org.gtreimagined.gt5r.data.Materials.*;
 import static org.gtreimagined.gt5r.data.RecipeMaps.FLUID_SOLIDIFYER;
+import static org.gtreimagined.gt5r.data.RecipeMaps.MIXER;
 
 public class FluidSolidifierLoader {
     public static void init() {
@@ -52,6 +56,10 @@ public class FluidSolidifierLoader {
                 .fi(mat.getFluidIngredient(mat == Alumina ? (L * 9 * 7) / 2 : L * 9)).io(BLOCK.get().get(mat).asStack(1)).add(mat.getId() + "_block",288, 8);
             }
         });
+        for (DyeColor dye : DyeColor.values()) {
+            Material concrete = Material.get(dye.getName() + "_concrete");
+            FLUID_SOLIDIFYER.RB().ii(RecipeIngredient.of(GTCoreItems.MoldBlock, 1).setNoConsume()).fi(concrete.getLiquid(L)).io(AntimatterPlatformUtils.INSTANCE.getItemFromID(new ResourceLocation(dye.getName() + "_concrete"))).add(dye.getName() + "_concrete",288, 8);
+        }
         FLUID_SOLIDIFYER.RB().ii(RecipeIngredient.of(GTCoreItems.MoldLongRod, 1).setNoConsume()).fi(Lava.getLiquid(AntimatterPlatformUtils.INSTANCE.isFabric() ? L : 111)).io(ROD_LONG.get(Obsidian)).add("long_obsidian_rod", 16, 8);
         FLUID_SOLIDIFYER.RB().ii(RecipeIngredient.of(GTCoreItems.MoldPlate, 1).setNoConsume()).fi(Lava.getLiquid(AntimatterPlatformUtils.INSTANCE.isFabric() ? L : 111)).io(PLATE.get(Obsidian)).add("obsidian_plate", 16, 8);
         FLUID_SOLIDIFYER.RB().ii(RecipeIngredient.of(GTCoreItems.MoldAnvil, 1).setNoConsume()).fi(Iron.getFluidIngredient(L * 31)).io(Items.ANVIL).add("anvil", 128, 16);
