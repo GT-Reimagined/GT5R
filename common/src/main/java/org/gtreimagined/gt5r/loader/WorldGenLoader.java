@@ -7,6 +7,7 @@ import muramasa.antimatter.event.WorldGenEvent;
 import muramasa.antimatter.material.Material;
 import muramasa.antimatter.util.TagUtils;
 import muramasa.antimatter.worldgen.StoneLayerOre;
+import muramasa.antimatter.worldgen.bedrockore.WorldGenBedrockVein;
 import muramasa.antimatter.worldgen.object.WorldGenStoneLayerBuilder;
 import muramasa.antimatter.worldgen.smallore.WorldGenSmallOreBuilder;
 import muramasa.antimatter.worldgen.vanillaore.WorldGenVanillaOreBuilder;
@@ -63,6 +64,20 @@ public class WorldGenLoader {
         if (AntimatterAPI.isModLoaded(MOD_TWILIGHT)){
             initTwilightForestOres(ev);
         }
+    }
+
+    private static void initBedrockVeins(WorldGenEvent ev) {
+        ev.bedrockOre(WorldGenBedrockVein.create("diamond", 128000, Diamond, OVERWORLD.location()));
+        ev.bedrockOre(WorldGenBedrockVein.create("tungstate", 96000, Tungstate, OVERWORLD.location()));
+        ev.bedrockOre(WorldGenBedrockVein.create("scheelite", 96000, Scheelite, OVERWORLD.location()));
+        ev.bedrockOre(WorldGenBedrockVein.create("uraninite", 60000, Uraninite, OVERWORLD.location()));
+        ev.bedrockOre(WorldGenBedrockVein.create("pitchblende", 60000, Pitchblende, OVERWORLD.location()));
+        ev.bedrockOre(WorldGenBedrockVein.create("gold_a", 32000, Gold, OVERWORLD.location()));
+        ev.bedrockOre(WorldGenBedrockVein.create("gold_b", 32000, Gold, OVERWORLD.location()));
+        ev.bedrockOre(WorldGenBedrockVein.create("sheldonite", 16000, Sheldonite, OVERWORLD.location()));
+        ev.bedrockOre(WorldGenBedrockVein.create("copper", 16000, Copper, OVERWORLD.location()));
+        ev.bedrockOre(WorldGenBedrockVein.create("monzanite", 16000, Monazite, OVERWORLD.location()));
+
     }
 
     private static void initTwilightForestOres(WorldGenEvent event){
