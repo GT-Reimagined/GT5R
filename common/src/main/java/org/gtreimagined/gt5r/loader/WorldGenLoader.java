@@ -55,6 +55,7 @@ public class WorldGenLoader {
         if (AntimatterConfig.SMALL_ORES.get() && !AntimatterAPI.isModLoaded(MOD_TFC)){
             initSmallOres(ev);
         }
+        initBedrockVeins(ev);
         OilSpoutSavedData.clearFluidMap();
         OilSpoutFluid.resetTotalWeight();
         new OilSpoutFluid("oil", Oil.getLiquid(), 20, 625, 4, 5);
@@ -77,7 +78,21 @@ public class WorldGenLoader {
         ev.bedrockOre(WorldGenBedrockVein.create("sheldonite", 16000, Sheldonite, OVERWORLD.location()));
         ev.bedrockOre(WorldGenBedrockVein.create("copper", 16000, Copper, OVERWORLD.location()));
         ev.bedrockOre(WorldGenBedrockVein.create("monzanite", 16000, Monazite, OVERWORLD.location()));
-
+        ev.bedrockOre(WorldGenBedrockVein.create("powellite", 14000, Powellite, OVERWORLD.location()));
+        ev.bedrockOre(WorldGenBedrockVein.create("bastnasite", 8000, Bastnasite, OVERWORLD.location()));
+        ev.bedrockOre(WorldGenBedrockVein.create("redstone", 7000, Redstone, OVERWORLD.location()));
+        ev.bedrockOre(WorldGenBedrockVein.create("vanadium_magnetite", 6000, VanadiumMagnetite, OVERWORLD.location()));
+        ev.bedrockOre(WorldGenBedrockVein.create("galena", 6000, Galena, OVERWORLD.location()));
+        ev.bedrockOre(WorldGenBedrockVein.create("coal", 5000, Coal, OVERWORLD.location()));
+        ev.bedrockOre(WorldGenBedrockVein.create("graphite", 5000, Graphite, OVERWORLD.location()));
+        ev.bedrockOre(WorldGenBedrockVein.create("stibnite", 4000, Stibnite, OVERWORLD.location()));
+        ev.bedrockOre(WorldGenBedrockVein.create("hematite", 4000, Hematite, OVERWORLD.location()));
+        ev.bedrockOre(WorldGenBedrockVein.create("sphalerite", 3000, Sphalerite, OVERWORLD.location()));
+        ev.bedrockOre(WorldGenBedrockVein.create("pentlandite", 3000, Pentlandite, OVERWORLD.location()));
+        ev.bedrockOre(WorldGenBedrockVein.create("saltpeter", 3000, Saltpeter, OVERWORLD.location()));
+        ev.bedrockOre(WorldGenBedrockVein.create("bauxite", 2000, Bauxite, OVERWORLD.location()));
+        ev.bedrockOre(WorldGenBedrockVein.create("cassiterite", 2000, Cassiterite, OVERWORLD.location()));
+        ev.bedrockOre(WorldGenBedrockVein.create("chalcopyrite", 2000, Chalcopyrite, OVERWORLD.location()));
     }
 
     private static void initTwilightForestOres(WorldGenEvent event){
