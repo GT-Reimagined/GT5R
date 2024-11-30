@@ -12,7 +12,9 @@ import muramasa.antimatter.worldgen.object.WorldGenStoneLayerBuilder;
 import muramasa.antimatter.worldgen.smallore.WorldGenSmallOreBuilder;
 import muramasa.antimatter.worldgen.vanillaore.WorldGenVanillaOreBuilder;
 import muramasa.antimatter.worldgen.vein.WorldGenVeinLayerBuilder;
+import net.minecraft.world.level.block.Blocks;
 import org.gtreimagined.gt5r.GT5RConfig;
+import org.gtreimagined.gt5r.data.GT5RBlocks;
 import org.gtreimagined.gt5r.worldgen.OilSpoutFluid;
 import org.gtreimagined.gt5r.worldgen.OilSpoutSavedData;
 import net.minecraft.core.Registry;
@@ -23,9 +25,11 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biomes;
 
 import static muramasa.antimatter.Ref.*;
+import static muramasa.antimatter.data.AntimatterMaterialTypes.ORE;
 import static muramasa.antimatter.data.AntimatterMaterialTypes.ORE_STONE;
 import static muramasa.antimatter.data.AntimatterMaterials.*;
 import static muramasa.antimatter.data.AntimatterStoneTypes.*;
+import static org.gtreimagined.gt5r.data.GT5RBlocks.*;
 import static org.gtreimagined.gt5r.data.Materials.*;
 import static net.minecraft.world.level.Level.END;
 import static net.minecraft.world.level.Level.NETHER;
@@ -55,7 +59,9 @@ public class WorldGenLoader {
         if (AntimatterConfig.SMALL_ORES.get() && !AntimatterAPI.isModLoaded(MOD_TFC)){
             initSmallOres(ev);
         }
-        initBedrockVeins(ev);
+        if (AntimatterConfig.BEDROCK_VEINS.get()) {
+            initBedrockVeins(ev);
+        }
         OilSpoutSavedData.clearFluidMap();
         OilSpoutFluid.resetTotalWeight();
         new OilSpoutFluid("oil", Oil.getLiquid(), 20, 625, 4, 5);
@@ -68,31 +74,31 @@ public class WorldGenLoader {
     }
 
     private static void initBedrockVeins(WorldGenEvent ev) {
-        ev.bedrockOre(WorldGenBedrockVein.create("diamond", 128000, Diamond, OVERWORLD.location()));
-        ev.bedrockOre(WorldGenBedrockVein.create("tungstate", 96000, Tungstate, OVERWORLD.location()));
-        ev.bedrockOre(WorldGenBedrockVein.create("scheelite", 96000, Scheelite, OVERWORLD.location()));
-        ev.bedrockOre(WorldGenBedrockVein.create("uraninite", 60000, Uraninite, OVERWORLD.location()));
-        ev.bedrockOre(WorldGenBedrockVein.create("pitchblende", 60000, Pitchblende, OVERWORLD.location()));
-        ev.bedrockOre(WorldGenBedrockVein.create("gold_a", 32000, Gold, OVERWORLD.location()));
-        ev.bedrockOre(WorldGenBedrockVein.create("gold_b", 32000, Gold, OVERWORLD.location()));
-        ev.bedrockOre(WorldGenBedrockVein.create("sheldonite", 16000, Sheldonite, OVERWORLD.location()));
-        ev.bedrockOre(WorldGenBedrockVein.create("copper", 16000, Copper, OVERWORLD.location()));
-        ev.bedrockOre(WorldGenBedrockVein.create("monzanite", 16000, Monazite, OVERWORLD.location()));
-        ev.bedrockOre(WorldGenBedrockVein.create("powellite", 14000, Powellite, OVERWORLD.location()));
-        ev.bedrockOre(WorldGenBedrockVein.create("bastnasite", 8000, Bastnasite, OVERWORLD.location()));
-        ev.bedrockOre(WorldGenBedrockVein.create("redstone", 7000, Redstone, OVERWORLD.location()));
-        ev.bedrockOre(WorldGenBedrockVein.create("vanadium_magnetite", 6000, VanadiumMagnetite, OVERWORLD.location()));
-        ev.bedrockOre(WorldGenBedrockVein.create("galena", 6000, Galena, OVERWORLD.location()));
-        ev.bedrockOre(WorldGenBedrockVein.create("coal", 5000, Coal, OVERWORLD.location()));
-        ev.bedrockOre(WorldGenBedrockVein.create("graphite", 5000, Graphite, OVERWORLD.location()));
-        ev.bedrockOre(WorldGenBedrockVein.create("stibnite", 4000, Stibnite, OVERWORLD.location()));
-        ev.bedrockOre(WorldGenBedrockVein.create("hematite", 4000, Hematite, OVERWORLD.location()));
-        ev.bedrockOre(WorldGenBedrockVein.create("sphalerite", 3000, Sphalerite, OVERWORLD.location()));
-        ev.bedrockOre(WorldGenBedrockVein.create("pentlandite", 3000, Pentlandite, OVERWORLD.location()));
-        ev.bedrockOre(WorldGenBedrockVein.create("saltpeter", 3000, Saltpeter, OVERWORLD.location()));
-        ev.bedrockOre(WorldGenBedrockVein.create("bauxite", 2000, Bauxite, OVERWORLD.location()));
-        ev.bedrockOre(WorldGenBedrockVein.create("cassiterite", 2000, Cassiterite, OVERWORLD.location()));
-        ev.bedrockOre(WorldGenBedrockVein.create("chalcopyrite", 2000, Chalcopyrite, OVERWORLD.location()));
+        ev.bedrockOre(WorldGenBedrockVein.create("diamond", 128000, Diamond, true, PANDANUS_CANDELABRUM, OVERWORLD.location()));
+        ev.bedrockOre(WorldGenBedrockVein.create("tungstate", 96000, Tungstate, true, TUNGSTUS, OVERWORLD.location()));
+        ev.bedrockOre(WorldGenBedrockVein.create("scheelite", 96000, Scheelite, true, TUNGSTUS, OVERWORLD.location()));
+        ev.bedrockOre(WorldGenBedrockVein.create("uraninite", 60000, Uraninite, true, TUFTED_EVENING_PRIMROSE, OVERWORLD.location()));
+        ev.bedrockOre(WorldGenBedrockVein.create("pitchblende", 60000, Pitchblende, true, THOMPSONS_LOCOWEED, OVERWORLD.location()));
+        ev.bedrockOre(WorldGenBedrockVein.create("gold_a", 32000, Gold, true, ALTERED_ANDESITE_BUCKWHEAT, OVERWORLD.location()));
+        ev.bedrockOre(WorldGenBedrockVein.create("gold_b", 32000, Gold, true, DESERT_TRUMPET, OVERWORLD.location()));
+        ev.bedrockOre(WorldGenBedrockVein.create("sheldonite", 16000, Sheldonite, true, NARCISSUS_SHELDONIA, OVERWORLD.location()));
+        ev.bedrockOre(WorldGenBedrockVein.create("copper", 16000, Copper, true, BECIUM_HOMBLEI, OVERWORLD.location()));
+        ev.bedrockOre(WorldGenBedrockVein.create("monzanite", 16000, Monazite, true, ORECHID, OVERWORLD.location()));
+        ev.bedrockOre(WorldGenBedrockVein.create("powellite", 14000, Powellite, true, ORECHID, OVERWORLD.location()));
+        ev.bedrockOre(WorldGenBedrockVein.create("bastnasite", 8000, Bastnasite, true, ORECHID, OVERWORLD.location()));
+        ev.bedrockOre(WorldGenBedrockVein.create("redstone", 7000, Redstone, true, PRINCES_PLUME, OVERWORLD.location()));
+        ev.bedrockOre(WorldGenBedrockVein.create("vanadium_magnetite", 6000, VanadiumMagnetite, true, ORECHID, OVERWORLD.location()));
+        ev.bedrockOre(WorldGenBedrockVein.create("galena", 6000, Galena, true, CROSBY_BUCKWHEAT, OVERWORLD.location()));
+        ev.bedrockOre(WorldGenBedrockVein.create("coal", 5000, Coal, true, ORECHID, OVERWORLD.location()));
+        ev.bedrockOre(WorldGenBedrockVein.create("graphite", 5000, Graphite, true, ORECHID, OVERWORLD.location()));
+        ev.bedrockOre(WorldGenBedrockVein.create("stibnite", 4000, Stibnite, true, ATRIPLEX_CANESCENS, OVERWORLD.location()));
+        ev.bedrockOre(WorldGenBedrockVein.create("hematite", 4000, Hematite, true, ORECHID, OVERWORLD.location()));
+        ev.bedrockOre(WorldGenBedrockVein.create("sphalerite", 3000, Sphalerite, true, VIOLA_CALAMINARIA, OVERWORLD.location()));
+        ev.bedrockOre(WorldGenBedrockVein.create("pentlandite", 3000, Pentlandite, true, THLASPI_LERESCHIANUM, OVERWORLD.location()));
+        ev.bedrockOre(WorldGenBedrockVein.create("saltpeter", 3000, Saltpeter, true, ORECHID, OVERWORLD.location()));
+        ev.bedrockOre(WorldGenBedrockVein.create("bauxite", 2000, Bauxite, true, ORECHID, OVERWORLD.location()));
+        ev.bedrockOre(WorldGenBedrockVein.create("cassiterite", 2000, Cassiterite, true, ORECHID, OVERWORLD.location()));
+        ev.bedrockOre(WorldGenBedrockVein.create("chalcopyrite", 2000, Chalcopyrite, true, ALPINE_CATCHFLY, OVERWORLD.location()));
     }
 
     private static void initTwilightForestOres(WorldGenEvent event){

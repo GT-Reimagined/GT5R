@@ -2,6 +2,7 @@ package org.gtreimagined.gt5r.proxy;
 
 import org.gtreimagined.gt5r.GT5RRef;
 import org.gtreimagined.gt5r.GT5Reimagined;
+import org.gtreimagined.gt5r.block.BlockBedrockFlower;
 import org.gtreimagined.gt5r.data.GT5RMachines;
 import muramasa.antimatter.AntimatterAPI;
 import muramasa.antimatter.client.ModelUtils;
@@ -21,6 +22,7 @@ public class ClientHandler {
     public static void setup() {
         AntimatterAPI.all(BlockCasing.class, t -> ModelUtils.INSTANCE.setRenderLayer(t, RenderType.cutout()));
         AntimatterAPI.all(BlockColoredWall.class, t -> ModelUtils.INSTANCE.setRenderLayer(t, RenderType.cutout()));
+        AntimatterAPI.all(BlockBedrockFlower.class, t -> ModelUtils.INSTANCE.setRenderLayer(t, RenderType.cutout()));
         ModelUtils.INSTANCE.setRenderLayer(GT5RMachines.NUCLEAR_REACTOR_CORE.getBlockState(Tier.NONE), RenderType.cutout());
         copyProgrammerArtIfMissing();
     }

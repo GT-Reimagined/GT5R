@@ -7,13 +7,7 @@ import muramasa.antimatter.datagen.providers.AntimatterLanguageProvider;
 import muramasa.antimatter.item.ItemBasic;
 import muramasa.antimatter.util.Utils;
 import org.gtreimagined.gt5r.GT5RRef;
-import org.gtreimagined.gt5r.block.BlockAsphalt;
-import org.gtreimagined.gt5r.block.BlockAsphaltSlab;
-import org.gtreimagined.gt5r.block.BlockAsphaltStair;
-import org.gtreimagined.gt5r.block.BlockCasing;
-import org.gtreimagined.gt5r.block.BlockCoil;
-import org.gtreimagined.gt5r.block.BlockColoredWall;
-import org.gtreimagined.gt5r.block.BlockFakeCasing;
+import org.gtreimagined.gt5r.block.*;
 import org.gtreimagined.gt5r.data.GT5RBlocks;
 import org.gtreimagined.gt5r.data.GT5RCovers;
 import org.gtreimagined.gt5r.data.GT5RItems;
@@ -376,6 +370,13 @@ public class GT5RLocalizations {
                     add(i, "Long Distance Cable (" + tier.toUpperCase() + ")");
                 }
                 add(i, lowerUnderscoreToUpperSpaced(i.getId()));
+            });
+            AntimatterAPI.all(BlockBedrockFlower.class, domain).forEach(b -> {
+                if (b == GT5RBlocks.PRINCES_PLUME){
+                    add(b, "Prince's Plume");
+                } else {
+                    add(b, lowerUnderscoreToUpperSpaced(b.getId()));
+                }
             });
 
             add(GT5RBlocks.MINING_PIPE, "Mining Pipe");

@@ -1,12 +1,6 @@
 package org.gtreimagined.gt5r.datagen;
 
-import org.gtreimagined.gt5r.block.BlockAsphalt;
-import org.gtreimagined.gt5r.block.BlockAsphaltSlab;
-import org.gtreimagined.gt5r.block.BlockAsphaltStair;
-import org.gtreimagined.gt5r.block.BlockCasing;
-import org.gtreimagined.gt5r.block.BlockCoil;
-import org.gtreimagined.gt5r.block.BlockColoredWall;
-import org.gtreimagined.gt5r.block.BlockFakeCasing;
+import org.gtreimagined.gt5r.block.*;
 import org.gtreimagined.gt5r.integration.AppliedEnergisticsRegistrar;
 import org.gtreimagined.gt5r.integration.SpaceModRegistrar;
 import muramasa.antimatter.AntimatterAPI;
@@ -39,6 +33,7 @@ public class GT5RBlockLootProvider extends AntimatterBlockLootProvider {
         AntimatterAPI.all(BlockAsphalt.class, providerDomain, this::add);
         AntimatterAPI.all(BlockAsphaltSlab.class, providerDomain, b -> tables.put(b, BlockLoot::createSlabItemTable));
         AntimatterAPI.all(BlockAsphaltStair.class, providerDomain, this::add);
+        AntimatterAPI.all(BlockBedrockFlower.class, providerDomain, this::add);
         this.add(GT5RBlocks.MINING_PIPE_THIN);
         this.add(GT5RBlocks.SOLID_SUPER_FUEL);
         this.add(GT5RBlocks.POWDER_BARREL);

@@ -46,6 +46,22 @@ public class GT5RBlocks {
         }
     };
 
+    public static final BlockBedrockFlower ALTERED_ANDESITE_BUCKWHEAT = new BlockBedrockFlower(GT5RRef.ID, "altered_andesite_buckwheat");
+    public static final BlockBedrockFlower CROSBY_BUCKWHEAT = new BlockBedrockFlower(GT5RRef.ID, "crosby_buckwheat");
+    public static final BlockBedrockFlower ALPINE_CATCHFLY = new BlockBedrockFlower(GT5RRef.ID, "alpine_catchfly");
+    public static final BlockBedrockFlower VIOLA_CALAMINARIA = new BlockBedrockFlower(GT5RRef.ID, "viola_calaminaria");
+    public static final BlockBedrockFlower THLASPI_LERESCHIANUM = new BlockBedrockFlower(GT5RRef.ID, "thlaspi_lereschianum");
+    public static final BlockBedrockFlower TUFTED_EVENING_PRIMROSE = new BlockBedrockFlower(GT5RRef.ID, "tufted_evening_primrose");
+    public static final BlockBedrockFlower NARCISSUS_SHELDONIA = new BlockBedrockFlower(GT5RRef.ID, "narcissus_sheldonia");
+    public static final BlockBedrockFlower ORECHID = new BlockBedrockFlower(GT5RRef.ID, "orechid");
+    public static final BlockBedrockFlower ATRIPLEX_CANESCENS = new BlockBedrockFlower(GT5RRef.ID, "atriplex_canescens");
+    public static final BlockBedrockFlower DESERT_TRUMPET = new BlockBedrockFlower(GT5RRef.ID, "desert_trumpet");
+    public static final BlockBedrockFlower BECIUM_HOMBLEI = new BlockBedrockFlower(GT5RRef.ID, "becium_homblei");
+    public static final BlockBedrockFlower PRINCES_PLUME = new BlockBedrockFlower(GT5RRef.ID, "princes_plume");
+    public static final BlockBedrockFlower THOMPSONS_LOCOWEED = new BlockBedrockFlower(GT5RRef.ID, "thompsons_locoweed");
+    public static final BlockBedrockFlower PANDANUS_CANDELABRUM = new BlockBedrockFlower(GT5RRef.ID, "pandanus_candelabrum");
+    public static final BlockBedrockFlower TUNGSTUS = new BlockBedrockFlower(GT5RRef.ID, "tungstus");
+
     public static final BlockBasic POWDER_BARREL = new BlockPowderBarrel();
     public static final BlockBasic MINING_PIPE_THIN = new BlockMiningPipe(GT5RRef.ID, "mining_pipe_thin", BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_GRAY).strength(1.0f, 3.0f));
     public static final BlockBasic MINING_PIPE = new BlockMiningPipe(GT5RRef.ID, "mining_pipe", BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_GRAY).strength(1.0f, 3.0f));
