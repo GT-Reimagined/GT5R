@@ -14,6 +14,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Blocks;
+import org.gtreimagined.gt5r.data.GT5RBlocks;
 import org.gtreimagined.gtcore.GTCoreConfig;
 
 import java.util.function.Consumer;
@@ -76,5 +77,19 @@ public class VanillaExtensions {
                 provider.removeRecipe(new ResourceLocation(dye.getName() + "_concrete_powder"));
             }
         }
+        provider.shapeless(consumer, GT5RRef.ID, "yellow_dye_from_bedrock_flower", "dyes", Items.YELLOW_DYE.getDefaultInstance(), GT5RBlocks.DESERT_TRUMPET);
+        provider.shapeless(consumer, GT5RRef.ID, "pink_dye_from_bedrock_flower", "dyes", Items.PINK_DYE.getDefaultInstance(), GT5RBlocks.BECIUM_HOMBLEI);
+        provider.shapeless(consumer, GT5RRef.ID, "yellow_dye_from_bedrock_flower_2", "dyes", Items.YELLOW_DYE.getDefaultInstance(), GT5RBlocks.PRINCES_PLUME);
+        provider.shapeless(consumer, GT5RRef.ID, "purple_dye_from_bedrock_flower", "dyes", Items.PURPLE_DYE.getDefaultInstance(), GT5RBlocks.THOMPSONS_LOCOWEED);
+        provider.shapeless(consumer, GT5RRef.ID, "green_dye_from_bedrock_flower", "dyes", Items.GREEN_DYE.getDefaultInstance(), GT5RBlocks.TUNGSTUS); //smelt?
+        provider.shapeless(consumer, GT5RRef.ID, "yellow_dye_from_bedrock_flower_3", "dyes", Items.YELLOW_DYE.getDefaultInstance(), GT5RBlocks.ALTERED_ANDESITE_BUCKWHEAT);
+        provider.shapeless(consumer, GT5RRef.ID, "yellow_dye_from_bedrock_flower_4", "dyes", Items.YELLOW_DYE.getDefaultInstance(), GT5RBlocks.CROSBY_BUCKWHEAT);
+        provider.shapeless(consumer, GT5RRef.ID, "magenta_dye_from_bedrock_flower", "dyes", Items.MAGENTA_DYE.getDefaultInstance(), GT5RBlocks.ALPINE_CATCHFLY);
+        provider.shapeless(consumer, GT5RRef.ID, "yellow_dye_from_bedrock_flower_5", "dyes", Items.YELLOW_DYE.getDefaultInstance(), GT5RBlocks.VIOLA_CALAMINARIA);
+        provider.shapeless(consumer, GT5RRef.ID, "pink_dye_from_bedrock_flower_2", "dyes", Items.PINK_DYE.getDefaultInstance(), GT5RBlocks.THLASPI_LERESCHIANUM);
+        provider.shapeless(consumer, GT5RRef.ID, "white_dye_from_bedrock_flower_", "dyes", Items.WHITE_DYE.getDefaultInstance(), GT5RBlocks.TUFTED_EVENING_PRIMROSE);
+        provider.shapeless(consumer, GT5RRef.ID, "light_blue_dye_from_bedrock_flower", "dyes", Items.LIGHT_BLUE_DYE.getDefaultInstance(), GT5RBlocks.NARCISSUS_SHELDONIA);
+        provider.shapeless(consumer, GT5RRef.ID, "brown_dye_from_bedrock_flower", "dyes", Items.BROWN_DYE.getDefaultInstance(), GT5RBlocks.ORECHID);
+
     }
 }

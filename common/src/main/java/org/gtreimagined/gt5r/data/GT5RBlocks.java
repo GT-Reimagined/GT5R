@@ -25,6 +25,9 @@ import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import org.gtreimagined.gt5r.block.*;
 
+import static muramasa.antimatter.data.AntimatterMaterials.*;
+import static org.gtreimagined.gt5r.data.Materials.*;
+
 public class GT5RBlocks {
 
     public static final LiquidBlock LAVA = AntimatterAPI.register(Block.class, "lava", GT5RRef.ID, new LiquidBlock(Fluids.LAVA, BlockBehaviour.Properties.of(net.minecraft.world.level.material.Material.LAVA).noCollission().randomTicks().strength(100.0F).lightLevel((blockStatex) -> 15).noDrops()){
@@ -46,21 +49,21 @@ public class GT5RBlocks {
         }
     };
 
-    public static final BlockBedrockFlower ALTERED_ANDESITE_BUCKWHEAT = new BlockBedrockFlower(GT5RRef.ID, "altered_andesite_buckwheat");
-    public static final BlockBedrockFlower CROSBY_BUCKWHEAT = new BlockBedrockFlower(GT5RRef.ID, "crosby_buckwheat");
-    public static final BlockBedrockFlower ALPINE_CATCHFLY = new BlockBedrockFlower(GT5RRef.ID, "alpine_catchfly");
-    public static final BlockBedrockFlower VIOLA_CALAMINARIA = new BlockBedrockFlower(GT5RRef.ID, "viola_calaminaria");
-    public static final BlockBedrockFlower THLASPI_LERESCHIANUM = new BlockBedrockFlower(GT5RRef.ID, "thlaspi_lereschianum");
-    public static final BlockBedrockFlower TUFTED_EVENING_PRIMROSE = new BlockBedrockFlower(GT5RRef.ID, "tufted_evening_primrose");
-    public static final BlockBedrockFlower NARCISSUS_SHELDONIA = new BlockBedrockFlower(GT5RRef.ID, "narcissus_sheldonia");
-    public static final BlockBedrockFlower ORECHID = new BlockBedrockFlower(GT5RRef.ID, "orechid");
-    public static final BlockBedrockFlower ATRIPLEX_CANESCENS = new BlockBedrockFlower(GT5RRef.ID, "atriplex_canescens");
-    public static final BlockBedrockFlower DESERT_TRUMPET = new BlockBedrockFlower(GT5RRef.ID, "desert_trumpet");
-    public static final BlockBedrockFlower BECIUM_HOMBLEI = new BlockBedrockFlower(GT5RRef.ID, "becium_homblei");
-    public static final BlockBedrockFlower PRINCES_PLUME = new BlockBedrockFlower(GT5RRef.ID, "princes_plume");
-    public static final BlockBedrockFlower THOMPSONS_LOCOWEED = new BlockBedrockFlower(GT5RRef.ID, "thompsons_locoweed");
-    public static final BlockBedrockFlower PANDANUS_CANDELABRUM = new BlockBedrockFlower(GT5RRef.ID, "pandanus_candelabrum");
-    public static final BlockBedrockFlower TUNGSTUS = new BlockBedrockFlower(GT5RRef.ID, "tungstus");
+    public static final BlockBedrockFlower ALTERED_ANDESITE_BUCKWHEAT = new BlockBedrockFlower(GT5RRef.ID, "altered_andesite_buckwheat", Gold, false);
+    public static final BlockBedrockFlower CROSBY_BUCKWHEAT = new BlockBedrockFlower(GT5RRef.ID, "crosby_buckwheat", Silver, false);
+    public static final BlockBedrockFlower ALPINE_CATCHFLY = new BlockBedrockFlower(GT5RRef.ID, "alpine_catchfly", Copper, false);
+    public static final BlockBedrockFlower VIOLA_CALAMINARIA = new BlockBedrockFlower(GT5RRef.ID, "viola_calaminaria", Zinc, false);
+    public static final BlockBedrockFlower THLASPI_LERESCHIANUM = new BlockBedrockFlower(GT5RRef.ID, "thlaspi_lereschianum", Nickel, false);
+    public static final BlockBedrockFlower TUFTED_EVENING_PRIMROSE = new BlockBedrockFlower(GT5RRef.ID, "tufted_evening_primrose", Uranium, false);
+    public static final BlockBedrockFlower NARCISSUS_SHELDONIA = new BlockBedrockFlower(GT5RRef.ID, "narcissus_sheldonia", Platinum, false);
+    public static final BlockBedrockFlower ORECHID = new BlockBedrockFlower(GT5RRef.ID, "orechid", muramasa.antimatter.material.Material.NULL, false);
+    public static final BlockBedrockFlower ATRIPLEX_CANESCENS = new BlockBedrockFlower(GT5RRef.ID, "atriplex_canescens", Antimony, true);
+    public static final BlockBedrockFlower DESERT_TRUMPET = new BlockBedrockFlower(GT5RRef.ID, "desert_trumpet", Gold, true);
+    public static final BlockBedrockFlower BECIUM_HOMBLEI = new BlockBedrockFlower(GT5RRef.ID, "becium_homblei", Copper, true);
+    public static final BlockBedrockFlower PRINCES_PLUME = new BlockBedrockFlower(GT5RRef.ID, "princes_plume", Redstone, true);
+    public static final BlockBedrockFlower THOMPSONS_LOCOWEED = new BlockBedrockFlower(GT5RRef.ID, "thompsons_locoweed", Uranium, true);
+    public static final BlockBedrockFlower PANDANUS_CANDELABRUM = new BlockBedrockFlower(GT5RRef.ID, "pandanus_candelabrum", Diamond, true);
+    public static final BlockBedrockFlower TUNGSTUS = new BlockBedrockFlower(GT5RRef.ID, "tungstus", Tungsten, true);
 
     public static final BlockBasic POWDER_BARREL = new BlockPowderBarrel();
     public static final BlockBasic MINING_PIPE_THIN = new BlockMiningPipe(GT5RRef.ID, "mining_pipe_thin", BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_GRAY).strength(1.0f, 3.0f));
@@ -202,9 +205,9 @@ public class GT5RBlocks {
     public static final Cable<?> CABLE_COPPER = AntimatterAPI.register(Cable.class, new Cable<>(GT5RRef.ID, AntimatterMaterials.Copper, 2, Tier.MV).amps(1));
     public static final Cable<?> CABLE_ANNEALED_COPPER = AntimatterAPI.register(Cable.class, new Cable<>(GT5RRef.ID, Materials.AnnealedCopper, 1, Tier.MV).amps(1));
     public static final Cable<?> CABLE_KANTHAL = AntimatterAPI.register(Cable.class, new Cable<>(GT5RRef.ID, Materials.Kanthal, 3, Tier.HV).amps(4)); //H);
-    public static final Cable<?> CABLE_GOLD = AntimatterAPI.register(Cable.class, new Cable<>(GT5RRef.ID, AntimatterMaterials.Gold, 2, Tier.HV).amps(3));
+    public static final Cable<?> CABLE_GOLD = AntimatterAPI.register(Cable.class, new Cable<>(GT5RRef.ID, Gold, 2, Tier.HV).amps(3));
     public static final Cable<?> CABLE_ELECTRUM = AntimatterAPI.register(Cable.class, new Cable<>(GT5RRef.ID, Materials.Electrum, 2, Tier.HV).amps(2));
-    public static final Cable<?> CABLE_SILVER = AntimatterAPI.register(Cable.class,new Cable<>(GT5RRef.ID, Materials.Silver, 1, Tier.HV).amps(1));
+    public static final Cable<?> CABLE_SILVER = AntimatterAPI.register(Cable.class,new Cable<>(GT5RRef.ID, Silver, 1, Tier.HV).amps(1));
     public static final Cable<?> CABLE_NICHROME = AntimatterAPI.register(Cable.class, new Cable<>(GT5RRef.ID, Materials.Nichrome, 4, Tier.EV).amps(3)); //E);
     public static final Cable<?> CABLE_STEEL = AntimatterAPI.register(Cable.class, new Cable<>(GT5RRef.ID, Materials.Steel, 2, Tier.EV).amps(2));
     public static final Cable<?> CABLE_TITANIUM = AntimatterAPI.register(Cable.class, new Cable<>(GT5RRef.ID, Materials.Titanium, 2, Tier.EV).amps(4));
@@ -233,9 +236,9 @@ public class GT5RBlocks {
     public static final Wire<?> WIRE_COPPER = AntimatterAPI.register(Wire.class, new Wire<>(GT5RRef.ID, AntimatterMaterials.Copper, 4, Tier.MV).amps(1));
     public static final Wire<?> WIRE_ANNEALED_COPPER = AntimatterAPI.register(Wire.class, new Wire<>(GT5RRef.ID, Materials.AnnealedCopper, 2, Tier.MV).amps(1));
     public static final Wire<?> WIRE_KANTHAL = AntimatterAPI.register(Wire.class, new Wire<>(GT5RRef.ID, Materials.Kanthal, 6, Tier.HV).amps(4)); //H);
-    public static final Wire<?> WIRE_GOLD = AntimatterAPI.register(Wire.class, new Wire<>(GT5RRef.ID, AntimatterMaterials.Gold, 4, Tier.HV).amps(3));
+    public static final Wire<?> WIRE_GOLD = AntimatterAPI.register(Wire.class, new Wire<>(GT5RRef.ID, Gold, 4, Tier.HV).amps(3));
     public static final Wire<?> WIRE_ELECTRUM = AntimatterAPI.register(Wire.class, new Wire<>(GT5RRef.ID, Materials.Electrum, 4, Tier.HV).amps(2));
-    public static final Wire<?> WIRE_SILVER = AntimatterAPI.register(Wire.class, new Wire<>(GT5RRef.ID, Materials.Silver, 2, Tier.HV).amps(1));
+    public static final Wire<?> WIRE_SILVER = AntimatterAPI.register(Wire.class, new Wire<>(GT5RRef.ID, Silver, 2, Tier.HV).amps(1));
     public static final Wire<?> WIRE_NICHROME = AntimatterAPI.register(Wire.class, new Wire<>(GT5RRef.ID, Materials.Nichrome, 8, Tier.EV).amps(3)); //E);
     public static final Wire<?> WIRE_STEEL = AntimatterAPI.register(Wire.class, new Wire<>(GT5RRef.ID, Materials.Steel, 4, Tier.EV).amps(2));
     public static final Wire<?> WIRE_TITANIUM = AntimatterAPI.register(Wire.class,  new Wire<>(GT5RRef.ID, Materials.Titanium, 4, Tier.EV).amps(4));
@@ -259,7 +262,7 @@ public class GT5RBlocks {
     // it's not in gt6, not sure whether to keep it or not
     //public static final FluidPipe<?> FLUID_PIPE_BISMUTH_BRONZE = AntimatterAPI.register(FluidPipe.class, new FluidPipe<>(GT5RRef.ID, BismuthBronze, 950, true).caps(1).pressures(800));
     //public static final FluidPipe<?> FLUID_PIPE_BLACK_STEEL = AntimatterAPI.register(FluidPipe.class, new FluidPipe<>(GT5RRef.ID, BlackSteel, 1200, true).caps(1).pressures(900));
-    public static final FluidPipe<?> FLUID_PIPE_GOLD = AntimatterAPI.register(FluidPipe.class, new FluidPipe<>(GT5RRef.ID, AntimatterMaterials.Gold, 1671, true).acidProof(true).pressures(getPressures(300)));
+    public static final FluidPipe<?> FLUID_PIPE_GOLD = AntimatterAPI.register(FluidPipe.class, new FluidPipe<>(GT5RRef.ID, Gold, 1671, true).acidProof(true).pressures(getPressures(300)));
     public static final FluidPipe<?> FLUID_PIPE_INVAR = AntimatterAPI.register(FluidPipe.class,new FluidPipe<>(GT5RRef.ID, Materials.Invar, 2395, true).caps(1).pressures(getPressures(600)).heatProof(true));
     public static final FluidPipe<?> FLUID_PIPE_STEEL = AntimatterAPI.register(FluidPipe.class,new FluidPipe<>(GT5RRef.ID, Materials.Steel, 2557, true).caps(1).pressures(getPressures(600)));
     public static final FluidPipe<?> FLUID_PIPE_CHROMIUM = AntimatterAPI.register(FluidPipe.class, new FluidPipe<>(GT5RRef.ID, Materials.Chromium, 2725, true).acidProof(true).pressures(getPressures(600)));

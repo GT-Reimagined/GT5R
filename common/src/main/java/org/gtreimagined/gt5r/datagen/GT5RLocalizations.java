@@ -5,12 +5,14 @@ import muramasa.antimatter.AntimatterAPI;
 import muramasa.antimatter.Ref;
 import muramasa.antimatter.datagen.providers.AntimatterLanguageProvider;
 import muramasa.antimatter.item.ItemBasic;
+import muramasa.antimatter.material.Material;
 import muramasa.antimatter.util.Utils;
 import org.gtreimagined.gt5r.GT5RRef;
 import org.gtreimagined.gt5r.block.*;
 import org.gtreimagined.gt5r.data.GT5RBlocks;
 import org.gtreimagined.gt5r.data.GT5RCovers;
 import org.gtreimagined.gt5r.data.GT5RItems;
+import org.gtreimagined.gt5r.data.Materials;
 import org.gtreimagined.gt5r.items.ItemDepletedRod;
 import org.gtreimagined.gt5r.items.ItemNuclearFuelRod;
 
@@ -377,6 +379,9 @@ public class GT5RLocalizations {
                 } else {
                     add(b, lowerUnderscoreToUpperSpaced(b.getId()));
                 }
+                String material= b.tooltipMaterial != Material.NULL ? b.tooltipMaterial == Materials.Uranium ? "Uranium" : b.tooltipMaterial.getDisplayNameString() : "Ore";
+                String n = material.startsWith("A") || material.startsWith("E") || material.startsWith("I") || material.startsWith("O") || material.startsWith("U") ? "n" : "";
+                add("tooltip." + b.getDomain() + "." + b.getId().replace("/", "."), "Indicates presence of a" + n + " " + material + " Deposit nearby");
             });
 
             add(GT5RBlocks.MINING_PIPE, "Mining Pipe");
