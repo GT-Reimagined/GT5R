@@ -68,6 +68,8 @@ public class BlockEntityCombustionEngine extends BlockEntityMultiMachine<BlockEn
                         if (lubeTicker > 72) lubeTicker = 0;
                     }
                     return true;
+                } else if (!simulate){
+                    resetRecipe();
                 }
                 if (!simulate && startup > 0) startup = 0;
                 return false;
