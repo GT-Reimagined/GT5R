@@ -46,13 +46,14 @@ public class BlockEntityCombustionEngine extends BlockEntityMultiMachine<BlockEn
                 long toConsume = fuelConsumption * activeRecipe.getInputFluids().get(0).getAmount();
                 if (fluidHandler.map(f -> !f.consumeAndReturnInputs(List.of(activeRecipe.getInputFluids().get(0).copy(toConsume)), simulate).isEmpty()).orElse(false)){
                     if (!simulate) {
+                        if (startup > 100) startup = 100;
                         fluidHandler.ifPresent(f -> {
                             f.drainInput(Oxygen.getGas(2), false);
                             if (lubeTicker == 72) f.drainInput(Lubricant.getLiquid(lubeConsume), false);
                         });
                         lastConsumption = toConsume;
                         long euPerTick = boostEU ? 6144 : 2048;
-                        lastEu = startup < 2000 ? 0 : (long)(euPerTick * ((float)startup / 10000));
+                        lastEu = startup < 20 ? 0 : (long)(euPerTick * ((float)startup / 100));
                         energyHandler.ifPresent(e -> {
                             e.insertInternal(lastEu, simulate);
                             if (lastEu > e.getOutputVoltage()){
@@ -60,9 +61,8 @@ public class BlockEntityCombustionEngine extends BlockEntityMultiMachine<BlockEn
                             }
                         });
 
-                        if (startup < 10000){
-                            startup += 15;
-                            if (startup > 10000) startup = 10000;
+                        if (startup < 100){
+                            startup ++;
                         }
                         lubeTicker++;
                         if (lubeTicker > 72) lubeTicker = 0;
@@ -101,7 +101,7 @@ public class BlockEntityCombustionEngine extends BlockEntityMultiMachine<BlockEn
             return 16;
         } else if (instance.drawActiveInfo()) {
             renderer.draw(stack, "EU/t: " + widget.lastEU, left, top + 8, 16448255);
-            renderer.draw(stack, "Startup progress: " + (((float)widget.startup / 10000) * 100) + "%", left, top + 16, 16448255);
+            renderer.draw(stack, "Startup progress: " + (((float)widget.startup / 100) * 100) + "%", left, top + 16, 16448255);
             renderer.draw(stack, "Current: " + widget.currentConsumption + " mb/t", left, top + 24, 16448255);
             return 32;
         }
