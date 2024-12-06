@@ -64,6 +64,7 @@ public class VanillaExtensions {
             for (DyeColor dye : DyeColor.values()){
                 provider.removeRecipe(new ResourceLocation(dye.getName() + "_concrete_powder"));
             }
+            provider.removeRecipe(new ResourceLocation("netherite_ingot"));
         }
         provider.shapeless(consumer, GT5RRef.ID, "yellow_dye_from_bedrock_flower", "dyes", Items.YELLOW_DYE.getDefaultInstance(), GT5RBlocks.DESERT_TRUMPET);
         provider.shapeless(consumer, GT5RRef.ID, "pink_dye_from_bedrock_flower", "dyes", Items.PINK_DYE.getDefaultInstance(), GT5RBlocks.BECIUM_HOMBLEI);
