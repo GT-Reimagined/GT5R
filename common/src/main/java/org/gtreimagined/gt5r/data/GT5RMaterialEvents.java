@@ -1,5 +1,6 @@
 package org.gtreimagined.gt5r.data;
 
+import muramasa.antimatter.data.AntimatterMaterialTypes;
 import org.gtreimagined.gt5r.material.GregTechMaterialEvent;
 import muramasa.antimatter.Data;
 import muramasa.antimatter.data.AntimatterDefaultTools;
@@ -193,7 +194,6 @@ public class GT5RMaterialEvents {
         event.setMaterial(Materials.RawRubber).asDust(RUBBERTOOLS);
         event.setMaterial(Materials.RawStyreneButadieneRubber).asDust(RUBBERTOOLS);
         event.setMaterial(Materials.SodaAsh).asDust();
-        event.setMaterial(Wood).asDust(GEAR);
         /**
          *  Inorganic
          **/
@@ -1499,7 +1499,6 @@ public class GT5RMaterialEvents {
         event.setMaterial(Water).mats(of(Materials.Hydrogen, 2, Materials.Oxygen, 1)).elecTicks(2000);
         event.setMaterial(Sugar).mats(of(Water, 11, Materials.Carbon, 12)).elecTicks(184);
         event.setMaterial(Glowstone).asFluid(0, 1000).flags(MOLTEN);
-        event.setMaterial(Endstone).flags(ROD_LONG);
         event.setMaterial(Flint).mats(of(Materials.SiliconDioxide, 1)).elecTicks(80);
     }
 }

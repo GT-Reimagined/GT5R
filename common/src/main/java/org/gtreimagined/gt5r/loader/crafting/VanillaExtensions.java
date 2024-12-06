@@ -31,18 +31,6 @@ public class VanillaExtensions {
         provider.addConditionalRecipe(consumer, provider.getStackRecipe("", false,
                 new ItemStack(Blocks.TORCH, 2), of('D', TagUtils.getForgelikeItemTag("dusts/sulfur"), 'R', ForgeCTags.RODS_WOODEN), "D", "R"), GT5RRef.class, "sulfurTorch", GT5RRef.ID, "sulfur_torch");
 
-       provider.addItemRecipe(consumer, GT5RRef.ID, "", "gears",
-                AntimatterMaterialTypes.GEAR.get(AntimatterMaterials.Wood), of('P', ItemTags.PLANKS, 'W', WRENCH.getTag(), 'R', ForgeCTags.RODS_WOODEN), "RPR", "PWP", "RPR");
-
-        provider.addItemRecipe(consumer, GT5RRef.ID, "gear_wood_alt", "gears",
-                AntimatterMaterialTypes.GEAR.get(AntimatterMaterials.Wood), of('P', ItemTags.PLANKS, 'W', WRENCH.getTag(), 'R', ForgeCTags.RODS_WOODEN), "RPR", "PWP", "RPR");
-
-        provider.addItemRecipe(consumer, GT5RRef.ID, "" , "gears",
-                AntimatterMaterialTypes.GEAR.get(AntimatterMaterials.Stone), of('S', ForgeCTags.STONE, 'W', WRENCH.getTag(), 'C', ForgeCTags.COBBLESTONE), "SCS", "CWC", "SCS");
-
-        provider.addItemRecipe(consumer, GT5RRef.ID,  "gear_stone_alt", "gears",
-                AntimatterMaterialTypes.GEAR.get(AntimatterMaterials.Stone), of('S', ForgeCTags.STONE, 'W', WRENCH.getTag(), 'C', ForgeCTags.COBBLESTONE), "CSC", "SWS", "CSC");
-
         provider.addItemRecipe(consumer, GT5RRef.ID, "chainmail_helmet", "chainmail_armor",
                 Items.CHAINMAIL_HELMET, of('R', AntimatterMaterialTypes.RING.getMaterialTag(Steel), 'H', HAMMER.getTag()), "RRR", "RHR");
         provider.addItemRecipe(consumer, GT5RRef.ID, "chainmail_chestplate", "chainmail_armor",
