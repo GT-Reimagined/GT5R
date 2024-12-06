@@ -17,6 +17,7 @@ import muramasa.antimatter.pipe.types.Wire;
 import muramasa.antimatter.recipe.ingredient.RecipeIngredient;
 import muramasa.antimatter.recipe.map.RecipeBuilder;
 import muramasa.antimatter.util.AntimatterPlatformUtils;
+import net.minecraft.world.item.Items;
 import org.gtreimagined.gt5r.GT5Reimagined;
 import org.gtreimagined.gt5r.block.BlockCasing;
 import org.gtreimagined.gt5r.block.BlockColoredWall;
@@ -230,6 +231,7 @@ public class ArcFurnaceLoader {
         addRecyclingRecipe(GT5RBlocks.COIL_HSSG, of(HSSG, 8f));
         addRecyclingRecipe(GT5RBlocks.COIL_NAQUADAH, of(Naquadah, 8f));
         addRecyclingRecipe(GT5RBlocks.COIL_NAQUADAH_ALLOY, of(NaquadahAlloy, 8f));
+        addRecyclingRecipe(Items.IRON_DOOR, of(Iron, 2.0f));
     }
 
     private static void addRecyclingRecipe(ItemLike input, ImmutableMap<Material, Float> outputs){
