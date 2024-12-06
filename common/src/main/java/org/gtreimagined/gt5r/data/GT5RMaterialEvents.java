@@ -570,8 +570,10 @@ public class GT5RMaterialEvents {
          **/
         event.setMaterial(Materials.Air).asGas().fluidDensity(0);
         event.setMaterial(Materials.Ammonia).asGas().flags(ACID).fluidDensity(-263);
+        event.setMaterial(Materials.EnderAir).asGas().fluidDensity(0);
         event.setMaterial(Materials.DinitrogenTetroxide).asGas();
         event.setMaterial(Materials.HydrogenSulfide).asGas();
+        event.setMaterial(Materials.NetherAir).asGas().fluidDensity(0);
         event.setMaterial(Materials.NitrogenMonoxide).asGas();
         event.setMaterial(Materials.NitrogenDioxide).asGas();
         event.setMaterial(Materials.NobleGases).asGas(0,790);

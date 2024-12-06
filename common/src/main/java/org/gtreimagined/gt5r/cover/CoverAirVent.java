@@ -49,6 +49,10 @@ public class CoverAirVent extends BaseCover {
             if (level.getGameTime() % 360 == (30 + (60L * side.get3DDataValue()))){
                 if (level.dimension() == Level.OVERWORLD){
                     cap.get().insertFluid(Materials.Air.getGas(64000), false);
+                } else if (level.dimension() == Level.NETHER){
+                    cap.get().insertFluid(Materials.NetherAir.getGas(64000), false);
+                } else if (level.dimension() == Level.END){
+                    cap.get().insertFluid(Materials.EnderAir.getGas(64000), false);
                 }
             }
         }

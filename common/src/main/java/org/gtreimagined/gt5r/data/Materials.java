@@ -612,7 +612,9 @@ public class Materials {
     public static Material Air = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "air", 0xc9e3fc, NONE));
     public static Material Ammonia = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "ammonia", 0x3f3480, NONE));
     public static Material DinitrogenTetroxide = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "dinitrogen_tetroxide", 0x004184, NONE));
+    public static Material EnderAir = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "ender_air", 0x556fbc, NONE));
     public static Material HydrogenSulfide = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "hydrogen_sulfide", 0xffffff, NONE));
+    public static Material NetherAir = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "nether_air", 0xad7070, NONE));
     public static Material NitrogenMonoxide = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "nitrogen_monoxide", 0x7dc8f0, NONE));
     public static Material NitrogenDioxide = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "nitrogen_dioxide", 0x64afff, NONE));
     public static Material NobleGases = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "noble_gases", 0xc9e3fc, NONE));

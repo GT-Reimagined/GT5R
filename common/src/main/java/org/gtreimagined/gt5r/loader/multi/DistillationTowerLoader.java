@@ -61,6 +61,8 @@ public class DistillationTowerLoader {
                 new FluidProduct(Methane, 750),
                 new FluidProduct(Helium, 20));
         CRYO_DISTILLATION.RB().fi(Air.getGas(200)).fo(Helium.getGas(1), Neon.getGas(1), Argon.getGas(1), Nitrogen.getGas(143), Oxygen.getGas(50), CarbonDioxide.getGas(10)).add("air_distillation", 64, 64);
+        CRYO_DISTILLATION.RB().fi(EnderAir.getGas(200)).fo(Krypton.getGas(1), Xenon.getGas(1), Radon.getGas(1), Nitrogen.getGas(143), Oxygen.getGas(50), CarbonDioxide.getGas(10)).add("ender_air_distillation", 64, 64);
+        CRYO_DISTILLATION.RB().fi(NetherAir.getGas(200)).fo(Helium.getGas(1), Neon.getGas(1), Argon.getGas(1), Nitrogen.getGas(143), Oxygen.getGas(50), SulfurDioxide.getGas(10)).add("nether_air_distillation", 64, 64);
     }
 
     private static void initCracked(){
