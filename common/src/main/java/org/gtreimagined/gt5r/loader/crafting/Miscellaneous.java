@@ -1,5 +1,6 @@
 package org.gtreimagined.gt5r.loader.crafting;
 
+import net.minecraft.world.item.Items;
 import org.gtreimagined.gt5r.GT5RRef;
 import muramasa.antimatter.data.ForgeCTags;
 import muramasa.antimatter.datagen.providers.AntimatterRecipeProvider;
@@ -24,6 +25,9 @@ public class Miscellaneous {
         ), "SSS", "S S", "SSS");
         provider.addStackRecipe(output, GT5RRef.ID, "plantball3", "misc", new ItemStack(Plantball, 2), of(
                 'S', TagUtils.getItemTag(new ResourceLocation("saplings"))
+        ), "SSS", "S S", "SSS");
+        provider.addStackRecipe(output, GT5RRef.ID, "plantball4", "misc", new ItemStack(Plantball, 2), of(
+                'S', Items.CHORUS_FRUIT
         ), "SSS", "S S", "SSS");
     }
 }

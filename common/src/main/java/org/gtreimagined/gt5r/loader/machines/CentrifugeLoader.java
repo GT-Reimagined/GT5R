@@ -107,6 +107,7 @@ public class CentrifugeLoader {
         addMethaneRecipe(COOKED_MUTTON, 36, 288);
         addMethaneRecipe(COOKED_RABBIT, 36, 288);
         addMethaneRecipe(MUSHROOM_STEW, 36, 288, new ItemStack(BOWL));
+        addMethaneRecipe(CHORUS_FRUIT, 36, 288);
         addMethaneRecipe(BEEF, 48, 384);
         addMethaneRecipe(CHICKEN, 48, 384);
         addMethaneRecipe(PORKCHOP, 48, 384);
