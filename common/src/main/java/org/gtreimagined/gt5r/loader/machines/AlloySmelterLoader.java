@@ -45,6 +45,7 @@ public class AlloySmelterLoader {
         });
         addAlloyRecipes(ImmutableMap.of(Copper, 3, Electrum, 2), BlackBronze, 5);
         addAlloyRecipes(ImmutableMap.of(Bismuth, 1, Brass, 4), BismuthBronze, 5);
+        addAlloyRecipes(ImmutableMap.of(Gold, 4, NetheriteScrap, 4), Netherite, 1);
         //pre Chemical Reactor Rubber
         ALLOY_SMELTER.RB().ii(of(DUST.get(RawRubber), 3), of(DUST.getMaterialTag(Sulfur), 1))
                 .io(INGOT.get(Rubber, 1)).add("rubber_via_alloy_smelter",20, 10);
@@ -96,19 +97,5 @@ public class AlloySmelterLoader {
             });
             ALLOY_SMELTER.RB().ii(ingredients).io(INGOT.get(output, amount)).add(output.getId() + "_ingot", 100, 12);
         }
-    }
-
-    private static void addAlloyRecipes(Material input1, int count1, Material input2, int count2, Material output, int countO){
-        String suffix = input1 == AnnealedCopper ? "_annealed" : "";
-        if (input1.has(INGOT) && input2.has(INGOT)) {
-            ALLOY_SMELTER.RB().ii(INGOT.getMaterialIngredient(input1, count1), INGOT.getMaterialIngredient(input2, count2)).io(INGOT.get(output, countO)).add(output.getId() + "_ingot" + suffix, 100, 12);
-        }
-        if (input2.has(INGOT)) {
-            ALLOY_SMELTER.RB().ii(DUST.getMaterialIngredient(input1, count1), INGOT.getMaterialIngredient(input2, count2)).io(INGOT.get(output, countO)).add(output.getId() + "_ingot_1" + suffix, 100, 12);
-        }
-        if (input1.has(INGOT)) {
-            ALLOY_SMELTER.RB().ii(INGOT.getMaterialIngredient(input1, count1), DUST.getMaterialIngredient(input2, count2)).io(INGOT.get(output, countO)).add(output.getId() + "_ingot_2" + suffix, 100, 12);
-        }
-        ALLOY_SMELTER.RB().ii(DUST.getMaterialIngredient(input1, count1), DUST.getMaterialIngredient(input2, count2)).io(INGOT.get(output, countO)).add(output.getId() + "_ingot_3" + suffix, 100, 12);
     }
 }
