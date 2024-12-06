@@ -153,7 +153,7 @@ public class GT5RMaterialEvents {
         event.setMaterial(Materials.NaquadahAlloy).asMetal(7200, 7200);
         event.setMaterial(Materials.Naquadria).asMetal(9000, 9000, POSITIVE_CHANGING_RGB);
         event.setMaterial(Materials.Nichrome).asMetal(2700, 2700);
-        event.setMaterial(Materials.NickelZincFerrite).asMetal(1500, ALLOY);
+        event.setMaterial(Materials.NickelZincFerrite).asMetal(1500);
         event.setMaterial(Materials.NiobiumTitanium).asMetal(4500, 4500, PLATE, FOIL, ROD_LONG, WIRE_FINE, GEAR);
         event.setMaterial(Materials.Osmiridium).asMetal(3333, 2500, FRAME);
         event.setMaterial(Materials.RedAlloy).asMetal(295, PLATE, FOIL, ROD_LONG, WIRE_FINE, ALLOY);
