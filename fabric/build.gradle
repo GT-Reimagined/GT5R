@@ -41,7 +41,7 @@ dependencies{
     modImplementation("net.feltmc:felt-enchanting-api:1.1.0") { transitive false }
     modImplementation("dev.trinsdar:arrp:0.6.7")
     modImplementation("org.gt-reimagined:structurelib-fabric:${project.structurelib_version}-${project.minecraft_version}")
-    modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${rootProject.rei_version}"
+    modImplementation "me.shedaniel:RoughlyEnoughItems-fabric:${rootProject.rei_version}"
     modCompileOnly("mezz.jei:jei-${rootProject.minecraft_version}-fabric:${rootProject.jei_version}"){
         exclude(group: "mezz.jei", module: "jei-1.18.2-fabric-api")
     }
