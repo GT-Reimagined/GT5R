@@ -1,4 +1,4 @@
-import org.gradle.api.tasks.compile.JavaCompile
+import xyz.wagyourtail.unimined.expect.task.ExpectPlatformJar
 
 plugins {
     id "fabric-loom"

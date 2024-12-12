@@ -70,7 +70,7 @@ dependencies {
         annotationProcessor 'org.spongepowered:mixin:0.8.5-SNAPSHOT:processor'
     }
     //minecraftRuntimeLibraries(group: 'com.github.Speiger', name: 'Primitive-Collections', version: '[0.8,0.9)')
-    mdImplementation("org.gt-reimagined:gtcore-forge:${rootProject.gt_core_version}-${rootProject.minecraft_version}")
+    modImplementation("org.gt-reimagined:gtcore-forge:${rootProject.gt_core_version}-${rootProject.minecraft_version}")
     jarJar("org.gt-reimagined:gtcore-forge:${rootProject.gt_core_version}-${rootProject.minecraft_version}"){
         version{
             prefer("${rootProject.gt_core_version}-${rootProject.minecraft_version}")
