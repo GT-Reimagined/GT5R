@@ -212,8 +212,8 @@ public class BlockEntityCharcoalPit extends BlockEntityMachine<BlockEntityCharco
     }
 
     @Override
-    public void deserializeNBT(BlockState state, CompoundTag nbt) {
-        super.deserializeNBT(state, nbt);
+    public void load(CompoundTag nbt) {
+        super.load(nbt);
         if (nbt.contains("progress")){
             progress = nbt.getInt("progress");
             maxProgress = nbt.getInt("maxProgress");
@@ -225,6 +225,5 @@ public class BlockEntityCharcoalPit extends BlockEntityMachine<BlockEntityCharco
                 blockLists.add(new BlockPos(tag.getInt("x"), tag.getInt("y"), tag.getInt("z")));
             });
         }
-
     }
 }

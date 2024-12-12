@@ -20,8 +20,8 @@ dependencies{
     implementation(expectPlatform.annotationsDep)
 
     //subprojects
-    implementation(project(path: ":tesseract-common"))
-    implementation(project(path: ":antimatter-common"))
+    implementation(project(":tesseract-common"))
+    implementation(project(":antimatter-common"))
 
     //gt-reimagined-lib deps
     compileOnly("com.blamejared.crafttweaker:CraftTweaker-common-1.18.2:${project.crafttweaker_version}")
@@ -40,8 +40,8 @@ dependencies{
     modCompileOnly("dev.trinsdar:arrp:0.6.7")
     implementation("org.gt-reimagined:structurelib-common:${project.structurelib_version}-${project.minecraft_version}")
     modImplementation "maven.modrinth:carbon-config:${project.carbon_config_fabric_version}"
-    modImplementation("earth.terrarium:botarium-common-1.18.2:${project.botarium_version}")
-    modImplementation "com.teamresourceful.resourcefullib:resourcefullib-common-1.18.2:${project.resourcefullib_version}"
+    modImplementation("earth.terrarium:botarium-fabric-1.18.2:${project.botarium_version}")
+    modImplementation "com.teamresourceful.resourcefullib:resourcefullib-fabric-1.18.2:${project.resourcefullib_version}"
 
     //gt5r deps
     implementation("org.gt-reimagined:gtcore-common:${project.gt_core_version}-${project.minecraft_version}"){

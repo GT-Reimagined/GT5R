@@ -11,10 +11,9 @@ import muramasa.antimatter.gui.widget.WidgetSupplier;
 import muramasa.antimatter.integration.jeirei.AntimatterJEIREIPlugin;
 import muramasa.antimatter.mixin.client.AbstractContainerScreenAccessor;
 import muramasa.antimatter.util.Utils;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import xyz.wagyourtail.unimined.expect.annotation.Environment;
 
 import static muramasa.antimatter.gui.ICanSyncData.SyncDirection.SERVER_TO_CLIENT;
 
@@ -58,7 +57,7 @@ public class CoalBoilerFuelWidget extends Widget {
         renderTooltip(stack,"Fuel: " + fuel, mouseX, mouseY + 10, 0, 10, 18, 18);
     }
 
-    @Environment(EnvType.CLIENT)
+    @Environment(Environment.EnvType.CLIENT)
     protected void renderTooltip(PoseStack matrixStack, String text, double mouseX, double mouseY, int x, int y, int w, int h) {
         if (isInside(x, y, w, h, mouseX, mouseY)){
             renderTooltip(matrixStack, Utils.literal(text), mouseX, mouseY);

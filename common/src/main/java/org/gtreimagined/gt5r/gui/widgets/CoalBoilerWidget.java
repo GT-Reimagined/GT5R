@@ -9,11 +9,10 @@ import muramasa.antimatter.gui.container.ContainerMachine;
 import muramasa.antimatter.gui.widget.WidgetSupplier;
 import muramasa.antimatter.mixin.client.AbstractContainerScreenAccessor;
 import muramasa.antimatter.util.Utils;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import tesseract.TesseractGraphWrappers;
+import xyz.wagyourtail.unimined.expect.annotation.Environment;
 
 import static muramasa.antimatter.gui.ICanSyncData.SyncDirection.SERVER_TO_CLIENT;
 
@@ -90,7 +89,7 @@ public class CoalBoilerWidget extends Widget {
         renderTooltip(stack,"Heat: " + heat + "C° out of " + maxHeat, mouseX, mouseY, 26, 0, 10, 54);
     }
 
-    @Environment(EnvType.CLIENT)
+    @Environment(Environment.EnvType.CLIENT)
     protected void renderTooltip(PoseStack matrixStack, String text, double mouseX, double mouseY, int x, int y, int w, int h) {
         if (isInside(x, y, w, h, mouseX, mouseY)){
             renderTooltip(matrixStack, Utils.literal(text), mouseX, mouseY);

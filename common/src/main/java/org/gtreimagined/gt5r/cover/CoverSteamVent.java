@@ -7,8 +7,6 @@ import muramasa.antimatter.cover.BaseCover;
 import muramasa.antimatter.cover.CoverFactory;
 import muramasa.antimatter.machine.MachineState;
 import muramasa.antimatter.machine.Tier;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -19,6 +17,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import org.jetbrains.annotations.Nullable;
+import xyz.wagyourtail.unimined.expect.annotation.Environment;
 
 import java.util.Random;
 
@@ -70,7 +69,7 @@ public class CoverSteamVent extends BaseCover {
         }
     }
 
-    @Environment(EnvType.CLIENT)
+    @Environment(Environment.EnvType.CLIENT)
     private void addParticle(Level level, BlockPos offset){
         ClientLevel clientLevel = (ClientLevel) level;
         Random random = level.random;
