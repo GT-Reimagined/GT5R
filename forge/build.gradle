@@ -39,12 +39,14 @@ neoForge {
 
 dependencies {
     implementation(expectPlatform.annotationsDep)
-    implementation(project(path: ":tesseract-forge"))
-    implementation(project(path: ":tesseract-common"))
-    implementation(project(path: ":antimatter-forge"))
-    implementation(project(path: ":antimatter-common"))
+    //subprojects
+    implementation(project(":tesseract-forge"))
+    compileOnly(project(":tesseract-common"))
+    implementation(project(":antimatter-forge"))
+    compileOnly(project(":antimatter-common"))
     compileOnly(project(":common"))
 
+    //antimatter deps
     implementation 'org.apache.commons:commons-collections4:4.4'
     implementation("org.jetbrains:annotations:26.0.1")
     //modCompileOnly("mezz.jei:jei-${rootProject.minecraft_version}-forge:${rootProject.jei_version}")
@@ -59,33 +61,26 @@ dependencies {
     modImplementation("org.gt-reimagined:structurelib-forge:${project.structurelib_version}-${project.minecraft_version}")
     modImplementation("com.teamresourceful.resourcefullib:resourcefullib-forge-1.18.2:${project.resourcefullib_version}")
     modImplementation("maven.modrinth:carbon-config:${project.carbon_config_forge_version}")
-
     modImplementation("dev.latvian.mods:kubejs-forge:${project.kubejs_version}")
     modImplementation("dev.latvian.mods:rhino-forge:${project.rhino_version}")
     modImplementation("dev.architectury:architectury-forge:${project.architectury_version}")
+    modRuntimeOnly("com.blamejared.crafttweaker:CraftTweaker-forge-1.18.2:${rootProject.crafttweaker_version}")
     modImplementation("curse.maven:the-one-probe-245211:${project.top_forge_file}")
     implementation("io.github.llamalad7:mixinextras-forge:0.4.1")
     //MIXIN
     if (System.getProperty('idea.sync.active') != 'true') {
         annotationProcessor 'org.spongepowered:mixin:0.8.5-SNAPSHOT:processor'
     }
+
+    //gt5r deps
     //minecraftRuntimeLibraries(group: 'com.github.Speiger', name: 'Primitive-Collections', version: '[0.8,0.9)')
     modImplementation("org.gt-reimagined:gtcore-forge:${rootProject.gt_core_version}-${rootProject.minecraft_version}")
-    jarJar("org.gt-reimagined:gtcore-forge:${rootProject.gt_core_version}-${rootProject.minecraft_version}"){
-        version{
-            prefer("${rootProject.gt_core_version}-${rootProject.minecraft_version}")
-        }
-    }
+    jarJar("org.gt-reimagined:gtcore-forge:${rootProject.gt_core_version}-${rootProject.minecraft_version}")
     modRuntimeOnly("dev.trinsdar:terraform-wood-api-v1:3.1.5")
-    jarJar("dev.trinsdar:terraform-wood-api-v1:3.1.5"){
-        version {
-            prefer("3.1.5")
-        }
-    }
+    jarJar("dev.trinsdar:terraform-wood-api-v1:3.1.5")
     //modRuntimeOnly("curse.maven:rubidium-574856:4451888")
     modRuntimeOnly("curse.maven:worldstripper-250603:3670854")
     modRuntimeOnly("curse.maven:ae2-223794:4498141")
-    modRuntimeOnly("com.blamejared.crafttweaker:CraftTweaker-forge-1.18.2:${rootProject.crafttweaker_version}")
     modImplementation("curse.maven:ctm-267602:3933537")
     modCompileOnly("curse.maven:terrafirmacraft-302973:4723717")
     //modRuntimeOnly("curse.maven:terrafirmacraft-302973:4723717")

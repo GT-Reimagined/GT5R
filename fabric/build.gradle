@@ -21,10 +21,10 @@ dependencies{
     implementation(expectPlatform.annotationsDep)
     modImplementation "net.fabricmc:fabric-loader:${project.fabric_loader_version}"
     modApi "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
-    implementation(project(path: ":tesseract-common")) { transitive false }
-    implementation(project(path: ":tesseract-fabric")) { transitive false }
-    implementation(project(path: ":antimatter-common")) { transitive false }
-    implementation(project(path: ":antimatter-fabric")) { transitive false }
+    compileOnly(project(":tesseract-common"))
+    implementation(project(":tesseract-fabric"))
+    compileOnly(project(":antimatter-common"))
+    implementation(project(":antimatter-fabric"))
     compileOnly(project(":common"))
     modImplementation("io.github.fabricators_of_create:Porting-Lib:${project.port_lib_version}-beta+1.18.2-stable"){
         exclude(group: "net.fabricmc.fabric-api")
@@ -41,14 +41,14 @@ dependencies{
     modImplementation("net.feltmc:felt-enchanting-api:1.1.0") { transitive false }
     modImplementation("dev.trinsdar:arrp:0.6.7")
     modImplementation("org.gt-reimagined:structurelib-fabric:${project.structurelib_version}-${project.minecraft_version}")
-    modImplementation "me.shedaniel:RoughlyEnoughItems-fabric:${rootProject.rei_version}"
-    modCompileOnly("mezz.jei:jei-${rootProject.minecraft_version}-fabric:${rootProject.jei_version}"){
+    modImplementation "me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}"
+    modCompileOnly("mezz.jei:jei-${project.minecraft_version}-fabric:${project.jei_version}"){
         exclude(group: "mezz.jei", module: "jei-1.18.2-fabric-api")
     }
-    modImplementation("teamreborn:energy:${rootProject.energy_version}") {
+    modImplementation("teamreborn:energy:${project.energy_version}") {
         transitive = false
     }
-    modRuntimeOnly("com.terraformersmc:modmenu:${rootProject.mod_menu_version}") {
+    modRuntimeOnly("com.terraformersmc:modmenu:${project.mod_menu_version}") {
         exclude(group: "net.fabricmc.fabric-api")
     }
     modImplementation "maven.modrinth:carbon-config:${project.carbon_config_fabric_version}"

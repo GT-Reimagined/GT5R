@@ -2,7 +2,7 @@ plugins {
     id "fabric-loom"
     id 'xyz.wagyourtail.unimined.expect-platform' version '1.0.5'
 }
-archivesBaseName = "${rootProject.archive_base_name}-common"
+archivesBaseName = "${project.archive_base_name}-common"
 
 def accessWidenerFile = project(":antimatter-common").file("src/main/resources/antimatter.accesswidener")
 
