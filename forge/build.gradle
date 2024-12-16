@@ -37,6 +37,13 @@ neoForge {
     }
 }
 
+mixin {
+    config "antimatter.mixins.json"
+    config "antimatter-forge.mixins.json"
+    config "antimatter.rei.mixins.json"
+    config "tesseract-forge.mixins.json"
+}
+
 dependencies {
     implementation(expectPlatform.annotationsDep)
     //subprojects
