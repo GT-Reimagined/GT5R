@@ -68,7 +68,7 @@ public class GT5RMaterialEvents {
         //rubidium, strontium
         event.setMaterial(Materials.Yttrium).asMetal(1799);
         event.setMaterial(Materials.Zirconium).asMetal(2130).forceBF(true);
-        event.setMaterial(Materials.Niobium).asMetal(2750);
+        event.setMaterial(Materials.Niobium).asMetal(2750, PLATE);
         event.setMaterial(Materials.Molybdenum).asMetal(2896).asOre();
         event.setMaterial(Materials.Technetium).asMetal(2430);
         //event.setMaterial(Ruthenium).asMetal(2607,2607);
