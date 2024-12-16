@@ -52,7 +52,7 @@ public class GT5RMaterialEvents {
         //Scandium, not added
         event.setMaterial(Materials.Titanium).asMetal(1941, PLATE, ROD_LONG, SCREW, BOLT, RING, GEAR, FRAME, GEAR_SMALL, ROTOR, SPRING).forceBF(true);
         event.setMaterial(Materials.Vanadium).asMetal(2183, INGOT_HOT);
-        event.setMaterial(Materials.Chromium).asMetal(2180, 1700, SCREW, BOLT, RING, PLATE, ROTOR).forceBF(false);
+        event.setMaterial(Materials.Chromium).asMetal(2180, 1700, SCREW, BOLT, RING, PLATE).forceBF(false);
         event.setMaterial(Materials.Manganese).asMetal(1519, FOIL).asOre();
         //Iron, added by vanilla
         event.setMaterial(Materials.Cobalt).asMetal(1768, CRUSHED);
@@ -172,7 +172,7 @@ public class GT5RMaterialEvents {
         event.setMaterial(Materials.VanadiumGallium).asMetal(4500, 4500, ROD_LONG, PLATE);
         event.setMaterial(Materials.VanadiumSteel).asMetal(1453, 1453).forceBF(false);
         event.setMaterial(Materials.Vibranium).asMetal(295, FRAME);
-        event.setMaterial(Materials.WroughtIron).asMetal(1811, PLATE, ROD_LONG, SCREW, BOLT, RING, FRAME, ROTOR);
+        event.setMaterial(Materials.WroughtIron).asMetal(1811, PLATE, ROD_LONG, SCREW, BOLT, RING, FRAME);
         event.setMaterial(Materials.YttriumBariumCuprate).asMetal(4500, 4500, PLATE, FOIL, ROD_LONG, WIRE_FINE, ALLOY);
         /**
          **  Dusts
