@@ -115,8 +115,8 @@ public class Parts {
                   : (t == Tier.EV || t == Tier.IV ? NeodymiumMagnetic : SteelMagnetic);
           Object cable = CABLE_GETTER.apply(PipeSize.VTINY, t, false);
           Material mat = TIER_MATERIALS.get(t);
-          // Item smallGear = GEAR_SMALL.get(mat);
-          Item smallGear = GEAR.get(mat);
+          if (mat == null) return;
+          TagKey<Item> smallGear = GEAR_SMALL.getMaterialTag(mat);
           TagKey<Item> plate = PLATE.getMaterialTag(mat);
           TagKey<Item> rod = ROD.getMaterialTag(mat);
           TagKey<Item> circuit = TIER_CIRCUITS.apply(t);
