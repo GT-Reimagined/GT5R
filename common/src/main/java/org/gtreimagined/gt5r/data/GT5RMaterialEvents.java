@@ -98,13 +98,13 @@ public class GT5RMaterialEvents {
         event.setMaterial(Materials.Tantalum).asSolid(3290);
         event.setMaterial(Materials.Tungsten).asMetal(3695, 3000, FOIL, RING, FRAME);
         //event.setMaterial(Rhenium).asMetal(3459,3459);
-        event.setMaterial(Materials.Osmium).asOre().asMetal(3306, SCREW, BOLT, RING, PLATE, FOIL, ROD_LONG, WIRE_FINE);
+        event.setMaterial(Materials.Osmium).asOre().asMetal(3306, SCREW, BOLT, RING, PLATE, ROD_LONG);
         event.setMaterial(Materials.Iridium).asMetal(2719, FRAME, PLATE, GT5RMaterialTypes.CHAMBER).asOre();
         event.setMaterial(Materials.Platinum).asMetal(2041, 0, PLATE, FOIL, ROD_LONG, WIRE_FINE, FRAME).asOre();
         //Gold, added by vanilla
         event.setMaterial(Materials.Mercury).asFluid();
         // thalium
-        event.setMaterial(Materials.Lead).asMetal(600, PLATE, PLATE_DENSE, FOIL, ROD_LONG, FRAME, BOLT, RING).asOre().harvestLevel(1);
+        event.setMaterial(Materials.Lead).asMetal(600, PLATE, PLATE_DENSE, ROD_LONG, FRAME, BOLT, RING).asOre().harvestLevel(1);
         event.setMaterial(Materials.Bismuth).asOre();
         //polonium
         //event.setMaterial(Astatine).asMetal(575, 0);
@@ -159,7 +159,7 @@ public class GT5RMaterialEvents {
         event.setMaterial(Materials.RedAlloy).asMetal(295, PLATE, FOIL, ROD_LONG, WIRE_FINE, ALLOY);
         event.setMaterial(Materials.RedSteel).asMetal(1300, 1300).forceBF(false);
         event.setMaterial(Materials.RoseGold).asMetal(1600, WIRE_FINE, ALLOY);
-        event.setMaterial(Materials.SolderingAlloy).asMetal(400, PLATE, FOIL, ROD_LONG, WIRE_FINE, ALLOY);
+        event.setMaterial(Materials.SolderingAlloy).asMetal(400, PLATE, ROD_LONG, ALLOY);
         event.setMaterial(Materials.Steel).asMetal(1811, 1000, PLATE, ROD_LONG, SCREW, BOLT, RING, GEAR, FRAME, ROTOR, GEAR_SMALL, ITEM_CASING, WIRE_FINE).forceBF(false);
         event.setMaterial(Materials.SteelMagnetic).asMetal(1000, 1000, ROD_LONG).forceBF(false);
         event.setMaterial(Materials.SterlingSilver).asMetal(1700, ALLOY);
