@@ -195,6 +195,7 @@ public class GT5RMachines {
     public static GeneratorMachine STEAM_GENERATOR = new GeneratorMachine(GT5RRef.ID, "steam_turbine").setTiers(LV, MV, HV).setMap(RecipeMaps.STEAM_FUELS).addFlags(GUI, ITEM, FLUID, CELL).setTile(BlockEntitySteamTurbine::new).efficiency(t -> {
         return (4 - t.getIntegerId()) + 6;
     }).allowFrontIO().custom();
+    public static GeneratorMachine MAGIC_ENERGY_CONVERTER = new GeneratorMachine(GT5RRef.ID, "magic_eergy_converter").setTiers(LV, MV, HV).addFlags(GUI, ITEM, FLUID, CELL).allowFrontIO();
     public static GeneratorMachine SOLAR_PANEL = new GeneratorMachine(GT5RRef.ID, "solar_panel").setTiers(NONE, ULV, LV).addFlags(GUI).removeFlags(COVERABLE).customShape(Shapes.box(0,0,0, 1, 0.5, 1)).itemModelParent(new ResourceLocation(GT5RRef.ID, "block/preset/solar_panel")).setVerticalFacingAllowed(false).setTile(BlockEntitySolarPanel::new).custom().addTooltipInfo((machine, stack, world, tooltip, flag) -> {
         if (machine.getTier() == NONE){
             tooltip.add(Utils.translatable("machine.voltage.out").append(": ").append(Utils.literal(1 + "")).withStyle(ChatFormatting.GREEN));
