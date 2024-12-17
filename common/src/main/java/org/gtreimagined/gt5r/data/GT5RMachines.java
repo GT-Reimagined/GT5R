@@ -188,10 +188,10 @@ public class GT5RMachines {
     /**
      ** Generators
      **/
-    public static GeneratorMachine COMBUSTION_GENERATOR = new GeneratorMachine(GT5RRef.ID, "combustion_generator").setTiers(LV, MV, HV).setMap(RecipeMaps.COMBUSTION_FUELS).addFlags(GUI, ITEM, FLUID, CELL).allowFrontIO();
-    public static GeneratorMachine SEMIFLUID_GENERATOR = new GeneratorMachine(GT5RRef.ID, "semifluid_generator").setTiers(LV, MV, HV).setMap(RecipeMaps.SEMI_FUELS).addFlags(GUI, ITEM, FLUID, CELL).allowFrontIO();
-    public static GeneratorMachine GAS_GENERATOR = new GeneratorMachine(GT5RRef.ID, "gas_turbine").setTiers(LV, MV, HV).setMap(RecipeMaps.GAS_FUELS).addFlags(GUI, ITEM, FLUID, CELL).allowFrontIO().custom();
-    public static GeneratorMachine STEAM_GENERATOR = new GeneratorMachine(GT5RRef.ID, "steam_turbine").setTiers(LV, MV, HV).setMap(RecipeMaps.STEAM_FUELS).addFlags(GUI, ITEM, FLUID, CELL).setTile(BlockEntitySteamTurbine::new).efficiency(t -> {
+    public static GeneratorMachine COMBUSTION_GENERATOR = new GeneratorMachine(GT5RRef.ID, "combustion_generator").setTiers(LV, MV, HV).setMap(RecipeMaps.COMBUSTION_FUELS).addFlags(GUI, ITEM, FLUID, CELL).allowFrontIO().overlayTexture(Textures.TIER_SPECIFIC_OVERLAY_HANDLER);
+    public static GeneratorMachine SEMIFLUID_GENERATOR = new GeneratorMachine(GT5RRef.ID, "semifluid_generator").setTiers(LV, MV, HV).setMap(RecipeMaps.SEMI_FUELS).addFlags(GUI, ITEM, FLUID, CELL).allowFrontIO().overlayTexture(Textures.TIER_SPECIFIC_OVERLAY_HANDLER);
+    public static GeneratorMachine GAS_GENERATOR = new GeneratorMachine(GT5RRef.ID, "gas_turbine").setTiers(LV, MV, HV).setMap(RecipeMaps.GAS_FUELS).addFlags(GUI, ITEM, FLUID, CELL).allowFrontIO().overlayTexture(Textures.TIER_SPECIFIC_OVERLAY_HANDLER).custom();
+    public static GeneratorMachine STEAM_GENERATOR = new GeneratorMachine(GT5RRef.ID, "steam_turbine").setTiers(LV, MV, HV).setMap(RecipeMaps.STEAM_FUELS).addFlags(GUI, ITEM, FLUID, CELL).setTile(BlockEntitySteamTurbine::new).overlayTexture(Textures.TIER_SPECIFIC_OVERLAY_HANDLER).efficiency(t -> {
         return (4 - t.getIntegerId()) + 6;
     }).allowFrontIO().custom();
     public static GeneratorMachine MAGIC_ENERGY_CONVERTER = new GeneratorMachine(GT5RRef.ID, "magic_eergy_converter").setTiers(LV, MV, HV).addFlags(GUI, ITEM, FLUID, CELL).allowFrontIO();
