@@ -191,7 +191,6 @@ public class GT5RMachines {
     public static GeneratorMachine COMBUSTION_GENERATOR = new GeneratorMachine(GT5RRef.ID, "combustion_generator").setTiers(LV, MV, HV).setMap(RecipeMaps.COMBUSTION_FUELS).addFlags(GUI, ITEM, FLUID, CELL).allowFrontIO();
     public static GeneratorMachine SEMIFLUID_GENERATOR = new GeneratorMachine(GT5RRef.ID, "semifluid_generator").setTiers(LV, MV, HV).setMap(RecipeMaps.SEMI_FUELS).addFlags(GUI, ITEM, FLUID, CELL).allowFrontIO();
     public static GeneratorMachine GAS_GENERATOR = new GeneratorMachine(GT5RRef.ID, "gas_turbine").setTiers(LV, MV, HV).setMap(RecipeMaps.GAS_FUELS).addFlags(GUI, ITEM, FLUID, CELL).allowFrontIO().custom();
-    public static GeneratorMachine NAQUADAH_GENERATOR = new GeneratorMachine(GT5RRef.ID, "naquadah_reactor").setTiers(EV, IV, LUV).setMap(RecipeMaps.NAQUADAH_FUELS).addFlags(GUI, ITEM, FLUID, CELL).allowFrontIO();
     public static GeneratorMachine STEAM_GENERATOR = new GeneratorMachine(GT5RRef.ID, "steam_turbine").setTiers(LV, MV, HV).setMap(RecipeMaps.STEAM_FUELS).addFlags(GUI, ITEM, FLUID, CELL).setTile(BlockEntitySteamTurbine::new).efficiency(t -> {
         return (4 - t.getIntegerId()) + 6;
     }).allowFrontIO().custom();
