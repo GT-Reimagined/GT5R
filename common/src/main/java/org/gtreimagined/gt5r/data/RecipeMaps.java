@@ -164,8 +164,6 @@ public class RecipeMaps {
             new RecipeMap<>(GT5RRef.ID, "packager", new RecipeBuilder()));
     public static RecipeMap<RecipeBuilder> POLARIZER = AntimatterAPI.register(RecipeMap.class,
             new RecipeMap<>(GT5RRef.ID, "polarizer", new RecipeBuilder()));
-    public static RecipeMap<RecipeBuilder> PLASMA_FUELS = AntimatterAPI.register(RecipeMap.class,
-            new RecipeMap<>(GT5RRef.ID, "plasma_fuels", new RecipeBuilder()));
     public static RecipeMap<RecipeBuilder> PULVERIZER = AntimatterAPI.register(RecipeMap.class,
             new RecipeMap<>(GT5RRef.ID, "pulverizer", new PulverizerBuilder()).setGuiTier(Tier.HV));
     public static RecipeMap<RecipeBuilder> FORMING_PRESS = AntimatterAPI.register(RecipeMap.class,
@@ -385,7 +383,6 @@ public class RecipeMaps {
         SEMI_FUELS.setGuiData(Guis.MULTI_DISPLAY);
         MAGIC_FUELS.setGuiData(Guis.MULTI_DISPLAY);
         ORE_BYPRODUCTS.setGuiData(Guis.ORE_BYPRODUCTS);
-        PLASMA_FUELS.setGuiData(Guis.MULTI_DISPLAY);
         STEAM_FUELS.setGuiData(Guis.MULTI_DISPLAY);
         HP_STEAM_FUELS.setGuiData(Guis.MULTI_DISPLAY);
         TREE_GROWTH_SIMULATOR.setGuiData(Guis.MULTI_DISPLAY);
@@ -406,7 +403,6 @@ public class RecipeMaps {
         SEMI_FUELS.setInfoRenderer(InfoRenderers.FUEL_RENDERER);
         MAGIC_FUELS.setInfoRenderer(InfoRenderers.FUEL_RENDERER);
         ORE_BYPRODUCTS.setInfoRenderer(InfoRenderers.EMPTY_RENDERER);
-        PLASMA_FUELS.setInfoRenderer(InfoRenderers.FUEL_RENDERER);
         STEAM_ALLOY_SMELTER.setInfoRenderer(InfoRenderers.STEAM_RENDERER);
         STEAM_COMPRESSOR.setInfoRenderer(InfoRenderers.STEAM_RENDERER);
         STEAM_EXTRACTOR.setInfoRenderer(InfoRenderers.STEAM_RENDERER);
