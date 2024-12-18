@@ -27,6 +27,7 @@ import org.gtreimagined.gtcore.data.RecipeBuilders.SteamBuilder;
 import tesseract.TesseractGraphWrappers;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.function.BiFunction;
 
 @SuppressWarnings("unchecked")
@@ -376,6 +377,26 @@ public class RecipeMaps {
         }
     };
 
+    public static final IRecipeInfoRenderer MAGIC_FUEL_RENDERER = new IRecipeInfoRenderer() {
+        @Override
+        public void render(PoseStack stack, IRecipe recipe, Font fontRenderer, int guiOffsetX, int guiOffsetY) {
+            if (recipe.hasInputFluids()){
+                String fuelPerMb = "EU/L: " + ((double) recipe.getPower() / (double) Objects.requireNonNull(recipe.getInputFluids()).get(0).getAmount());
+                String fuelPerB = "Fluid Amount / tick: " + Objects.requireNonNull(recipe.getInputFluids()).get(0).getAmount();
+                renderString(stack, fuelPerMb, fontRenderer, 5, 0, guiOffsetX, guiOffsetY);
+                renderString(stack, fuelPerB, fontRenderer, 5, 10, guiOffsetX, guiOffsetY);
+            } else if (recipe.hasInputItems()){
+                String fuelValue = "Fuel Value: " + recipe.getTotalPower() + " EU";
+                renderString(stack, fuelValue, fontRenderer, 5, 0, guiOffsetX, guiOffsetY);
+            }
+        }
+
+        @Override
+        public int getRows() {
+            return 2;
+        }
+    };
+
     static {
         SOLID_FUEL_BOILERS.setGuiData(Guis.SIMPLE_DISPLAY);
         COMBUSTION_FUELS.setGuiData(Guis.MULTI_DISPLAY);
@@ -401,7 +422,7 @@ public class RecipeMaps {
         COMBUSTION_FUELS.setInfoRenderer(InfoRenderers.FUEL_RENDERER);
         GAS_FUELS.setInfoRenderer(InfoRenderers.FUEL_RENDERER);
         SEMI_FUELS.setInfoRenderer(InfoRenderers.FUEL_RENDERER);
-        MAGIC_FUELS.setInfoRenderer(InfoRenderers.FUEL_RENDERER);
+        MAGIC_FUELS.setInfoRenderer(MAGIC_FUEL_RENDERER);
         ORE_BYPRODUCTS.setInfoRenderer(InfoRenderers.EMPTY_RENDERER);
         STEAM_ALLOY_SMELTER.setInfoRenderer(InfoRenderers.STEAM_RENDERER);
         STEAM_COMPRESSOR.setInfoRenderer(InfoRenderers.STEAM_RENDERER);
