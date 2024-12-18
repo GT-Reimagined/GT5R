@@ -150,12 +150,12 @@ public class RecipeMaps {
             new RecipeMap<>(GT5RRef.ID, "lathe", new RecipeBuilder()));
     public static RecipeMap<RecipeBuilder> MACERATOR = AntimatterAPI.register(RecipeMap.class,
             new RecipeMap<>(GT5RRef.ID, "macerator", new SteamBuilder(STEAM_MACERATOR)));
+    public static RecipeMap<RecipeBuilder> MAGIC_FUELS = AntimatterAPI.register(RecipeMap.class,
+            new RecipeMap<>(GT5RRef.ID, "magic_fuels", new RecipeBuilder()));
     public static RecipeMap<RecipeBuilder> MASS_FABRICATOR = AntimatterAPI.register(RecipeMap.class,
             new RecipeMap<>(GT5RRef.ID, "mass_fabricator", new RecipeBuilder()));
     public static RecipeMap<RecipeBuilder> MIXER = AntimatterAPI.register(RecipeMap.class,
             new RecipeMap<>(GT5RRef.ID, "mixer", new RecipeBuilder()));
-    public static RecipeMap<RecipeBuilder> NAQUADAH_FUELS = AntimatterAPI.register(RecipeMap.class,
-            new RecipeMap<>(GT5RRef.ID, "naquadah_gfuels", new RecipeBuilder()));
     public static RecipeMap<RecipeBuilder> ORE_BYPRODUCTS = AntimatterAPI.register(RecipeMap.class,
             new RecipeMap<>(GT5RRef.ID, "ore_byproducts", new RecipeBuilder()));
     public static RecipeMap<RecipeBuilder> ORE_WASHER = AntimatterAPI.register(RecipeMap.class,
@@ -383,7 +383,7 @@ public class RecipeMaps {
         COMBUSTION_FUELS.setGuiData(Guis.MULTI_DISPLAY);
         GAS_FUELS.setGuiData(Guis.MULTI_DISPLAY);
         SEMI_FUELS.setGuiData(Guis.MULTI_DISPLAY);
-        NAQUADAH_FUELS.setGuiData(Guis.MULTI_DISPLAY);
+        MAGIC_FUELS.setGuiData(Guis.MULTI_DISPLAY);
         ORE_BYPRODUCTS.setGuiData(Guis.ORE_BYPRODUCTS);
         PLASMA_FUELS.setGuiData(Guis.MULTI_DISPLAY);
         STEAM_FUELS.setGuiData(Guis.MULTI_DISPLAY);
@@ -403,8 +403,8 @@ public class RecipeMaps {
         BATH.setInfoRenderer(InfoRenderers.BASIC_RENDERER);
         COMBUSTION_FUELS.setInfoRenderer(InfoRenderers.FUEL_RENDERER);
         GAS_FUELS.setInfoRenderer(InfoRenderers.FUEL_RENDERER);
-        NAQUADAH_FUELS.setInfoRenderer(InfoRenderers.FUEL_RENDERER);
         SEMI_FUELS.setInfoRenderer(InfoRenderers.FUEL_RENDERER);
+        MAGIC_FUELS.setInfoRenderer(InfoRenderers.FUEL_RENDERER);
         ORE_BYPRODUCTS.setInfoRenderer(InfoRenderers.EMPTY_RENDERER);
         PLASMA_FUELS.setInfoRenderer(InfoRenderers.FUEL_RENDERER);
         STEAM_ALLOY_SMELTER.setInfoRenderer(InfoRenderers.STEAM_RENDERER);
