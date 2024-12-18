@@ -220,7 +220,7 @@ public class Guis {
         GAS_GENERATOR.add(BASIC_TANK.getSlots());
         COMBUSTION_GENERATOR.add(BASIC_TANK.getSlots());
         SEMIFLUID_GENERATOR.add(BASIC_TANK.getSlots());
-        MAGIC_ENERGY_CONVERTER.add(IT_IN, 8, 17).add(IT_OUT, 8, 53);
+        MAGIC_ENERGY_CONVERTER.add(IT_IN, 8, 17).add(IT_OUT, 8, 53).add(FL_IN, 55, 43, new ResourceLocation(GT5RRef.ID, "blank"));
         NUCLEAR_REACTOR_CORE.add(STORAGE, 70, 25).add(STORAGE, 70, 43).add(STORAGE, 88, 25).add(STORAGE, 88, 43).add(FL_IN, 70, 61).add(FL_OUT, 88, 61);
 
         CROP_HARVESTER.add(IT_OUT, 62, 16).add(IT_OUT, 80, 16).add(IT_OUT, 98, 16)

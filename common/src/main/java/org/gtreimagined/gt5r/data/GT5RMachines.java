@@ -194,7 +194,7 @@ public class GT5RMachines {
     public static GeneratorMachine STEAM_GENERATOR = new GeneratorMachine(GT5RRef.ID, "steam_turbine").setTiers(LV, MV, HV).setMap(RecipeMaps.STEAM_FUELS).addFlags(GUI, ITEM, FLUID, CELL).setTile(BlockEntitySteamTurbine::new).overlayTexture(Textures.TIER_SPECIFIC_OVERLAY_HANDLER).efficiency(t -> {
         return (4 - t.getIntegerId()) + 6;
     }).allowFrontIO().custom();
-    public static GeneratorMachine MAGIC_ENERGY_CONVERTER = new GeneratorMachine(GT5RRef.ID, "magic_energy_converter").setTiers(LV, MV, HV).addFlags(GUI, ITEM).allowFrontIO().overlayTexture(Textures.TIER_SPECIFIC_OVERLAY_HANDLER);
+    public static GeneratorMachine MAGIC_ENERGY_CONVERTER = new GeneratorMachine(GT5RRef.ID, "magic_energy_converter").setTiers(LV, MV, HV).setMap(RecipeMaps.MAGIC_FUELS).addFlags(GUI, ITEM, FLUID, CELL).allowFrontIO().overlayTexture(Textures.TIER_SPECIFIC_OVERLAY_HANDLER);
     public static GeneratorMachine MAGIC_ENERGY_ABSORBER = new GeneratorMachine(GT5RRef.ID, "magic_energy_absorber").setTiers(LV, MV, HV, EV).addFlags(GUI, ITEM).allowFrontIO().overlayTexture(Textures.TIER_SPECIFIC_OVERLAY_HANDLER).efficiency(t -> {
         return 100 - (10 * (5 - t.getIntegerId()));
     });
