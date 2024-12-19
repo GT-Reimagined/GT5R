@@ -26,6 +26,14 @@ public class GT5RMaterialEvents {
         flags(event);
         antimatterMaterials(event);
         byproducts(event);
+        defaultMaterialFlags(event);
+        processInto(event);
+        nuclearIsotopes(event);
+        toolsAndArmor(event);
+        workbenches(event);
+    }
+
+    private static void defaultMaterialFlags(GregTechMaterialEvent event){
         /**
          *** Periodic Table of Elements (No Isotopes)
          **/
@@ -606,10 +614,6 @@ public class GT5RMaterialEvents {
         event.setMaterial(Materials.HydroCrackedButane).asGas();
         event.setMaterial(Materials.HydroCrackedNaphtha).asFluid();
         event.setMaterial(Materials.HydroCrackedRefineryGas).asGas();
-        processInto(event);
-        nuclearIsotopes(event);
-        toolsAndArmor(event);
-        workbenches(event);
     }
 
     private static void processInto(GregTechMaterialEvent event){
