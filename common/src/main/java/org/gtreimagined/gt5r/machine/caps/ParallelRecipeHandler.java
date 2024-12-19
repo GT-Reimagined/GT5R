@@ -27,7 +27,7 @@ public class ParallelRecipeHandler<T extends BlockEntityMachine<T>> extends Mach
     public boolean consumeInputs() {
         concurrentRecipes = 0;
         for (int i = 0; i < maxSimultaneousRecipes(); i++) {
-            boolean consumeInput = super.consumeInputs();
+            boolean consumeInput = consumeSingleInput();
             if (!consumeInput) break;
             concurrentRecipes++;
         }

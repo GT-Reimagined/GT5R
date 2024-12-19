@@ -19,6 +19,7 @@ import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import org.gtreimagined.gt5r.machine.HeatExchangerMachine;
+import org.gtreimagined.gt5r.machine.caps.ParallelRecipeHandler;
 import org.gtreimagined.gtcore.data.GTCoreTags;
 import tesseract.TesseractGraphWrappers;
 
@@ -36,7 +37,7 @@ public class BlockEntitySmallHeatExchanger extends BlockEntitySecondaryOutput<Bl
         this.rate = rate;
         this.efficiency = efficiency;
         heatHandler.set(() -> new DefaultHeatHandler(this, Integer.MAX_VALUE, 80, 0));
-        recipeHandler.set(() -> new MachineRecipeHandler<>(this){
+        recipeHandler.set(() -> new ParallelRecipeHandler<>(this, 1){
 
             @Override
             protected boolean validateRecipe(IRecipe r) {
@@ -49,10 +50,21 @@ public class BlockEntitySmallHeatExchanger extends BlockEntitySecondaryOutput<Bl
             }
 
             @Override
+            protected int maxSimultaneousRecipes() {
+                if (activeRecipe != null){
+                    return (int) Math.max(1L, rate / activeRecipe.getTotalPower());
+                }
+                return super.maxSimultaneousRecipes();
+            }
+
+            @Override
             public boolean consumeResourceForRecipe(boolean simulate) {
                 if (activeRecipe == null) return false;
                 if (currentProgress > 0) return true;
-                long totalPower = CodeUtils.units(activeRecipe.getTotalPower(), 10000, efficiency, false);
+                if (!consumedResources && shouldConsumeResources()) {
+                    this.consumeInputs();
+                }
+                long totalPower = CodeUtils.units(activeRecipe.getTotalPower(), 10000, efficiency, false) * concurrentRecipes;
                 return tile.heatHandler.map(e -> e.insertInternal((int) totalPower, simulate) >= totalPower).orElse(false);
             }
 
