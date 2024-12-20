@@ -1,9 +1,11 @@
 package org.gtreimagined.gt5r.machine.caps;
 
+import muramasa.antimatter.Ref;
 import muramasa.antimatter.blockentity.BlockEntityMachine;
 import muramasa.antimatter.capability.machine.MachineCoverHandler;
 import muramasa.antimatter.cover.CoverFactory;
 import muramasa.antimatter.cover.ICover;
+import net.minecraft.sounds.SoundSource;
 import org.gtreimagined.gt5r.machine.ISecondaryOutputMachine;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.player.Player;
@@ -32,8 +34,8 @@ public class SecondaryOutputCoverHandler<T extends BlockEntityMachine<T>> extend
     public boolean setSecondaryOutputFacing(Player entity, Direction side) {
         Direction dir = getSecondaryOutputFacing();
         if (dir == null && getSecondaryOutputCoverFactory() == ICover.emptyFactory) return false;
-        if (side == dir || side == getOutputFacing()) return false;
-        boolean ok = dir != null ? moveCover(entity, dir, side) : set(side, getSecondaryOutputCoverFactory().get().get(this, null, side, getSecondaryOutputCoverFactory()), true);
+        if (side == dir) return false;
+        boolean ok = side == getOutputFacing() ? switchCovers(entity) : dir != null ? moveCover(entity, dir, side) : set(side, getSecondaryOutputCoverFactory().get().get(this, null, side, getSecondaryOutputCoverFactory()), true);
         if (ok) {
             getTile().invalidateCaps();
         }
@@ -42,8 +44,33 @@ public class SecondaryOutputCoverHandler<T extends BlockEntityMachine<T>> extend
 
     @Override
     public boolean setOutputFacing(Player entity, Direction side) {
-        if (side == getSecondaryOutputFacing()) return false;
+        if (side == getSecondaryOutputFacing()){
+            boolean ok = switchCovers(entity);
+            if (ok) getTile().invalidateCaps();
+            return ok;
+        }
         return super.setOutputFacing(entity, side);
+    }
+
+    private boolean switchCovers(Player player){
+        ICover secondaryOutput = getSecondaryOutputCover();
+        ICover output = getOutputCover();
+        Direction outputFacing = getOutputFacing();
+        Direction secondOutputFacing = getSecondaryOutputFacing();
+        CoverFactory outputFactory = output.getFactory();
+        ICover outputCopy = outputFactory.get().get(this, output.getTier(), secondOutputFacing, outputFactory);
+        outputCopy.deserialize(output.serialize());
+        CoverFactory secondOutputFactory = secondaryOutput.getFactory();
+        ICover secondOutputCopy = secondOutputFactory.get().get(this, secondaryOutput.getTier(), outputFacing, secondOutputFactory);
+        secondOutputCopy.deserialize(secondaryOutput.serialize());
+        boolean ok1 = set(secondOutputFacing, secondaryOutput, outputCopy, true);
+        if (!ok1) return false;
+        boolean ok2 = set(outputFacing, output, secondOutputCopy, true);
+        if (ok2){
+            sync();
+            player.getLevel().playSound(null, this.getTile().getBlockPos(), Ref.WRENCH, SoundSource.BLOCKS, 1.0f, 1.0f);
+        }
+        return ok2;
     }
 
     @Override
