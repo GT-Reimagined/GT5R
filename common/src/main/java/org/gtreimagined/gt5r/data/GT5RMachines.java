@@ -73,7 +73,6 @@ public class GT5RMachines {
     /**
      ** Hatchless Multiblock Machines (Steam Age)
      **/
-    public static BasicMachine CHARCOAL_PIT = new BasicMachine(GT5RRef.ID, "charcoal_pit").setTiers(NONE).baseTexture(new Texture(GT5RRef.ID, "block/machine/base/charcoal_pit")).setTile(BlockEntityCharcoalPit::new).noCovers().setAmbientTicking();
     public static BasicMultiMachine<?> COKE_OVEN = new BasicMultiMachine<>(GT5RRef.ID, "coke_oven").setTiers(NONE).setMap(RecipeMaps.COKE_OVEN).addFlags(GUI, ITEM, FLUID).setTile(BlockEntityCokeOven::new);
     public static BasicMultiMachine<?> PRIMITIVE_BLAST_FURNACE = new BasicMultiMachine<>(GT5RRef.ID, "primitive_blast_furnace").setTiers(NONE).setMap(RecipeMaps.PRIMITIVE_BLAST_FURNACE).addFlags(GUI, ITEM).setTile(BlockEntityPrimitiveBlastFurnace::new);
     /**
