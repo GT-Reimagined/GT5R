@@ -1,9 +1,12 @@
 package org.gtreimagined.gt5r.blockentity.multi;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import muramasa.antimatter.AntimatterAPI;
 import muramasa.antimatter.gui.SlotType;
 import muramasa.antimatter.machine.event.IMachineEvent;
 import muramasa.antimatter.recipe.map.IRecipeMap;
+import muramasa.antimatter.recipe.map.RecipeMap;
+import muramasa.antimatter.util.Utils;
 import net.minecraft.world.item.ItemStack;
 import org.gtreimagined.gt5r.data.RecipeMaps;
 import org.gtreimagined.gt5r.machine.caps.ParallelRecipeHandler;
@@ -60,10 +63,18 @@ public class BlockEntityMultiSmelter extends BlockEntityMultiMachine<BlockEntity
     @Override
     public int drawInfo(InfoRenderWidget.MultiRenderWidget instance, PoseStack stack, Font renderer, int left, int top) {
         int superDraw = super.drawInfo(instance, stack, renderer, left, top);
+        if (!(instance instanceof MultiSmelterInfoWidget widget)) return superDraw;
         if (getMachineState() == MachineState.ACTIVE && instance.drawActiveInfo()){
-            renderer.draw(stack, "Concurrent Recipes: " + ((MultiSmelterInfoWidget)instance).concurrentRecipes, left, top + 32, 16448255);
-            return superDraw + 8;
+            renderer.draw(stack, "Concurrent Recipes: " + widget.concurrentRecipes, left, top + 32, 16448255);
+            superDraw += 8;
         }
+        int add = getMachineState() == MachineState.ACTIVE && instance.drawActiveInfo() ? 40 : 16;
+        RecipeMap<?> map = AntimatterAPI.get(RecipeMap.class, widget.recipeMap);
+        if (map != null){
+            renderer.draw(stack, Utils.literal("Recipe map: ").append(map.getDisplayName()).getString(), left, top + add, 16448255);
+            superDraw += 8;
+        }
+
         return superDraw;
     }
 
@@ -87,6 +98,7 @@ public class BlockEntityMultiSmelter extends BlockEntityMultiMachine<BlockEntity
 
     public static class MultiSmelterInfoWidget extends InfoRenderWidget.MultiRenderWidget{
         int concurrentRecipes;
+        String recipeMap;
         protected MultiSmelterInfoWidget(GuiInstance gui, IGuiElement parent, IInfoRenderer<MultiRenderWidget> renderer) {
             super(gui, parent, renderer);
         }
@@ -96,6 +108,7 @@ public class BlockEntityMultiSmelter extends BlockEntityMultiMachine<BlockEntity
             super.init();
             BlockEntityMultiSmelter m = (BlockEntityMultiSmelter) gui.handler;
             gui.syncInt(() -> m.recipeHandler.map(r -> ((ParallelRecipeHandler<?>)r).concurrentRecipes).orElse(0), i -> concurrentRecipes = i, ICanSyncData.SyncDirection.SERVER_TO_CLIENT);
+            gui.syncString(() -> m.recipeMap.getId(), i -> recipeMap = i, ICanSyncData.SyncDirection.SERVER_TO_CLIENT);
         }
 
         public static WidgetSupplier build() {
