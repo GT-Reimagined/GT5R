@@ -60,6 +60,12 @@ public class BlockEntityMultiSmelter extends BlockEntityMultiMachine<BlockEntity
     }
 
     @Override
+    public void onFirstTick() {
+        super.onFirstTick();
+        onMachineEvent(SlotType.STORAGE);
+    }
+
+    @Override
     public WidgetSupplier getInfoWidget() {
         return MultiSmelterInfoWidget.build().setPos(10, 10);
     }
