@@ -329,6 +329,7 @@ public class Guis {
         LARGE_ELECTROLYZER.getGui().setBackgroundTexture("multiblock");
         LARGE_PULVERIZER.getGui().setBackgroundTexture("multiblock");
         LARGE_ORE_WASHER.getGui().setBackgroundTexture("multiblock");
+        LARGE_SIFTER.getGui().setBackgroundTexture("multiblock");
         LARGE_TURBINE.getGui().setBackgroundTexture("multiblock");
         LARGE_HEAT_EXCHANGER.getGui().setBackgroundTexture("multiblock");
         OIL_DRILLING_RIG.getGui().setBackgroundTexture("multiblock");
