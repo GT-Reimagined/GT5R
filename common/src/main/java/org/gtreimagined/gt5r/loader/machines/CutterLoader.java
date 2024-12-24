@@ -71,7 +71,7 @@ public class CutterLoader {
                 addCutterRecipe(ROD.getMaterialTag(t), BOLT.get(t, 4), "bolt_" + t.getId(), (int) (baseDuration.applyAsLong(t) * 2), 4);
             }
         });
-        AntimatterMaterialTypes.ROD_LONG.all().forEach(m -> {
+        AntimatterMaterialTypes.ROD_LONG.all().stream().filter(m -> m.has(ROD)).forEach(m -> {
             addCutterRecipe(ROD_LONG.getMaterialTag(m), ROD.get(m, 2), "rod_" + m.getId(), (int) (baseDuration.applyAsLong(m) * 2), 4);
         });
         if (!AntimatterAPI.isModLoaded(Ref.MOD_TFC)){
