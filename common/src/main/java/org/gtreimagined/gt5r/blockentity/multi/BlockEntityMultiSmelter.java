@@ -1,6 +1,8 @@
 package org.gtreimagined.gt5r.blockentity.multi;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import lombok.Getter;
+import lombok.Setter;
 import muramasa.antimatter.AntimatterAPI;
 import muramasa.antimatter.gui.SlotType;
 import muramasa.antimatter.machine.event.IMachineEvent;
@@ -28,6 +30,8 @@ import org.gtreimagined.gtcore.item.ItemSelectorTag;
 import java.util.List;
 
 public class BlockEntityMultiSmelter extends BlockEntityMultiMachine<BlockEntityMultiSmelter> {
+    @Getter
+    @Setter
     private BlockCoil.CoilData coilData;
     private IRecipeMap recipeMap = RecipeMaps.ELECTRIC_FURNACE;
 
@@ -41,18 +45,18 @@ public class BlockEntityMultiSmelter extends BlockEntityMultiMachine<BlockEntity
             }
 
             @Override
+            protected boolean canRecipeContinue() {
+                if (activeRecipe != null && !activeRecipe.getMapId().equals(recipeMap.getId())){
+                    return false;
+                }
+                return super.canRecipeContinue();
+            }
+
+            @Override
             public IRecipeMap getRecipeMap() {
                 return recipeMap;
             }
         });
-    }
-
-    public void setCoilData(BlockCoil.CoilData coilData) {
-        this.coilData = coilData;
-    }
-
-    public BlockCoil.CoilData getCoilData() {
-        return coilData;
     }
 
     @Override
