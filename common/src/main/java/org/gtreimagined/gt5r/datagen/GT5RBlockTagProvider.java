@@ -1,6 +1,7 @@
 package org.gtreimagined.gt5r.datagen;
 
 import muramasa.antimatter.AntimatterAPI;
+import muramasa.antimatter.Ref;
 import muramasa.antimatter.data.AntimatterDefaultTools;
 import muramasa.antimatter.datagen.providers.AntimatterBlockTagProvider;
 import muramasa.antimatter.machine.Tier;
@@ -19,6 +20,7 @@ import org.gtreimagined.gt5r.data.GT5RBlocks;
 import org.gtreimagined.gt5r.data.GT5RTags;
 import org.gtreimagined.gt5r.data.GT5RMachines;
 import net.minecraft.tags.BlockTags;
+import org.gtreimagined.gt5r.integration.AppliedEnergisticsRegistrar;
 
 import static muramasa.antimatter.data.AntimatterMaterials.Wood;
 
@@ -69,5 +71,10 @@ public class GT5RBlockTagProvider extends AntimatterBlockTagProvider {
         this.tag(AntimatterDefaultTools.AXE.getToolType()).add(GT5RBlocks.BRITTLE_CHARCOAL, GT5RBlocks.POWDER_BARREL);
         this.tag(AntimatterDefaultTools.PICKAXE.getToolType()).add(GT5RBlocks.MINING_PIPE, GT5RBlocks.MINING_PIPE_THIN, GT5RBlocks.SOLID_SUPER_FUEL);
         this.tag(BlockTags.NEEDS_DIAMOND_TOOL).add(GT5RMachines.MINIATURE_NETHER_PORTAL.getBlockState(Tier.NONE));
+        if (AntimatterAPI.isModLoaded(Ref.MOD_AE)){
+            //TODO config for this
+            this.tag(AntimatterDefaultTools.WRENCH.getToolType()).add(AppliedEnergisticsRegistrar.getAe2Block("cable_bus"));
+            this.tag(AntimatterDefaultTools.PICKAXE.getToolType()).remove(AppliedEnergisticsRegistrar.getAe2Block("cable_bus"));
+        }
     }
 }
