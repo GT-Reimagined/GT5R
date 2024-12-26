@@ -75,13 +75,13 @@ public class BlockEntityMultiSmelter extends BlockEntityMultiMachine<BlockEntity
         int superDraw = super.drawInfo(instance, stack, renderer, left, top);
         if (!(instance instanceof MultiSmelterInfoWidget widget)) return superDraw;
         if (getMachineState() == MachineState.ACTIVE && instance.drawActiveInfo()){
-            renderer.draw(stack, "Concurrent Recipes: " + widget.concurrentRecipes, left, top + 32, 16448255);
+            renderer.draw(stack, "Concurrent Recipes: " + widget.concurrentRecipes, left, top + 32, 0xFAFAFF);
             superDraw += 8;
         }
         int add = getMachineState() == MachineState.ACTIVE && instance.drawActiveInfo() ? 40 : 16;
         RecipeMap<?> map = AntimatterAPI.get(RecipeMap.class, widget.recipeMap);
         if (map != null){
-            renderer.draw(stack, Utils.literal("Recipe map: ").append(map.getDisplayName()).getString(), left, top + add, 16448255);
+            renderer.draw(stack, Utils.literal("Recipe map: ").append(map.getDisplayName()).getString(), left, top + add, 0xFAFAFF);
             superDraw += 8;
         }
 

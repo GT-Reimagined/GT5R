@@ -220,7 +220,7 @@ public class BlockEntityLargeHeatExchanger extends BlockEntityMultiMachine<Block
     @Override
     public int drawInfo(InfoRenderWidget.MultiRenderWidget instance, PoseStack stack, Font renderer, int left, int top) {
         int size = super.drawInfo(instance, stack, renderer, left, top);
-        renderer.draw(stack, "Heat: " + ((HeatInfoWidget)instance).heat, left, top + size, 16448255);
+        renderer.draw(stack, "Heat: " + ((HeatInfoWidget)instance).heat, left, top + size, 0xFAFAFF);
         return size + 8;
     }
 

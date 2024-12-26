@@ -210,9 +210,9 @@ public class BlockEntityLargeTurbine extends BlockEntityMultiMachine<BlockEntity
         int size = super.drawInfo(instance, stack, renderer, left, top);
         if (this.getMachineState() == MachineState.ACTIVE) {
             LargeTurbineWidget wid = (LargeTurbineWidget) instance;
-            renderer.draw(stack, "Current: " + wid.currentConsumption + " mb/t", left, top + size, 16448255);
-            renderer.draw(stack, "Optimal: " + wid.recommendedConsumption + " mb/t", left, top + size + 8, 16448255);
-            renderer.draw(stack, "EU generation: " + wid.lastEU, left, top + size + 16, 16448255);
+            renderer.draw(stack, "Current: " + wid.currentConsumption + " mb/t", left, top + size, 0xFAFAFF);
+            renderer.draw(stack, "Optimal: " + wid.recommendedConsumption + " mb/t", left, top + size + 8, 0xFAFAFF);
+            renderer.draw(stack, "EU generation: " + wid.lastEU, left, top + size + 16, 0xFAFAFF);
             return size + 24;
         }
         return size;

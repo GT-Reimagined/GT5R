@@ -51,7 +51,7 @@ public class BlockEntityLargeChemicalReactor extends BlockEntityMultiMachine<Blo
     public int drawInfo(InfoRenderWidget.MultiRenderWidget instance, PoseStack stack, Font renderer, int left, int top) {
         int superDraw = super.drawInfo(instance, stack, renderer, left, top);
         if (getMachineState() == MachineState.ACTIVE && instance.drawActiveInfo()){
-            renderer.draw(stack, "Concurrent Recipes: " + ((MultiSmelterInfoWidget)instance).concurrentRecipes, left, top + 32, 16448255);
+            renderer.draw(stack, "Concurrent Recipes: " + ((MultiSmelterInfoWidget)instance).concurrentRecipes, left, top + 32, 0xFAFAFF);
             return superDraw + 8;
         }
         return superDraw;

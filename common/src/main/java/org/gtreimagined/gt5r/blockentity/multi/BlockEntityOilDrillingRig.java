@@ -296,21 +296,21 @@ public class BlockEntityOilDrillingRig extends BlockEntityMultiMachine<BlockEnti
     @Override
     public int drawInfo(InfoRenderWidget.MultiRenderWidget instance, PoseStack stack, Font renderer, int left, int top) {
         OilInfoWidget oilInfoWidget = (OilInfoWidget) instance;
-        renderer.draw(stack, this.getDisplayName().getString(), left, top, 16448255);
+        renderer.draw(stack, this.getDisplayName().getString(), left, top, 0xFAFAFF);
         if (getMachineState() != MachineState.ACTIVE) {
-            renderer.draw(stack, "Inactive.", left, top + 8, 16448255);
+            renderer.draw(stack, "Inactive.", left, top + 8, 0xFAFAFF);
             return 16;
         } else if (instance.drawActiveInfo()) {
             if (oilInfoWidget.foundBottom){
-                renderer.draw(stack, "Progress: " + instance.currentProgress + "/" + instance.maxProgress, left, top + 8, 16448255);
+                renderer.draw(stack, "Progress: " + instance.currentProgress + "/" + instance.maxProgress, left, top + 8, 0xFAFAFF);
                 return 16;
             } else if (oilInfoWidget.stopped && oilInfoWidget.currentPos != null){
-                renderer.draw(stack, "Can't mine at: " + oilInfoWidget.currentPos, left, top + 8, 16448255);
-                renderer.draw(stack, "Y: " + oilInfoWidget.currentPos.getY(), left, top + 16, 16448255);
+                renderer.draw(stack, "Can't mine at: " + oilInfoWidget.currentPos, left, top + 8, 0xFAFAFF);
+                renderer.draw(stack, "Y: " + oilInfoWidget.currentPos.getY(), left, top + 16, 0xFAFAFF);
                 return 24;
             } else if (oilInfoWidget.currentPos != null){
-                renderer.draw(stack, "Mining Position at: ", left, top + 8, 16448255);
-                renderer.draw(stack, "Y: " + oilInfoWidget.currentPos.getY(), left, top + 16, 16448255);
+                renderer.draw(stack, "Mining Position at: ", left, top + 8, 0xFAFAFF);
+                renderer.draw(stack, "Y: " + oilInfoWidget.currentPos.getY(), left, top + 16, 0xFAFAFF);
                 return 24;
             }
         }
