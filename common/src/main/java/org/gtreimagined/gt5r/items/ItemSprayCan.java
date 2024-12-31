@@ -1,5 +1,8 @@
 package org.gtreimagined.gt5r.items;
 
+import muramasa.antimatter.pipe.PipeSize;
+import muramasa.antimatter.pipe.types.Cable;
+import muramasa.antimatter.pipe.types.Wire;
 import org.gtreimagined.gt5r.GT5RRef;
 import muramasa.antimatter.Ref;
 import muramasa.antimatter.blockentity.pipe.BlockEntityPipe;
@@ -18,6 +21,7 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import org.gtreimagined.gtcore.block.RedstoneWire;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -35,7 +39,7 @@ public class ItemSprayCan extends ItemBasic<ItemSprayCan> implements ICustomDura
     @Override
     public InteractionResult useOn(UseOnContext context) {
         BlockEntity be = context.getLevel().getBlockEntity(context.getClickedPos());
-        if (!context.getLevel().isClientSide() && be instanceof BlockEntityPipe<?> pipe && (pipe.getPipeType() instanceof FluidPipe || pipe.getPipeType() instanceof ItemPipe)){
+        if (!context.getLevel().isClientSide() && be instanceof BlockEntityPipe<?> pipe && (pipe.getPipeType() instanceof FluidPipe || pipe.getPipeType() instanceof ItemPipe || (pipe.getPipeType() instanceof Cable && !(pipe.getPipeType() instanceof Wire)) || (pipe.getPipeType() instanceof RedstoneWire && pipe.getPipeSize() == PipeSize.TINY))){
             int rgb = GT5RData.getColorFromDyeColor(color);
             if (pipe.getPipeColor() != rgb){
                 pipe.setPipeColor(rgb);

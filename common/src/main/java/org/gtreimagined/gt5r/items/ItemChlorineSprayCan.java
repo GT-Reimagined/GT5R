@@ -4,8 +4,11 @@ import muramasa.antimatter.Ref;
 import muramasa.antimatter.blockentity.pipe.BlockEntityPipe;
 import muramasa.antimatter.item.ICustomDurability;
 import muramasa.antimatter.item.ItemBasic;
+import muramasa.antimatter.pipe.PipeSize;
+import muramasa.antimatter.pipe.types.Cable;
 import muramasa.antimatter.pipe.types.FluidPipe;
 import muramasa.antimatter.pipe.types.ItemPipe;
+import muramasa.antimatter.pipe.types.Wire;
 import muramasa.antimatter.util.Utils;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionResult;
@@ -18,6 +21,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import org.gtreimagined.gt5r.GT5RRef;
 import org.gtreimagined.gt5r.data.GT5RData;
+import org.gtreimagined.gtcore.block.RedstoneWire;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -33,7 +37,7 @@ public class ItemChlorineSprayCan extends ItemBasic<ItemChlorineSprayCan> implem
     @Override
     public InteractionResult useOn(UseOnContext context) {
         BlockEntity be = context.getLevel().getBlockEntity(context.getClickedPos());
-        if (!context.getLevel().isClientSide() && be instanceof BlockEntityPipe<?> pipe && (pipe.getPipeType() instanceof FluidPipe || pipe.getPipeType() instanceof ItemPipe)){
+        if (!context.getLevel().isClientSide() && be instanceof BlockEntityPipe<?> pipe && (pipe.getPipeType() instanceof FluidPipe || pipe.getPipeType() instanceof ItemPipe || (pipe.getPipeType() instanceof Cable && !(pipe.getPipeType() instanceof Wire)) || (pipe.getPipeType() instanceof RedstoneWire && pipe.getPipeSize() == PipeSize.TINY))){
             if (pipe.getPipeColor() != -1){
                 pipe.setPipeColor(-1);
                 pipe.checkConnections();
