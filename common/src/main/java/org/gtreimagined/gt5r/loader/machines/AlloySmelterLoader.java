@@ -12,6 +12,7 @@ import org.gtreimagined.gt5r.data.GT5RMaterialTags;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import org.gtreimagined.gtcore.data.GTCoreItems;
+import org.gtreimagined.gtcore.data.GTCoreMaterials;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,9 +41,11 @@ public class AlloySmelterLoader {
                 builder.put(stack.m, stack.s);
                 cumulative += stack.s;
             }
-            cumulative = t == RedAlloy ? 1 : cumulative;
+            cumulative = t == RedAlloy || t == GTCoreMaterials.LeadedRedstone ? 1 : cumulative;
             addAlloyRecipes(builder.build(), t, cumulative);
         });
+        addAlloyRecipes(ImmutableMap.of(Copper, 1, SterlingSilver, 5, RedAlloy, 10), GTCoreMaterials.Signalum, 16, "signalum_ingot_extra");
+        addAlloyRecipes(ImmutableMap.of(Tin, 3, Silver, 1, Glowstone, 4), GTCoreMaterials.Lumium, 4);
         addAlloyRecipes(ImmutableMap.of(Copper, 3, Electrum, 2), BlackBronze, 5);
         addAlloyRecipes(ImmutableMap.of(Bismuth, 1, Brass, 4), BismuthBronze, 5);
         addAlloyRecipes(ImmutableMap.of(Gold, 4, NetheriteScrap, 4), Netherite, 1);
@@ -80,6 +83,10 @@ public class AlloySmelterLoader {
     }
 
     private static void addAlloyRecipes(ImmutableMap<Material, Integer> inputs, Material output, int amount){
+        addAlloyRecipes(inputs, output, amount, output.getId() + "_ingot");
+    }
+
+    private static void addAlloyRecipes(ImmutableMap<Material, Integer> inputs, Material output, int amount, String id){
         if (inputs.size() > 1){
             List<Ingredient> ingredients = new ArrayList<>();
             inputs.forEach((m, i) -> {
@@ -95,7 +102,7 @@ public class AlloySmelterLoader {
                 }
                 ingredients.add(RecipeIngredient.of(i, tags.toArray(TagKey[]::new)));
             });
-            ALLOY_SMELTER.RB().ii(ingredients).io(INGOT.get(output, amount)).add(output.getId() + "_ingot", 100, 12);
+            ALLOY_SMELTER.RB().ii(ingredients).io(INGOT.get(output, amount)).add(id, 100, 12);
         }
     }
 }

@@ -20,6 +20,7 @@ import static muramasa.antimatter.data.AntimatterMaterialTypes.*;
 import static muramasa.antimatter.data.AntimatterMaterials.*;
 import static muramasa.antimatter.material.MaterialTags.*;
 import static org.gtreimagined.gt5r.data.GT5RMaterialTags.ALLOY;
+import static org.gtreimagined.gt5r.data.Materials.*;
 
 public class GT5RMaterialEvents {
     public static void onMaterialEvent(GregTechMaterialEvent event){
@@ -82,7 +83,7 @@ public class GT5RMaterialEvents {
         //event.setMaterial(Ruthenium).asMetal(2607,2607);
         //event.setMaterial(Rhodium).asMetal(2237, 2237);
         event.setMaterial(Materials.Palladium).asMetal(1828).forceBF(true);
-        event.setMaterial(Materials.Silver).asMetal(1234, PLATE, SCREW).asOre().harvestLevel(2);
+        event.setMaterial(Silver).asMetal(1234, PLATE, SCREW).asOre().harvestLevel(2);
         event.setMaterial(Materials.Cadmium).asDust(594);
         event.setMaterial(Materials.Indium).asSolid(430, MOLTEN);
         event.setMaterial(Materials.Tin).asMetal(505, PLATE, ROD_LONG, SCREW, BOLT, RING, FOIL, WIRE_FINE, FRAME, ROTOR).asOre().harvestLevel(1);
@@ -154,6 +155,7 @@ public class GT5RMaterialEvents {
         event.setMaterial(Materials.Invar).asMetal(1700, FRAME, RING, ALLOY);
         event.setMaterial(Materials.IronMagnetic).asMetal(1811, ROD_LONG);
         event.setMaterial(Materials.Kanthal).asMetal(1800).forceBF(true);
+        event.setMaterial(GTCoreMaterials.LeadedRedstone).asMetal(600, ALLOY);
         event.setMaterial(Materials.Magnalium).asMetal(870, PLATE, ROD_LONG, ALLOY);
         event.setMaterial(Materials.NeodymiumMagnetic).asMetal(1297, ROD_LONG);
         event.setMaterial(Materials.Neutronium).asMetal(10000, 10000, SCREW, BOLT, RING, FRAME);
@@ -181,7 +183,11 @@ public class GT5RMaterialEvents {
         event.setMaterial(Materials.VanadiumSteel).asMetal(1453, 1453).forceBF(false);
         event.setMaterial(Materials.Vibranium).asMetal(295, FRAME);
         event.setMaterial(Materials.WroughtIron).asMetal(1811, PLATE, ROD_LONG, SCREW, BOLT, RING, FRAME);
-        event.setMaterial(Materials.YttriumBariumCuprate).asMetal(4500, 4500, PLATE, FOIL, ROD_LONG, WIRE_FINE, ALLOY);
+        event.setMaterial(Materials.YttriumBariumCuprate).asMetal(4500, PLATE, FOIL, ROD_LONG, WIRE_FINE, ALLOY);
+
+        event.setMaterial(GTCoreMaterials.Signalum).asMetal(1353, ALLOY);
+        event.setMaterial(GTCoreMaterials.Lumium).asMetal(593);
+        event.setMaterial(GTCoreMaterials.Enderium).asMetal(1071).forceBF(false);
         /**
          **  Dusts
          **/
@@ -626,21 +632,22 @@ public class GT5RMaterialEvents {
         event.setMaterial(Materials.AnnealedCopper).mats(of(Copper, 1));
         event.setMaterial(Materials.BatteryAlloy).mats(of(Materials.Lead, 4, Materials.Antimony, 1));
         event.setMaterial(Materials.BismuthBronze).mats(of(Materials.Bismuth, 1, Materials.Zinc, 1, Copper, 3));
-        event.setMaterial(Materials.BlackBronze).mats(of(Gold, 1, Materials.Silver, 1, Copper, 3));
+        event.setMaterial(Materials.BlackBronze).mats(of(Gold, 1, Silver, 1, Copper, 3));
         event.setMaterial(Materials.BlackSteel).mats(of(Materials.Nickel, 1, Materials.BlackBronze, 1, Materials.Steel, 3));
         event.setMaterial(Materials.BlueSteel).mats(of(Materials.RoseGold, 1, Materials.Brass, 1, Materials.Steel, 2, Materials.BlackSteel, 4));
         event.setMaterial(Materials.Brass).mats(of(Materials.Zinc, 1, Copper, 3));
         event.setMaterial(Materials.Bronze).mats(of(Materials.Tin, 1, Copper, 3));
-        event.setMaterial(Materials.CdInAGAlloy).mats(of(Materials.Cadmium, 1, Materials.Indium, 1, Materials.Silver, 1));
+        event.setMaterial(Materials.CdInAGAlloy).mats(of(Materials.Cadmium, 1, Materials.Indium, 1, Silver, 1));
         event.setMaterial(Materials.CobaltBrass).mats(of(Materials.Brass, 7, Materials.Aluminium, 1, Materials.Cobalt, 1));
         event.setMaterial(Materials.Cupronickel).mats(of(Copper, 1, Materials.Nickel, 1));
-        event.setMaterial(Materials.Electrum).mats(of(Materials.Silver, 1, Gold, 1));
+        event.setMaterial(Materials.Electrum).mats(of(Silver, 1, Gold, 1));
         event.setMaterial(Materials.HSSE).mats(of(Materials.HSSG, 6, Materials.Cobalt, 1, Materials.Manganese, 1, Materials.Silicon, 1));
         event.setMaterial(Materials.HSSG).mats(of(Materials.TungstenSteel, 5, Materials.Chromium, 1, Materials.Molybdenum, 2, Materials.Vanadium, 1));
         event.setMaterial(Materials.HSSS).mats(of(Materials.HSSG, 6, Materials.Iridium, 2, Materials.Osmium, 1));
         event.setMaterial(Materials.Invar).mats(of(Iron, 2, Materials.Nickel, 1));
         event.setMaterial(Materials.IronMagnetic).mats(of(Iron, 1)).elecTicks(52);
         event.setMaterial(Materials.Kanthal).mats(of(Iron, 1, Materials.Aluminium, 1, Materials.Chromium, 1));
+        event.setMaterial(GTCoreMaterials.LeadedRedstone).mats(of(Materials.Lead, 1, Redstone, 4));
         event.setMaterial(Materials.Magnalium).mats(of(Materials.Magnesium, 1, Materials.Aluminium, 2));
         event.setMaterial(Materials.NeodymiumMagnetic).mats(of(Materials.Neodymium, 1)).elecTicks(122);
         event.setMaterial(Materials.Nichrome).mats(of(Materials.Nickel, 4, Materials.Chromium, 1));
@@ -653,7 +660,7 @@ public class GT5RMaterialEvents {
         event.setMaterial(Materials.SolderingAlloy).mats(of(Materials.Tin, 9, Materials.Antimony, 1));
         event.setMaterial(Materials.Steel).mats(of(Iron, 50, Materials.Carbon, 1), 50).elecTicks(2600);
         event.setMaterial(Materials.SteelMagnetic).mats(of(Materials.Steel, 1)).elecTicks(52);
-        event.setMaterial(Materials.SterlingSilver).mats(of(Copper, 1, Materials.Silver, 4));
+        event.setMaterial(Materials.SterlingSilver).mats(of(Copper, 1, Silver, 4));
         event.setMaterial(Materials.StainlessSteel).mats(of(Iron, 6, Materials.Chromium, 1, Materials.Manganese, 1, Materials.Nickel, 1)).elecTicks(450);
         event.setMaterial(Materials.TinAlloy).mats(of(Materials.Tin, 1, Iron, 1));
         event.setMaterial(Materials.TungstenCarbide).mats(of(Materials.Tungsten, 1, Materials.Carbon, 1));
@@ -663,6 +670,10 @@ public class GT5RMaterialEvents {
         event.setMaterial(Materials.VanadiumSteel).mats(of(Materials.Vanadium, 1, Materials.Chromium, 1, Materials.Steel, 7));
         event.setMaterial(Materials.WroughtIron).mats(of(Iron, 1));
         event.setMaterial(Materials.YttriumBariumCuprate).mats(of(Materials.Yttrium, 1, Materials.Barium, 2, Copper, 3, Materials.Oxygen, 7));
+
+        event.setMaterial(GTCoreMaterials.Signalum).mats(of(Copper, 1, Materials.Silver, 2, Materials.RedAlloy, 5));
+        event.setMaterial(GTCoreMaterials.Lumium).mats(of(Materials.Tin, 3, Materials.Silver, 1, Glowstone, 4));
+        event.setMaterial(GTCoreMaterials.Enderium).mats(of(Materials.Tin, 2, Silver, 1, Platinum, 1, EnderPearl, 4));
         /**
          **  Dusts
          **/
@@ -754,7 +765,7 @@ public class GT5RMaterialEvents {
         event.setMaterial(Materials.Chromite).mats(of(Iron, 1, Materials.Chromium, 2, Materials.Oxygen, 4)).elecTicks(210);
         event.setMaterial(Materials.Cobaltite).mats(of(Materials.Cobalt, 1, Materials.Arsenic, 1, Materials.Sulfur, 1)).elecTicks(150);
         event.setMaterial(Materials.Sheldonite).mats(of(Materials.Platinum, 3, Materials.Nickel, 1, Materials.Sulfur, 1, Materials.Palladium, 1));
-        event.setMaterial(Materials.Galena).mats(of(Materials.Lead, 3, Materials.Silver, 3, Materials.Sulfur, 2)).elecTicks(832);
+        event.setMaterial(Materials.Galena).mats(of(Materials.Lead, 3, Silver, 3, Materials.Sulfur, 2)).elecTicks(832);
         event.setMaterial(Materials.Garnierite).mats(of(Materials.Nickel, 1, Materials.Oxygen, 1), 1).elecTicks(72);
         event.setMaterial(Materials.Graphite).mats(of(Materials.Carbon, 4), 1).elecTicks(100);
         event.setMaterial(Materials.Glauconite).mats(of(Materials.Alumina, 10, Materials.Potassium, 1, Materials.Magnesium, 2, Water, 3, Materials.Oxygen, 7)).elecTicks(378); // TODO: Ore Gen;
@@ -1181,12 +1192,12 @@ public class GT5RMaterialEvents {
         event.setMaterial(Copper).addByProduct(Materials.Cobalt, Gold, Materials.Nickel).bathMercury(Gold).bathPersulfate(Copper);
         event.setMaterial(Materials.DarkAsh).addByProduct(Materials.Carbon);
         event.setMaterial(Diamond).addByProduct(Materials.Graphite);
-        event.setMaterial(Materials.Electrum).addByProduct(Gold, Materials.Silver);
+        event.setMaterial(Materials.Electrum).addByProduct(Gold, Silver);
         event.setMaterial(Emerald).addByProduct(Materials.Beryllium, Materials.Alumina);
         event.setMaterial(Endstone).addByProduct(Materials.Helium3);
         event.setMaterial(Materials.EnrichedNaquadah).addByProduct(Materials.Naquadah, Materials.Naquadria);
         event.setMaterial(Flint).addByProduct(Materials.Obsidian);
-        event.setMaterial(Materials.Galena).addByProduct(Materials.Sulfur, Materials.Silver, Materials.Lead).bathMercury(Materials.Silver);
+        event.setMaterial(Materials.Galena).addByProduct(Materials.Sulfur, Silver, Materials.Lead).bathMercury(Silver);
         event.setMaterial(Materials.Garnierite).addByProduct(Materials.Nickel).bathPersulfate(Materials.Nickel);
         event.setMaterial(Materials.Glauconite).addByProduct(Materials.Sodium, Materials.Alumina, Iron);
         event.setMaterial(Glowstone).addByProduct(Redstone, Gold);
@@ -1197,7 +1208,7 @@ public class GT5RMaterialEvents {
         event.setMaterial(Materials.Iridium).addByProduct(Materials.Platinum, Materials.Osmium).bathMercury(Materials.Platinum);
         event.setMaterial(Iron).addByProduct(Materials.Nickel, Materials.Tin).bathPersulfate(Materials.Nickel);
         event.setMaterial(Lapis).addByProduct(Materials.Calcite, Materials.Pyrite);
-        event.setMaterial(Materials.Lead).addByProduct(Materials.Silver, Materials.Sulfur).bathMercury(Materials.Silver);
+        event.setMaterial(Materials.Lead).addByProduct(Silver, Materials.Sulfur).bathMercury(Silver);
         event.setMaterial(Materials.Lepidolite).addByProduct(Materials.Lithium, Materials.Caesium, Materials.Boron);
         event.setMaterial(Materials.Lignite).addByProduct(Coal);
         event.setMaterial(Materials.Magnesite).addByProduct(Materials.Magnesium);
@@ -1242,7 +1253,7 @@ public class GT5RMaterialEvents {
         event.setMaterial(Materials.Scheelite).addByProduct(Materials.Manganese, Materials.Molybdenum, Materials.Calcium).elecTicks(120); //1920 eu/tick
         event.setMaterial(Materials.Sheldonite).addByProduct(Materials.Palladium, Materials.Nickel, Materials.Iridium).bathMercury(Materials.Sheldonite).bathPersulfate(Materials.Nickel);
         event.setMaterial(Materials.Silicon).addByProduct(Materials.SiliconDioxide);
-        event.setMaterial(Materials.Silver).addByProduct(Materials.Lead, Materials.Sulfur).bathMercury(Materials.Silver);
+        event.setMaterial(Silver).addByProduct(Materials.Lead, Materials.Sulfur).bathMercury(Silver);
         event.setMaterial(Materials.Sodalite).addByProduct(Materials.Lazurite, Lapis);
         event.setMaterial(Materials.Sperrylite).addByProduct(Materials.Antimony, Copper, Materials.Sheldonite, Materials.Hematite).bathMercury(Materials.Sheldonite).bathPersulfate(Copper);
         event.setMaterial(Materials.Spessartine).addByProduct(Materials.RedGarnet, Materials.Manganese);
@@ -1257,7 +1268,7 @@ public class GT5RMaterialEvents {
         event.setMaterial(Materials.Thorium).addByProduct(Materials.Lead, Materials.Thorium, Materials.Indium);
         event.setMaterial(Materials.Tin).addByProduct(Iron, Materials.Zinc).bathPersulfate(Materials.Zinc);
         event.setMaterial(Materials.Titanium).addByProduct(Materials.Almandine);
-        event.setMaterial(Materials.Tungstate).addByProduct(Materials.Manganese, Materials.Silver, Materials.Lithium).bathMercury(Materials.Silver);
+        event.setMaterial(Materials.Tungstate).addByProduct(Materials.Manganese, Silver, Materials.Lithium).bathMercury(Silver);
         event.setMaterial(Materials.Tungsten).addByProduct(Materials.Manganese, Materials.Molybdenum);
         event.setMaterial(Materials.Uraninite).addByProduct(Materials.Lead, Materials.Thorium, Materials.RareEarth);
         event.setMaterial(Materials.Uvarovite).addByProduct(Materials.YellowGarnet, Materials.Chromium);
@@ -1354,7 +1365,7 @@ public class GT5RMaterialEvents {
         GT5RMaterialTags.ELECSEPG.add(Materials.VanadiumMagnetite, Materials.Magnetite);
         GT5RMaterialTags.ELECSEPI.add(Materials.YellowLimonite, Materials.BrownLimonite, Materials.Tin, Materials.Chromium, Materials.Ilmenite, Materials.Hematite, Materials.Pyrite, Materials.Glauconite, Materials.Nickel, Materials.Chromite, Materials.Pentlandite, Materials.Manganese);
         GT5RMaterialTags.ELECSEPN.add(Materials.Monazite, Materials.Bastnasite);
-        GT5RMaterialTags.GRINDABLE.add(/* Paper, */Coal, Charcoal, Materials.Lignite, Materials.Lead, Materials.Tin, Materials.SolderingAlloy, Flint, Gold, Materials.Silver, Iron,
+        GT5RMaterialTags.GRINDABLE.add(/* Paper, */Coal, Charcoal, Materials.Lignite, Materials.Lead, Materials.Tin, Materials.SolderingAlloy, Flint, Gold, Silver, Iron,
                 Materials.IronMagnetic, Materials.Steel, Materials.SteelMagnetic, Materials.Zinc, Materials.Antimony, Copper, Materials.AnnealedCopper, Materials.Bronze, Materials.Nickel, Materials.Invar,
                 Materials.Brass, Materials.WroughtIron, Materials.Electrum, Materials.Clay, Blaze);
         GT5RMaterialTags.NOBBF.add(Materials.Tetrahedrite, Materials.Chalcopyrite, Materials.Sheldonite, Materials.Pyrolusite, Materials.Magnesite, Materials.Molybdenite, Materials.Galena);
