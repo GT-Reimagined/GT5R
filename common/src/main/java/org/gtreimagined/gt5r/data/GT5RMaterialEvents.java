@@ -185,8 +185,6 @@ public class GT5RMaterialEvents {
         event.setMaterial(Materials.WroughtIron).asMetal(1811, PLATE, ROD_LONG, SCREW, BOLT, RING, FRAME);
         event.setMaterial(Materials.YttriumBariumCuprate).asMetal(4500, PLATE, FOIL, ROD_LONG, WIRE_FINE, ALLOY);
 
-        event.setMaterial(GTCoreMaterials.Signalum).asMetal(1353, ALLOY);
-        event.setMaterial(GTCoreMaterials.Lumium).asMetal(593);
         event.setMaterial(GTCoreMaterials.Enderium).asMetal(1071).forceBF(false);
         /**
          **  Dusts
@@ -671,9 +669,6 @@ public class GT5RMaterialEvents {
         event.setMaterial(Materials.WroughtIron).mats(of(Iron, 1));
         event.setMaterial(Materials.YttriumBariumCuprate).mats(of(Materials.Yttrium, 1, Materials.Barium, 2, Copper, 3, Materials.Oxygen, 7));
 
-        event.setMaterial(GTCoreMaterials.Signalum).mats(of(Copper, 1, Materials.Silver, 2, Materials.RedAlloy, 5));
-        event.setMaterial(GTCoreMaterials.Lumium).mats(of(Materials.Tin, 3, Materials.Silver, 1, Glowstone, 4));
-        event.setMaterial(GTCoreMaterials.Enderium).mats(of(Materials.Tin, 2, Silver, 1, Platinum, 1, EnderPearl, 4));
         /**
          **  Dusts
          **/

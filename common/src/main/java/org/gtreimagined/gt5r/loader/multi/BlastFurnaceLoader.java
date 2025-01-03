@@ -117,10 +117,9 @@ public class BlastFurnaceLoader {
         addBlastAlloyRecipes(HSSG, 9, 9000, 120, ImmutableMap.of(TungstenSteel, 5, Chromium, 1, Molybdenum, 2, Vanadium, 1));
         addBlastAlloyRecipes(HSSE, 9, 10800, 120, ImmutableMap.of(HSSG, 6, Cobalt, 1, Manganese, 1, Silicon, 1));
         addBlastAlloyRecipes(HSSS, 9, 810 * 20, 120, ImmutableMap.of(HSSG, 6, Iridium, 2, Osmium, 1));
-        addBlastAlloyRecipes(GTCoreMaterials.Enderium, 4, 1000, 120, ImmutableMap.of(Tin, 2, Silver, 1, Platinum, 1, EnderPearl, 4));
     }
 
-    private static void addBlastAlloyRecipes(Material output, int amount, int duration, int power, ImmutableMap<Material, Integer> inputs){
+    public static void addBlastAlloyRecipes(Material output, int amount, int duration, int power, ImmutableMap<Material, Integer> inputs){
         RecipeBuilder b = E_BLAST_FURNACE.RB().temperature(GT5RMaterialTags.BLAST_FURNACE_TEMP.getInt(output));
         b.io((output.has(INGOT_HOT) ?  INGOT_HOT : INGOT).get(output, amount));
         inputs.forEach((m, i) -> {

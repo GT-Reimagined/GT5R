@@ -8,6 +8,7 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import org.gtreimagined.gt5r.client.GT5RModelManager;
 import org.gtreimagined.gt5r.data.*;
 import org.gtreimagined.gt5r.datagen.*;
+import org.gtreimagined.gt5r.integration.ThermalRegistrar;
 import org.gtreimagined.gt5r.loader.crafting.*;
 import org.gtreimagined.gt5r.loader.machines.*;
 import org.gtreimagined.gt5r.loader.multi.*;
@@ -177,6 +178,9 @@ public class GT5Reimagined extends AntimatterMod {
         loader.accept("vacuum_freezer", VacuumFreezerLoader::init);
         if (AntimatterAPI.isModLoaded(Ref.MOD_AE)){
             loader.accept("ae2", AppliedEnergisticsRegistrar::machineRecipes);
+        }
+        if (AntimatterAPI.isModLoaded("thermal")){
+            loader.accept("thermal", ThermalRegistrar::thermalMachineRecipes);
         }
     }
 

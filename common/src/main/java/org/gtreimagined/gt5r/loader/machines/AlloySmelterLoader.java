@@ -44,8 +44,6 @@ public class AlloySmelterLoader {
             cumulative = t == RedAlloy || t == GTCoreMaterials.LeadedRedstone ? 1 : cumulative;
             addAlloyRecipes(builder.build(), t, cumulative);
         });
-        addAlloyRecipes(ImmutableMap.of(Copper, 1, SterlingSilver, 5, RedAlloy, 10), GTCoreMaterials.Signalum, 16, "signalum_ingot_extra");
-        addAlloyRecipes(ImmutableMap.of(Tin, 3, Silver, 1, Glowstone, 4), GTCoreMaterials.Lumium, 4);
         addAlloyRecipes(ImmutableMap.of(Copper, 3, Electrum, 2), BlackBronze, 5);
         addAlloyRecipes(ImmutableMap.of(Bismuth, 1, Brass, 4), BismuthBronze, 5);
         addAlloyRecipes(ImmutableMap.of(Gold, 4, NetheriteScrap, 4), Netherite, 1);
@@ -82,11 +80,11 @@ public class AlloySmelterLoader {
         ALLOY_SMELTER.RB().ii(INGOT.getMaterialIngredient(Iron, 31), RecipeIngredient.of(GTCoreItems.MoldAnvil, 1).setNoConsume()).io(Items.ANVIL).add("anvil", 512, 64);
     }
 
-    private static void addAlloyRecipes(ImmutableMap<Material, Integer> inputs, Material output, int amount){
+    public static void addAlloyRecipes(ImmutableMap<Material, Integer> inputs, Material output, int amount){
         addAlloyRecipes(inputs, output, amount, output.getId() + "_ingot");
     }
 
-    private static void addAlloyRecipes(ImmutableMap<Material, Integer> inputs, Material output, int amount, String id){
+    public static void addAlloyRecipes(ImmutableMap<Material, Integer> inputs, Material output, int amount, String id){
         if (inputs.size() > 1){
             List<Ingredient> ingredients = new ArrayList<>();
             inputs.forEach((m, i) -> {
