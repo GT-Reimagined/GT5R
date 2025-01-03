@@ -31,6 +31,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.material.Fluid;
 import org.gtreimagined.gtcore.GTCore;
+import org.gtreimagined.gtcore.block.RedstoneWire;
 import org.gtreimagined.gtcore.data.GTCoreItems;
 
 import java.util.Arrays;
@@ -141,6 +142,9 @@ public class AssemblerLoader {
                 ASSEMBLER.RB().ii(of(wireItem,1), DUST_SMALL.getMaterialIngredient(PolyvinylChloride, multiplier)).fi(SiliconeRubber.getLiquid(amount /4)).io(new ItemStack(cableItem,1)).add("cable_" + t.getMaterial().getId() + "_" + size.getId() + "_silicone_rubber_2",100,8);
                 ASSEMBLER.RB().ii(of(wireItem,1), DUST_SMALL.getMaterialIngredient(Polydimethylsiloxane, multiplier)).fi(SiliconeRubber.getLiquid(amount /4)).io(new ItemStack(cableItem,1)).add("cable_" + t.getMaterial().getId() + "_" + size.getId() + "_silicone_rubber_3",100,8);
             });
+        });
+        AntimatterAPI.all(RedstoneWire.class).forEach(w -> {
+            ASSEMBLER.RB().ii(of(w.getBlockItem(PipeSize.VTINY), 1), SELECTOR_TAG_INGREDIENTS.get(1)).fi(Rubber.getLiquid(L)).io(w.getBlockItem(PipeSize.TINY)).add("cable_" + w.getMaterial().getId(), 100, 8);
         });
     }
 
