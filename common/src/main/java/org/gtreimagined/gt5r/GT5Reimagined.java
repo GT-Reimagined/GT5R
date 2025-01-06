@@ -47,6 +47,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.level.block.state.BlockState;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.gtreimagined.gtcore.GTCore;
 import org.gtreimagined.gtcore.data.GTCoreItems;
 
 import java.util.Arrays;
@@ -242,8 +243,8 @@ public class GT5Reimagined extends AntimatterMod {
                 GTRemapping.init();
                 AntimatterJEIREIPlugin.addItemsToHide(GT5RBlocks.LAVA);
                 AntimatterJEIREIPlugin.addItemsToHide(l -> {
-                    IAntimatterTool screwdriver_mv = AntimatterAPI.get(IAntimatterTool.class, "electric_screwdriver_mv");
-                    IAntimatterTool screwdriver_hv = AntimatterAPI.get(IAntimatterTool.class, "electric_screwdriver_hv");
+                    IAntimatterTool screwdriver_mv = AntimatterAPI.get(IAntimatterTool.class, "electric_screwdriver_mv", GTCore.ID);
+                    IAntimatterTool screwdriver_hv = AntimatterAPI.get(IAntimatterTool.class, "electric_screwdriver_hv", GTCore.ID);
                     l.addAll(Arrays.asList(screwdriver_mv.getItem(), screwdriver_hv.getItem()));
                     l.add(GTCoreItems.BatteryRE);
                     if (!GT5RConfig.HARDER_CIRCUITS){
