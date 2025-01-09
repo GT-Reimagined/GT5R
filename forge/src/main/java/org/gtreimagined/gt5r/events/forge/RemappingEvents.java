@@ -10,6 +10,7 @@ import muramasa.antimatter.material.Material;
 import muramasa.antimatter.ore.BlockOre;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -22,12 +23,14 @@ import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import org.gtreimagined.gt5r.GT5RRef;
 import org.gtreimagined.gt5r.blockentity.miniportals.BlockEntityMiniPortal;
 import org.gtreimagined.gt5r.blockentity.multi.MiningPipeStructureCache;
 import org.gtreimagined.gt5r.data.Materials;
+import org.gtreimagined.gt5r.worldgen.PlayerPlacedBlockSavedData;
 import org.gtreimagined.gtcore.data.GTCoreBlocks;
 import org.gtreimagined.gtcore.events.GTCommonEvents;
 import org.jetbrains.annotations.NotNull;
@@ -54,6 +57,31 @@ public class RemappingEvents {
             targetPlayer.moveTo(targetPlayer.getX(), targetPlayer.getY(), targetPlayer.getZ(), random.nextInt(180), targetPlayer.getXRot());
         }
     }
+
+    @SubscribeEvent
+    public static void onBlockBreakEvent(BlockEvent.BreakEvent event){
+        if (event.getWorld() instanceof ServerLevel serverLevel){
+            PlayerPlacedBlockSavedData.getOrCreate(serverLevel).removeBlockPos(event.getPos());
+        }
+    }
+
+    @SubscribeEvent
+    public static void onBlockPlace(BlockEvent.EntityPlaceEvent event){
+        if (event.getWorld() instanceof ServerLevel serverLevel && event.getEntity() instanceof Player){
+            PlayerPlacedBlockSavedData.getOrCreate(serverLevel).addBlockPos(event.getBlockSnapshot().getPos());
+        }
+    }
+
+    @SubscribeEvent
+    public static void onBlockMultiPlace(BlockEvent.EntityMultiPlaceEvent event){
+        if (event.getWorld() instanceof ServerLevel serverLevel && event.getEntity() instanceof Player) {
+            var savedData = PlayerPlacedBlockSavedData.getOrCreate(serverLevel);
+            for (var snapshot : event.getReplacedBlockSnapshots()){
+                savedData.addBlockPos(snapshot.getPos());
+            }
+        }
+    }
+
 
     @SubscribeEvent
     public static void onAttackCapabilitiesEvent(AttachCapabilitiesEvent<BlockEntity> event){

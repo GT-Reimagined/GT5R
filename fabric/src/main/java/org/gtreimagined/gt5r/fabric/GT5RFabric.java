@@ -1,5 +1,6 @@
 package org.gtreimagined.gt5r.fabric;
 
+import io.github.fabricators_of_create.porting_lib.event.common.BlockEvents;
 import muramasa.antimatter.event.fabric.CraftingEvents;
 import muramasa.antimatter.event.fabric.LoaderEvents;
 import muramasa.antimatter.event.fabric.ProviderEvents;
@@ -8,11 +9,13 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerWorldEvents;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidStorage;
 import net.fabricmc.fabric.api.transfer.v1.item.ItemStorage;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import org.gtreimagined.gt5r.GT5Reimagined;
 import org.gtreimagined.gt5r.blockentity.miniportals.BlockEntityMiniPortal;
 import org.gtreimagined.gt5r.blockentity.multi.MiningPipeStructureCache;
 import org.gtreimagined.gt5r.loader.WorldGenLoader;
+import org.gtreimagined.gt5r.worldgen.PlayerPlacedBlockSavedData;
 import team.reborn.energy.api.EnergyStorage;
 import tesseract.api.fabric.TesseractLookups;
 
@@ -80,5 +83,10 @@ public class GT5RFabric implements ModInitializer {
             }
             return null;
         }));
+        BlockEvents.BLOCK_BREAK.register(event -> {
+            if (event.getWorld() instanceof ServerLevel serverLevel) {
+                PlayerPlacedBlockSavedData.getOrCreate(serverLevel).removeBlockPos(event.getPos());
+            }
+        });
     }
 }
