@@ -29,24 +29,31 @@ import static org.gtreimagined.gt5r.data.RecipeMaps.ALLOY_SMELTER;
 public class AlloySmelterLoader {
 
     public static void init() {
-        INGOT.all().forEach(t -> {
-            if (t.has(GT5RMaterialTags.NEEDS_BLAST_FURNACE)) return;
-            if (!t.has(ALLOY)) return;
-            if (t == BlackBronze || t == BismuthBronze) return;
-            if (t == Magnalium && !GT5RConfig.HARDER_ALUMINIUM_PROCESSING.get()) return;
-            List<MaterialStack> stacks = t.getProcessInto();
-            ImmutableMap.Builder<Material, Integer> builder = ImmutableMap.builder();
-            int cumulative = 0;
-            for (MaterialStack stack : stacks) {
-                builder.put(stack.m, stack.s);
-                cumulative += stack.s;
-            }
-            cumulative = t == RedAlloy || t == GTCoreMaterials.LeadedRedstone ? 1 : cumulative;
-            addAlloyRecipes(builder.build(), t, cumulative);
-        });
-        addAlloyRecipes(ImmutableMap.of(Copper, 3, Electrum, 2), BlackBronze, 5);
-        addAlloyRecipes(ImmutableMap.of(Bismuth, 1, Brass, 4), BismuthBronze, 5);
+        addAlloyRecipes(ImmutableMap.of(Lead, 1, Redstone, 4), GTCoreMaterials.LeadedRedstone, 1);
+        addAlloyRecipes(ImmutableMap.of(Tin, 1, Copper, 3), Bronze);
+        addAlloyRecipes(ImmutableMap.of(Arsenic, 1, Gallium, 1), GalliumArsenide);
+        addAlloyRecipes(ImmutableMap.of(Copper, 1, Silver, 4), SterlingSilver);
+        addAlloyRecipes(ImmutableMap.of(Tin, 1, Iron, 1), TinAlloy);
+        addAlloyRecipes(ImmutableMap.of(Silver, 1, Gold, 1), Electrum);
+        addAlloyRecipes(ImmutableMap.of(Tin, 9, Antimony, 1), SolderingAlloy);
+        addAlloyRecipes(ImmutableMap.of(Cadmium, 1, Indium, 1, Silver, 1), CdInAGAlloy);
+        addAlloyRecipes(ImmutableMap.of(Iron, 2, Nickel, 1), Invar);
+        addAlloyRecipes(ImmutableMap.of(Copper, 1, Redstone, 4), RedAlloy, 1);
+        addAlloyRecipes(ImmutableMap.of(Indium, 1, Gallium, 1, Phosphor, 1), IndiumGalliumPhosphide);
+        addAlloyRecipes(ImmutableMap.of(Lead, 4, Antimony, 1), BatteryAlloy);
+        addAlloyRecipes(ImmutableMap.of(Zinc, 1, Copper, 3), Brass);
+        addAlloyRecipes(ImmutableMap.of(Copper, 1, Gold, 4), RoseGold);
+        addAlloyRecipes(ImmutableMap.of(Copper, 1, Nickel, 1), Cupronickel);
+        addAlloyRecipes(ImmutableMap.of(Copper, 3, Electrum, 2), BlackBronze);
+        addAlloyRecipes(ImmutableMap.of(Bismuth, 1, Brass, 4), BismuthBronze);
         addAlloyRecipes(ImmutableMap.of(Gold, 4, NetheriteScrap, 4), Netherite, 1);
+        if (GT5RConfig.HARDER_ALUMINIUM_PROCESSING.get()){
+            addAlloyRecipes(ImmutableMap.of(Magnesium, 1, Aluminium, 2), Magnalium);
+            addAlloyRecipes(ImmutableMap.of(Brass, 7, Aluminium, 1, Cobalt, 1), CobaltBrass);
+        }
+        addAlloyRecipes(ImmutableMap.of(Copper, 1, Silver, 2, RedAlloy, 5), GTCoreMaterials.Signalum, 8);
+        addAlloyRecipes(ImmutableMap.of(Copper, 1, SterlingSilver, 5, RedAlloy, 10), GTCoreMaterials.Signalum, 16, "signalum_ingot_extra");
+        addAlloyRecipes(ImmutableMap.of(Tin, 3, Silver, 1, Glowstone, 4), GTCoreMaterials.Lumium, 4);
         //pre Chemical Reactor Rubber
         ALLOY_SMELTER.RB().ii(of(DUST.get(RawRubber), 3), of(DUST.getMaterialTag(Sulfur), 1))
                 .io(INGOT.get(Rubber, 1)).add("rubber_via_alloy_smelter",20, 10);
@@ -78,6 +85,10 @@ public class AlloySmelterLoader {
         ALLOY_SMELTER.RB().ii(DUST.getMaterialIngredient(Glass, 1), RecipeIngredient.of(GTCoreItems.MoldBall, 1).setNoConsume()).io(GTCoreItems.GlassTube).add("glass_tube", 160, 8);
         ALLOY_SMELTER.RB().ii(DUST.getMaterialIngredient(Glass, 1), RecipeIngredient.of(GTCoreItems.MoldBottle, 1).setNoConsume()).io(Items.GLASS_BOTTLE).add("glass_bottle", 64, 4);
         ALLOY_SMELTER.RB().ii(INGOT.getMaterialIngredient(Iron, 31), RecipeIngredient.of(GTCoreItems.MoldAnvil, 1).setNoConsume()).io(Items.ANVIL).add("anvil", 512, 64);
+    }
+
+    public static void addAlloyRecipes(ImmutableMap<Material, Integer> inputs, Material output){
+        addAlloyRecipes(inputs, output, inputs.values().stream().reduce(Integer::sum).orElse(1), output.getId() + "_ingot");
     }
 
     public static void addAlloyRecipes(ImmutableMap<Material, Integer> inputs, Material output, int amount){
