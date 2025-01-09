@@ -27,15 +27,42 @@ public class ParallelRecipeHandler<T extends BlockEntityMachine<T>> extends Mach
     public boolean consumeInputs() {
         concurrentRecipes = 0;
         for (int i = 0; i < maxSimultaneousRecipes(); i++) {
-            boolean consumeInput = consumeSingleInput();
+            boolean simulate = i != 0;
+            boolean consumeInput = consumeSingleInput(simulate);
             if (!consumeInput) break;
+            if (simulate) {
+                consumeSingleInput(false);
+            }
             concurrentRecipes++;
         }
         return concurrentRecipes > 0;
     }
 
-    protected boolean consumeSingleInput(){
-        return super.consumeInputs();
+    protected boolean consumeSingleInput(boolean simulate) {
+        boolean flag = true;
+        if (!tile.hadFirstTick()) return true;
+        final List<ItemStack>[] itemInputs = new List[]{new ArrayList<>()};
+        final List<FluidHolder>[] fluidInputs = new List[]{new ArrayList<>()};
+        if (activeRecipe.hasInputItems()) {
+            flag &= tile.itemHandler.map(h -> {
+                itemInputs[0] = h.consumeInputs(activeRecipe, simulate);
+                return !itemInputs[0].isEmpty();
+            }).orElse(true);
+        }
+        if (activeRecipe.hasInputFluids()) {
+            flag &= tile.fluidHandler.map(h -> {
+                fluidInputs[0] = h.consumeAndReturnInputs(activeRecipe.getInputFluids(), simulate);
+                return !fluidInputs[0].isEmpty();
+            }).orElse(true);
+        }
+        if (!simulate) {
+            if (flag) {
+                consumedResources = true;
+            }
+            this.itemInputs = itemInputs[0];
+            this.fluidInputs = fluidInputs[0];
+        }
+        return flag;
     }
 
     @Override

@@ -1,6 +1,7 @@
 package org.gtreimagined.gt5r.blockentity.multi;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import earth.terrarium.botarium.common.fluid.base.FluidHolder;
 import org.gtreimagined.gt5r.machine.caps.ParallelRecipeHandler;
 import muramasa.antimatter.blockentity.multi.BlockEntityMultiMachine;
 import muramasa.antimatter.capability.IFilterableHandler;
@@ -30,6 +31,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import org.gtreimagined.gtcore.item.ItemSelectorTag;
 import tesseract.TesseractGraphWrappers;
 import tesseract.api.heat.IHeatHandler;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.gtreimagined.gt5r.data.Materials.*;
 
@@ -114,22 +118,30 @@ public class BlockEntityLargeHeatExchanger extends BlockEntityMultiMachine<Block
             }
 
             @Override
-            protected boolean consumeSingleInput() {
+            protected boolean consumeSingleInput(boolean simulate) {
                 boolean flag = true;
                 if (!tile.hadFirstTick()) return true;
+                final List<ItemStack>[] itemInputs = new List[]{new ArrayList<>()};
+                final List<FluidHolder>[] fluidInputs = new List[]{new ArrayList<>()};
                 if (activeRecipe.hasInputItems()) {
                     flag &= tile.itemHandler.map(h -> {
-                        this.itemInputs = h.consumeInputs(activeRecipe, false);
-                        return !this.itemInputs.isEmpty();
+                        itemInputs[0] = h.consumeInputs(activeRecipe, simulate);
+                        return !itemInputs[0].isEmpty();
                     }).orElse(true);
                 }
                 if (activeRecipe.hasInputFluids()) {
                     flag &= tile.fluidHandler.map(h -> {
-                        this.fluidInputs = activeRecipe.getInputFluids().get(0).drain(h.getInputTanks().getTank(0), false);
-                        return !this.fluidInputs.isEmpty();
+                        fluidInputs[0] = activeRecipe.getInputFluids().get(0).drain(h.getInputTanks().getTank(0), simulate);
+                        return !fluidInputs[0].isEmpty();
                     }).orElse(true);
                 }
-                if (flag) consumedResources = true;
+                if (!simulate) {
+                    if (flag) {
+                        consumedResources = true;
+                    }
+                    this.itemInputs = itemInputs[0];
+                    this.fluidInputs = fluidInputs[0];
+                }
                 return flag;
             }
         });
