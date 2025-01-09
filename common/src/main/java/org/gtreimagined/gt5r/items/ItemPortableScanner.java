@@ -1,6 +1,5 @@
 package org.gtreimagined.gt5r.items;
 
-import org.gtreimagined.gt5r.GT5RRef;
 import muramasa.antimatter.Ref;
 import muramasa.antimatter.capability.energy.ItemEnergyHandler;
 import muramasa.antimatter.item.ScannerItem;
@@ -12,6 +11,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
+import org.gtreimagined.gt5r.GT5RRef;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import tesseract.TesseractCapUtils;

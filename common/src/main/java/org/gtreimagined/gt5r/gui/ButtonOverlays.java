@@ -1,8 +1,8 @@
 package org.gtreimagined.gt5r.gui;
 
 
-import org.gtreimagined.gt5r.GT5RRef;
 import muramasa.antimatter.gui.ButtonOverlay;
+import org.gtreimagined.gt5r.GT5RRef;
 
 public class ButtonOverlays {
     public static ButtonOverlay BLACKLIST_OFF = new ButtonOverlay(GT5RRef.ID, "blacklist_off", 16, 16);

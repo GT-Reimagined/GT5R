@@ -1,11 +1,11 @@
 package org.gtreimagined.gt5r.data;
 
-import org.gtreimagined.gt5r.material.FluidProduct;
 import muramasa.antimatter.AntimatterAPI;
 import muramasa.antimatter.material.MaterialTag;
 import muramasa.antimatter.material.tags.DoubleMaterialTag;
 import muramasa.antimatter.material.tags.ListMaterialTag;
 import muramasa.antimatter.material.tags.NumberMaterialTag;
+import org.gtreimagined.gt5r.material.FluidProduct;
 
 public class GT5RMaterialTags {
     public static final MaterialTag ELEC = AntimatterAPI.register(MaterialTag.class, new MaterialTag("elec", true)); //Add Electrolyzer Recipes - SHOULD NOT SHARE MATS WITH CENT

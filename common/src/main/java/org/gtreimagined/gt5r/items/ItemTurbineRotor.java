@@ -2,8 +2,6 @@ package org.gtreimagined.gt5r.items;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
-import org.gtreimagined.gt5r.data.Materials;
-import org.gtreimagined.gt5r.data.ToolTypes;
 import muramasa.antimatter.material.Material;
 import muramasa.antimatter.tool.AntimatterItemTier;
 import muramasa.antimatter.tool.AntimatterToolType;
@@ -16,6 +14,8 @@ import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import org.gtreimagined.gt5r.data.Materials;
+import org.gtreimagined.gt5r.data.ToolTypes;
 
 import java.util.List;
 

@@ -2,15 +2,13 @@ package org.gtreimagined.gt5r.loader.machines;
 
 import com.google.common.collect.ImmutableMap;
 import muramasa.antimatter.material.Material;
-import muramasa.antimatter.material.MaterialStack;
 import muramasa.antimatter.recipe.ingredient.RecipeIngredient;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import org.gtreimagined.gt5r.GT5RConfig;
 import org.gtreimagined.gt5r.data.GT5RMaterialTags;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import org.gtreimagined.gtcore.data.GTCoreItems;
 import org.gtreimagined.gtcore.data.GTCoreMaterials;
 
@@ -19,10 +17,8 @@ import java.util.List;
 
 import static muramasa.antimatter.data.AntimatterMaterialTypes.*;
 import static muramasa.antimatter.data.AntimatterMaterials.*;
-import static muramasa.antimatter.material.MaterialTags.METAL;
 import static muramasa.antimatter.material.MaterialTags.RUBBERTOOLS;
 import static muramasa.antimatter.recipe.ingredient.RecipeIngredient.of;
-import static org.gtreimagined.gt5r.data.GT5RMaterialTags.ALLOY;
 import static org.gtreimagined.gt5r.data.Materials.*;
 import static org.gtreimagined.gt5r.data.RecipeMaps.ALLOY_SMELTER;
 

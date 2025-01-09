@@ -1,6 +1,5 @@
 package org.gtreimagined.gt5r.blockentity.single;
 
-import org.gtreimagined.gt5r.machine.caps.SecondaryOutputCoverHandler;
 import muramasa.antimatter.blockentity.BlockEntityMachine;
 import muramasa.antimatter.data.AntimatterDefaultTools;
 import muramasa.antimatter.machine.types.Machine;
@@ -14,6 +13,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
+import org.gtreimagined.gt5r.machine.caps.SecondaryOutputCoverHandler;
 import org.jetbrains.annotations.Nullable;
 
 public class BlockEntitySecondaryOutput<T extends BlockEntitySecondaryOutput<T>> extends BlockEntityMachine<T> {

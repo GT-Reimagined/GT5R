@@ -5,8 +5,8 @@ import muramasa.antimatter.capability.ICoverHandler;
 import muramasa.antimatter.cover.CoverFactory;
 import muramasa.antimatter.machine.MachineState;
 import muramasa.antimatter.machine.Tier;
-import org.gtreimagined.gt5r.cover.base.CoverBasicRedstoneInput;
 import net.minecraft.core.Direction;
+import org.gtreimagined.gt5r.cover.base.CoverBasicRedstoneInput;
 import org.jetbrains.annotations.Nullable;
 
 

@@ -5,9 +5,9 @@ import muramasa.antimatter.capability.machine.MachineRecipeHandler;
 import muramasa.antimatter.machine.types.Machine;
 import muramasa.antimatter.recipe.IRecipe;
 import muramasa.antimatter.registration.ITextureProvider;
-import org.gtreimagined.gt5r.data.GT5RBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.state.BlockState;
+import org.gtreimagined.gt5r.data.GT5RBlocks;
 
 public class BlockEntityTreeGrowthSimulator extends BlockEntityMultiMachine<BlockEntityTreeGrowthSimulator> {
     public BlockEntityTreeGrowthSimulator(Machine<?> type, BlockPos pos, BlockState state) {

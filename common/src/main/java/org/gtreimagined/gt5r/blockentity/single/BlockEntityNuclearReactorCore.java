@@ -20,9 +20,6 @@ import muramasa.antimatter.texture.Texture;
 import muramasa.antimatter.tool.AntimatterToolType;
 import muramasa.antimatter.util.CodeUtils;
 import muramasa.antimatter.util.Utils;
-import org.gtreimagined.gt5r.data.GT5RItems;
-import org.gtreimagined.gt5r.data.ToolTypes;
-import org.gtreimagined.gt5r.items.IItemReactorRod;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -42,6 +39,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
+import org.gtreimagined.gt5r.data.GT5RItems;
+import org.gtreimagined.gt5r.data.ToolTypes;
+import org.gtreimagined.gt5r.items.IItemReactorRod;
 import org.gtreimagined.gtcore.blockentity.IInventorySyncTile;
 import org.gtreimagined.gtcore.network.MessageTriggerInventorySync;
 import org.jetbrains.annotations.NotNull;
@@ -52,8 +52,8 @@ import tesseract.api.item.ExtendedItemContainer;
 import java.util.function.Function;
 
 import static muramasa.antimatter.Ref.B;
-import static org.gtreimagined.gt5r.data.Materials.*;
 import static net.minecraft.core.Direction.*;
+import static org.gtreimagined.gt5r.data.Materials.*;
 
 public class BlockEntityNuclearReactorCore extends BlockEntitySecondaryOutput<BlockEntityNuclearReactorCore> implements IFilterableHandler, IPostTickTile, IInventorySyncTile {
     public int[] mNeutronCounts = new int[]{0, 0, 0, 0};

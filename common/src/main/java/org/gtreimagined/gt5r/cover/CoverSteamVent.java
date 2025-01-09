@@ -1,6 +1,5 @@
 package org.gtreimagined.gt5r.cover;
 
-import org.gtreimagined.gt5r.blockentity.single.BlockEntitySteamMachine;
 import muramasa.antimatter.blockentity.BlockEntityMachine;
 import muramasa.antimatter.capability.ICoverHandler;
 import muramasa.antimatter.cover.BaseCover;
@@ -16,6 +15,7 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
+import org.gtreimagined.gt5r.blockentity.single.BlockEntitySteamMachine;
 import org.jetbrains.annotations.Nullable;
 import xyz.wagyourtail.unimined.expect.annotation.Environment;
 

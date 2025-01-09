@@ -4,9 +4,9 @@ import muramasa.antimatter.blockentity.BlockEntityMachine;
 import muramasa.antimatter.capability.machine.MachineRecipeHandler;
 import muramasa.antimatter.machine.types.Machine;
 import muramasa.antimatter.recipe.map.IRecipeMap;
-import org.gtreimagined.gt5r.data.RecipeMaps;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.state.BlockState;
+import org.gtreimagined.gt5r.data.RecipeMaps;
 
 import static muramasa.antimatter.machine.Tier.LV;
 import static muramasa.antimatter.machine.Tier.MV;

@@ -1,7 +1,6 @@
 package org.gtreimagined.gt5r.blockentity.multi;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import org.gtreimagined.gt5r.machine.caps.ParallelRecipeHandler;
 import muramasa.antimatter.AntimatterAPI;
 import muramasa.antimatter.Ref;
 import muramasa.antimatter.blockentity.multi.BlockEntityMultiMachine;
@@ -31,6 +30,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
+import org.gtreimagined.gt5r.machine.caps.ParallelRecipeHandler;
 
 public class BlockEntityProcessingArray extends BlockEntityMultiMachine<BlockEntityProcessingArray> implements IFilterableHandler {
 

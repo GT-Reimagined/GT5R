@@ -4,7 +4,6 @@ import muramasa.antimatter.data.AntimatterMaterials;
 import muramasa.antimatter.machine.MachineState;
 import muramasa.antimatter.machine.types.Machine;
 import muramasa.antimatter.tool.AntimatterToolType;
-import org.gtreimagined.gt5r.loader.WorldGenLoader;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -15,6 +14,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
+import org.gtreimagined.gt5r.loader.WorldGenLoader;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;

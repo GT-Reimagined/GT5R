@@ -1,13 +1,13 @@
 package org.gtreimagined.gt5r.loader.crafting;
 
-import net.minecraft.world.item.Items;
-import org.gtreimagined.gt5r.GT5RRef;
 import muramasa.antimatter.data.ForgeCTags;
 import muramasa.antimatter.datagen.providers.AntimatterRecipeProvider;
 import muramasa.antimatter.util.TagUtils;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import org.gtreimagined.gt5r.GT5RRef;
 
 import java.util.function.Consumer;
 

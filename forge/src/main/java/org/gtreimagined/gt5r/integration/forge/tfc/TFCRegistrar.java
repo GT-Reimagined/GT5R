@@ -1,8 +1,5 @@
 package org.gtreimagined.gt5r.integration.forge.tfc;
 
-import org.gtreimagined.gt5r.integration.forge.tfc.datagen.TFCBlockTagProvider;
-import org.gtreimagined.gt5r.integration.forge.tfc.datagen.TFCItemTagProvider;
-import org.gtreimagined.gt5r.integration.forge.tfc.datagen.TFCLangProvider;
 import muramasa.antimatter.AntimatterAPI;
 import muramasa.antimatter.Ref;
 import muramasa.antimatter.data.AntimatterMaterialTypes;
@@ -26,7 +23,6 @@ import muramasa.antimatter.tool.behaviour.BehaviourLogStripping;
 import muramasa.antimatter.tool.behaviour.BehaviourVanillaShovel;
 import muramasa.antimatter.util.AntimatterPlatformUtils;
 import muramasa.antimatter.util.TagUtils;
-import org.gtreimagined.gt5r.GT5RRef;
 import net.dries007.tfc.common.blocks.rock.Rock;
 import net.dries007.tfc.common.blocks.soil.SandBlockType;
 import net.dries007.tfc.common.blocks.soil.SoilBlockType;
@@ -38,6 +34,10 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import org.gtreimagined.gt5r.GT5RRef;
+import org.gtreimagined.gt5r.integration.forge.tfc.datagen.TFCBlockTagProvider;
+import org.gtreimagined.gt5r.integration.forge.tfc.datagen.TFCItemTagProvider;
+import org.gtreimagined.gt5r.integration.forge.tfc.datagen.TFCLangProvider;
 import tesseract.FluidPlatformUtils;
 
 import java.util.function.BiConsumer;

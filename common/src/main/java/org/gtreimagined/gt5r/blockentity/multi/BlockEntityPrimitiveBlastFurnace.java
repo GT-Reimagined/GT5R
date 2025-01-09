@@ -5,10 +5,10 @@ import muramasa.antimatter.capability.machine.CookingRecipeHandler;
 import muramasa.antimatter.machine.types.Machine;
 import muramasa.antimatter.recipe.IRecipe;
 import muramasa.antimatter.util.int3;
-import org.gtreimagined.gt5r.data.GT5RBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import org.gtreimagined.gt5r.data.GT5RBlocks;
 
 public class BlockEntityPrimitiveBlastFurnace extends BlockEntityBasicMultiMachine<BlockEntityPrimitiveBlastFurnace> {
 

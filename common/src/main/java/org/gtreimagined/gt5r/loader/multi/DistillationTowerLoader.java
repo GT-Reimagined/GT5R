@@ -1,12 +1,12 @@
 package org.gtreimagined.gt5r.loader.multi;
 
-import org.gtreimagined.gt5r.GT5RConfig;
-import org.gtreimagined.gt5r.material.FluidProduct;
 import muramasa.antimatter.data.AntimatterMaterialTypes;
 import muramasa.antimatter.material.Material;
 import muramasa.antimatter.recipe.map.RecipeBuilder;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import org.gtreimagined.gt5r.GT5RConfig;
+import org.gtreimagined.gt5r.material.FluidProduct;
 import org.gtreimagined.gtcore.data.GTCoreFluids;
 import tesseract.FluidPlatformUtils;
 import tesseract.TesseractGraphWrappers;

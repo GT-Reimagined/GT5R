@@ -19,7 +19,6 @@ import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.block.state.BlockState;
 import tesseract.TesseractGraphWrappers;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class BlockEntityMagicEnergyConverter extends BlockEntityGenerator<BlockEntityMagicEnergyConverter> {

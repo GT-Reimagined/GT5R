@@ -4,18 +4,18 @@ import muramasa.antimatter.event.forge.AntimatterCraftingEvent;
 import muramasa.antimatter.event.forge.AntimatterLoaderEvent;
 import muramasa.antimatter.event.forge.AntimatterProvidersEvent;
 import muramasa.antimatter.event.forge.AntimatterWorldGenEvent;
-import org.gtreimagined.gt5r.GT5Reimagined;
-import org.gtreimagined.gt5r.GT5RRef;
-import org.gtreimagined.gt5r.GT5RPostRegistrar;
-import org.gtreimagined.gt5r.events.forge.RemappingEvents;
-import org.gtreimagined.gt5r.integration.forge.tfc.TFCRegistrar;
-import org.gtreimagined.gt5r.loader.WorldGenLoader;
-import org.gtreimagined.gt5r.proxy.ClientHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import org.gtreimagined.gt5r.GT5RPostRegistrar;
+import org.gtreimagined.gt5r.GT5RRef;
+import org.gtreimagined.gt5r.GT5Reimagined;
+import org.gtreimagined.gt5r.events.forge.RemappingEvents;
+import org.gtreimagined.gt5r.integration.forge.tfc.TFCRegistrar;
+import org.gtreimagined.gt5r.loader.WorldGenLoader;
+import org.gtreimagined.gt5r.proxy.ClientHandler;
 
 @Mod(GT5RRef.ID)
 public class GT5RForge {

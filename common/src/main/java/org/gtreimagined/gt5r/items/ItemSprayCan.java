@@ -1,17 +1,15 @@
 package org.gtreimagined.gt5r.items;
 
-import muramasa.antimatter.pipe.PipeSize;
-import muramasa.antimatter.pipe.types.Cable;
-import muramasa.antimatter.pipe.types.Wire;
-import org.gtreimagined.gt5r.GT5RRef;
 import muramasa.antimatter.Ref;
 import muramasa.antimatter.blockentity.pipe.BlockEntityPipe;
 import muramasa.antimatter.item.ICustomDurability;
 import muramasa.antimatter.item.ItemBasic;
+import muramasa.antimatter.pipe.PipeSize;
+import muramasa.antimatter.pipe.types.Cable;
 import muramasa.antimatter.pipe.types.FluidPipe;
 import muramasa.antimatter.pipe.types.ItemPipe;
+import muramasa.antimatter.pipe.types.Wire;
 import muramasa.antimatter.util.Utils;
-import org.gtreimagined.gt5r.data.GT5RData;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -21,6 +19,8 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import org.gtreimagined.gt5r.GT5RRef;
+import org.gtreimagined.gt5r.data.GT5RData;
 import org.gtreimagined.gtcore.block.RedstoneWire;
 import org.jetbrains.annotations.Nullable;
 

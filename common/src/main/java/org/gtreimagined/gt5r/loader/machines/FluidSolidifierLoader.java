@@ -14,10 +14,8 @@ import static muramasa.antimatter.Ref.L;
 import static muramasa.antimatter.Ref.L9;
 import static muramasa.antimatter.data.AntimatterMaterialTypes.*;
 import static muramasa.antimatter.data.AntimatterMaterials.*;
-import static net.minecraft.world.item.crafting.Ingredient.of;
 import static org.gtreimagined.gt5r.data.Materials.*;
 import static org.gtreimagined.gt5r.data.RecipeMaps.FLUID_SOLIDIFYER;
-import static org.gtreimagined.gt5r.data.RecipeMaps.MIXER;
 
 public class FluidSolidifierLoader {
     public static void init() {

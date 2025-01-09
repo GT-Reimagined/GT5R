@@ -1,6 +1,5 @@
 package org.gtreimagined.gt5r.block;
 
-import org.gtreimagined.gt5r.GT5RRef;
 import muramasa.antimatter.block.BlockBasicSlab;
 import muramasa.antimatter.registration.IColorHandler;
 import muramasa.antimatter.texture.Texture;
@@ -11,6 +10,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
+import org.gtreimagined.gt5r.GT5RRef;
 import org.jetbrains.annotations.Nullable;
 
 public class BlockAsphaltSlab extends BlockBasicSlab implements IColorHandler {

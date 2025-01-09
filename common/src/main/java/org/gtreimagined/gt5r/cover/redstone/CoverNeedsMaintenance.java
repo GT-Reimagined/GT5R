@@ -1,6 +1,5 @@
 package org.gtreimagined.gt5r.cover.redstone;
 
-import org.gtreimagined.gt5r.blockentity.multi.BlockEntityLargeTurbine;
 import muramasa.antimatter.capability.ICoverHandler;
 import muramasa.antimatter.cover.CoverFactory;
 import muramasa.antimatter.data.AntimatterDefaultTools;
@@ -8,14 +7,15 @@ import muramasa.antimatter.gui.SlotType;
 import muramasa.antimatter.machine.Tier;
 import muramasa.antimatter.tool.AntimatterToolType;
 import muramasa.antimatter.util.Utils;
-import org.gtreimagined.gt5r.cover.base.CoverBasicRedstoneOutput;
-import org.gtreimagined.gt5r.items.ItemTurbineRotor;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import org.gtreimagined.gt5r.blockentity.multi.BlockEntityLargeTurbine;
+import org.gtreimagined.gt5r.cover.base.CoverBasicRedstoneOutput;
+import org.gtreimagined.gt5r.items.ItemTurbineRotor;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 

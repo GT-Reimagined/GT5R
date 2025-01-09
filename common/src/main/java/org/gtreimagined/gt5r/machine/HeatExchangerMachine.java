@@ -11,9 +11,7 @@ import org.gtreimagined.gt5r.data.RecipeMaps;
 
 import static muramasa.antimatter.Data.COVEROUTPUT;
 import static muramasa.antimatter.gui.SlotType.*;
-import static muramasa.antimatter.gui.SlotType.FL_OUT;
 import static muramasa.antimatter.machine.MachineFlag.*;
-import static muramasa.antimatter.machine.MachineFlag.FLUID;
 import static muramasa.antimatter.machine.Tier.NONE;
 
 public class HeatExchangerMachine extends SecondaryOutputMachine {

@@ -13,8 +13,6 @@ import muramasa.antimatter.recipe.serializer.AntimatterRecipeSerializer;
 import muramasa.antimatter.util.AntimatterPlatformUtils;
 import muramasa.antimatter.util.TagUtils;
 import muramasa.antimatter.util.Utils;
-import org.gtreimagined.gt5r.GT5RRef;
-import org.gtreimagined.gt5r.data.RecipeMaps;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
@@ -22,6 +20,8 @@ import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.state.BlockState;
+import org.gtreimagined.gt5r.GT5RRef;
+import org.gtreimagined.gt5r.data.RecipeMaps;
 import tesseract.TesseractGraphWrappers;
 import tesseract.api.item.ExtendedItemContainer;
 

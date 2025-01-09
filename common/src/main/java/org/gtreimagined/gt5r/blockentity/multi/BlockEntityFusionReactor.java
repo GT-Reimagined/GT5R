@@ -12,7 +12,6 @@ import muramasa.antimatter.machine.MachineState;
 import muramasa.antimatter.machine.types.Machine;
 import muramasa.antimatter.recipe.IRecipe;
 import muramasa.antimatter.texture.Texture;
-import org.gtreimagined.gt5r.GT5RRef;
 import net.minecraft.client.gui.Font;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -20,6 +19,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import org.gtreimagined.gt5r.GT5RRef;
 import tesseract.TesseractGraphWrappers;
 
 import static org.gtreimagined.gt5r.data.Materials.DistilledWater;

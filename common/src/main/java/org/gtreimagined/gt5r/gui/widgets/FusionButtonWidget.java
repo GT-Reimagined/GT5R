@@ -1,8 +1,6 @@
 package org.gtreimagined.gt5r.gui.widgets;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import org.gtreimagined.gt5r.GT5RRef;
-import org.gtreimagined.gt5r.blockentity.multi.BlockEntityFusionReactor;
 import muramasa.antimatter.gui.GuiInstance;
 import muramasa.antimatter.gui.ICanSyncData;
 import muramasa.antimatter.gui.IGuiElement;
@@ -11,6 +9,8 @@ import muramasa.antimatter.gui.widget.WidgetSupplier;
 import muramasa.antimatter.integration.jeirei.AntimatterJEIREIPlugin;
 import muramasa.antimatter.util.Utils;
 import net.minecraft.resources.ResourceLocation;
+import org.gtreimagined.gt5r.GT5RRef;
+import org.gtreimagined.gt5r.blockentity.multi.BlockEntityFusionReactor;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 

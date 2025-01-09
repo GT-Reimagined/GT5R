@@ -1,6 +1,5 @@
 package org.gtreimagined.gt5r.cover;
 
-import org.gtreimagined.gt5r.gui.ButtonOverlays;
 import muramasa.antimatter.blockentity.BlockEntityBase;
 import muramasa.antimatter.blockentity.pipe.BlockEntityItemPipe;
 import muramasa.antimatter.blockentity.pipe.BlockEntityPipe;
@@ -26,6 +25,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import org.gtreimagined.gt5r.gui.ButtonOverlays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import tesseract.TesseractCapUtils;

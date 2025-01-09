@@ -5,9 +5,9 @@ import muramasa.antimatter.Ref;
 import muramasa.antimatter.data.ForgeCTags;
 import muramasa.antimatter.datagen.providers.AntimatterBlockTagProvider;
 import muramasa.antimatter.datagen.providers.AntimatterItemTagProvider;
+import net.minecraft.world.item.Items;
 import org.gtreimagined.gt5r.data.GT5RItems;
 import org.gtreimagined.gt5r.data.GT5RTags;
-import net.minecraft.world.item.Items;
 import org.gtreimagined.gtcore.data.GTCoreItems;
 
 import static muramasa.antimatter.data.AntimatterMaterialTypes.*;

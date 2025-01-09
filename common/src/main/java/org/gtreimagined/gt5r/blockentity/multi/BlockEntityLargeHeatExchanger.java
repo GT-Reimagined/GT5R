@@ -2,7 +2,6 @@ package org.gtreimagined.gt5r.blockentity.multi;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import earth.terrarium.botarium.common.fluid.base.FluidHolder;
-import org.gtreimagined.gt5r.machine.caps.ParallelRecipeHandler;
 import muramasa.antimatter.blockentity.multi.BlockEntityMultiMachine;
 import muramasa.antimatter.capability.IFilterableHandler;
 import muramasa.antimatter.capability.fluid.FluidTank;
@@ -28,6 +27,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import org.gtreimagined.gt5r.machine.caps.ParallelRecipeHandler;
 import org.gtreimagined.gtcore.item.ItemSelectorTag;
 import tesseract.TesseractGraphWrappers;
 import tesseract.api.heat.IHeatHandler;

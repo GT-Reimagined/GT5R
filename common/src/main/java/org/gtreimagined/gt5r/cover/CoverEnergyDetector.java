@@ -1,12 +1,12 @@
 package org.gtreimagined.gt5r.cover;
 
-import org.gtreimagined.gt5r.cover.base.CoverBasicRedstoneOutput;
 import muramasa.antimatter.blockentity.BlockEntityMachine;
 import muramasa.antimatter.capability.ICoverHandler;
 import muramasa.antimatter.cover.CoverFactory;
 import muramasa.antimatter.machine.Tier;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
+import org.gtreimagined.gt5r.cover.base.CoverBasicRedstoneOutput;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import tesseract.api.gt.IEnergyHandler;

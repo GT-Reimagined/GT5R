@@ -1,14 +1,14 @@
 package org.gtreimagined.gt5r.data;
 
-import org.gtreimagined.gt5r.GT5RRef;
 import muramasa.antimatter.AntimatterAPI;
 import muramasa.antimatter.gui.container.ContainerBasicMachine;
 import muramasa.antimatter.gui.container.ContainerMachine;
 import muramasa.antimatter.gui.container.ContainerMultiMachine;
+import net.minecraft.client.gui.screens.MenuScreens;
+import org.gtreimagined.gt5r.GT5RRef;
 import org.gtreimagined.gt5r.gui.ScreenCoalBoiler;
 import org.gtreimagined.gt5r.gui.ScreenFusionReactor;
 import org.gtreimagined.gt5r.gui.ScreenSteamMachine;
-import net.minecraft.client.gui.screens.MenuScreens;
 
 public class ClientData {
     public final static MenuScreens.ScreenConstructor SCREEN_FUSION_REACTOR = AntimatterAPI.register(MenuScreens.ScreenConstructor.class, "fusion_reactor", GT5RRef.ID,(MenuScreens.ScreenConstructor)(a, b, c) -> new ScreenFusionReactor<>((ContainerMultiMachine) a,b,c));

@@ -7,9 +7,9 @@ import muramasa.antimatter.AntimatterAPI;
 import muramasa.antimatter.Ref;
 import muramasa.antimatter.datagen.AntimatterDynamics;
 import muramasa.antimatter.util.AntimatterPlatformUtils;
-import org.gtreimagined.gt5r.GT5RRef;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
+import org.gtreimagined.gt5r.GT5RRef;
 
 import java.util.ArrayList;
 import java.util.List;

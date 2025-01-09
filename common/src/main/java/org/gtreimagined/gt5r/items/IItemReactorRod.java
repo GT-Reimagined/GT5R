@@ -1,8 +1,8 @@
 package org.gtreimagined.gt5r.items;
 
-import org.gtreimagined.gt5r.blockentity.single.BlockEntityNuclearReactorCore;
 import muramasa.antimatter.registration.IColorHandler;
 import net.minecraft.world.item.ItemStack;
+import org.gtreimagined.gt5r.blockentity.single.BlockEntityNuclearReactorCore;
 
 public interface IItemReactorRod extends IColorHandler {
     /** @return if a Reactor would accept this Item as a Part of it. */

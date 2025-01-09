@@ -1,18 +1,18 @@
 package org.gtreimagined.gt5r.loader.multi;
 
 import com.google.common.collect.ImmutableMap;
-import org.gtreimagined.gt5r.GT5RConfig;
-import org.gtreimagined.gt5r.GT5RRef;
 import muramasa.antimatter.data.AntimatterMaterials;
 import muramasa.antimatter.material.Material;
 import muramasa.antimatter.recipe.map.RecipeBuilder;
-import org.gtreimagined.gt5r.data.GT5RMaterialTags;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import org.gtreimagined.gtcore.data.GTCoreMaterials;
+import org.gtreimagined.gt5r.GT5RConfig;
+import org.gtreimagined.gt5r.GT5RRef;
+import org.gtreimagined.gt5r.data.GT5RMaterialTags;
 
 import static muramasa.antimatter.data.AntimatterMaterialTypes.*;
-import static muramasa.antimatter.data.AntimatterMaterials.*;
+import static muramasa.antimatter.data.AntimatterMaterials.Copper;
+import static muramasa.antimatter.data.AntimatterMaterials.Iron;
 import static muramasa.antimatter.material.MaterialTags.DIRECT_SMELT_INTO;
 import static muramasa.antimatter.recipe.ingredient.RecipeIngredient.of;
 import static org.gtreimagined.gt5r.data.Materials.*;

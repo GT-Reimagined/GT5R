@@ -3,7 +3,6 @@ package org.gtreimagined.gt5r.datagen;
 import muramasa.antimatter.Data;
 import muramasa.antimatter.data.AntimatterMaterialTypes;
 import muramasa.antimatter.machine.types.Machine;
-import org.gtreimagined.gt5r.GT5RRef;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.FrameType;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
@@ -11,6 +10,7 @@ import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.ItemLike;
+import org.gtreimagined.gt5r.GT5RRef;
 import org.gtreimagined.gtcore.data.GTCoreItems;
 
 import java.util.List;

@@ -1,7 +1,5 @@
 package org.gtreimagined.gt5r.data;
 
-import muramasa.antimatter.data.AntimatterMaterialTypes;
-import org.gtreimagined.gt5r.material.GregTechMaterialEvent;
 import muramasa.antimatter.Data;
 import muramasa.antimatter.data.AntimatterDefaultTools;
 import muramasa.antimatter.data.AntimatterMaterials;
@@ -10,6 +8,7 @@ import muramasa.antimatter.material.MaterialTags;
 import muramasa.antimatter.material.SubTag;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
+import org.gtreimagined.gt5r.material.GregTechMaterialEvent;
 import org.gtreimagined.gtcore.data.GTCoreBlocks;
 import org.gtreimagined.gtcore.data.GTCoreMaterials;
 
@@ -20,7 +19,7 @@ import static muramasa.antimatter.data.AntimatterMaterialTypes.*;
 import static muramasa.antimatter.data.AntimatterMaterials.*;
 import static muramasa.antimatter.material.MaterialTags.*;
 import static org.gtreimagined.gt5r.data.GT5RMaterialTags.ALLOY;
-import static org.gtreimagined.gt5r.data.Materials.*;
+import static org.gtreimagined.gt5r.data.Materials.Silver;
 
 public class GT5RMaterialEvents {
     public static void onMaterialEvent(GregTechMaterialEvent event){

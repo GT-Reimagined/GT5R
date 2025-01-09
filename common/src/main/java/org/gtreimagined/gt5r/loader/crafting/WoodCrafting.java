@@ -1,12 +1,12 @@
 package org.gtreimagined.gt5r.loader.crafting;
 
-import org.gtreimagined.gt5r.GT5RRef;
 import muramasa.antimatter.data.AntimatterDefaultTools;
 import muramasa.antimatter.datagen.providers.AntimatterRecipeProvider;
 import muramasa.antimatter.pipe.PipeSize;
-import org.gtreimagined.gt5r.data.GT5RBlocks;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.tags.ItemTags;
+import org.gtreimagined.gt5r.GT5RRef;
+import org.gtreimagined.gt5r.data.GT5RBlocks;
 
 import java.util.function.Consumer;
 

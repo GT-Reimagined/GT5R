@@ -1,10 +1,6 @@
 package org.gtreimagined.gt5r.loader.crafting;
 
 import com.google.common.collect.ImmutableMap;
-import org.gtreimagined.gt5r.GT5RConfig;
-import org.gtreimagined.gt5r.GT5RRef;
-import org.gtreimagined.gt5r.GT5Reimagined;
-import org.gtreimagined.gt5r.machine.MultiblockTankMachine;
 import muramasa.antimatter.AntimatterAPI;
 import muramasa.antimatter.Ref;
 import muramasa.antimatter.data.AntimatterMaterialTypes;
@@ -25,6 +21,9 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import org.gtreimagined.gt5r.GT5RConfig;
+import org.gtreimagined.gt5r.GT5RRef;
+import org.gtreimagined.gt5r.GT5Reimagined;
 import org.gtreimagined.gt5r.data.GT5RBlocks;
 import org.gtreimagined.gt5r.data.GT5RCovers;
 import org.gtreimagined.gt5r.data.GT5RItems;
@@ -32,11 +31,15 @@ import org.gtreimagined.gt5r.data.GT5RMaterialTypes;
 import org.gtreimagined.gt5r.data.GT5RTags;
 import org.gtreimagined.gt5r.data.Materials;
 import org.gtreimagined.gt5r.data.TierMaps;
+import org.gtreimagined.gt5r.machine.MultiblockTankMachine;
 import org.gtreimagined.gtcore.GTCore;
 import org.gtreimagined.gtcore.data.GTCoreBlocks;
-import org.gtreimagined.gtcore.data.GTCoreItems;
 import org.gtreimagined.gtcore.data.GTCoreMaterials;
-import org.gtreimagined.gtcore.machine.*;
+import org.gtreimagined.gtcore.machine.BarrelMachine;
+import org.gtreimagined.gtcore.machine.ChestMachine;
+import org.gtreimagined.gtcore.machine.LockerMachine;
+import org.gtreimagined.gtcore.machine.MassStorageMachine;
+import org.gtreimagined.gtcore.machine.WorkbenchMachine;
 
 import java.util.Arrays;
 import java.util.function.BiConsumer;

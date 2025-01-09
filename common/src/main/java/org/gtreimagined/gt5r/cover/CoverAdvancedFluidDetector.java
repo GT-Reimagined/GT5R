@@ -2,7 +2,6 @@ package org.gtreimagined.gt5r.cover;
 
 import earth.terrarium.botarium.common.fluid.base.FluidContainer;
 import earth.terrarium.botarium.common.fluid.base.FluidHolder;
-import org.gtreimagined.gt5r.data.GT5RCovers;
 import muramasa.antimatter.blockentity.BlockEntityMachine;
 import muramasa.antimatter.capability.ICoverHandler;
 import muramasa.antimatter.capability.IFilterableHandler;
@@ -20,6 +19,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import org.gtreimagined.gt5r.data.GT5RCovers;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 

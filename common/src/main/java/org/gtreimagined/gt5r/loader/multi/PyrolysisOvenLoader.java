@@ -1,12 +1,12 @@
 package org.gtreimagined.gt5r.loader.multi;
 
-import org.gtreimagined.gt5r.GT5RConfig;
 import muramasa.antimatter.data.AntimatterMaterials;
 import muramasa.antimatter.recipe.ingredient.RecipeIngredient;
-import org.gtreimagined.gt5r.data.Materials;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import org.gtreimagined.gt5r.GT5RConfig;
+import org.gtreimagined.gt5r.data.Materials;
 import org.gtreimagined.gtcore.data.GTCoreItems;
 
 import static muramasa.antimatter.data.AntimatterMaterialTypes.DUST;

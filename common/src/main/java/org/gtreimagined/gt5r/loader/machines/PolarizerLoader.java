@@ -4,8 +4,8 @@ import muramasa.antimatter.Ref;
 import muramasa.antimatter.material.Material;
 import muramasa.antimatter.material.MaterialTypeBlock;
 import muramasa.antimatter.material.MaterialTypeItem;
-import org.gtreimagined.gt5r.data.RecipeMaps;
 import net.minecraft.world.item.Item;
+import org.gtreimagined.gt5r.data.RecipeMaps;
 
 import static muramasa.antimatter.data.AntimatterMaterials.Iron;
 import static org.gtreimagined.gt5r.data.Materials.*;

@@ -10,7 +10,6 @@ import muramasa.antimatter.gui.event.IGuiEvent;
 import muramasa.antimatter.machine.types.Machine;
 import muramasa.antimatter.util.AntimatterPlatformUtils;
 import muramasa.antimatter.util.Utils;
-import org.gtreimagined.gt5r.gui.ButtonOverlays;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -19,6 +18,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import org.gtreimagined.gt5r.gui.ButtonOverlays;
 import tesseract.TesseractCapUtils;
 
 import static muramasa.antimatter.machine.MachineFlag.EU;

@@ -1,8 +1,8 @@
 package org.gtreimagined.gt5r.loader.multi;
 
 import muramasa.antimatter.recipe.ingredient.RecipeIngredient;
-import org.gtreimagined.gt5r.data.GT5RMaterialTags;
 import net.minecraft.world.item.Items;
+import org.gtreimagined.gt5r.data.GT5RMaterialTags;
 import org.gtreimagined.gtcore.data.GTCoreItems;
 
 import static muramasa.antimatter.data.AntimatterMaterialTypes.*;

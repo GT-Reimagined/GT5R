@@ -1,19 +1,18 @@
 package org.gtreimagined.gt5r.loader.crafting;
 
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.DyeColor;
-import org.gtreimagined.gt5r.GT5RRef;
 import muramasa.antimatter.data.AntimatterMaterialTypes;
-import muramasa.antimatter.data.AntimatterMaterials;
 import muramasa.antimatter.data.ForgeCTags;
 import muramasa.antimatter.datagen.providers.AntimatterRecipeProvider;
 import muramasa.antimatter.util.TagUtils;
 import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Blocks;
+import org.gtreimagined.gt5r.GT5RRef;
 import org.gtreimagined.gt5r.data.GT5RBlocks;
 import org.gtreimagined.gtcore.GTCoreConfig;
 
@@ -21,7 +20,6 @@ import java.util.function.Consumer;
 
 import static com.google.common.collect.ImmutableMap.of;
 import static muramasa.antimatter.data.AntimatterDefaultTools.HAMMER;
-import static muramasa.antimatter.data.AntimatterDefaultTools.WRENCH;
 import static muramasa.antimatter.data.AntimatterMaterialTypes.*;
 import static muramasa.antimatter.data.AntimatterMaterials.Coal;
 import static org.gtreimagined.gt5r.data.Materials.*;

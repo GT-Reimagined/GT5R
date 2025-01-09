@@ -2,8 +2,6 @@ package org.gtreimagined.gt5r.cover;
 
 import earth.terrarium.botarium.common.fluid.base.PlatformFluidHandler;
 import earth.terrarium.botarium.common.fluid.utils.FluidHooks;
-import org.gtreimagined.gt5r.GT5RRef;
-import org.gtreimagined.gt5r.data.Materials;
 import muramasa.antimatter.blockentity.pipe.BlockEntityFluidPipe;
 import muramasa.antimatter.capability.ICoverHandler;
 import muramasa.antimatter.cover.BaseCover;
@@ -15,6 +13,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import org.gtreimagined.gt5r.GT5RRef;
+import org.gtreimagined.gt5r.data.Materials;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 

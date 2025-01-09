@@ -1,6 +1,5 @@
 package org.gtreimagined.gt5r.data;
 
-import org.gtreimagined.gt5r.GT5RRef;
 import muramasa.antimatter.machine.MachineState;
 import muramasa.antimatter.texture.IOverlayModeler;
 import muramasa.antimatter.texture.IOverlayTexturer;
@@ -8,6 +7,7 @@ import muramasa.antimatter.texture.ITextureHandler;
 import muramasa.antimatter.texture.Texture;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
+import org.gtreimagined.gt5r.GT5RRef;
 
 public class Textures {
 

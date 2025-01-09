@@ -1,13 +1,13 @@
 package org.gtreimagined.gt5r.data;
 
-import org.gtreimagined.gt5r.GT5RRef;
-import org.gtreimagined.gt5r.blockentity.multi.BlockEntityFusionReactor;
 import muramasa.antimatter.blockentity.BlockEntityMachine;
 import muramasa.antimatter.blockentity.multi.BlockEntityMultiMachine;
 import muramasa.antimatter.capability.IGuiHandler;
 import muramasa.antimatter.gui.MenuHandlerMachine;
 import muramasa.antimatter.gui.container.ContainerMultiMachine;
 import net.minecraft.world.entity.player.Inventory;
+import org.gtreimagined.gt5r.GT5RRef;
+import org.gtreimagined.gt5r.blockentity.multi.BlockEntityFusionReactor;
 
 public class MenuHandlers {
     public static MenuHandlerMachine<BlockEntityFusionReactor, ? extends ContainerMultiMachine> FUSION_MENU_HANDLER = new MenuHandlerMachine(GT5RRef.ID, "container_fusion_reactor") {

@@ -1,7 +1,6 @@
 package org.gtreimagined.gt5r.loader.crafting;
 
 import com.google.common.collect.ImmutableMap;
-import org.gtreimagined.gt5r.GT5RRef;
 import muramasa.antimatter.AntimatterAPI;
 import muramasa.antimatter.data.AntimatterDefaultTools;
 import muramasa.antimatter.data.AntimatterMaterialTypes;
@@ -12,9 +11,6 @@ import muramasa.antimatter.pipe.PipeItemBlock;
 import muramasa.antimatter.pipe.PipeSize;
 import muramasa.antimatter.pipe.types.PipeType;
 import muramasa.antimatter.util.AntimatterPlatformUtils;
-import org.gtreimagined.gt5r.data.GT5RBlocks;
-import org.gtreimagined.gt5r.data.GT5RCovers;
-import org.gtreimagined.gt5r.data.GT5RTags;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.SingleItemRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
@@ -24,12 +20,16 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import org.gtreimagined.gt5r.GT5RRef;
 import org.gtreimagined.gt5r.block.BlockAsphalt;
 import org.gtreimagined.gt5r.block.BlockAsphaltSlab;
 import org.gtreimagined.gt5r.block.BlockAsphaltStair;
 import org.gtreimagined.gt5r.block.BlockCasing;
 import org.gtreimagined.gt5r.block.BlockCoil;
 import org.gtreimagined.gt5r.block.BlockColoredWall;
+import org.gtreimagined.gt5r.data.GT5RBlocks;
+import org.gtreimagined.gt5r.data.GT5RCovers;
+import org.gtreimagined.gt5r.data.GT5RTags;
 import org.gtreimagined.gtcore.data.GTCoreItems;
 
 import java.util.function.Consumer;

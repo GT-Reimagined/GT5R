@@ -8,15 +8,15 @@ import muramasa.antimatter.recipe.ingredient.RecipeIngredient;
 import muramasa.antimatter.util.AntimatterPlatformUtils;
 import muramasa.antimatter.util.TagUtils;
 import muramasa.antimatter.util.Utils;
-import org.gtreimagined.gt5r.GT5Reimagined;
-import org.gtreimagined.gt5r.data.RecipeMaps;
-import org.gtreimagined.gt5r.loader.machines.CutterLoader;
 import net.dries007.tfc.common.blocks.rock.Ore;
 import net.dries007.tfc.common.items.TFCItems;
 import net.dries007.tfc.util.Helpers;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import org.gtreimagined.gt5r.GT5Reimagined;
+import org.gtreimagined.gt5r.data.RecipeMaps;
+import org.gtreimagined.gt5r.loader.machines.CutterLoader;
 import org.gtreimagined.gtcore.data.GTCoreTags;
 import org.gtreimagined.gtcore.integration.tfc.TFCRubberData;
 
@@ -24,9 +24,9 @@ import static muramasa.antimatter.data.AntimatterMaterialTypes.DUST;
 import static muramasa.antimatter.data.AntimatterMaterials.*;
 import static muramasa.antimatter.material.MaterialTags.MACERATE_INTO;
 import static muramasa.antimatter.material.MaterialTags.ORE_MULTI;
+import static net.dries007.tfc.common.blocks.rock.Ore.*;
 import static org.gtreimagined.gt5r.data.Materials.*;
 import static org.gtreimagined.gt5r.data.RecipeMaps.FLUID_PRESS;
-import static net.dries007.tfc.common.blocks.rock.Ore.*;
 
 public class MachineRecipes {
     public static void init(){

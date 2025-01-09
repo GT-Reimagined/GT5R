@@ -1,11 +1,11 @@
 package org.gtreimagined.gt5r.gui;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import org.gtreimagined.gt5r.blockentity.single.BlockEntitySteamMachine;
 import muramasa.antimatter.gui.container.ContainerBasicMachine;
 import muramasa.antimatter.gui.screen.ScreenMachine;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
+import org.gtreimagined.gt5r.blockentity.single.BlockEntitySteamMachine;
 
 public class ScreenSteamMachine<T extends BlockEntitySteamMachine, U extends ContainerBasicMachine<BlockEntitySteamMachine>> extends ScreenMachine<BlockEntitySteamMachine, U> {
 

@@ -1,7 +1,6 @@
 package org.gtreimagined.gt5r.gui.widgets;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import org.gtreimagined.gt5r.blockentity.single.BlockEntityLavaBoiler;
 import muramasa.antimatter.gui.GuiInstance;
 import muramasa.antimatter.gui.IGuiElement;
 import muramasa.antimatter.gui.Widget;
@@ -9,6 +8,7 @@ import muramasa.antimatter.gui.container.ContainerMachine;
 import muramasa.antimatter.gui.widget.WidgetSupplier;
 import muramasa.antimatter.mixin.client.AbstractContainerScreenAccessor;
 import muramasa.antimatter.util.Utils;
+import org.gtreimagined.gt5r.blockentity.single.BlockEntityLavaBoiler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import tesseract.TesseractGraphWrappers;

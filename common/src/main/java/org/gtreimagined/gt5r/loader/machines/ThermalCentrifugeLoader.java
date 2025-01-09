@@ -5,8 +5,8 @@ import muramasa.antimatter.data.AntimatterMaterials;
 import muramasa.antimatter.material.Material;
 import muramasa.antimatter.material.MaterialTags;
 import muramasa.antimatter.recipe.ingredient.RecipeIngredient;
-import org.gtreimagined.gt5r.data.GT5RMaterialTags;
 import net.minecraft.world.item.ItemStack;
+import org.gtreimagined.gt5r.data.GT5RMaterialTags;
 
 import static org.gtreimagined.gt5r.data.RecipeMaps.THERMAL_CENTRIFUGE;
 

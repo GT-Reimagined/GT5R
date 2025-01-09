@@ -3,7 +3,6 @@ package org.gtreimagined.gt5r.client;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
-import org.gtreimagined.gt5r.GT5RRef;
 import muramasa.antimatter.AntimatterAPI;
 import muramasa.antimatter.client.ModelUtils;
 import muramasa.antimatter.client.model.loader.AntimatterModelLoader;
@@ -12,6 +11,7 @@ import net.minecraft.client.renderer.block.model.BlockModel;
 import net.minecraft.client.renderer.texture.MissingTextureAtlasSprite;
 import net.minecraft.client.resources.model.UnbakedModel;
 import net.minecraft.resources.ResourceLocation;
+import org.gtreimagined.gt5r.GT5RRef;
 
 import java.util.HashMap;
 import java.util.Map;

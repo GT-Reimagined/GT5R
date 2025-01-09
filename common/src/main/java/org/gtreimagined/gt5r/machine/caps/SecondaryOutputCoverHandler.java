@@ -5,10 +5,10 @@ import muramasa.antimatter.blockentity.BlockEntityMachine;
 import muramasa.antimatter.capability.machine.MachineCoverHandler;
 import muramasa.antimatter.cover.CoverFactory;
 import muramasa.antimatter.cover.ICover;
-import net.minecraft.sounds.SoundSource;
-import org.gtreimagined.gt5r.machine.ISecondaryOutputMachine;
 import net.minecraft.core.Direction;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.player.Player;
+import org.gtreimagined.gt5r.machine.ISecondaryOutputMachine;
 import org.jetbrains.annotations.NotNull;
 
 public class SecondaryOutputCoverHandler<T extends BlockEntityMachine<T>> extends MachineCoverHandler<T> {

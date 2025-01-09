@@ -6,10 +6,10 @@ import muramasa.antimatter.cover.CoverFactory;
 import muramasa.antimatter.gui.event.GuiEvents;
 import muramasa.antimatter.gui.event.IGuiEvent;
 import muramasa.antimatter.machine.Tier;
-import org.gtreimagined.gt5r.cover.RedstoneMode;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.player.Player;
+import org.gtreimagined.gt5r.cover.RedstoneMode;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 

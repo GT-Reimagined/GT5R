@@ -1,7 +1,6 @@
 package org.gtreimagined.gt5r.blockentity.multi;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import org.gtreimagined.gt5r.machine.caps.ParallelRecipeHandler;
 import muramasa.antimatter.blockentity.multi.BlockEntityMultiMachine;
 import muramasa.antimatter.gui.GuiInstance;
 import muramasa.antimatter.gui.ICanSyncData;
@@ -11,10 +10,11 @@ import muramasa.antimatter.gui.widget.WidgetSupplier;
 import muramasa.antimatter.integration.jeirei.renderer.IInfoRenderer;
 import muramasa.antimatter.machine.MachineState;
 import muramasa.antimatter.machine.types.Machine;
-import org.gtreimagined.gt5r.block.BlockCoil;
 import net.minecraft.client.gui.Font;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.state.BlockState;
+import org.gtreimagined.gt5r.block.BlockCoil;
+import org.gtreimagined.gt5r.machine.caps.ParallelRecipeHandler;
 
 public class BlockEntityLargeElectrolyzer extends BlockEntityMultiMachine<BlockEntityLargeElectrolyzer> {
     private BlockCoil.CoilData coilData;

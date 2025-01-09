@@ -4,18 +4,15 @@ import muramasa.antimatter.AntimatterAPI;
 import muramasa.antimatter.pipe.PipeSize;
 import muramasa.antimatter.pipe.types.Wire;
 import muramasa.antimatter.recipe.ingredient.RecipeIngredient;
-import org.gtreimagined.gt5r.GT5RConfig;
-import org.gtreimagined.gt5r.data.GT5RBlocks;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import org.gtreimagined.gt5r.data.GT5RBlocks;
 import org.gtreimagined.gtcore.block.RedstoneWire;
 import org.gtreimagined.gtcore.data.GTCoreItems;
 
 import static muramasa.antimatter.data.AntimatterMaterialTypes.*;
 import static org.gtreimagined.gt5r.data.GT5RBlocks.FLUID_PIPE_STEEL;
-import static org.gtreimagined.gt5r.data.GT5RBlocks.WIRE_GRAPHENE;
 import static org.gtreimagined.gt5r.data.Materials.Carbon;
-import static org.gtreimagined.gt5r.data.Materials.Graphene;
 import static org.gtreimagined.gt5r.data.RecipeMaps.WIRE_MILL;
 
 public class WiremillLoader {

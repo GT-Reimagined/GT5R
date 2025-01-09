@@ -17,12 +17,12 @@ import muramasa.antimatter.machine.event.IMachineEvent;
 import muramasa.antimatter.machine.types.Machine;
 import muramasa.antimatter.recipe.IRecipe;
 import muramasa.antimatter.registration.ITextureProvider;
-import org.gtreimagined.gt5r.data.GT5RBlocks;
-import org.gtreimagined.gt5r.items.ItemTurbineRotor;
 import net.minecraft.client.gui.Font;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
+import org.gtreimagined.gt5r.data.GT5RBlocks;
+import org.gtreimagined.gt5r.items.ItemTurbineRotor;
 import tesseract.TesseractGraphWrappers;
 
 import static muramasa.antimatter.data.AntimatterMaterialTypes.ROD_LONG;

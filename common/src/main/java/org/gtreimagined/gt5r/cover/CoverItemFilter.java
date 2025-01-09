@@ -1,7 +1,5 @@
 package org.gtreimagined.gt5r.cover;
 
-import org.gtreimagined.gt5r.cover.base.CoverFilter;
-import org.gtreimagined.gt5r.gui.ButtonOverlays;
 import muramasa.antimatter.blockentity.BlockEntityBase;
 import muramasa.antimatter.blockentity.pipe.BlockEntityItemPipe;
 import muramasa.antimatter.capability.ICoverHandler;
@@ -15,6 +13,8 @@ import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import org.gtreimagined.gt5r.cover.base.CoverFilter;
+import org.gtreimagined.gt5r.gui.ButtonOverlays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import tesseract.util.ItemHandlerUtils;

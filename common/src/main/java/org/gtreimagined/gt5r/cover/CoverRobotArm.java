@@ -1,7 +1,5 @@
 package org.gtreimagined.gt5r.cover;
 
-import org.gtreimagined.gt5r.cover.base.CoverBasicRedstone;
-import org.gtreimagined.gt5r.cover.base.CoverBasicTransport;
 import muramasa.antimatter.blockentity.BlockEntityMachine;
 import muramasa.antimatter.capability.ICoverHandler;
 import muramasa.antimatter.capability.machine.MachineItemHandler;
@@ -18,6 +16,8 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import org.gtreimagined.gt5r.cover.base.CoverBasicRedstone;
+import org.gtreimagined.gt5r.cover.base.CoverBasicTransport;
 import org.jetbrains.annotations.Nullable;
 
 public class CoverRobotArm extends CoverBasicTransport {

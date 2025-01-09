@@ -1,6 +1,5 @@
 package org.gtreimagined.gt5r.machine;
 
-import org.gtreimagined.gt5r.blockentity.single.BlockEntitySteamMachine;
 import muramasa.antimatter.Data;
 import muramasa.antimatter.gui.SlotData;
 import muramasa.antimatter.gui.SlotType;
@@ -11,8 +10,9 @@ import muramasa.antimatter.gui.widget.ProgressWidget;
 import muramasa.antimatter.gui.widget.TextWidget;
 import muramasa.antimatter.gui.widget.WidgetSupplier;
 import muramasa.antimatter.machine.types.Machine;
-import org.gtreimagined.gt5r.GT5RRef;
 import net.minecraft.resources.ResourceLocation;
+import org.gtreimagined.gt5r.GT5RRef;
+import org.gtreimagined.gt5r.blockentity.single.BlockEntitySteamMachine;
 
 import java.util.List;
 

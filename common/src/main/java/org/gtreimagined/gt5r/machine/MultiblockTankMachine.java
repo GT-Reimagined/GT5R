@@ -1,8 +1,6 @@
 package org.gtreimagined.gt5r.machine;
 
 import com.gtnewhorizon.structurelib.structure.StructureUtility;
-import org.gtreimagined.gt5r.GT5RRef;
-import org.gtreimagined.gt5r.blockentity.multi.BlockEntityLargeTank;
 import muramasa.antimatter.AntimatterAPI;
 import muramasa.antimatter.machine.MachineFlag;
 import muramasa.antimatter.machine.Tier;
@@ -10,6 +8,8 @@ import muramasa.antimatter.material.Material;
 import muramasa.antimatter.structure.FakeTileElement;
 import muramasa.antimatter.texture.Texture;
 import muramasa.antimatter.util.Utils;
+import org.gtreimagined.gt5r.GT5RRef;
+import org.gtreimagined.gt5r.blockentity.multi.BlockEntityLargeTank;
 import org.gtreimagined.gtcore.machine.MaterialBasicMultiMachine;
 
 import static muramasa.antimatter.data.AntimatterMaterials.Wood;

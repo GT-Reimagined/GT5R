@@ -7,9 +7,9 @@ import muramasa.antimatter.material.MaterialTypeItem;
 import muramasa.antimatter.ore.CobbleStoneType;
 import muramasa.antimatter.recipe.ingredient.RecipeIngredient;
 import muramasa.antimatter.util.AntimatterPlatformUtils;
+import net.minecraft.world.level.block.Blocks;
 import org.gtreimagined.gt5r.GT5RConfig;
 import org.gtreimagined.gt5r.data.GT5RMaterialTags;
-import net.minecraft.world.level.block.Blocks;
 import org.gtreimagined.gtcore.data.GTCoreBlocks;
 
 import static muramasa.antimatter.Ref.*;

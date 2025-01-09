@@ -3,10 +3,8 @@ package org.gtreimagined.gt5r.integration;
 import com.google.common.collect.ImmutableMap;
 import org.gtreimagined.gtcore.data.GTCoreMaterials;
 
-import static muramasa.antimatter.data.AntimatterMaterials.*;
+import static muramasa.antimatter.data.AntimatterMaterials.EnderPearl;
 import static org.gtreimagined.gt5r.data.Materials.*;
-import static org.gtreimagined.gt5r.data.Materials.Silver;
-import static org.gtreimagined.gt5r.loader.machines.AlloySmelterLoader.addAlloyRecipes;
 import static org.gtreimagined.gt5r.loader.multi.BlastFurnaceLoader.addBlastAlloyRecipes;
 
 public class ThermalRegistrar {

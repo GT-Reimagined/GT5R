@@ -10,11 +10,11 @@ import muramasa.antimatter.cover.CoverOutput;
 import muramasa.antimatter.cover.ICover;
 import muramasa.antimatter.gui.SlotType;
 import muramasa.antimatter.machine.types.Machine;
-import org.gtreimagined.gt5r.data.GT5RTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import org.gtreimagined.gt5r.data.GT5RTags;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;

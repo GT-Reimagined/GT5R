@@ -2,7 +2,6 @@ package org.gtreimagined.gt5r.gui;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import earth.terrarium.botarium.common.fluid.base.FluidHolder;
-import org.gtreimagined.gt5r.blockentity.single.BlockEntityCoalBoiler;
 import muramasa.antimatter.AntimatterAPI;
 import muramasa.antimatter.Ref;
 import muramasa.antimatter.gui.container.ContainerMachine;
@@ -12,6 +11,7 @@ import muramasa.antimatter.machine.MachineFlag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
+import org.gtreimagined.gt5r.blockentity.single.BlockEntityCoalBoiler;
 import tesseract.TesseractGraphWrappers;
 
 public class ScreenCoalBoiler<T extends ContainerMachine<BlockEntityCoalBoiler>> extends ScreenMachine<BlockEntityCoalBoiler, T> {

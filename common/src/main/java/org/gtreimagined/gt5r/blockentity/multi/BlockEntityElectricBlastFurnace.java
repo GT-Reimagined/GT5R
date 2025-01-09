@@ -6,9 +6,9 @@ import muramasa.antimatter.capability.machine.MachineRecipeHandler;
 import muramasa.antimatter.machine.types.Machine;
 import muramasa.antimatter.recipe.IRecipe;
 import muramasa.antimatter.util.Utils;
-import org.gtreimagined.gt5r.block.BlockCoil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.state.BlockState;
+import org.gtreimagined.gt5r.block.BlockCoil;
 
 public class BlockEntityElectricBlastFurnace extends BlockEntityMultiMachine<BlockEntityElectricBlastFurnace> {
     private BlockCoil.CoilData coilData;

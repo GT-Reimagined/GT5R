@@ -1,9 +1,9 @@
 package org.gtreimagined.gt5r.cover;
 
-import org.gtreimagined.gt5r.cover.redstone.CoverRedstoneMachineController;
 import muramasa.antimatter.capability.ICoverHandlerProvider;
 import muramasa.antimatter.cover.ICover;
 import net.minecraft.core.Direction;
+import org.gtreimagined.gt5r.cover.redstone.CoverRedstoneMachineController;
 
 import java.util.ArrayList;
 import java.util.List;

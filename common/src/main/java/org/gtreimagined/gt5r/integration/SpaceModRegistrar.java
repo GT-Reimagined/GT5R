@@ -11,10 +11,10 @@ import muramasa.antimatter.registration.RegistrationEvent;
 import muramasa.antimatter.registration.Side;
 import muramasa.antimatter.texture.Texture;
 import muramasa.antimatter.util.AntimatterPlatformUtils;
-import org.gtreimagined.gt5r.GT5RRef;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
+import org.gtreimagined.gt5r.GT5RRef;
 
 import static muramasa.antimatter.data.AntimatterMaterialTypes.*;
 import static muramasa.antimatter.data.AntimatterMaterials.Diamond;

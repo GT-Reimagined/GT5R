@@ -6,12 +6,12 @@ import muramasa.antimatter.material.Material;
 import muramasa.antimatter.material.MaterialTags;
 import muramasa.antimatter.recipe.ingredient.RecipeIngredient;
 import muramasa.antimatter.recipe.map.RecipeBuilder;
-import org.gtreimagined.gt5r.GT5RConfig;
-import org.gtreimagined.gt5r.data.GT5RTags;
-import org.gtreimagined.gt5r.data.Materials;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import org.gtreimagined.gt5r.GT5RConfig;
+import org.gtreimagined.gt5r.data.GT5RTags;
+import org.gtreimagined.gt5r.data.Materials;
 
 import java.util.ArrayList;
 import java.util.List;

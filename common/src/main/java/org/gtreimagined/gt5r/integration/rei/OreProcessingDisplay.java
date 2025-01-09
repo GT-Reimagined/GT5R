@@ -9,8 +9,8 @@ import me.shedaniel.rei.api.common.util.EntryStacks;
 import muramasa.antimatter.data.AntimatterMaterialTypes;
 import muramasa.antimatter.material.Material;
 import muramasa.antimatter.material.MaterialTags;
-import org.gtreimagined.gt5r.data.GT5RMaterialTags;
 import net.minecraft.world.item.crafting.Ingredient;
+import org.gtreimagined.gt5r.data.GT5RMaterialTags;
 
 import java.util.Arrays;
 import java.util.List;

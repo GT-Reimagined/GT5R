@@ -1,8 +1,6 @@
 package org.gtreimagined.gt5r.data;
 
 import com.google.common.collect.ImmutableMap;
-import org.gtreimagined.gt5r.GT5RRef;
-import org.gtreimagined.gt5r.blockentity.single.BlockEntitySecondaryOutput;
 import muramasa.antimatter.AntimatterAPI;
 import muramasa.antimatter.Ref;
 import muramasa.antimatter.data.AntimatterDefaultTools;
@@ -15,8 +13,6 @@ import muramasa.antimatter.recipe.material.MaterialRecipe;
 import muramasa.antimatter.tool.AntimatterToolType;
 import muramasa.antimatter.tool.IAntimatterTool;
 import muramasa.antimatter.tool.behaviour.BehaviourExtendedHighlight;
-import org.gtreimagined.gt5r.items.ItemPortableScanner;
-import org.gtreimagined.gt5r.items.ItemTurbineRotor;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
@@ -25,6 +21,10 @@ import net.minecraft.world.inventory.CraftingContainer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import org.gtreimagined.gt5r.GT5RRef;
+import org.gtreimagined.gt5r.blockentity.single.BlockEntitySecondaryOutput;
+import org.gtreimagined.gt5r.items.ItemPortableScanner;
+import org.gtreimagined.gt5r.items.ItemTurbineRotor;
 import org.gtreimagined.gtcore.GTCore;
 import org.gtreimagined.gtcore.data.GTCoreItems;
 import org.gtreimagined.gtcore.data.GTCoreTags;

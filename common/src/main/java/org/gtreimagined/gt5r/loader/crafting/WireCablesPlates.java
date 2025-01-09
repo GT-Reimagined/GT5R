@@ -2,7 +2,6 @@ package org.gtreimagined.gt5r.loader.crafting;
 
 import com.google.common.collect.ImmutableSet;
 import com.mojang.datafixers.util.Pair;
-import org.gtreimagined.gt5r.GT5RRef;
 import muramasa.antimatter.AntimatterAPI;
 import muramasa.antimatter.data.AntimatterDefaultTools;
 import muramasa.antimatter.data.AntimatterMaterialTypes;
@@ -14,6 +13,7 @@ import muramasa.antimatter.util.AntimatterPlatformUtils;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import org.gtreimagined.gt5r.GT5RRef;
 import org.gtreimagined.gtcore.block.RedstoneWire;
 
 import java.util.Map;

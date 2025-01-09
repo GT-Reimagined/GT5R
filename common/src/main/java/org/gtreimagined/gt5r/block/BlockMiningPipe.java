@@ -1,13 +1,10 @@
 package org.gtreimagined.gt5r.block;
 
-import org.gtreimagined.gt5r.GT5RRef;
-import org.gtreimagined.gt5r.data.Materials;
 import muramasa.antimatter.block.BlockBasic;
 import muramasa.antimatter.datagen.providers.AntimatterBlockStateProvider;
 import muramasa.antimatter.registration.IColorHandler;
 import muramasa.antimatter.registration.IItemBlockProvider;
 import muramasa.antimatter.texture.Texture;
-import org.gtreimagined.gt5r.data.GT5RBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -21,6 +18,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.gtreimagined.gt5r.GT5RRef;
+import org.gtreimagined.gt5r.data.GT5RBlocks;
+import org.gtreimagined.gt5r.data.Materials;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Random;

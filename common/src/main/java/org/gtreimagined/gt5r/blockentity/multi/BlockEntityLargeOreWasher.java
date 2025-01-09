@@ -1,7 +1,6 @@
 package org.gtreimagined.gt5r.blockentity.multi;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import org.gtreimagined.gt5r.machine.caps.ParallelRecipeHandler;
 import muramasa.antimatter.blockentity.multi.BlockEntityMultiMachine;
 import muramasa.antimatter.gui.GuiInstance;
 import muramasa.antimatter.gui.ICanSyncData;
@@ -15,6 +14,7 @@ import muramasa.antimatter.machine.types.Machine;
 import net.minecraft.client.gui.Font;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.state.BlockState;
+import org.gtreimagined.gt5r.machine.caps.ParallelRecipeHandler;
 
 public class BlockEntityLargeOreWasher extends BlockEntityMultiMachine<BlockEntityLargeOreWasher> {
 

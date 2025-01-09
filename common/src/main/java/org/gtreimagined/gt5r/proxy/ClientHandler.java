@@ -1,16 +1,16 @@
 package org.gtreimagined.gt5r.proxy;
 
-import org.gtreimagined.gt5r.GT5RRef;
-import org.gtreimagined.gt5r.GT5Reimagined;
-import org.gtreimagined.gt5r.block.BlockBedrockFlower;
-import org.gtreimagined.gt5r.data.GT5RMachines;
 import muramasa.antimatter.AntimatterAPI;
 import muramasa.antimatter.client.ModelUtils;
 import muramasa.antimatter.machine.Tier;
 import muramasa.antimatter.util.AntimatterPlatformUtils;
+import net.minecraft.client.renderer.RenderType;
+import org.gtreimagined.gt5r.GT5RRef;
+import org.gtreimagined.gt5r.GT5Reimagined;
+import org.gtreimagined.gt5r.block.BlockBedrockFlower;
 import org.gtreimagined.gt5r.block.BlockCasing;
 import org.gtreimagined.gt5r.block.BlockColoredWall;
-import net.minecraft.client.renderer.RenderType;
+import org.gtreimagined.gt5r.data.GT5RMachines;
 
 import java.io.File;
 import java.io.FileOutputStream;

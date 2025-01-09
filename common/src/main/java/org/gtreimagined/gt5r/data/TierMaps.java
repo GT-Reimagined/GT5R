@@ -1,8 +1,6 @@
 package org.gtreimagined.gt5r.data;
 
 import com.google.common.collect.ImmutableMap;
-import org.gtreimagined.gt5r.GT5RConfig;
-import org.gtreimagined.gt5r.GT5RRef;
 import muramasa.antimatter.item.ItemBasic;
 import muramasa.antimatter.machine.Tier;
 import muramasa.antimatter.material.Material;
@@ -15,6 +13,8 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import org.apache.commons.lang3.function.TriFunction;
+import org.gtreimagined.gt5r.GT5RConfig;
+import org.gtreimagined.gt5r.GT5RRef;
 import org.gtreimagined.gtcore.data.GTCoreItems;
 import org.gtreimagined.gtcore.data.GTCoreTags;
 

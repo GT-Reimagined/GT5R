@@ -24,7 +24,13 @@ import net.minecraft.world.level.material.Fluids;
 import tesseract.FluidPlatformUtils;
 import tesseract.TesseractGraphWrappers;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class BlockEntityPump extends BlockEntityMachine<BlockEntityPump> {

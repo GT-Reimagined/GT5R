@@ -6,14 +6,14 @@ import muramasa.antimatter.material.Material;
 import muramasa.antimatter.material.MaterialTypeItem;
 import muramasa.antimatter.recipe.ingredient.RecipeIngredient;
 import muramasa.antimatter.util.AntimatterPlatformUtils;
-import org.gtreimagined.gt5r.GT5RConfig;
-import org.gtreimagined.gt5r.block.BlockAsphalt;
-import org.gtreimagined.gt5r.data.GT5RBlocks;
-import org.gtreimagined.gt5r.data.GT5RItems;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import org.gtreimagined.gt5r.GT5RConfig;
+import org.gtreimagined.gt5r.block.BlockAsphalt;
+import org.gtreimagined.gt5r.data.GT5RBlocks;
+import org.gtreimagined.gt5r.data.GT5RItems;
 import org.gtreimagined.gtcore.data.GTCoreItems;
 
 import java.util.List;

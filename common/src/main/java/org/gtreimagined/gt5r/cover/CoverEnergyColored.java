@@ -1,6 +1,5 @@
 package org.gtreimagined.gt5r.cover;
 
-import org.gtreimagined.gt5r.data.TierMaps;
 import muramasa.antimatter.blockentity.BlockEntityMachine;
 import muramasa.antimatter.capability.ICoverHandler;
 import muramasa.antimatter.client.RenderHelper;
@@ -10,6 +9,7 @@ import muramasa.antimatter.machine.Tier;
 import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.state.BlockState;
+import org.gtreimagined.gt5r.data.TierMaps;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;

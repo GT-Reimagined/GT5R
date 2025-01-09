@@ -1,10 +1,10 @@
 package org.gtreimagined.gt5r.data;
 
-import org.gtreimagined.gt5r.GT5RRef;
 import muramasa.antimatter.AntimatterAPI;
 import muramasa.antimatter.Ref;
 import muramasa.antimatter.material.Material;
 import net.minecraft.world.item.DyeColor;
+import org.gtreimagined.gt5r.GT5RRef;
 import org.gtreimagined.gtcore.GTCore;
 import org.gtreimagined.gtcore.data.GTCoreMaterials;
 

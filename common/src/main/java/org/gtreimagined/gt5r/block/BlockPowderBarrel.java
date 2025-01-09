@@ -1,6 +1,5 @@
 package org.gtreimagined.gt5r.block;
 
-import org.gtreimagined.gt5r.GT5RRef;
 import muramasa.antimatter.block.BlockBasic;
 import muramasa.antimatter.texture.Texture;
 import net.minecraft.core.BlockPos;
@@ -26,6 +25,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.BlockHitResult;
+import org.gtreimagined.gt5r.GT5RRef;
 import org.gtreimagined.gtcore.data.GTCoreTags;
 import org.jetbrains.annotations.Nullable;
 

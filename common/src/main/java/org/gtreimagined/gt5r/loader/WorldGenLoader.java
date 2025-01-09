@@ -12,28 +12,25 @@ import muramasa.antimatter.worldgen.object.WorldGenStoneLayerBuilder;
 import muramasa.antimatter.worldgen.smallore.WorldGenSmallOreBuilder;
 import muramasa.antimatter.worldgen.vanillaore.WorldGenVanillaOreBuilder;
 import muramasa.antimatter.worldgen.vein.WorldGenVeinLayerBuilder;
-import net.minecraft.world.level.block.Blocks;
-import org.gtreimagined.gt5r.GT5RConfig;
-import org.gtreimagined.gt5r.data.GT5RBlocks;
-import org.gtreimagined.gt5r.worldgen.OilSpoutFluid;
-import org.gtreimagined.gt5r.worldgen.OilSpoutSavedData;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biomes;
+import org.gtreimagined.gt5r.GT5RConfig;
+import org.gtreimagined.gt5r.worldgen.OilSpoutFluid;
+import org.gtreimagined.gt5r.worldgen.OilSpoutSavedData;
 
 import static muramasa.antimatter.Ref.*;
-import static muramasa.antimatter.data.AntimatterMaterialTypes.ORE;
 import static muramasa.antimatter.data.AntimatterMaterialTypes.ORE_STONE;
 import static muramasa.antimatter.data.AntimatterMaterials.*;
 import static muramasa.antimatter.data.AntimatterStoneTypes.*;
-import static org.gtreimagined.gt5r.data.GT5RBlocks.*;
-import static org.gtreimagined.gt5r.data.Materials.*;
 import static net.minecraft.world.level.Level.END;
 import static net.minecraft.world.level.Level.NETHER;
 import static net.minecraft.world.level.Level.OVERWORLD;
+import static org.gtreimagined.gt5r.data.GT5RBlocks.*;
+import static org.gtreimagined.gt5r.data.Materials.*;
 import static org.gtreimagined.gtcore.data.GTCoreBlocks.*;
 
 public class WorldGenLoader {

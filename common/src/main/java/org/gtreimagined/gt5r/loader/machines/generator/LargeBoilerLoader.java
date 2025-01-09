@@ -4,8 +4,8 @@ import muramasa.antimatter.data.AntimatterMaterialTypes;
 import muramasa.antimatter.material.MaterialTags;
 import muramasa.antimatter.recipe.ingredient.RecipeIngredient;
 import muramasa.antimatter.util.AntimatterPlatformUtils;
-import org.gtreimagined.gt5r.data.RecipeMaps;
 import net.minecraft.resources.ResourceLocation;
+import org.gtreimagined.gt5r.data.RecipeMaps;
 
 import static org.gtreimagined.gt5r.data.GT5RMaterialTags.SEMIFUELS;
 

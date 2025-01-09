@@ -1,6 +1,5 @@
 package org.gtreimagined.gt5r.block;
 
-import org.gtreimagined.gt5r.GT5RRef;
 import muramasa.antimatter.block.BlockFakeTile;
 import muramasa.antimatter.material.Material;
 import muramasa.antimatter.registration.IColorHandler;
@@ -11,6 +10,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockState;
+import org.gtreimagined.gt5r.GT5RRef;
 import org.jetbrains.annotations.Nullable;
 
 import static muramasa.antimatter.data.AntimatterMaterials.Wood;

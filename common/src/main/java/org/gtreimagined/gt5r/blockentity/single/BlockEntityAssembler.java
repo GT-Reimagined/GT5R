@@ -10,14 +10,14 @@ import muramasa.antimatter.machine.types.Machine;
 import muramasa.antimatter.recipe.IRecipe;
 import muramasa.antimatter.recipe.ingredient.RecipeIngredient;
 import muramasa.antimatter.recipe.serializer.AntimatterRecipeSerializer;
-import org.gtreimagined.gt5r.data.GT5RItems;
-import org.gtreimagined.gt5r.data.RecipeMaps;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.state.BlockState;
+import org.gtreimagined.gt5r.data.GT5RItems;
+import org.gtreimagined.gt5r.data.RecipeMaps;
 import tesseract.TesseractGraphWrappers;
 import tesseract.api.item.ExtendedItemContainer;
 

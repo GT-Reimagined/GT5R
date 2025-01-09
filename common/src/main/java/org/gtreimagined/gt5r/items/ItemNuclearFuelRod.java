@@ -2,9 +2,6 @@ package org.gtreimagined.gt5r.items;
 
 import earth.terrarium.botarium.common.fluid.base.FluidHolder;
 import earth.terrarium.botarium.common.fluid.utils.FluidHooks;
-import org.gtreimagined.gt5r.GT5RRef;
-import org.gtreimagined.gt5r.blockentity.single.BlockEntityNuclearReactorCore;
-import org.gtreimagined.gt5r.data.Materials;
 import muramasa.antimatter.AntimatterAPI;
 import muramasa.antimatter.Ref;
 import muramasa.antimatter.item.ItemBasic;
@@ -20,6 +17,9 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import org.gtreimagined.gt5r.GT5RRef;
+import org.gtreimagined.gt5r.blockentity.single.BlockEntityNuclearReactorCore;
+import org.gtreimagined.gt5r.data.Materials;
 import org.jetbrains.annotations.Nullable;
 import tesseract.FluidPlatformUtils;
 

@@ -1,8 +1,6 @@
 package org.gtreimagined.gt5r.cover;
 
 import earth.terrarium.botarium.common.fluid.base.FluidHolder;
-import org.gtreimagined.gt5r.GT5RRef;
-import org.gtreimagined.gt5r.blockentity.single.BlockEntityNuclearReactorCore;
 import muramasa.antimatter.blockentity.BlockEntityCache;
 import muramasa.antimatter.capability.ICoverHandler;
 import muramasa.antimatter.capability.machine.MachineFluidHandler;
@@ -12,6 +10,8 @@ import muramasa.antimatter.machine.Tier;
 import muramasa.antimatter.util.Utils;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
+import org.gtreimagined.gt5r.GT5RRef;
+import org.gtreimagined.gt5r.blockentity.single.BlockEntityNuclearReactorCore;
 import org.jetbrains.annotations.Nullable;
 
 public class CoverReactorOutputSecondary extends BaseCover {

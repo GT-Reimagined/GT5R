@@ -5,9 +5,9 @@ import me.shedaniel.rei.api.common.entry.type.VanillaEntryTypes;
 import muramasa.antimatter.data.AntimatterMaterialTypes;
 import muramasa.antimatter.integration.rei.REIUtils;
 import muramasa.antimatter.machine.Tier;
+import net.minecraft.world.item.ItemStack;
 import org.gtreimagined.gt5r.data.GT5RMachines;
 import org.gtreimagined.gt5r.data.GT5RMaterialTags;
-import net.minecraft.world.item.ItemStack;
 
 public class REIRegistrar {
 

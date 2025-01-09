@@ -1,13 +1,13 @@
 package org.gtreimagined.gt5r.cover;
 
-import org.gtreimagined.gt5r.GT5RRef;
-import org.gtreimagined.gt5r.blockentity.single.BlockEntityNuclearReactorCore;
 import muramasa.antimatter.capability.ICoverHandler;
 import muramasa.antimatter.cover.CoverFactory;
 import muramasa.antimatter.cover.CoverOutput;
 import muramasa.antimatter.machine.Tier;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
+import org.gtreimagined.gt5r.GT5RRef;
+import org.gtreimagined.gt5r.blockentity.single.BlockEntityNuclearReactorCore;
 import org.jetbrains.annotations.Nullable;
 
 public class CoverReactorOutput extends CoverOutput {

@@ -1,7 +1,6 @@
 package org.gtreimagined.gt5r.client;
 
 import com.google.common.collect.ImmutableMap;
-import org.gtreimagined.gt5r.blockentity.single.BlockEntityNuclearReactorCore;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import muramasa.antimatter.AntimatterProperties;
 import muramasa.antimatter.Ref;
@@ -11,7 +10,6 @@ import muramasa.antimatter.client.baked.MachineBakedModel;
 import muramasa.antimatter.cover.ICover;
 import muramasa.antimatter.machine.MachineState;
 import muramasa.antimatter.texture.Texture;
-import org.gtreimagined.gt5r.data.GT5RCovers;
 import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.resources.model.BakedModel;
@@ -22,6 +20,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import org.gtreimagined.gt5r.blockentity.single.BlockEntityNuclearReactorCore;
+import org.gtreimagined.gt5r.data.GT5RCovers;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;

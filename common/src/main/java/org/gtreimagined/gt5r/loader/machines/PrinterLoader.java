@@ -1,11 +1,11 @@
 package org.gtreimagined.gt5r.loader.machines;
 
 import muramasa.antimatter.recipe.ingredient.RecipeIngredient;
-import org.gtreimagined.gt5r.data.GT5RItems;
-import org.gtreimagined.gt5r.data.RecipeMaps;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import org.gtreimagined.gt5r.data.GT5RItems;
+import org.gtreimagined.gt5r.data.RecipeMaps;
 
 import static muramasa.antimatter.Ref.L;
 import static org.gtreimagined.gt5r.data.Materials.SquidInk;

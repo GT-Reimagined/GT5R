@@ -2,8 +2,6 @@ package org.gtreimagined.gt5r.cover;
 
 import earth.terrarium.botarium.common.fluid.base.FluidHolder;
 import earth.terrarium.botarium.common.fluid.base.PlatformFluidHandler;
-import org.gtreimagined.gt5r.blockentity.single.BlockEntitySmallHeatExchanger;
-import org.gtreimagined.gt5r.data.Materials;
 import muramasa.antimatter.blockentity.BlockEntityCache;
 import muramasa.antimatter.capability.ICoverHandler;
 import muramasa.antimatter.capability.fluid.FluidTank;
@@ -12,6 +10,8 @@ import muramasa.antimatter.cover.BaseCover;
 import muramasa.antimatter.cover.CoverFactory;
 import muramasa.antimatter.machine.Tier;
 import net.minecraft.core.Direction;
+import org.gtreimagined.gt5r.blockentity.single.BlockEntitySmallHeatExchanger;
+import org.gtreimagined.gt5r.data.Materials;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import tesseract.FluidPlatformUtils;

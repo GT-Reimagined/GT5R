@@ -11,10 +11,10 @@ import muramasa.antimatter.ore.StoneType;
 import muramasa.antimatter.recipe.ingredient.RecipeIngredient;
 import muramasa.antimatter.util.TagUtils;
 import muramasa.antimatter.util.Utils;
-import org.gtreimagined.gt5r.GT5RRef;
-import org.gtreimagined.gt5r.data.GT5RMaterialTags;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import org.gtreimagined.gt5r.GT5RRef;
+import org.gtreimagined.gt5r.data.GT5RMaterialTags;
 
 import java.util.function.ToLongFunction;
 

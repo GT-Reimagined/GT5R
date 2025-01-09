@@ -1,7 +1,6 @@
 package org.gtreimagined.gt5r.blockentity.multi;
 
 import muramasa.antimatter.blockentity.multi.BlockEntityMultiMachine;
-import muramasa.antimatter.capability.IComponentHandler;
 import muramasa.antimatter.capability.machine.MachineItemHandler;
 import muramasa.antimatter.capability.machine.MultiMachineItemHandler;
 import muramasa.antimatter.machine.types.Machine;
@@ -9,9 +8,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.state.BlockState;
 import org.gtreimagined.gt5r.machine.caps.ParallelRecipeHandler;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class BlockEntityLargeSifter extends BlockEntityMultiMachine<BlockEntityLargeSifter> {

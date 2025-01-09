@@ -1,8 +1,6 @@
 package org.gtreimagined.gt5r.cover;
 
 import com.google.common.collect.ImmutableMap;
-import org.gtreimagined.gt5r.cover.base.CoverBasicTransport;
-import org.gtreimagined.gt5r.data.GT5RCovers;
 import muramasa.antimatter.blockentity.BlockEntityCache;
 import muramasa.antimatter.capability.ICoverHandler;
 import muramasa.antimatter.capability.IFilterableHandler;
@@ -25,6 +23,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import org.gtreimagined.gt5r.cover.base.CoverBasicTransport;
+import org.gtreimagined.gt5r.data.GT5RCovers;
 import org.jetbrains.annotations.Nullable;
 import tesseract.TesseractCapUtils;
 import tesseract.api.item.ExtendedItemContainer;

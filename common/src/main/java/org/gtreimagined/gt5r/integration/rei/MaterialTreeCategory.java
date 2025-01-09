@@ -24,7 +24,6 @@ import muramasa.antimatter.pipe.types.FluidPipe;
 import muramasa.antimatter.pipe.types.ItemPipe;
 import muramasa.antimatter.pipe.types.Wire;
 import muramasa.antimatter.util.Utils;
-import org.gtreimagined.gt5r.GT5RRef;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiComponent;
@@ -33,6 +32,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import org.gtreimagined.gt5r.GT5RRef;
 
 import java.util.ArrayList;
 import java.util.List;

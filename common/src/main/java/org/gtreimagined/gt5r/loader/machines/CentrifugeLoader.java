@@ -6,11 +6,11 @@ import muramasa.antimatter.material.Material;
 import muramasa.antimatter.material.MaterialTags;
 import muramasa.antimatter.recipe.map.RecipeBuilder;
 import muramasa.antimatter.util.AntimatterPlatformUtils;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import org.gtreimagined.gt5r.data.GT5RItems;
 import org.gtreimagined.gt5r.items.ItemDepletedRod;
 import org.gtreimagined.gt5r.items.ItemEnrichedRod;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import org.gtreimagined.gtcore.data.GTCoreFluids;
 import org.gtreimagined.gtcore.data.GTCoreItems;
 import org.gtreimagined.gtcore.data.GTCoreMaterials;
@@ -20,10 +20,10 @@ import tesseract.TesseractGraphWrappers;
 import static muramasa.antimatter.data.AntimatterMaterialTypes.*;
 import static muramasa.antimatter.data.AntimatterMaterials.*;
 import static muramasa.antimatter.recipe.ingredient.RecipeIngredient.of;
+import static net.minecraft.world.item.Items.*;
 import static org.gtreimagined.gt5r.data.GT5RMaterialTags.*;
 import static org.gtreimagined.gt5r.data.Materials.*;
 import static org.gtreimagined.gt5r.data.RecipeMaps.CENTRIFUGE;
-import static net.minecraft.world.item.Items.*;
 
 public class CentrifugeLoader {
     public static void init() {

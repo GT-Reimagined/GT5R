@@ -1,6 +1,5 @@
 package org.gtreimagined.gt5r.data;
 
-import org.gtreimagined.gt5r.GT5RRef;
 import muramasa.antimatter.AntimatterAPI;
 import muramasa.antimatter.block.BlockBasic;
 import muramasa.antimatter.data.AntimatterMaterials;
@@ -23,7 +22,18 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
-import org.gtreimagined.gt5r.block.*;
+import org.gtreimagined.gt5r.GT5RRef;
+import org.gtreimagined.gt5r.block.BlockAsphalt;
+import org.gtreimagined.gt5r.block.BlockAsphaltSlab;
+import org.gtreimagined.gt5r.block.BlockAsphaltStair;
+import org.gtreimagined.gt5r.block.BlockBedrockFlower;
+import org.gtreimagined.gt5r.block.BlockCasing;
+import org.gtreimagined.gt5r.block.BlockCoil;
+import org.gtreimagined.gt5r.block.BlockColoredWall;
+import org.gtreimagined.gt5r.block.BlockFakeCasing;
+import org.gtreimagined.gt5r.block.BlockMiningPipe;
+import org.gtreimagined.gt5r.block.BlockPowderBarrel;
+import org.gtreimagined.gt5r.block.BlockSidedCasing;
 
 import static muramasa.antimatter.data.AntimatterMaterials.*;
 import static org.gtreimagined.gt5r.data.Materials.*;

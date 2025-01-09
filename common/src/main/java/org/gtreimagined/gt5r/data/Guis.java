@@ -1,7 +1,5 @@
 package org.gtreimagined.gt5r.data;
 
-import org.gtreimagined.gt5r.GT5RRef;
-import org.gtreimagined.gt5r.blockentity.single.BlockEntityCoalBoiler;
 import muramasa.antimatter.Ref;
 import muramasa.antimatter.blockentity.BlockEntityMachine;
 import muramasa.antimatter.capability.IGuiHandler;
@@ -19,7 +17,13 @@ import muramasa.antimatter.machine.Tier;
 import muramasa.antimatter.registration.Side;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
-import org.gtreimagined.gt5r.gui.widgets.*;
+import org.gtreimagined.gt5r.GT5RRef;
+import org.gtreimagined.gt5r.blockentity.single.BlockEntityCoalBoiler;
+import org.gtreimagined.gt5r.gui.widgets.CoalBoilerFuelWidget;
+import org.gtreimagined.gt5r.gui.widgets.CoalBoilerWidget;
+import org.gtreimagined.gt5r.gui.widgets.FusionButtonWidget;
+import org.gtreimagined.gt5r.gui.widgets.LavaBoilerWidget;
+import org.gtreimagined.gt5r.gui.widgets.SolarBoilerWidget;
 
 import static muramasa.antimatter.gui.SlotType.*;
 import static muramasa.antimatter.gui.Widget.builder;

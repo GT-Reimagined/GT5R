@@ -1,11 +1,11 @@
 package org.gtreimagined.gt5r.loader.machines;
 
 import muramasa.antimatter.material.Material;
-import org.gtreimagined.gt5r.data.GT5RMaterialTags;
-import org.gtreimagined.gt5r.data.RecipeMaps;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import org.gtreimagined.gt5r.data.GT5RMaterialTags;
+import org.gtreimagined.gt5r.data.RecipeMaps;
 
 import java.util.function.ToLongFunction;
 

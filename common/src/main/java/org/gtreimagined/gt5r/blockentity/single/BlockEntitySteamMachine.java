@@ -9,9 +9,9 @@ import muramasa.antimatter.machine.Tier;
 import muramasa.antimatter.machine.event.IMachineEvent;
 import muramasa.antimatter.machine.types.Machine;
 import muramasa.antimatter.recipe.IRecipe;
-import org.gtreimagined.gt5r.data.GT5RTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.state.BlockState;
+import org.gtreimagined.gt5r.data.GT5RTags;
 import tesseract.TesseractGraphWrappers;
 
 import static muramasa.antimatter.machine.Tier.BRONZE;

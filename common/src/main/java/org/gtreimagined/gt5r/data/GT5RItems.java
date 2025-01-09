@@ -1,14 +1,23 @@
 package org.gtreimagined.gt5r.data;
 
-import org.gtreimagined.gt5r.GT5RRef;
-import org.gtreimagined.gt5r.GT5Reimagined;
 import muramasa.antimatter.item.ItemBasic;
 import muramasa.antimatter.item.ItemBattery;
 import muramasa.antimatter.item.ItemFluidCell;
 import muramasa.antimatter.machine.Tier;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
-import org.gtreimagined.gt5r.items.*;
+import org.gtreimagined.gt5r.GT5RRef;
+import org.gtreimagined.gt5r.GT5Reimagined;
+import org.gtreimagined.gt5r.items.ItemBreederRod;
+import org.gtreimagined.gt5r.items.ItemChlorineSprayCan;
+import org.gtreimagined.gt5r.items.ItemComponentRod;
+import org.gtreimagined.gt5r.items.ItemDataStick;
+import org.gtreimagined.gt5r.items.ItemDepletedRod;
+import org.gtreimagined.gt5r.items.ItemEnrichedRod;
+import org.gtreimagined.gt5r.items.ItemNuclearFuelRod;
+import org.gtreimagined.gt5r.items.ItemPortableScanner;
+import org.gtreimagined.gt5r.items.ItemPrintedPages;
+import org.gtreimagined.gt5r.items.ItemSprayCan;
 
 
 public class GT5RItems {
