@@ -1,6 +1,8 @@
 package org.gtreimagined.gt5r.data;
 
+import muramasa.antimatter.AntimatterAPI;
 import muramasa.antimatter.Data;
+import muramasa.antimatter.Ref;
 import muramasa.antimatter.data.AntimatterDefaultTools;
 import muramasa.antimatter.data.AntimatterMaterials;
 import muramasa.antimatter.material.Material;
@@ -8,6 +10,7 @@ import muramasa.antimatter.material.MaterialTags;
 import muramasa.antimatter.material.SubTag;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
+import org.gtreimagined.gt5r.integration.SpaceModRegistrar;
 import org.gtreimagined.gt5r.material.GregTechMaterialEvent;
 import org.gtreimagined.gtcore.data.GTCoreBlocks;
 import org.gtreimagined.gtcore.data.GTCoreMaterials;
@@ -19,7 +22,7 @@ import static muramasa.antimatter.data.AntimatterMaterialTypes.*;
 import static muramasa.antimatter.data.AntimatterMaterials.*;
 import static muramasa.antimatter.material.MaterialTags.*;
 import static org.gtreimagined.gt5r.data.GT5RMaterialTags.ALLOY;
-import static org.gtreimagined.gt5r.data.Materials.Silver;
+import static org.gtreimagined.gt5r.data.Materials.*;
 
 public class GT5RMaterialEvents {
     public static void onMaterialEvent(GregTechMaterialEvent event){
@@ -68,7 +71,7 @@ public class GT5RMaterialEvents {
         //Copper, by vanilla
         event.setMaterial(Materials.Zinc).asMetal(692, PLATE, FOIL).asOre();
         event.setMaterial(Materials.Gallium).asMetal(303, MOLTEN);
-        event.setMaterial(Materials.Germanium).asMetal(1211);
+        event.setMaterial(Materials.Germanium).asMetal(1211, PLATE);
         event.setMaterial(Materials.Arsenic).asMetal(1090);
         //event.setMaterial(Selenium).asMetal(494, 0);
         //Bromine, not added
@@ -86,7 +89,7 @@ public class GT5RMaterialEvents {
         event.setMaterial(Materials.Cadmium).asDust(594);
         event.setMaterial(Materials.Indium).asSolid(430, MOLTEN);
         event.setMaterial(Materials.Tin).asMetal(505, PLATE, ROD_LONG, SCREW, BOLT, RING, FOIL, WIRE_FINE, FRAME, ROTOR).asOre().harvestLevel(1);
-        event.setMaterial(Materials.Antimony).asMetal(1449);
+        event.setMaterial(Materials.Antimony).asMetal(1449, PLATE);
         //Tellurium
         event.setMaterial(Materials.Iodine).asSolid(387);
         event.setMaterial(Materials.Xenon).asGas().fluidDensity(5);
@@ -113,7 +116,7 @@ public class GT5RMaterialEvents {
         event.setMaterial(Materials.Mercury).asFluid();
         // thalium
         event.setMaterial(Materials.Lead).asMetal(600, PLATE, PLATE_DENSE, ROD_LONG, FRAME, BOLT, RING).asOre().harvestLevel(1);
-        event.setMaterial(Materials.Bismuth).asOre();
+        event.setMaterial(Materials.Bismuth).asOre(PLATE, INGOT);
         //polonium
         //event.setMaterial(Astatine).asMetal(575, 0);
         event.setMaterial(Materials.Radon).asGas().fluidDensity(9);
@@ -173,7 +176,7 @@ public class GT5RMaterialEvents {
         event.setMaterial(Materials.SteelMagnetic).asMetal(1000, 1000, ROD_LONG).forceBF(false);
         event.setMaterial(Materials.SterlingSilver).asMetal(1700, ALLOY);
         event.setMaterial(Materials.StainlessSteel).asMetal(1700, 1700, PLATE, PLATE_DENSE, ROD_LONG, SCREW, BOLT, RING, GEAR, FRAME, ROTOR, GEAR_SMALL, ITEM_CASING).forceBF(false);
-        event.setMaterial(Materials.TinAlloy).asMetal(1158, ALLOY);
+        event.setMaterial(Materials.TinAlloy).asMetal(1158, ALLOY, PLATE);
         event.setMaterial(Materials.Tritanium).asMetal(295, FRAME, MOLTEN);
         event.setMaterial(Materials.TungstenCarbide).asMetal(2460, 2460);
         event.setMaterial(Materials.TungstenSteel).asMetal(3000, 3000, PLATE, ROD_LONG, SCREW, BOLT, RING, GEAR, FRAME, ROTOR, GEAR_SMALL);
@@ -184,6 +187,7 @@ public class GT5RMaterialEvents {
         event.setMaterial(Materials.WroughtIron).asMetal(1811, PLATE, ROD_LONG, SCREW, BOLT, RING, FRAME);
         event.setMaterial(Materials.YttriumBariumCuprate).asMetal(4500, PLATE, FOIL, ROD_LONG, WIRE_FINE, ALLOY);
 
+        event.setMaterial(GTCoreMaterials.Lumium).flags(PLATE);
         event.setMaterial(GTCoreMaterials.Enderium).asMetal(1071).forceBF(false);
         /**
          **  Dusts
@@ -1150,6 +1154,46 @@ public class GT5RMaterialEvents {
                 GTCoreBlocks.createBarrel(m, true);
             }
         });
+        GTCoreBlocks.createHopper(Lead, 1);
+        GTCoreBlocks.createHopper(Bismuth, 2);
+        GTCoreBlocks.createHopper(Antimony, 2);
+        GTCoreBlocks.createHopper(Nickel, 3);
+        GTCoreBlocks.createHopper(Cupronickel, 3);
+        GTCoreBlocks.createHopper(Bronze, 3);
+        GTCoreBlocks.createHopper(Aluminium, 4);
+        GTCoreBlocks.createHopper(Brass, 4);
+        GTCoreBlocks.createHopper(TinAlloy, 4);
+        GTCoreBlocks.createHopper(Cobalt, 4);
+        GTCoreBlocks.createHopper(BismuthBronze, 5);
+        GTCoreBlocks.createHopper(Germanium, 5);
+        GTCoreBlocks.createHopper(Invar, 5);
+        GTCoreBlocks.createHopper(Steel, 5);
+        GTCoreBlocks.createHopper(Gold, 6);
+        GTCoreBlocks.createHopper(Silver, 6);
+        GTCoreBlocks.createHopper(Manganese, 6);
+        GTCoreBlocks.createHopper(GTCoreMaterials.Lumium, 6);
+        if (AntimatterAPI.isModLoaded(Ref.MOD_TWILIGHT)) {
+            GTCoreBlocks.createHopper(GTCoreMaterials.Knightmetal, 7);
+        }
+        GTCoreBlocks.createHopper(Molybdenum, 8);
+        GTCoreBlocks.createHopper(Electrum, 9);
+        GTCoreBlocks.createHopper(StainlessSteel, 9);
+        GTCoreBlocks.createHopper(Titanium, 12);
+        GTCoreBlocks.createHopper(Netherite, 12);
+        GTCoreBlocks.createHopper(Chromium, 14);
+        GTCoreBlocks.createHopper(Platinum, 18);
+        //if space
+        //GTCoreBlocks.createHopper(SpaceModRegistrar.Desh, 18);
+        GTCoreBlocks.createHopper(TungstenSteel, 27);
+        GTCoreBlocks.createHopper(TungstenCarbide, 27);
+        //GTCoreBlocks.createHopper(DuraniumAlloy, 27);
+        GTCoreBlocks.createHopper(Ultimet, 27);
+        GTCoreBlocks.createHopper(Tungsten, 36);
+        GTCoreBlocks.createHopper(Palladium, 36);
+        GTCoreBlocks.createHopper(Iridium, 36);
+        GTCoreBlocks.createHopper(Osmium, 36);
+        //GTCoreBlocks.createHopper(TritaniumAlloy, 36);
+        //GTCoreBlocks.createHopper(Adamantium, 36);
     }
 
     public static void byproducts(GregTechMaterialEvent event){
