@@ -828,11 +828,6 @@ public class MachineRecipes {
                         .put('C', TIER_CIRCUITS.apply(LV))
                         .put('F', Items.FURNACE)
                         .build(), "FFF", "CHC", "LCL"));
-        /*provider.addItemRecipe(output, "machines", "has_wrench", provider.hasSafeItem(WRENCH.getTag()), CHARCOAL_PIT.getItem(CHARCOAL_PIT.getFirstTier()),
-                ImmutableMap.<Character, Object>builder()
-                        .put('H', CASING_BRICKED_BRONZE)
-                        .put('W', NUGGET.getMaterialTag(WroughtIron))
-                        .put('F', Items.FLINT).build(), "WHW", "FFF");*/
         provider.addItemRecipe(output, "machines", COKE_OVEN.getItem(COKE_OVEN.getFirstTier()),
                 ImmutableMap.<Character, Object>builder()
                         .put('H', FireBrick).build(), "HHH", "H H", "HHH");
