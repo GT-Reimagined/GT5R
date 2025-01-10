@@ -960,6 +960,12 @@ public class MachineRecipes {
                         .put('C', TIER_CIRCUITS.apply(MV))
                         .put('H', HULL.getItem(MV))
                         .put('F', FRAME.getMaterialTag(Steel)).build(), "FFF", "CHC", "MMM"));
+        add(ORE_MINING_RIG, EV, (m, item) -> provider.addItemRecipe(output, "machines", item,
+                ImmutableMap.<Character, Object>builder().
+                        put('M', MotorEV)
+                        .put('C', TIER_CIRCUITS.apply(EV))
+                        .put('H', HULL.getItem(EV))
+                        .put('F', FRAME.getMaterialTag(Titanium)).build(), "FFF", "CHC", "MMM"));
         provider.addItemRecipe(output, "machines", PRIMITIVE_BLAST_FURNACE.getItem(PRIMITIVE_BLAST_FURNACE.getFirstTier()),
                 ImmutableMap.<Character, Object>builder()
                         .put('H', FireBrick)
