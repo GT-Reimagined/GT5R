@@ -84,7 +84,7 @@ public class AlloySmelterLoader {
     }
 
     public static void addAlloyRecipes(ImmutableMap<Material, Integer> inputs, Material output){
-        addAlloyRecipes(inputs, output, inputs.values().stream().reduce(Integer::sum).orElse(1), output.getId() + "_ingot");
+        addAlloyRecipes(inputs, output, inputs.values().stream().mapToInt(i -> i).sum(), output.getId() + "_ingot");
     }
 
     public static void addAlloyRecipes(ImmutableMap<Material, Integer> inputs, Material output, int amount){

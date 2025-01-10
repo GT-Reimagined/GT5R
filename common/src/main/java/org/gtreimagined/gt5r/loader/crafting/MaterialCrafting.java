@@ -18,6 +18,7 @@ import net.minecraft.world.item.Items;
 import org.gtreimagined.gt5r.GT5RRef;
 import org.gtreimagined.gt5r.data.GT5RMaterialTypes;
 import org.gtreimagined.gtcore.data.GTCoreItems;
+import org.gtreimagined.gtcore.data.GTCoreMaterials;
 
 import java.util.function.Consumer;
 
@@ -31,21 +32,23 @@ import static org.gtreimagined.gt5r.data.Materials.*;
 
 public class MaterialCrafting {
     public static void loadRecipes(Consumer<FinishedRecipe> output, AntimatterRecipeProvider provider) {
-        addShapelessDustRecipe(output, provider, "bronze_dust", DUST.get(Bronze, 4), DUST.get(Copper), DUST.get(Copper), DUST.get(Copper), DUST.get(Tin));
-        addShapelessDustRecipe(output, provider, "brass_dust", DUST.get(Brass, 4), DUST.get(Copper), DUST.get(Copper), DUST.get(Copper), DUST.get(Zinc));
-        addShapelessDustRecipe(output, provider, "black_bronze_dust", DUST.get(BlackBronze, 5), DUST.getMaterialTag(Copper), DUST.getMaterialTag(Copper), DUST.getMaterialTag(Copper), DUST.getMaterialTag(Silver), DUST.getMaterialTag(Gold));
-        addShapelessDustRecipe(output, provider, "black_steel_dust", DUST.get(BlackSteel, 5), DUST.getMaterialTag(Steel), DUST.getMaterialTag(Steel), DUST.getMaterialTag(Steel), DUST.getMaterialTag(BlackBronze), DUST.getMaterialTag(Nickel));
-        addShapelessDustRecipe(output, provider, "rose_gold", DUST.get(RoseGold, 5), DUST.getMaterialTag(Gold), DUST.getMaterialTag(Gold), DUST.getMaterialTag(Gold), DUST.getMaterialTag(Gold), DUST.getMaterialTag(Copper));
-        addShapelessDustRecipe(output, provider, "sterling_silver", DUST.get(SterlingSilver, 5), DUST.getMaterialTag(Silver), DUST.getMaterialTag(Silver), DUST.getMaterialTag(Silver), DUST.getMaterialTag(Silver), DUST.getMaterialTag(Copper));
-        addShapelessDustRecipe(output, provider, "bismuth_bronze", DUST.get(BismuthBronze, 5), DUST.getMaterialTag(Copper), DUST.getMaterialTag(Copper), DUST.getMaterialTag(Copper), DUST.getMaterialTag(Bismuth), DUST.getMaterialTag(Zinc));
-        addShapelessDustRecipe(output, provider, "red_steel", DUST.get(RedSteel, 8), DUST.getMaterialTag(BlackSteel), DUST.getMaterialTag(BlackSteel), DUST.getMaterialTag(BlackSteel), DUST.getMaterialTag(BlackSteel),
-                DUST.getMaterialTag(Steel), DUST.getMaterialTag(Steel), DUST.getMaterialTag(Brass), DUST.getMaterialTag(RoseGold));
-        addShapelessDustRecipe(output, provider, "blue_steel", DUST.get(BlueSteel, 8), DUST.getMaterialTag(BlackSteel), DUST.getMaterialTag(BlackSteel), DUST.getMaterialTag(BlackSteel), DUST.getMaterialTag(BlackSteel),
-                DUST.getMaterialTag(Steel), DUST.getMaterialTag(Steel), DUST.getMaterialTag(BismuthBronze), DUST.getMaterialTag(SterlingSilver));
-        addShapelessDustRecipe(output, provider, "cobalt_brass", DUST.get(CobaltBrass, 9), DUST.getMaterialTag(Brass), DUST.getMaterialTag(Brass), DUST.getMaterialTag(Brass),
-                DUST.getMaterialTag(Brass), DUST.getMaterialTag(Brass), DUST.getMaterialTag(Brass), DUST.getMaterialTag(Brass), DUST.getMaterialTag(Aluminium), DUST.getMaterialTag(Cobalt));
-        addShapelessDustRecipe(output, provider, "gallium_arsenide", DUST.get(GalliumArsenide, 2), DUST.getMaterialTag(Gallium), DUST.getMaterialTag(Arsenic));
-        addShapelessDustRecipe(output, provider, "indium_gallium_phosphide", DUST.get(IndiumGalliumPhosphide, 3), DUST.getMaterialTag(Indium), DUST.getMaterialTag(Gallium), DUST.getMaterialTag(Phosphor));
+        addShapelessDustRecipe(output, provider, Bronze, ImmutableMap.of(Copper, 3, Tin, 1));
+        addShapelessDustRecipe(output, provider, Brass, ImmutableMap.of(Copper, 3, Zinc, 1));
+        addShapelessDustRecipe(output, provider, BlackBronze, ImmutableMap.of(Copper, 3, Silver, 1, Gold, 1));
+        addShapelessDustRecipe(output, provider, TinAlloy, ImmutableMap.of(Tin, 1, Iron, 1));
+        addShapelessDustRecipe(output, provider, BlackSteel, ImmutableMap.of(Steel, 3, BlackBronze, 1, Nickel, 1));
+        addShapelessDustRecipe(output, provider, Electrum, ImmutableMap.of(Gold, 1, Silver, 1));
+        addShapelessDustRecipe(output, provider, Invar, ImmutableMap.of(Iron, 2, Nickel, 1));
+        addShapelessDustRecipe(output, provider, Cupronickel, ImmutableMap.of(Copper, 1, Nickel, 1));
+        addShapelessDustRecipe(output, provider, RoseGold, ImmutableMap.of(Gold, 4, Copper, 1));
+        addShapelessDustRecipe(output, provider, SterlingSilver, ImmutableMap.of(Silver, 4, Copper, 1));
+        addShapelessDustRecipe(output, provider, BismuthBronze, ImmutableMap.of(Copper, 3, Bismuth, 1, Zinc, 1));
+        addShapelessDustRecipe(output, provider, RedSteel, ImmutableMap.of(BlackSteel, 4, Steel, 2, Brass, 1, RoseGold, 1));
+        addShapelessDustRecipe(output, provider, BlueSteel, ImmutableMap.of(BlackSteel, 4, Steel, 2, BismuthBronze, 1, SterlingSilver, 1));
+        addShapelessDustRecipe(output, provider, CobaltBrass, ImmutableMap.of(Brass, 7, Aluminium, 1, Cobalt, 1));
+        addShapelessDustRecipe(output, provider, GalliumArsenide, ImmutableMap.of(Gallium, 1, Arsenic, 1));
+        addShapelessDustRecipe(output, provider, IndiumGalliumPhosphide, ImmutableMap.of(Indium, 1, Gallium, 1, Phosphor, 1));
+        addShapelessDustRecipe(output, provider, GTCoreMaterials.Signalum, ImmutableMap.of(RedAlloy, 5, Silver, 2, Copper, 1));
         provider.shapeless(output, GT5RRef.ID, "", "dusts", AntimatterMaterialTypes.DUST_SMALL.get(Clay, 2), MORTAR.getTag(), Items.CLAY_BALL);
         loadAutoRecipes(output, provider);
         loadMixedMetal(output, provider);
@@ -158,7 +161,17 @@ public class MaterialCrafting {
         });
     }
 
-    private static void addShapelessDustRecipe(Consumer<FinishedRecipe> output, AntimatterRecipeProvider provider, String recipeName, ItemStack outputItem, Object... inputs) {
-        provider.shapeless(output, GT5RRef.ID, recipeName, "misc", outputItem, inputs);
+    private static void addShapelessDustRecipe(Consumer<FinishedRecipe> consumer, AntimatterRecipeProvider provider, Material output, ImmutableMap<Material, Integer> inputs){
+        int sum = inputs.values().stream().mapToInt(i -> i).sum();
+        if (sum > 9) return;
+        Object[] inputArray = new Object[sum];
+        int index = 0;
+        for (var entry : inputs.entrySet()) {
+            for (int i = 0; i < entry.getValue(); i++) {
+                inputArray[index] = DUST.getMaterialTag(entry.getKey());
+                index++;
+            }
+        }
+        provider.shapeless(consumer, GT5RRef.ID, output.getId() + "_dust", "dusts", DUST.get(output, sum), inputArray);
     }
 }
