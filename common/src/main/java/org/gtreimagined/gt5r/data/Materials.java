@@ -527,7 +527,7 @@ public class Materials {
     public static Material DilutedHydrochloricAcid = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "diluted_hydrochloric_acid", 0x99a7a3, NONE));
     public static Material DilutedSulfuricAcid = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "diluted_sulfuric_acid", 0xc07820, NONE));
     public static Material DistilledWater = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "distilled_water", 0x5C5CFF, NONE));
-    public static Material DrillingFluid = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "drilling_fluid", 0xffffff, NONE)); // TODO: Perhaps for a bedrock drill;
+    public static Material DrillingFluid = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "drilling_fluid", 0xffc400, NONE)); // TODO: Perhaps for a bedrock drill;
     public static Material HexafluorosilicicAcid = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "hexafluorosilicic_acid", 0xbec8be, NONE));
     public static Material HotCoolant = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "hot_coolant", 0x7a111a, NONE));
     public static Material HeavyWater = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "heavy_water", 0xffff64, NONE));
