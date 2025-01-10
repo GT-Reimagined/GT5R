@@ -27,6 +27,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
@@ -34,6 +35,7 @@ import net.minecraft.world.phys.shapes.Shapes;
 import org.gtreimagined.gt5r.GT5RRef;
 import org.gtreimagined.gt5r.GT5Reimagined;
 import org.gtreimagined.gt5r.block.BlockCasing;
+import org.gtreimagined.gt5r.block.BlockColoredWall;
 import org.gtreimagined.gt5r.blockentity.miniportals.BlockEntityMiniEndPortal;
 import org.gtreimagined.gt5r.blockentity.miniportals.BlockEntityMiniNetherPortal;
 import org.gtreimagined.gt5r.blockentity.miniportals.BlockEntityMiniTwilightPortal;
@@ -91,12 +93,14 @@ import org.gtreimagined.gt5r.client.GT5RModelManager;
 import org.gtreimagined.gt5r.items.IItemReactorRod;
 import org.gtreimagined.gt5r.machine.HeatExchangerMachine;
 import org.gtreimagined.gt5r.machine.MiniPortalMachine;
-import org.gtreimagined.gt5r.machine.MultiblockTankMachine;
 import org.gtreimagined.gt5r.machine.SecondaryOutputMachine;
 import org.gtreimagined.gt5r.machine.SteamMachine;
 import org.gtreimagined.gtcore.data.GTCoreBlocks;
 import org.gtreimagined.gtcore.machine.DrumMachine;
+import org.gtreimagined.gtcore.machine.MultiblockTankMachine;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.function.Supplier;
 
 import static muramasa.antimatter.Data.*;
 import static muramasa.antimatter.data.AntimatterMaterials.Netherite;
@@ -218,14 +222,26 @@ public class GT5RMachines {
     public static DrumMachine TUNGSTENSTEEL_DRUM = GTCoreBlocks.createDrum(Materials.TungstenSteel, 256000);
     public static DrumMachine TUNGSTEN_DRUM = GTCoreBlocks.createDrum(Materials.Tungsten, 256000);
 
-    public static MultiblockTankMachine WOOD_TANK = new MultiblockTankMachine(GT5RRef.ID, Wood, true, 432000);
-    public static MultiblockTankMachine[] STEEL_TANKS = createTankMachine(Materials.Steel, 3);
-    public static MultiblockTankMachine[] INVAR_TANKS = createTankMachine(Materials.Invar, 2);
-    public static MultiblockTankMachine[] STAINLESS_STEEL_TANKS = createTankMachine(Materials.StainlessSteel, 4);
-    public static MultiblockTankMachine[] TITANIUM_TANKS = createTankMachine(Materials.Titanium, 8);
-    public static MultiblockTankMachine[] NETHERITE_TANKS = createTankMachine(Netherite, 8);
-    public static MultiblockTankMachine[] TUNGSTENSTEEL_TANKS = createTankMachine(Materials.TungstenSteel, 16);
-    public static MultiblockTankMachine[] TUNGSTEN_TANKS = createTankMachine(Materials.Tungsten, 16);
+    public static MultiblockTankMachine WOOD_TANK;
+    public static MultiblockTankMachine[] STEEL_TANKS;
+    public static MultiblockTankMachine[] INVAR_TANKS;
+    public static MultiblockTankMachine[] STAINLESS_STEEL_TANKS;
+    public static MultiblockTankMachine[] TITANIUM_TANKS;
+    public static MultiblockTankMachine[] NETHERITE_TANKS;
+    public static MultiblockTankMachine[] TUNGSTENSTEEL_TANKS;
+    public static MultiblockTankMachine[] TUNGSTEN_TANKS;
+
+    public static void initTanks() {
+        WOOD_TANK = new MultiblockTankMachine(GT5RRef.ID, Wood, true, 432000, () -> GT5RBlocks.WOOD_WALL).maxHeat(350);
+        STEEL_TANKS = createTankMachine(Materials.Steel, 3);
+        INVAR_TANKS = createTankMachine(Materials.Invar, 2);
+        STAINLESS_STEEL_TANKS = createTankMachine(Materials.StainlessSteel, 4);
+        TITANIUM_TANKS = createTankMachine(Materials.Titanium, 8);
+        NETHERITE_TANKS = createTankMachine(Netherite, 8);
+        TUNGSTENSTEEL_TANKS = createTankMachine(Materials.TungstenSteel, 16);
+        TUNGSTEN_TANKS = createTankMachine(Materials.Tungsten, 16);
+    }
+
 
     /**
      * Transformers
@@ -365,9 +381,10 @@ public class GT5RMachines {
     public static TankMachine INFINITE_STEAM = new TankMachine(GT5RRef.ID, "infinite_steam").addFlags(FLUID, CELL, GUI).setTile(BlockEntityInfiniteFluid::new).setTiers(LV);
 
     private static MultiblockTankMachine[] createTankMachine(Material material, int multiplier){
+        Supplier<Block> casing = () -> GT5Reimagined.get(BlockColoredWall.class, material.getId() + "_wall");
         MultiblockTankMachine[] multiblockTankMachines = {
-                new MultiblockTankMachine(GT5RRef.ID, material, true, 432 * multiplier * 1000),
-                new MultiblockTankMachine(GT5RRef.ID, material, false, 2000 * multiplier * 1000)
+                new MultiblockTankMachine(GT5RRef.ID, material, true, 432 * multiplier * 1000, casing).gasProof(),
+                new MultiblockTankMachine(GT5RRef.ID, material, false, 2000 * multiplier * 1000, casing).gasProof()
         };
         if (material == Materials.StainlessSteel || material == Netherite){
             multiblockTankMachines[0].acidProof();

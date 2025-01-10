@@ -1139,6 +1139,7 @@ public class GT5RMaterialEvents {
 
 
     private static void workbenches(GregTechMaterialEvent event){
+        GT5RMachines.initTanks();
         METAL.all().forEach(m -> {
             if ((m.getElement() == null || !m.getElement().isIsotope) && m.has(PLATE) && m.has(ROD)){
 

@@ -31,7 +31,6 @@ import org.gtreimagined.gt5r.data.GT5RMaterialTypes;
 import org.gtreimagined.gt5r.data.GT5RTags;
 import org.gtreimagined.gt5r.data.Materials;
 import org.gtreimagined.gt5r.data.TierMaps;
-import org.gtreimagined.gt5r.machine.MultiblockTankMachine;
 import org.gtreimagined.gtcore.GTCore;
 import org.gtreimagined.gtcore.data.GTCoreBlocks;
 import org.gtreimagined.gtcore.data.GTCoreMaterials;
@@ -39,6 +38,7 @@ import org.gtreimagined.gtcore.machine.BarrelMachine;
 import org.gtreimagined.gtcore.machine.ChestMachine;
 import org.gtreimagined.gtcore.machine.LockerMachine;
 import org.gtreimagined.gtcore.machine.MassStorageMachine;
+import org.gtreimagined.gtcore.machine.MultiblockTankMachine;
 import org.gtreimagined.gtcore.machine.WorkbenchMachine;
 
 import java.util.Arrays;
@@ -751,7 +751,7 @@ public class MachineRecipes {
             }
         });
 
-        AntimatterAPI.all(MultiblockTankMachine.class).forEach(m -> {
+        AntimatterAPI.all(MultiblockTankMachine.class, GT5RRef.ID).forEach(m -> {
             if (m.isSmall()){
                 Block block = AntimatterAPI.get(Block.class, m.getMaterial().getId() + "_wall", GT5RRef.ID);
                 if (block == null) return;
