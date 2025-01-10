@@ -145,8 +145,8 @@ public class GT5RLocalizations {
             add("tooltip.electric_blast_furnace.0", "Controller Block for the Electric Blast Furnace");
             add("tooltip.electric_blast_furnace.1", "Size(WxHxD): 3x4x3 (Hollow) Controller (Front middle bottom)");
             add("tooltip.electric_blast_furnace.2", "16x Heating Coils (2 middle Layers, hollow)");
-            add("tooltip.electric_blast_furnace.3", "1x Item Input Hatch (Any bottom layer casing)");
-            add("tooltip.electric_blast_furnace.4", "1x Item Output Hatch (Any bottom layer casing)");
+            add("tooltip.electric_blast_furnace.3", "1x Input Bus (Any bottom layer casing)");
+            add("tooltip.electric_blast_furnace.4", "1x Output Bus (Any bottom layer casing)");
             add("tooltip.electric_blast_furnace.5", "1x Energy Hatch (Any bottom layer casing)");
             add("tooltip.electric_blast_furnace.6", "1x Muffler Hatch (Top middle)");
             add("tooltip.electric_blast_furnace.7", "Heat Proof Casings for the rest");
@@ -171,9 +171,9 @@ public class GT5RLocalizations {
             add("tooltip.cracking_unit.0", "Controller Block for the Oil Cracking Unit");
             add("tooltip.cracking_unit.1", "Size(WxHxD): 5x3x3 (Hollow) Controller (Front center)");
             add("tooltip.cracking_unit.2", "Ring of 8 Cupronickel Coils (Each side of Controller)");
-            add("tooltip.cracking_unit.3", "1x Fluid Input Hatch (Left side center casing)(For hydrocarbons");
-            add("tooltip.cracking_unit.4", "1x Fluid Input Hatch (Any middle ring casing)(For steam/Hydrogen)");
-            add("tooltip.cracking_unit.5", "1x Fluid Output hatch (Right side center casing) (Outputs cracked product");
+            add("tooltip.cracking_unit.3", "1x Input Hatch (Left side center casing)(For hydrocarbons");
+            add("tooltip.cracking_unit.4", "1x Input Hatch (Any middle ring casing)(For steam/Hydrogen)");
+            add("tooltip.cracking_unit.5", "1x Output Hatch (Right side center casing) (Outputs cracked product");
             add("tooltip.cracking_unit.6", "1x Energy Hatch (Any middle ring casing)");
             add("tooltip.cracking_unit.7", "Clean Stainless Steel Casings for the rest (18 at least!)");
             add("tooltip.cracking_unit.8", "Optional 1x Item Hatch Input or 1x Item Hatch Output  on the middle Ring Casings");
@@ -181,18 +181,18 @@ public class GT5RLocalizations {
             add("tooltip.distillation_tower.0", "Controller Block for the Distillation Tower");
             add("tooltip.distillation_tower.1", "Size(WxHxD): 3xhx3(with h ranging from 3 to 12)");
             add("tooltip.distillation_tower.2", "Controller (Front bottom)");
-            add("tooltip.distillation_tower.3", "1x Fluid Input Hatch (Any bottom layer casing)");
-            add("tooltip.distillation_tower.4", "2-11x Fluid Output Hatch (One per layer except bottom layer)");
-            add("tooltip.distillation_tower.5", "1x Item Output Hatch (Any bottom layer casing)");
+            add("tooltip.distillation_tower.3", "1x Input Hatch (Any bottom layer casing)");
+            add("tooltip.distillation_tower.4", "2-11x Output Hatch (One per layer except bottom layer)");
+            add("tooltip.distillation_tower.5", "1x Output Bus (Any bottom layer casing)");
             add("tooltip.distillation_tower.6", "1x Energy Hatch (Any bottom layer casing)");
             add("tooltip.distillation_tower.7", "Clean Stainless Steel Casings for the rest (7 x h - 4 at least)");
 
             add("tooltip.cryo_distillation_tower.0", "Controller Block for the Cryo Distillation Tower");
             add("tooltip.cryo_distillation_tower.1", "Size(WxHxD): 3xhx3(with h ranging from 3 to 12)");
             add("tooltip.cryo_distillation_tower.2", "Controller (Front bottom)");
-            add("tooltip.cryo_distillation_tower.3", "1x Fluid Input Hatch (Any bottom layer casing)");
-            add("tooltip.cryo_distillation_tower.4", "2-11x Fluid Output Hatch (One per layer except bottom layer)");
-            add("tooltip.cryo_distillation_tower.5", "1x Item Output Hatch (Any bottom layer casing)");
+            add("tooltip.cryo_distillation_tower.3", "1x Input Hatch (Any bottom layer casing)");
+            add("tooltip.cryo_distillation_tower.4", "2-11x Output Hatch (One per layer except bottom layer)");
+            add("tooltip.cryo_distillation_tower.5", "1x Output Bus (Any bottom layer casing)");
             add("tooltip.cryo_distillation_tower.6", "1x Energy Hatch (Any bottom layer casing)");
             add("tooltip.cryo_distillation_tower.7", "Frostproof Casings for the rest (7 x h - 4 at least)");
 
@@ -206,8 +206,8 @@ public class GT5RLocalizations {
 
             add("tooltip.implosion_compressor.0", "Controller Block for the Implosion Compressor");
             add("tooltip.implosion_compressor.1", "Size(WxHxD): 3x3x3 (Hollow), Controller (Front centered)");
-            add("tooltip.implosion_compressor.2", "1x Item Input Hatch (Any casing)");
-            add("tooltip.implosion_compressor.3", "1x Item Output Hatch (Any casing)");
+            add("tooltip.implosion_compressor.2", "1x Input Bus (Any casing)");
+            add("tooltip.implosion_compressor.3", "1x Output Bus (Any casing)");
             add("tooltip.implosion_compressor.4", "1x Muffler Hatch (Any casing)");
             add("tooltip.implosion_compressor.5", "1x Energy Hatch (Any casing)");
             add("tooltip.implosion_compressor.6", "Solid Steel Casings for the rest (17 at least!)");
@@ -216,19 +216,19 @@ public class GT5RLocalizations {
             add("tooltip.large_autoclave.1", "Runs up to 16 Items at once");
             add("tooltip.large_autoclave.2", "Size(WxHxD):3x3x3 (Hollow), Controller (Front middle at bottom)");
             add("tooltip.large_autoclave.3", "1x Coil at Bottom center");
-            add("tooltip.large_autoclave.4", "1x Item Input Hatch (Any casing)");
-            add("tooltip.large_autoclave.5", "1x Item Output Hatch (Any casing)");
-            add("tooltip.large_autoclave.6", "1x Fluid Input Hatch (Any casing)");
+            add("tooltip.large_autoclave.4", "1x Input Bus (Any casing)");
+            add("tooltip.large_autoclave.5", "1x Output Bus (Any casing)");
+            add("tooltip.large_autoclave.6", "1x Input Hatch (Any casing)");
             add("tooltip.large_autoclave.7", "1x Energy Hatch (Any casing)");
             add("tooltip.large_autoclave.8", "Stainless Steel Casings for the rest");
 
             add("tooltip.large_bathing_vat.0", "Controller Block for the Large Bathing Vat");
             add("tooltip.large_bathing_vat.1", "Runs up to 64 Items at once");
             add("tooltip.large_bathing_vat.2", "Size(WxHxD): 5x2x5, Controller (Front middle at bottom)");
-            add("tooltip.large_bathing_vat.3", "1x Item Input Hatch (Any casing)");
-            add("tooltip.large_bathing_vat.4", "1x Item Output Hatch (Any casing)");
-            add("tooltip.large_bathing_vat.5", "1x Fluid Input Hatch (Any casing)");
-            add("tooltip.large_bathing_vat.6", "1-3x Fluid Output Hatch (Any casing, optional)");
+            add("tooltip.large_bathing_vat.3", "1x Input Bus (Any casing)");
+            add("tooltip.large_bathing_vat.4", "1x Output Bus (Any casing)");
+            add("tooltip.large_bathing_vat.5", "1x Input Hatch (Any casing)");
+            add("tooltip.large_bathing_vat.6", "1-3x Output Hatch (Any casing, optional)");
             add("tooltip.large_bathing_vat.7", "Stainless Steel Walls for the rest (46 at most!)");
 
             add("tooltip.large_boiler.0", "Controller Block for the Large Boiler");
@@ -279,13 +279,13 @@ public class GT5RLocalizations {
             add("tooltip.large_pulverizer.2", "Size(WxHxD): 5x3x5, Controller (Front middle at bottom)");
             add("tooltip.large_pulverizer.3", "5x3x5 Basin of Tungstensteel Walls (Min 53!)");
             add("tooltip.large_pulverizer.4", "3x2x3 of Grinding Wheels (Inside basin, exactly 18!)");
-            add("tooltip.large_pulverizer.5", "1x Item Input Hatch (Any Casing)");
-            add("tooltip.large_pulverizer.6", "1x Item Output Hatch (Any Casing)");
+            add("tooltip.large_pulverizer.5", "1x Input Bus (Any Casing)");
+            add("tooltip.large_pulverizer.6", "1x Output Bus (Any Casing)");
             add("tooltip.large_pulverizer.7", "1x HV+ Energy Hatch (Any Casing)");
 
             add("tooltip.large_turbine.0", "Controller Block for the %s");
             add("tooltip.large_turbine.1", "Size(WxHxD): 3x3x4 (Hollow), Controller (Front centered)");
-            add("tooltip.large_turbine.2", "1x Fluid Input Hatch (Side centered)");
+            add("tooltip.large_turbine.2", "1x Input Hatch (Side centered)");
             add("tooltip.large_turbine.3", "1x Muffler Hatch (Side centered)");
             add("tooltip.large_turbine.4", "1x Dynamo Hatch (Back centered)");
             add("tooltip.large_turbine.5", "%s for the rest (24 at least!)");
@@ -297,8 +297,8 @@ public class GT5RLocalizations {
             add("tooltip.multi_smelter.2", "Smelts up to 8-1024 Items at once");
             add("tooltip.multi_smelter.3", "Size(WxHxD):3x3x3 (Hollow), Controller (Front middle at bottom)");
             add("tooltip.multi_smelter.4", "8x Heating Coils (Middle layer, hollow)");
-            add("tooltip.multi_smelter.5", "1x Item Input Hatch (One of bottom)");
-            add("tooltip.multi_smelter.6", "1x Item Output Hatch (One of bottom)");
+            add("tooltip.multi_smelter.5", "1x Input Bus (One of bottom)");
+            add("tooltip.multi_smelter.6", "1x Output Bus (One of bottom)");
             add("tooltip.multi_smelter.7", "1x Muffler Hatch (Top middle)");
             add("tooltip.multi_smelter.8", "1x Energy Hatch (One of bottom)");
             add("tooltip.multi_smelter.9", "Heat Proof Casings for the rest");
@@ -309,9 +309,9 @@ public class GT5RLocalizations {
             add("tooltip.oil_drilling_rig.3", "3x1x3 Base of Solid Steel Casings");
             add("tooltip.oil_drilling_rig.4", "1x3x1 Solid Steel Casing Pillar (Center of base)");
             add("tooltip.oil_drilling_rig.5", "1x3x1 Steel Frames (Each pillar side and on top)");
-            add("tooltip.oil_drilling_rig.6", "1x Fluid Output Hatch (Any bottom layer casing)");
+            add("tooltip.oil_drilling_rig.6", "1x Output Hatch (Any bottom layer casing)");
             add("tooltip.oil_drilling_rig.7", "1x MV+ Energy Hatch (Any bottom layer casing)");
-            add("tooltip.oil_drilling_rig.8", "1x Item Output Hatch (Any bottom layer casing, optional)");
+            add("tooltip.oil_drilling_rig.8", "1x Output Bus (Any bottom layer casing, optional)");
 
             add("tooltip.ore_mining_rig.0", "Controller Block for the Ore Mining Rig");
             add("tooltip.ore_mining_rig.1", "Formerly known as Advanced Miner II in gt5u");
