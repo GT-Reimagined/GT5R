@@ -313,6 +313,18 @@ public class GT5RLocalizations {
             add("tooltip.oil_drilling_rig.7", "1x MV+ Energy Hatch (Any bottom layer casing)");
             add("tooltip.oil_drilling_rig.8", "1x Item Output Hatch (Any bottom layer casing, optional)");
 
+            add("tooltip.ore_mining_rig.0", "Controller Block for the Ore Mining Rig");
+            add("tooltip.ore_mining_rig.1", "Formerly known as Advanced Miner II in gt5u");
+            add("tooltip.ore_mining_rig.2", "Size(WxHxD):3x7x3");
+            add("tooltip.ore_mining_rig.3", "Controller (Front middle at bottom)");
+            add("tooltip.ore_mining_rig.4", "3x1x3 Base of Solid Steel Casings");
+            add("tooltip.ore_mining_rig.5", "1x3x1 Solid Steel Casing Pillar (Center of base)");
+            add("tooltip.ore_mining_rig.6", "1x3x1 Steel Frames (Each pillar side and on top)");
+            add("tooltip.ore_mining_rig.7", "1x Input Hatch for drilling fluid (Any bottom layer casing)");
+            add("tooltip.ore_mining_rig.8", "1x MV+ Energy Hatch (Any bottom layer casing)");
+            add("tooltip.ore_mining_rig.9", "1x Output Bus (Any bottom layer casing)");
+            add("tooltip.ore_mining_rig.10", "Radius is 48 blocks");
+
             add("tooltip.processing_array.0", "Controller Block for the Processing Array");
             add("tooltip.processing_array.1", "Runs supplied machines as if placed in the world");
             add("tooltip.processing_array.2", "Size(WxHxD):3x3x3 (Hollow), Controller (Front centered)");

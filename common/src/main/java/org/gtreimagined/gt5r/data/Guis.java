@@ -292,7 +292,7 @@ public class Guis {
         LARGE_TURBINE.add(MULTIBLOCK.getSlots());
         LARGE_HEAT_EXCHANGER.add(MULTIBLOCK.getSlots());
         OIL_DRILLING_RIG.add(MULTIBLOCK.getSlots());
-        ADVANCED_MINER.add(MULTIBLOCK.getSlots());
+        ORE_MINING_RIG.add(MULTIBLOCK.getSlots());
         PROCESSING_ARRAY.add(MULTIBLOCK.getSlots());
         PYROLYSIS_OVEN.add(MULTIBLOCK.getSlots());
         DISTLLATION_TOWER.add(MULTIBLOCK.getSlots());
@@ -337,7 +337,7 @@ public class Guis {
         LARGE_TURBINE.getGui().setBackgroundTexture("multiblock");
         LARGE_HEAT_EXCHANGER.getGui().setBackgroundTexture("multiblock");
         OIL_DRILLING_RIG.getGui().setBackgroundTexture("multiblock");
-        ADVANCED_MINER.getGui().setBackgroundTexture("multiblock");
+        ORE_MINING_RIG.getGui().setBackgroundTexture("multiblock");
         PROCESSING_ARRAY.getGui().setBackgroundTexture("multiblock");
         PYROLYSIS_OVEN.getGui().setBackgroundTexture("multiblock");
         COMBUSTION_ENGINE.getGui().setBackgroundTexture("multiblock");
