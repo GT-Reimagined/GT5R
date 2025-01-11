@@ -36,6 +36,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.FluidState;
+import org.gtreimagined.gt5r.blockentity.multi.BlockEntityDrillingRigBase.MineResult;
 import org.gtreimagined.gt5r.data.GT5RBlocks;
 import org.gtreimagined.gt5r.gui.ButtonOverlays;
 import org.gtreimagined.gt5r.worldgen.OilSpoutEntry;
@@ -50,31 +51,14 @@ import static muramasa.antimatter.gui.ICanSyncData.SyncDirection.SERVER_TO_CLIEN
 import static org.gtreimagined.gt5r.data.GT5RBlocks.MINING_PIPE;
 import static org.gtreimagined.gt5r.data.GT5RBlocks.MINING_PIPE_THIN;
 
-public class BlockEntityOilDrillingRig extends BlockEntityMultiMachine<BlockEntityOilDrillingRig> implements IFilterableHandler, IMiningPipeTile {
-    boolean foundBottom = false;
-    boolean stopped = false;
-    boolean pullingUp;
+public class BlockEntityOilDrillingRig extends BlockEntityDrillingRigBase<BlockEntityOilDrillingRig> {
     int euPerTick;
     int cycle = 160;
     int progress = 0;
-    BlockPos miningPos;
     OilSpoutEntry oilEntry = null;
 
     public BlockEntityOilDrillingRig(Machine<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
-        miningPos = new int3(pos, this.getFacing(state)).back(1).immutable().below();
-    }
-
-    @Override
-    public void onFirstTick() {
-        super.onFirstTick();
-        if (foundBottom){
-            LongList positions = new LongArrayList();
-            for (int y = miningPos.getY(); y < this.getBlockPos().getY(); y++) {
-                positions.add(BlockPos.asLong(miningPos.getX(), y, miningPos.getZ()));
-            }
-            MiningPipeStructureCache.add(this.level, this.getBlockPos(), positions);
-        }
     }
 
     int outputTicker = 0;
@@ -124,7 +108,7 @@ public class BlockEntityOilDrillingRig extends BlockEntityMultiMachine<BlockEnti
                 if (level.getGameTime() % 20 != 0) return;
                 MineResult breakResult = destroyBlock(level, miningPos, true, null, Items.NETHERITE_PICKAXE.getDefaultInstance());
 
-                if (breakResult == MineResult.PIPE_BROKEN){
+                if (breakResult == BlockEntityDrillingRigBase.MineResult.PIPE_BROKEN){
                     return;
                 }
 
@@ -132,7 +116,7 @@ public class BlockEntityOilDrillingRig extends BlockEntityMultiMachine<BlockEnti
                 if (getMachineState() == MachineState.IDLE) setMachineState(MachineState.ACTIVE);
                 energyHandler.ifPresent(e -> e.extractEu(euPerTick, false));
 
-                if (breakResult == MineResult.FOUND_BOTTOM){
+                if (breakResult == BlockEntityDrillingRigBase.MineResult.FOUND_BOTTOM){
                     foundBottom = true;
                     LongList positions = new LongArrayList();
                     for (int y = miningPos.getY(); y < this.getBlockPos().getY(); y++) {
@@ -146,11 +130,11 @@ public class BlockEntityOilDrillingRig extends BlockEntityMultiMachine<BlockEnti
                 }
 
 
-                if (breakResult == MineResult.FOUND_OBSTRUCTION){
+                if (breakResult == BlockEntityDrillingRigBase.MineResult.FOUND_OBSTRUCTION){
                     stopped = true;
                     return;
                 }
-                if (breakResult == MineResult.FOUND_MINEABLE) {
+                if (breakResult == BlockEntityDrillingRigBase.MineResult.FOUND_MINEABLE) {
                     stack.shrink(1);
                 }
             } else {
@@ -194,13 +178,13 @@ public class BlockEntityOilDrillingRig extends BlockEntityMultiMachine<BlockEnti
         BlockState aboveBlockState = level.getBlockState(pos.above());
         if (aboveBlockState.getBlock() != MINING_PIPE && pos.getY() + 1 != this.getBlockPos().getY()){
             resetMiningPos();
-            return MineResult.PIPE_BROKEN;
+            return BlockEntityDrillingRigBase.MineResult.PIPE_BROKEN;
         }
         if (blockstate.getBlock() == Blocks.BEDROCK || blockstate.getBlock() == Blocks.VOID_AIR){
-            return MineResult.FOUND_BOTTOM;
+            return BlockEntityDrillingRigBase.MineResult.FOUND_BOTTOM;
         }
         if (blockstate.getDestroySpeed(level, pos) < 0) {
-            return MineResult.FOUND_OBSTRUCTION;
+            return BlockEntityDrillingRigBase.MineResult.FOUND_OBSTRUCTION;
         } else {
             FluidState fluidstate = level.getFluidState(pos);
             if (!(blockstate.getBlock() instanceof BaseFireBlock)) {
@@ -233,7 +217,7 @@ public class BlockEntityOilDrillingRig extends BlockEntityMultiMachine<BlockEnti
                 //level.gameEvent(GameEvent.BLOCK_DESTROY, pos, GameEvent.Context.of(entity, blockstate));
             }
 
-            return miningPipe ? MineResult.FOUND_MINING_PIPE : MineResult.FOUND_MINEABLE;
+            return miningPipe ? BlockEntityDrillingRigBase.MineResult.FOUND_MINING_PIPE : BlockEntityDrillingRigBase.MineResult.FOUND_MINEABLE;
         }
     }
 
@@ -248,45 +232,17 @@ public class BlockEntityOilDrillingRig extends BlockEntityMultiMachine<BlockEnti
     }
 
     @Override
-    public void onRemove() {
-        super.onRemove();
-        MiningPipeStructureCache.remove(this.level, this.getBlockPos());
-    }
-
-    @Override
     public void saveAdditional(CompoundTag tag) {
         super.saveAdditional(tag);
-        tag.putBoolean("foundBottom", foundBottom);
-        tag.putBoolean("pullingUp", pullingUp);
-        tag.putLong("miningPos", miningPos.asLong());
         tag.putInt("progress", progress);
     }
 
     @Override
     public void load(CompoundTag nbt) {
         super.load(nbt);
-        this.foundBottom = nbt.getBoolean("foundBottom");
-        this.pullingUp = nbt.getBoolean("pullingUp");
-        this.miningPos = BlockPos.of(nbt.getLong("miningPos"));
         this.progress = nbt.getInt("progress");
     }
 
-    @Override
-    public void onGuiEvent(IGuiEvent event, Player playerEntity) {
-        if (event.getFactory() == GuiEvents.EXTRA_BUTTON) {
-            int[] data = ((GuiEvents.GuiEvent)event).data;
-            if (data[1] == 0) {
-                pullingUp = !pullingUp;
-                playerEntity.sendMessage(Utils.literal((pullingUp ? "Currently pulling up mining pipes" : "No longer pulling up mining pipes")), playerEntity.getUUID());
-            }
-        }
-    }
-
-    @Override
-    public void addWidgets(GuiInstance instance, IGuiElement parent) {
-        super.addWidgets(instance, parent);
-        instance.addSwitchButton(152, 23, 18, 18, ButtonOverlays.PULL_UP_OFF, ButtonOverlays.PULL_UP_ON, h -> ((BlockEntityOilDrillingRig)h).pullingUp, false);
-    }
 
     @Override
     public WidgetSupplier getInfoWidget() {
@@ -315,38 +271,6 @@ public class BlockEntityOilDrillingRig extends BlockEntityMultiMachine<BlockEnti
             }
         }
         return 8;
-    }
-
-    @Override
-    public boolean test(SlotType<?> slotType, int slot, ItemStack stack) {
-        return slotType != SlotType.STORAGE || stack.getItem() == MINING_PIPE_THIN.asItem();
-    }
-
-    @Override
-    public void onMiningPipeUpdate(BlockPos miningPipePos) {
-        BlockState pipe = level.getBlockState(miningPipePos);
-        if (pipe.getBlock() != MINING_PIPE && pipe.getBlock() != MINING_PIPE_THIN && !pullingUp){
-            resetMiningPos();
-        }
-    }
-
-    private void resetMiningPos(){
-        foundBottom = false;
-        BlockPos centerPos = miningPos.atY(this.getBlockPos().getY()).below();
-        while (true){
-            BlockState state = level.getBlockState(centerPos);
-            if (state.getBlock() == MINING_PIPE || state.getBlock() == MINING_PIPE_THIN){
-                centerPos = centerPos.below();
-                continue;
-            }
-            break;
-        }
-        miningPos = centerPos;
-        MiningPipeStructureCache.remove(level, this.getBlockPos());
-    }
-
-    enum MineResult {
-        FOUND_BOTTOM, FOUND_OBSTRUCTION, FOUND_MINING_PIPE, FOUND_MINEABLE, PIPE_BROKEN
     }
 
     public static class OilInfoWidget extends InfoRenderWidget.MultiRenderWidget {
