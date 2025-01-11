@@ -4,11 +4,13 @@ import it.unimi.dsi.fastutil.longs.LongArrayList;
 import it.unimi.dsi.fastutil.longs.LongList;
 import muramasa.antimatter.blockentity.multi.BlockEntityMultiMachine;
 import muramasa.antimatter.capability.IFilterableHandler;
+import muramasa.antimatter.capability.machine.MultiMachineEnergyHandler;
 import muramasa.antimatter.gui.GuiInstance;
 import muramasa.antimatter.gui.IGuiElement;
 import muramasa.antimatter.gui.SlotType;
 import muramasa.antimatter.gui.event.GuiEvents;
 import muramasa.antimatter.gui.event.IGuiEvent;
+import muramasa.antimatter.machine.MachineState;
 import muramasa.antimatter.machine.types.Machine;
 import muramasa.antimatter.util.Utils;
 import muramasa.antimatter.util.int3;
@@ -16,17 +18,22 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import org.gtreimagined.gt5r.data.GT5RBlocks;
 import org.gtreimagined.gt5r.gui.ButtonOverlays;
 
 import static org.gtreimagined.gt5r.data.GT5RBlocks.MINING_PIPE;
 import static org.gtreimagined.gt5r.data.GT5RBlocks.MINING_PIPE_THIN;
 
-public class BlockEntityDrillingRigBase<T extends BlockEntityDrillingRigBase<T>> extends BlockEntityMultiMachine<T> implements IMiningPipeTile, IFilterableHandler {
+public abstract class BlockEntityDrillingRigBase<T extends BlockEntityDrillingRigBase<T>> extends BlockEntityMultiMachine<T> implements IMiningPipeTile, IFilterableHandler {
     protected boolean foundBottom = false;
     protected boolean stopped = false;
     protected boolean pullingUp;
     protected BlockPos miningPos;
+    protected int euPerTick;
+    protected int cycle = 160;
     public BlockEntityDrillingRigBase(Machine<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
         miningPos = new int3(pos, this.getFacing(state)).back(1).immutable().below();
@@ -42,6 +49,67 @@ public class BlockEntityDrillingRigBase<T extends BlockEntityDrillingRigBase<T>>
             }
             MiningPipeStructureCache.add(this.level, this.getBlockPos(), positions);
         }
+    }
+
+    @Override
+    public void serverTick(Level level, BlockPos pos, BlockState state) {
+        super.serverTick(level, pos, state);
+        boolean wasStopped = false;
+        if (stopped && level.getGameTime() % 200 == 0){
+            wasStopped = true;
+            stopped = false;
+        }
+        if (!validStructure || stopped) return;
+
+        if ((hasRunConditions() || pullingUp) && energyHandler.map(e -> e.getEnergy() >= euPerTick).orElse(false)){
+            if (pullingUp){
+                if (level.getGameTime() % 5 != 0) return;
+                BlockState block = level.getBlockState(miningPos.above());
+                if (block.getBlock() == MINING_PIPE){
+                    boolean success = false;
+                    if (itemHandler.map(i -> i.canOutputsFit(new ItemStack[]{new ItemStack(MINING_PIPE_THIN)})).orElse(false)){
+                        itemHandler.ifPresent(i -> i.addOutputs(new ItemStack(MINING_PIPE_THIN)));
+                        success = true;
+                    } else if (itemHandler.map(i -> i.getHandler(SlotType.STORAGE).getItem(0).getCount() + 1 < i.getHandler(SlotType.STORAGE).getSlotLimit(0)).orElse(false)){
+                        itemHandler.ifPresent(i -> i.getHandler(SlotType.STORAGE).insertItem(0, new ItemStack(MINING_PIPE_THIN), false));
+                        success = true;
+                    }
+                    if (success){
+                        if (foundBottom){
+                            foundBottom = false;
+                            MiningPipeStructureCache.remove(level, this.getBlockPos());
+                        }
+                        miningPos = miningPos.above();
+                        level.setBlock(miningPos, Blocks.AIR.defaultBlockState(), 3);
+                        if (miningPos.getY() + 1 < this.getBlockPos().getY()){
+                            level.setBlock(miningPos.above(), MINING_PIPE.defaultBlockState(), 3);
+                        }
+                        if (getMachineState() == MachineState.IDLE) setMachineState(MachineState.ACTIVE);
+                        energyHandler.ifPresent(e -> e.extractEu(euPerTick, false));
+                    } else if (getMachineState() == MachineState.ACTIVE){
+                        setMachineState(MachineState.IDLE);
+                    }
+                } else if (getMachineState() == MachineState.ACTIVE){
+                    setMachineState(MachineState.IDLE);
+                }
+            } else {
+                run(level, pos, state, wasStopped);
+            }
+        }
+    }
+
+    protected abstract void run(Level level, BlockPos pos, BlockState state, boolean wasStopped);
+
+    protected abstract boolean hasRunConditions();
+
+    @Override
+    public void afterStructureFormed() {
+        super.afterStructureFormed();
+        this.energyHandler.ifPresent(e -> {
+            int tier = ((MultiMachineEnergyHandler<?>) e).getAccumulatedPower().getIntegerId();
+            this.euPerTick = 3 * (1 << (tier << 1));
+            this.cycle = (int) (160 * (tier == 0 ? 2 : Math.pow(0.5, tier - 1)));
+        });
     }
 
     @Override

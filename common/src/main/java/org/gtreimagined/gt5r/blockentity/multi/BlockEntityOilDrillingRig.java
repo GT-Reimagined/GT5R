@@ -52,8 +52,6 @@ import static org.gtreimagined.gt5r.data.GT5RBlocks.MINING_PIPE;
 import static org.gtreimagined.gt5r.data.GT5RBlocks.MINING_PIPE_THIN;
 
 public class BlockEntityOilDrillingRig extends BlockEntityDrillingRigBase<BlockEntityOilDrillingRig> {
-    int euPerTick;
-    int cycle = 160;
     int progress = 0;
     OilSpoutEntry oilEntry = null;
 
@@ -64,113 +62,78 @@ public class BlockEntityOilDrillingRig extends BlockEntityDrillingRigBase<BlockE
     int outputTicker = 0;
 
     @Override
-    public void serverTick(Level level, BlockPos pos, BlockState state) {
-        super.serverTick(level, pos, state);
-        boolean wasStopped = false;
-        if (stopped && level.getGameTime() % 200 == 0){
-            wasStopped = true;
-            stopped = false;
-        }
-        if (!validStructure || stopped) return;
+    public void run(Level level, BlockPos pos, BlockState state, boolean wasStopped) {
         ItemStack stack = itemHandler.map(i -> i.getHandler(SlotType.STORAGE).getStackInSlot(0)).orElse(ItemStack.EMPTY);
-        if ((stack.getItem() == GT5RBlocks.MINING_PIPE_THIN.asItem() || foundBottom || pullingUp) && energyHandler.map(e -> e.getEnergy() >= euPerTick).orElse(false)){
-            if (pullingUp){
-                if (level.getGameTime() % 5 != 0) return;
-                BlockState block = level.getBlockState(miningPos.above());
-                if (block.getBlock() == MINING_PIPE){
-                    boolean success = false;
-                    if (itemHandler.map(i -> i.canOutputsFit(new ItemStack[]{new ItemStack(MINING_PIPE_THIN)})).orElse(false)){
-                        itemHandler.ifPresent(i -> i.addOutputs(new ItemStack(MINING_PIPE_THIN)));
-                        success = true;
-                    } else if (itemHandler.map(i -> i.getHandler(SlotType.STORAGE).getItem(0).getCount() + 1 < i.getHandler(SlotType.STORAGE).getSlotLimit(0)).orElse(false)){
-                        itemHandler.ifPresent(i -> i.getHandler(SlotType.STORAGE).insertItem(0, new ItemStack(MINING_PIPE_THIN), false));
-                        success = true;
-                    }
-                    if (success){
-                        if (foundBottom){
-                            foundBottom = false;
-                            MiningPipeStructureCache.remove(level, this.getBlockPos());
-                        }
-                        miningPos = miningPos.above();
-                        level.setBlock(miningPos, Blocks.AIR.defaultBlockState(), 3);
-                        if (miningPos.getY() + 1 < this.getBlockPos().getY()){
-                            level.setBlock(miningPos.above(), MINING_PIPE.defaultBlockState(), 3);
-                        }
-                        if (getMachineState() == MachineState.IDLE) setMachineState(MachineState.ACTIVE);
-                        energyHandler.ifPresent(e -> e.extractEu(euPerTick, false));
-                    } else if (getMachineState() == MachineState.ACTIVE){
-                        setMachineState(MachineState.IDLE);
-                    }
-                } else if (getMachineState() == MachineState.ACTIVE){
-                    setMachineState(MachineState.IDLE);
-                }
-            } else if (!foundBottom){
-                if (level.getGameTime() % 20 != 0) return;
-                MineResult breakResult = destroyBlock(level, miningPos, true, null, Items.NETHERITE_PICKAXE.getDefaultInstance());
+        if (!foundBottom){
+            if (level.getGameTime() % 20 != 0) return;
+            MineResult breakResult = destroyBlock(level, miningPos, true, null, Items.NETHERITE_PICKAXE.getDefaultInstance());
 
-                if (breakResult == BlockEntityDrillingRigBase.MineResult.PIPE_BROKEN){
-                    return;
-                }
+            if (breakResult == BlockEntityDrillingRigBase.MineResult.PIPE_BROKEN){
+                return;
+            }
 
 
-                if (getMachineState() == MachineState.IDLE) setMachineState(MachineState.ACTIVE);
-                energyHandler.ifPresent(e -> e.extractEu(euPerTick, false));
+            if (getMachineState() == MachineState.IDLE) setMachineState(MachineState.ACTIVE);
+            energyHandler.ifPresent(e -> e.extractEu(euPerTick, false));
 
-                if (breakResult == BlockEntityDrillingRigBase.MineResult.FOUND_BOTTOM){
-                    foundBottom = true;
-                    LongList positions = new LongArrayList();
-                    for (int y = miningPos.getY(); y < this.getBlockPos().getY(); y++) {
-                        positions.add(BlockPos.asLong(miningPos.getX(), y, miningPos.getZ()));
-                    }
-                    MiningPipeStructureCache.add(this.level, this.getBlockPos(), positions);
-                    return;
+            if (breakResult == BlockEntityDrillingRigBase.MineResult.FOUND_BOTTOM){
+                foundBottom = true;
+                LongList positions = new LongArrayList();
+                for (int y = miningPos.getY(); y < this.getBlockPos().getY(); y++) {
+                    positions.add(BlockPos.asLong(miningPos.getX(), y, miningPos.getZ()));
                 }
-                if (!wasStopped) {
-                    miningPos = miningPos.below();
-                }
+                MiningPipeStructureCache.add(this.level, this.getBlockPos(), positions);
+                return;
+            }
+            if (!wasStopped) {
+                miningPos = miningPos.below();
+            }
 
 
-                if (breakResult == BlockEntityDrillingRigBase.MineResult.FOUND_OBSTRUCTION){
-                    stopped = true;
-                    return;
-                }
-                if (breakResult == BlockEntityDrillingRigBase.MineResult.FOUND_MINEABLE) {
-                    stack.shrink(1);
-                }
-            } else {
-                if (oilEntry == null){
-                    oilEntry = OilSpoutSavedData.getOrCreate((ServerLevel) level).getFluidVeinWorldEntry(SectionPos.blockToSectionCoord(this.miningPos.getX()), SectionPos.blockToSectionCoord(this.miningPos.getZ()));
-                }
-                if (oilEntry.getFluid() == null) return;
-                FluidHolder fluidHolder = FluidPlatformUtils.createFluidStack(oilEntry.getFluid().fluid(), oilEntry.getCurrentYield() * TesseractGraphWrappers.dropletMultiplier);
-                if (outputTicker > 0){
-                    outputTicker--;
-                    return;
-                }
-                if (progress == 0){
-                    if (!fluidHandler.map(f -> f.fillOutput(fluidHolder, true) == oilEntry.getCurrentYield() * TesseractGraphWrappers.dropletMultiplier).orElse(false)){
-                        outputTicker = 40;
-                        this.setMachineState(MachineState.IDLE);
-                        return;
-                    }
-                }
-
-                if (getMachineState() != MachineState.ACTIVE){
-                    setMachineState(MachineState.ACTIVE);
-                }
-                energyHandler.ifPresent(e -> e.extractEu(euPerTick, false));
-                if (++progress == cycle){
-                    progress = 0;
-                    if (fluidHandler.map(f -> f.fillOutput(fluidHolder, true) == oilEntry.getCurrentYield() * TesseractGraphWrappers.dropletMultiplier).orElse(false)){
-                        fluidHandler.ifPresent(f -> f.fillOutput(fluidHolder, false));
-                        onMachineEvent(MachineEvent.FLUIDS_OUTPUTTED);
-                        oilEntry.decreaseLevel();
-                    }
-                }
+            if (breakResult == BlockEntityDrillingRigBase.MineResult.FOUND_OBSTRUCTION){
+                stopped = true;
+                return;
+            }
+            if (breakResult == BlockEntityDrillingRigBase.MineResult.FOUND_MINEABLE) {
+                stack.shrink(1);
             }
         } else {
-            if (getMachineState() == MachineState.ACTIVE) setMachineState(MachineState.IDLE);
+            if (oilEntry == null){
+                oilEntry = OilSpoutSavedData.getOrCreate((ServerLevel) level).getFluidVeinWorldEntry(SectionPos.blockToSectionCoord(this.miningPos.getX()), SectionPos.blockToSectionCoord(this.miningPos.getZ()));
+            }
+            if (oilEntry.getFluid() == null) return;
+            FluidHolder fluidHolder = FluidPlatformUtils.createFluidStack(oilEntry.getFluid().fluid(), oilEntry.getCurrentYield() * TesseractGraphWrappers.dropletMultiplier);
+            if (outputTicker > 0){
+                outputTicker--;
+                return;
+            }
+            if (progress == 0){
+                if (!fluidHandler.map(f -> f.fillOutput(fluidHolder, true) == oilEntry.getCurrentYield() * TesseractGraphWrappers.dropletMultiplier).orElse(false)){
+                    outputTicker = 40;
+                    this.setMachineState(MachineState.IDLE);
+                    return;
+                }
+            }
+
+            if (getMachineState() != MachineState.ACTIVE){
+                setMachineState(MachineState.ACTIVE);
+            }
+            energyHandler.ifPresent(e -> e.extractEu(euPerTick, false));
+            if (++progress == cycle){
+                progress = 0;
+                if (fluidHandler.map(f -> f.fillOutput(fluidHolder, true) == oilEntry.getCurrentYield() * TesseractGraphWrappers.dropletMultiplier).orElse(false)){
+                    fluidHandler.ifPresent(f -> f.fillOutput(fluidHolder, false));
+                    onMachineEvent(MachineEvent.FLUIDS_OUTPUTTED);
+                    oilEntry.decreaseLevel();
+                }
+            }
         }
+    }
+
+    @Override
+    protected boolean hasRunConditions() {
+        ItemStack stack = itemHandler.map(i -> i.getHandler(SlotType.STORAGE).getStackInSlot(0)).orElse(ItemStack.EMPTY);
+        return stack.getItem() == GT5RBlocks.MINING_PIPE_THIN.asItem() || foundBottom;
     }
 
     public MineResult destroyBlock(Level level, BlockPos pos, boolean dropBlock, @Nullable Entity entity, ItemStack item) {
