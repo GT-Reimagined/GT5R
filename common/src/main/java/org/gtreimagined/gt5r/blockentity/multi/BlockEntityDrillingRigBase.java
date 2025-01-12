@@ -18,6 +18,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -60,8 +61,8 @@ public abstract class BlockEntityDrillingRigBase<T extends BlockEntityDrillingRi
             stopped = false;
         }
         if (!validStructure || stopped) return;
-
-        if ((hasRunConditions() || pullingUp) && energyHandler.map(e -> e.getEnergy() >= euPerTick).orElse(false)){
+        ItemStack stack = itemHandler.map(i -> i.getHandler(SlotType.STORAGE).getStackInSlot(0)).orElse(ItemStack.EMPTY);
+        if ((stack.getItem() == GT5RBlocks.MINING_PIPE_THIN.asItem() || foundBottom || pullingUp) && energyHandler.map(e -> e.getEnergy() >= euPerTick).orElse(false)){
             if (pullingUp){
                 if (level.getGameTime() % 5 != 0) return;
                 BlockState block = level.getBlockState(miningPos.above());
@@ -92,15 +93,45 @@ public abstract class BlockEntityDrillingRigBase<T extends BlockEntityDrillingRi
                 } else if (getMachineState() == MachineState.ACTIVE){
                     setMachineState(MachineState.IDLE);
                 }
+            } else if (!foundBottom){
+                if (level.getGameTime() % 20 != 0) return;
+                MineResult breakResult = mineBelowBlock(level, miningPos, true, getMiningPickaxe());
+                if (breakResult == BlockEntityDrillingRigBase.MineResult.PIPE_BROKEN){
+                    return;
+                }
+                if (getMachineState() == MachineState.IDLE) setMachineState(MachineState.ACTIVE);
+                energyHandler.ifPresent(e -> e.extractEu(euPerTick, false));
+                if (breakResult == BlockEntityDrillingRigBase.MineResult.FOUND_BOTTOM || breakResult == MineResult.FOUND_BOTTOM_MINING_PIPE){
+                    foundBottom = true;
+                    LongList positions = new LongArrayList();
+                    for (int y = miningPos.getY(); y < this.getBlockPos().getY(); y++) {
+                        positions.add(BlockPos.asLong(miningPos.getX(), y, miningPos.getZ()));
+                    }
+                    MiningPipeStructureCache.add(this.level, this.getBlockPos(), positions);
+                }
+                if (!wasStopped) {
+                    miningPos = miningPos.below();
+                }
+                if (breakResult == BlockEntityDrillingRigBase.MineResult.FOUND_OBSTRUCTION){
+                    stopped = true;
+                    return;
+                }
+                if (breakResult == BlockEntityDrillingRigBase.MineResult.FOUND_MINEABLE || breakResult == MineResult.FOUND_BOTTOM) {
+                    stack.shrink(1);
+                }
             } else {
-                run(level, pos, state, wasStopped);
+                run(level, pos, state);
             }
         }
     }
 
-    protected abstract void run(Level level, BlockPos pos, BlockState state, boolean wasStopped);
+    protected abstract MineResult mineBelowBlock(Level level, BlockPos pos, boolean dropBlock, ItemStack item);
 
-    protected abstract boolean hasRunConditions();
+    protected abstract void run(Level level, BlockPos pos, BlockState state);
+
+    protected ItemStack getMiningPickaxe(){
+        return Items.NETHERITE_PICKAXE.getDefaultInstance();
+    }
 
     @Override
     public void afterStructureFormed() {
@@ -180,6 +211,6 @@ public abstract class BlockEntityDrillingRigBase<T extends BlockEntityDrillingRi
     }
 
     public enum MineResult {
-        FOUND_BOTTOM, FOUND_OBSTRUCTION, FOUND_MINING_PIPE, FOUND_MINEABLE, PIPE_BROKEN
+        FOUND_BOTTOM, FOUND_OBSTRUCTION, FOUND_MINING_PIPE, FOUND_BOTTOM_MINING_PIPE, FOUND_MINEABLE, PIPE_BROKEN
     }
 }
