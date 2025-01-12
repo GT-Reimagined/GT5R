@@ -37,6 +37,7 @@ import tesseract.TesseractGraphWrappers;
 import java.util.List;
 
 import static muramasa.antimatter.gui.ICanSyncData.SyncDirection.SERVER_TO_CLIENT;
+import static org.gtreimagined.gt5r.blockentity.multi.BlockEntityDrillingRigBase.MineResult.*;
 import static org.gtreimagined.gt5r.data.GT5RBlocks.MINING_PIPE;
 import static org.gtreimagined.gt5r.data.GT5RBlocks.MINING_PIPE_THIN;
 
@@ -68,7 +69,6 @@ public class BlockEntityOilDrillingRig extends BlockEntityDrillingRigBase<BlockE
                 return;
             }
         }
-
         if (getMachineState() != MachineState.ACTIVE){
             setMachineState(MachineState.ACTIVE);
         }
@@ -88,46 +88,30 @@ public class BlockEntityOilDrillingRig extends BlockEntityDrillingRigBase<BlockE
         BlockState aboveBlockState = level.getBlockState(pos.above());
         if (aboveBlockState.getBlock() != MINING_PIPE && pos.getY() + 1 != this.getBlockPos().getY()){
             resetMiningPos();
-            return BlockEntityDrillingRigBase.MineResult.PIPE_BROKEN;
+            return PIPE_BROKEN;
         }
-
         if (blockstate.getDestroySpeed(level, pos) < 0) {
-            return BlockEntityDrillingRigBase.MineResult.FOUND_OBSTRUCTION;
+            return FOUND_OBSTRUCTION;
         } else {
             if (!(blockstate.getBlock() instanceof BaseFireBlock)) {
                 level.levelEvent(2001, pos, Block.getId(blockstate));
             }
             boolean miningPipe = blockstate.getBlock() == MINING_PIPE || blockstate.getBlock() == MINING_PIPE_THIN;
 
-            BlockEntity blockentity = blockstate.hasBlockEntity() ? level.getBlockEntity(pos) : null;
-            //BlockEve event = new BlockEvent.BreakEvent(level, pos, blockstate, entity instanceof Player player ? player : null);
-            //MinecraftForge.EVENT_BUS.post(event);
-            /*if (event.isCanceled()){
-                return false;
-            }*/
-            if (dropBlock && !miningPipe) {
-                if (level instanceof ServerLevel serverLevel) {
-                    List<ItemStack> drops = Block.getDrops(blockstate, serverLevel, pos, blockentity, null, item);
-                    if (itemHandler.map(i -> i.canOutputsFit(drops.toArray(ItemStack[]::new))).orElse(false)){
-                        itemHandler.ifPresent(i -> i.addOutputs(drops.toArray(ItemStack[]::new)));
-                    } else {
-                        drops.forEach(i -> Block.popResource(level, pos, i));
-                    }
-                    blockstate.spawnAfterBreak(serverLevel, pos, ItemStack.EMPTY);
+            if (!miningPipe){
+                if (!mineBlock(level, pos, dropBlock, item)) {
+                    return FOUND_OBSTRUCTION;
                 }
             }
-
             boolean flag = blockstate.getBlock() == MINING_PIPE || level.setBlock(pos, MINING_PIPE.defaultBlockState(), 3, 512);
             if (flag && pos.getY() + 1 < this.getBlockPos().getY()) {
                 level.setBlock(pos.above(), MINING_PIPE_THIN.defaultBlockState(), 11);
             }
-
             BlockState belowBlockState = level.getBlockState(pos.below());
             if (belowBlockState.getBlock() == Blocks.BEDROCK || belowBlockState.getBlock() == Blocks.VOID_AIR){
-                return miningPipe ? MineResult.FOUND_BOTTOM_MINING_PIPE : BlockEntityDrillingRigBase.MineResult.FOUND_BOTTOM;
+                return miningPipe ? FOUND_BOTTOM_MINING_PIPE : FOUND_BOTTOM;
             }
-
-            return miningPipe ? BlockEntityDrillingRigBase.MineResult.FOUND_MINING_PIPE : BlockEntityDrillingRigBase.MineResult.FOUND_MINEABLE;
+            return miningPipe ? FOUND_MINING_PIPE : FOUND_MINEABLE;
         }
     }
 

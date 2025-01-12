@@ -16,14 +16,19 @@ import muramasa.antimatter.util.Utils;
 import muramasa.antimatter.util.int3;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import org.gtreimagined.gt5r.data.GT5RBlocks;
 import org.gtreimagined.gt5r.gui.ButtonOverlays;
+
+import java.util.List;
 
 import static org.gtreimagined.gt5r.data.GT5RBlocks.MINING_PIPE;
 import static org.gtreimagined.gt5r.data.GT5RBlocks.MINING_PIPE_THIN;
@@ -129,18 +134,31 @@ public abstract class BlockEntityDrillingRigBase<T extends BlockEntityDrillingRi
 
     protected abstract void run(Level level, BlockPos pos, BlockState state);
 
-    protected ItemStack getMiningPickaxe(){
-        return Items.NETHERITE_PICKAXE.getDefaultInstance();
+    protected boolean mineBlock(Level level, BlockPos pos, boolean dropBlock, ItemStack item){
+        BlockState state = level.getBlockState(pos);
+        if (state.isAir()) return true;
+        BlockEntity blockentity = state.hasBlockEntity() ? level.getBlockEntity(pos) : null;
+        //BlockEve event = new BlockEvent.BreakEvent(level, pos, blockstate, entity instanceof Player player ? player : null);
+        //MinecraftForge.EVENT_BUS.post(event);
+            /*if (event.isCanceled()){
+                return false;
+            }*/
+        if (dropBlock) {
+            if (level instanceof ServerLevel serverLevel) {
+                List<ItemStack> drops = Block.getDrops(state, serverLevel, pos, blockentity, null, item);
+                if (itemHandler.map(i -> i.canOutputsFit(drops.toArray(ItemStack[]::new))).orElse(false)){
+                    itemHandler.ifPresent(i -> i.addOutputs(drops.toArray(ItemStack[]::new)));
+                } else {
+                    drops.forEach(i -> Block.popResource(level, pos, i));
+                }
+                state.spawnAfterBreak(serverLevel, pos, ItemStack.EMPTY);
+            }
+        }
+        return level.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
     }
 
-    @Override
-    public void afterStructureFormed() {
-        super.afterStructureFormed();
-        this.energyHandler.ifPresent(e -> {
-            int tier = ((MultiMachineEnergyHandler<?>) e).getAccumulatedPower().getIntegerId();
-            this.euPerTick = 3 * (1 << (tier << 1));
-            this.cycle = (int) (160 * (tier == 0 ? 2 : Math.pow(0.5, tier - 1)));
-        });
+    protected ItemStack getMiningPickaxe(){
+        return Items.NETHERITE_PICKAXE.getDefaultInstance();
     }
 
     @Override
@@ -179,7 +197,7 @@ public abstract class BlockEntityDrillingRigBase<T extends BlockEntityDrillingRi
     @Override
     public void addWidgets(GuiInstance instance, IGuiElement parent) {
         super.addWidgets(instance, parent);
-        instance.addSwitchButton(152, 23, 18, 18, ButtonOverlays.PULL_UP_OFF, ButtonOverlays.PULL_UP_ON, h -> ((BlockEntityOilDrillingRig)h).pullingUp, false);
+        instance.addSwitchButton(152, 23, 18, 18, ButtonOverlays.PULL_UP_OFF, ButtonOverlays.PULL_UP_ON, h -> ((BlockEntityDrillingRigBase<?>)h).pullingUp, false);
     }
 
     @Override

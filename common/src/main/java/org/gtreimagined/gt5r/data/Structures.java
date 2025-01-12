@@ -35,6 +35,7 @@ import org.gtreimagined.gt5r.blockentity.multi.BlockEntityLargeTurbine;
 import org.gtreimagined.gt5r.blockentity.multi.BlockEntityMultiSmelter;
 import org.gtreimagined.gt5r.blockentity.multi.BlockEntityOilCrackingUnit;
 import org.gtreimagined.gt5r.blockentity.multi.BlockEntityOilDrillingRig;
+import org.gtreimagined.gt5r.blockentity.multi.BlockEntityOreMiningRig;
 import org.gtreimagined.gt5r.blockentity.multi.BlockEntityPrimitiveBlastFurnace;
 import org.gtreimagined.gt5r.blockentity.multi.BlockEntityProcessingArray;
 import org.gtreimagined.gt5r.blockentity.multi.BlockEntityPyrolysisOven;
@@ -296,6 +297,12 @@ public class Structures {
                 .at('F', FRAME.get().get(Materials.Steel).asBlock()).at('C', GT5RBlocks.CASING_SOLID_STEEL)
                 .at('H', GT5RBlocks.CASING_SOLID_STEEL, ENERGY_HATCH, OUTPUT_HATCH, OUTPUT_BUS)
                 .offset(1, 6, 0).min(1, OUTPUT_HATCH, ENERGY_HATCH).build());
+
+        ORE_MINING_RIG.setStructure(BlockEntityOreMiningRig.class, b -> b.part("main")
+                .of("   ", " F ", "   ").of(0).of(0).of(" F ", "FCF", " F ").of(3).of(3).of("H~H", "HCH", "HHH").build()
+                .at('F', FRAME.get().get(Materials.Steel).asBlock()).at('C', GT5RBlocks.CASING_SOLID_STEEL)
+                .at('H', GT5RBlocks.CASING_SOLID_STEEL, ENERGY_HATCH, OUTPUT_BUS, INPUT_HATCH)
+                .offset(1, 6, 0).min(1, OUTPUT_BUS, INPUT_HATCH, ENERGY_HATCH).build());
 
         TREE_GROWTH_SIMULATOR.setStructure(BlockEntityTreeGrowthSimulator.class, b -> b.part("main")
                 .of("CCCCC", "CCCCC", "CCCCC", "CCCCC", "CCCCC").of("CCCCC", "C---C", "C---C", "C---C", "CCCCC").of(1).of(1).of(1).of(1).of(1)
