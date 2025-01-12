@@ -130,7 +130,7 @@ public class BlockEntityOreMiningRig extends BlockEntityDrillingRigBase<BlockEnt
                 if (progress > 0) progress = 0;
                 return;
             }
-            if (progress == cycle && !fluidHandler.map(f -> f.getInputTanks().extractFluid(Materials.DrillingFluid.getLiquid(2000), true).getFluidAmount() == 2000 * TesseractGraphWrappers.dropletMultiplier).orElse(false)){
+            if (progress == cycle && !fluidHandler.map(f -> f.getInputTanks().extractFluid(Materials.DrillingFluid.getLiquid(100), true).getFluidAmount() == 100 * TesseractGraphWrappers.dropletMultiplier).orElse(false)){
                 runningState = RunningState.OUT_OF_DRILLING_FLUID;
                 if (getMachineState() == MachineState.ACTIVE) setMachineState(MachineState.IDLE);
                 return;
@@ -147,7 +147,7 @@ public class BlockEntityOreMiningRig extends BlockEntityDrillingRigBase<BlockEnt
                 progress++;
                 return;
             }
-            fluidHandler.ifPresent(f -> f.getInputTanks().extractFluid(Materials.DrillingFluid.getLiquid(2000), false));
+            fluidHandler.ifPresent(f -> f.getInputTanks().extractFluid(Materials.DrillingFluid.getLiquid(100), false));
             mineBlock(level, ore, true, getMiningPickaxe());
             oresToMine.remove(0);
             progress = 0;
