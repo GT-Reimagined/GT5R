@@ -707,10 +707,10 @@ public class MachineRecipes {
                 of('T', GT5RBlocks.ITEM_PIPE_PLATINUM.getBlock(PipeSize.NORMAL), 'C', PLATE.getMaterialTag(Plastic), 'W', GT5RBlocks.CASING_PLATINUM), "CTC", "TWT", "CTC");
         AntimatterAPI.all(WorkbenchMachine.class).forEach(m -> {
             if (!m.getId().contains("charging")) {
-                provider.addItemRecipe(output, GT5RRef.ID, "", "machines", m.getItem(NONE),
+                provider.addItemRecipe(output, GT5RRef.ID, m.getId(), "machines", m.getItem(NONE),
                         of('P', PLATE.getMaterialTag(m.getMaterial()), 'C', ForgeCTags.CHESTS_WOODEN, 'c', Items.CRAFTING_TABLE, 'S', SCREWDRIVER.getTag()), "PSP", "PcP", "PCP");
             } else {
-                provider.addItemRecipe(output, Ref.ID, "", "machines", m.getItem(HV),
+                provider.addItemRecipe(output, GT5RRef.ID, m.getId(), "machines", m.getItem(HV),
                         of('S', SCREWDRIVER.getTag(), 'w', WIRE_CUTTER.getTag(), 'W', Machine.get(m.getId().replace("charging_", ""), GTCore.ID).map(mch -> mch.getItem(NONE)).orElse(Items.AIR), 'c', CABLE_GETTER.apply(PipeSize.SMALL, HV, false), 'C', CIRCUITS_ADVANCED, 'R', ROD.getMaterialTag(m.getMaterial())), "RCR", "SWw", "ccc");
             }
         });
@@ -719,10 +719,10 @@ public class MachineRecipes {
             ChestMachine chest = AntimatterAPI.get(ChestMachine.class, material.getId() + "_chest", GTCore.ID);
             if (material.has(SCREW) && chest != null){
                 if (!m.getId().contains("charging")) {
-                    provider.addItemRecipe(output, GT5RRef.ID, "", "machines", m.getItem(NONE),
+                    provider.addItemRecipe(output, GT5RRef.ID, m.getId(), "machines", m.getItem(NONE),
                             of('s', SCREW.getMaterialTag(m.getMaterial()), 'C', chest.getItem(NONE), 'c', GT5RBlocks.CASING_SOLID_STEEL, 'S', SCREWDRIVER.getTag(), 'R', ROD.getMaterialTag(material), 'L', Items.LEATHER), "RSR", "LCL", "scs");
                 } else {
-                    provider.addItemRecipe(output, Ref.ID, "", "machines", m.getItem(HV),
+                    provider.addItemRecipe(output, GT5RRef.ID, m.getId(), "machines", m.getItem(HV),
                             of('W', Machine.get(m.getId().replace("charging_", ""), GTCore.ID).map(mch -> mch.getItem(NONE)).orElse(Items.AIR), 'c', CABLE_GETTER.apply(PipeSize.VTINY, HV, false), 'C', CIRCUITS_ADVANCED), "cCc", "cWc", "cCc");
                 }
             }
@@ -731,14 +731,14 @@ public class MachineRecipes {
         AntimatterAPI.all(ChestMachine.class).forEach(m -> {
             Material material = m.getMaterial();
             if (material.has(RING) && material.has(PLATE)){
-                provider.addItemRecipe(output, GT5RRef.ID, "", "machines", m.getItem(NONE),
+                provider.addItemRecipe(output, GT5RRef.ID, m.getId(), "machines", m.getItem(NONE),
                         of('P', PLATE.getMaterialTag(material), 'R', ROD.getMaterialTag(material), 'r', RING.getMaterialTag(material), 'S', SAW.getTag(), 'W', WRENCH.getTag()), "SPW", "rRr", "PPP");
             }
         });
         AntimatterAPI.all(BarrelMachine.class).forEach(m -> {
             Material material = m.getMaterial();
             if (material.has(ROD) && material.has(PLATE)){
-                provider.addItemRecipe(output, GT5RRef.ID, "", "machines", m.getItem(NONE),
+                provider.addItemRecipe(output, GT5RRef.ID, m.getId(), "machines", m.getItem(NONE),
                         of('P', PLATE.getMaterialTag(material), 'R', ROD.getMaterialTag(material), 'S', SAW.getTag(), 'W', WRENCH.getTag()), "SPW", "PRP", " P ");
             }
         });
@@ -746,7 +746,7 @@ public class MachineRecipes {
             Material material = m.getMaterial();
             ChestMachine chest = AntimatterAPI.get(ChestMachine.class, material.getId() + "_chest", GTCore.ID);
             if (material.has(SCREW) && material.has(PLATE) && !material.has(MaterialTags.WOOD) && chest != null){
-                provider.addItemRecipe(output, GT5RRef.ID, "", "machines", m.getItem(NONE),
+                provider.addItemRecipe(output, GT5RRef.ID, m.getId(), "machines", m.getItem(NONE),
                         of('C', chest.getItem(NONE), 'S', SCREW.getMaterialTag(material), 'c', GT5RBlocks.CASING_SOLID_STEEL, 's', SCREWDRIVER.getTag(), 'W', WRENCH.getTag()), "SCS", "Wcs", "SCS");
             }
         });
@@ -757,12 +757,12 @@ public class MachineRecipes {
                 if (block == null) return;
                 Material ringMaterial = m.getMaterial() == Wood ? Lead : m.getMaterial();
                 TagKey<Item> hammer = m.getMaterial() == Wood ? SOFT_HAMMER.getTag() : HAMMER.getTag();
-                provider.addItemRecipe(output, "multiblock_tanks", m.getItem(NONE),
+                provider.addItemRecipe(output, GT5RRef.ID, m.getId(), "multiblock_tanks", m.getItem(NONE),
                         of('R', RING.getMaterialTag(ringMaterial), 'S', SAW.getTag(), 'H', hammer, 'W', block.asItem()), " R ", "HWS", " R ");
             } else {
                 Block block = AntimatterAPI.get(Block.class, m.getId().replace("large", "small"), GT5RRef.ID);
                 if (block == null) return;
-                provider.addItemRecipe(output, "multiblock_tanks", m.getItem(NONE),
+                provider.addItemRecipe(output, GT5RRef.ID, m.getId(), "multiblock_tanks", m.getItem(NONE),
                         of('P', PLATE.getMaterialTag(m.getMaterial()), 'S', SAW.getTag(), 'H', HAMMER.getTag(), 'W', block.asItem()), "PPP", "HWS", "PPP");
             }
         });
