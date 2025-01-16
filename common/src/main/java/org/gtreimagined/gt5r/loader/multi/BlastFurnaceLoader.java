@@ -117,6 +117,7 @@ public class BlastFurnaceLoader {
         addBlastAlloyRecipes(HSSG, 9, 9000, 120, ImmutableMap.of(TungstenSteel, 5, Chromium, 1, Molybdenum, 2, Vanadium, 1));
         addBlastAlloyRecipes(HSSE, 9, 10800, 120, ImmutableMap.of(HSSG, 6, Cobalt, 1, Manganese, 1, Silicon, 1));
         addBlastAlloyRecipes(HSSS, 9, 810 * 20, 120, ImmutableMap.of(HSSG, 6, Iridium, 2, Osmium, 1));
+        addBlastAlloyRecipes(YttriumBariumCuprate, 6, 4500, 120, ImmutableMap.of(Copper, 3, Barium, 2, Yttrium, 1));
     }
 
     public static void addBlastAlloyRecipes(Material output, int amount, int duration, int power, ImmutableMap<Material, Integer> inputs){

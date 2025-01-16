@@ -203,6 +203,7 @@ public class Materials {
     public static Material AntimonyTrioxide = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "antimony_trioxide", 0xe6e6f0, DULL));
     public static Material ArsenicTrioxide = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "arsenic_trioxide", 0xffffff, SHINY));
     public static Material Ash = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "ash", 0x969696, DULL));
+    public static Material BariumCarbonate = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "barium_carbonate", 0xffffff, NONE));
     public static Material BenzoylChloride = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "benzoyl_chloride", 0xf7f5eb, NONE));
     public static Material Biotite = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "biotite", 0x141e14, METALLIC));
     public static Material Bitumen = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "bitumen", 0x585863, ROUGH));
@@ -259,6 +260,7 @@ public class Materials {
     public static Material TungsticAcid = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "tungstic_acid", 0xb4c800, SHINY));
     public static Material TungstenTrioxide = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "tungsten_trioxide", 0xc7d300, DULL));
     public static Material Wollastonite = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "wollastonite", 0xf0f0f0, DULL));
+    public static Material YttriumOxide = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "yttrium_oxide", 0xffffff, NONE));
 
     /**
      ** Ores

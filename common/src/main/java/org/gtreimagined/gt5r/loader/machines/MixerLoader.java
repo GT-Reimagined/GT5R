@@ -137,7 +137,6 @@ public class MixerLoader {
         MIXER.RB().ii(of(DUST.get(AntimatterMaterials.Sugar,4))).fi(SulfuricAcid.getLiquid(1000)).io(Items.CHARCOAL.getDefaultInstance()).fo(DilutedSulfuricAcid.getLiquid(1000)).add("diluted_sulfuric_acid_1",60*20, 2);
         MIXER.RB().ii(of(DUST.get(Salt,2))).fi(AntimatterMaterials.Water.getLiquid(1000)).fo(SaltWater.getLiquid(1000)).add("salt_water",2*20, 8);
         MIXER.RB().ii(of(DUST.get(Salt,2))).fi(DistilledWater.getLiquid(1000)).fo(SaltWater.getLiquid(1000)).add("salt_water_2",2*20, 8);
-        MIXER.RB().ii(of(DUST.get(AntimatterMaterials.Copper,3)),of(DUST.get(Barium,2)),of(DUST.get(Yttrium,1))).fi(Oxygen.getGas(7000)).io(DUST.get(YttriumBariumCuprate,13)).add("yttrium_barium_cuprate",40*20, 8);
         MIXER.RB().ii(of(DUST.get(Talc,1))).fi(Oil.getLiquid(750)).fo(Lubricant.getLiquid(750)).add("lubricant",64*2, 4);
         MIXER.RB().ii(of(DUST.get(Talc,1))).fi(Creosote.getLiquid(750)).fo(Lubricant.getLiquid(750)).add("lubricant_1",64*2, 4);
         MIXER.RB().ii(of(DUST.get(Talc,1))).fi(SeedOil.getLiquid(750)).fo(Lubricant.getLiquid(750)).add("lubricant_2",64*2, 4);
