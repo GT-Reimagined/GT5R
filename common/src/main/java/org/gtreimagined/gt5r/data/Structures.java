@@ -264,6 +264,21 @@ public class Structures {
                 .atElement('E', ofHatch(DYNAMO_HATCH))
                 .min(1, INPUT_HATCH, OUTPUT_HATCH).offset(1, 1, 0).build()
         );
+        LARGE_TURBINE.setStructure(BlockEntityLargeTurbine.class, Tier.EV, b -> b.part("main")
+                .of("CCC", "CMC", "CMC", "CCC").of("C~C", "H-H", "H-H", "CEC").of("CCC", "CCC", "CCC", "CCC").build()
+                .atElement('C', StructureUtility.lazy(t -> ofBlock(t.getCasing())))
+                .atElement('H', StructureUtility.<BlockEntityLargeTurbine>ofChain(
+                        StructureUtility.lazy(t -> ofBlock(t.getCasing())),
+                        ofHatch(INPUT_HATCH),
+                        ofHatch(OUTPUT_HATCH),
+                        ofHatch(MUFFLER_HATCH)))
+                .atElement('M', StructureUtility.<BlockEntityLargeTurbine>ofChain(
+                        StructureUtility.lazy(t -> ofBlock(t.getCasing())),
+                        ofHatch(MUFFLER_HATCH)
+                ))
+                .atElement('E', ofHatch(DYNAMO_HATCH))
+                .min(1, INPUT_HATCH).exact(1,MUFFLER_HATCH).offset(1, 1, 0).build()
+        );
 
         MULTI_SMELTER.setStructure(BlockEntityMultiSmelter.class, b -> b.part("main")
                 .of("CCC", "CMC", "CCC").of("BBB", "B-B", "BBB").of("H~H", "HHH", "HHH").build()
