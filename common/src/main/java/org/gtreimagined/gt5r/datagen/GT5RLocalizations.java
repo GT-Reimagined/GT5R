@@ -283,6 +283,15 @@ public class GT5RLocalizations {
             add("tooltip.large_pulverizer.6", "1x Output Bus (Any Casing)");
             add("tooltip.large_pulverizer.7", "1x HV+ Energy Hatch (Any Casing)");
 
+            add("tooltip.large_sifter.0", "Controller Block for the Large Sifter");
+            add("tooltip.large_sifter.1", "Runs up to 64 recipes at a time");
+            add("tooltip.large_sifter.2", "Size(WxHxD): 5x7x3 Controller (Front middle at bottom)");
+            add("tooltip.large_sifter.3", "5x7x3 Basin of Titanium Casings (Max 78!)");
+            add("tooltip.large_sifter.4", "3x6x1 of Filter Casings (Inside basin, exactly 18!)");
+            add("tooltip.large_sifter.5", "1x Input Bus (Any Casing on top layer)");
+            add("tooltip.large_sifter.6", "6x Output Bus (1 per layer except top layer)");
+            add("tooltip.large_sifter.7", "1x HV+ Energy Hatch (Any Casing on bottom layer)");
+
             add("tooltip.large_turbine.0", "Controller Block for the %s");
             add("tooltip.large_turbine.1", "Size(WxHxD): 3x3x4 (Hollow), Controller (Front centered)");
             add("tooltip.large_turbine.2", "1x Input Hatch (Side centered)");
