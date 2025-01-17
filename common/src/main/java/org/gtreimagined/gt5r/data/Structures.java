@@ -229,10 +229,6 @@ public class Structures {
                 .part("layer").of("OOOOO", "OFFFO", "OOOOO").offsetFunction((i, int3) -> new int3(int3.getX(), int3.getY() + i, int3.getZ())).max(5).min(5).build()
                 .part("top").of("IIIII", "IFFFI", "IIIII").offsetFunction((i, int3) -> new int3(int3.getX(), int3.getY() + i, int3.getZ())).build()
                 .atElement('H', ofChain(StructureUtility.<BlockEntityLargeSifter>ofBlock(GT5RBlocks.CASING_TITANIUM), ofHatch(OUTPUT_BUS, (largeSifter, world, pos, machine, handler) -> {
-                    if (!(handler.getTile() instanceof BlockEntityMachine<?> machineTile)) return false;
-                    if (machineTile.getMachineTier() != Tier.ULV){
-                        return false;
-                    }
                     int currentY = pos.getY() - largeSifter.getBlockPos().getY();
                     if (largeSifter.HATCH_LAYERS.contains(currentY)) return false;
                     largeSifter.HATCH_LAYERS.add(currentY);
@@ -240,10 +236,6 @@ public class Structures {
                     return true;
                 }), ofHatchMinTier(ENERGY_HATCH, HV)))
                 .atElement('O', ofChain(StructureUtility.<BlockEntityLargeSifter>ofBlock(GT5RBlocks.CASING_TITANIUM), ofHatch(OUTPUT_BUS, (largeSifter, world, pos, machine, handler) -> {
-                    if (!(handler.getTile() instanceof BlockEntityMachine<?> machineTile)) return false;
-                    if (machineTile.getMachineTier() != Tier.ULV){
-                        return false;
-                    }
                     int currentY = pos.getY() - largeSifter.getBlockPos().getY();
                     if (largeSifter.HATCH_LAYERS.contains(currentY)) return false;
                     largeSifter.HATCH_LAYERS.add(currentY);
