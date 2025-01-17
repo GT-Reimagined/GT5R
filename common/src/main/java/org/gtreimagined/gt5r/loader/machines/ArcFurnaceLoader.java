@@ -232,6 +232,7 @@ public class ArcFurnaceLoader {
         addRecyclingRecipe(GT5RBlocks.COIL_NAQUADAH, of(Naquadah, 8f));
         addRecyclingRecipe(GT5RBlocks.COIL_NAQUADAH_ALLOY, of(NaquadahAlloy, 8f));
         addRecyclingRecipe(Items.IRON_DOOR, of(Iron, 2.0f));
+        addRecyclingRecipe(GT5RBlocks.MINING_PIPE_THIN, of(Steel, 0.5f));
     }
 
     private static void addRecyclingRecipe(ItemLike input, ImmutableMap<Material, Float> outputs){
