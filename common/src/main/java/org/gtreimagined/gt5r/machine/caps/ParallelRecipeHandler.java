@@ -69,20 +69,10 @@ public class ParallelRecipeHandler<T extends BlockEntityMachine<T>> extends Mach
     protected void addOutputs() {
         for (int i = 0; i < concurrentRecipes; i++) {
             if (activeRecipe.hasOutputItems()) {
-                tile.itemHandler.ifPresent(h -> {
-                    //Roll the chances here. If they don't fit add flat (no chances).
-                    ItemStack[] out = activeRecipe.getOutputItems(true);
-                    if (h.canOutputsFit(out)) {
-                        h.addOutputs(out);
-                    } else {
-                        h.addOutputs(activeRecipe.getFlatOutputItems());
-                    }
-                });
+                addSingleItemOutput();
             }
             if (activeRecipe.hasOutputFluids()) {
-                tile.fluidHandler.ifPresent(h -> {
-                    h.addOutputs(activeRecipe.getOutputFluids());
-                });
+               addSingleFluidOutput();
             }
         }
         if (activeRecipe.hasOutputItems()) tile.onMachineEvent(MachineEvent.ITEMS_OUTPUTTED);
@@ -90,32 +80,41 @@ public class ParallelRecipeHandler<T extends BlockEntityMachine<T>> extends Mach
         concurrentRecipes = 0;
     }
 
-    private void addPartialOutputs(){
+    protected boolean addSingleFluidOutput(){
+        AtomicBoolean successful = new AtomicBoolean(false);
+        tile.fluidHandler.ifPresent(h -> {
+            if (h.canOutputsFit(activeRecipe.getOutputFluids())) {
+                h.addOutputs(activeRecipe.getOutputFluids());
+                successful.set(true);
+            }
+        });
+        return successful.get();
+    }
+
+    protected boolean addSingleItemOutput(){
+        AtomicBoolean successful = new AtomicBoolean(false);
+        tile.itemHandler.ifPresent(h -> {
+            //Roll the chances here. If they don't fit add flat (no chances).
+            ItemStack[] out = activeRecipe.getOutputItems(true);
+            if (h.canOutputsFit(out)) {
+                h.addOutputs(out);
+                successful.set(true);
+            }
+        });
+        return successful.get();
+    }
+
+    protected void addPartialOutputs(){
         int successfulRecipes = 0;
         for (int i = 0; i < concurrentRecipes; i++) {
-            AtomicBoolean successful = new AtomicBoolean(false);
+            boolean successful = false;
             if (activeRecipe.hasOutputItems()) {
-                tile.itemHandler.ifPresent(h -> {
-                    //Roll the chances here. If they don't fit add flat (no chances).
-                    ItemStack[] out = activeRecipe.getOutputItems(true);
-                    if (h.canOutputsFit(out)) {
-                        h.addOutputs(out);
-                        successful.set(true);
-                    } else if (h.canOutputsFit(activeRecipe.getFlatOutputItems())){
-                        successful.set(true);
-                        h.addOutputs(activeRecipe.getFlatOutputItems());
-                    }
-                });
+                if (addSingleItemOutput()) successful = true;
             }
             if (activeRecipe.hasOutputFluids()) {
-                tile.fluidHandler.ifPresent(h -> {
-                    if (h.canOutputsFit(activeRecipe.getOutputFluids())) {
-                        h.addOutputs(activeRecipe.getOutputFluids());
-                        successful.set(true);
-                    }
-                });
+                if (addSingleFluidOutput()) successful = true;
             }
-            if (successful.get()){
+            if (successful){
                 successfulRecipes++;
             }
         }
@@ -145,7 +144,7 @@ public class ParallelRecipeHandler<T extends BlockEntityMachine<T>> extends Mach
         if (tile.itemHandler.isPresent() && activeRecipe.hasOutputItems() && !tile.itemHandler.map(t -> {
             List<ItemStack> outputs = new ArrayList<>();
             for (int i = 0; i < concurrentRecipes; i++) {
-                for (ItemStack item : activeRecipe.getFlatOutputItems()) {
+                for (ItemStack item : activeRecipe.getOutputItems(false)) {
                     outputs.add(item.copy());
                 }
             }
