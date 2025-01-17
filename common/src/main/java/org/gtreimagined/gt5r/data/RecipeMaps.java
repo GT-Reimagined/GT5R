@@ -208,7 +208,8 @@ public class RecipeMaps {
         return (t, b) -> {
             if (!(t instanceof ShapedRecipe shapedRecipe)) return null;
             List<Ingredient> ingredients = t.getIngredients();
-            if (!(t.getResultItem().getItem() instanceof BlockItem blockItem && blockItem.getBlock() instanceof BlockMachine)) return null;
+            if (!(t.getResultItem().getItem() instanceof BlockItem blockItem && blockItem.getBlock() instanceof BlockMachine machine)) return null;
+            if (machine.getType() == GT5RMachines.HULL) return null;
             List<ItemStack> list = new ObjectArrayList<>();
             for (Ingredient i : ingredients){
                 for (ItemStack stack : i.getItems()){
