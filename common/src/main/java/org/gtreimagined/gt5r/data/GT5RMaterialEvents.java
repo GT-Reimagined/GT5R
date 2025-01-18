@@ -88,7 +88,7 @@ public class GT5RMaterialEvents {
         event.setMaterial(Silver).asMetal(1234, PLATE, SCREW).asOre().harvestLevel(2);
         event.setMaterial(Materials.Cadmium).asDust(594);
         event.setMaterial(Materials.Indium).asSolid(430, MOLTEN);
-        event.setMaterial(Materials.Tin).asMetal(505, PLATE, ROD_LONG, SCREW, BOLT, RING, FOIL, WIRE_FINE, FRAME, ROTOR).asOre().harvestLevel(1);
+        event.setMaterial(Materials.Tin).asOre().asMetal(505, PLATE, ROD_LONG, SCREW, BOLT, RING, FOIL, WIRE_FINE, FRAME, ROTOR).harvestLevel(1);
         event.setMaterial(Materials.Antimony).asMetal(1449, PLATE);
         //Tellurium
         event.setMaterial(Materials.Iodine).asSolid(387);
@@ -98,7 +98,7 @@ public class GT5RMaterialEvents {
         //Lanthanum
         event.setMaterial(Materials.Cerium).asDust();
         //Praseodymium
-        event.setMaterial(Materials.Neodymium).asMetal(1297, PLATE, ROD_LONG).asOre().harvestLevel(2); // TODO: Bastnasite or Monazite for Ore For;
+        event.setMaterial(Materials.Neodymium).asOre().asMetal(1297, PLATE, ROD_LONG).harvestLevel(2); // TODO: Bastnasite or Monazite for Ore For;
         event.setMaterial(Materials.Promethium).asMetal(1353);
         //Samarium
         event.setMaterial(Materials.Europium).asMetal(1099, PLATE);
@@ -115,7 +115,7 @@ public class GT5RMaterialEvents {
         //Gold, added by vanilla
         event.setMaterial(Materials.Mercury).asFluid();
         // thalium
-        event.setMaterial(Materials.Lead).asMetal(600, PLATE, PLATE_DENSE, ROD_LONG, FRAME, BOLT, RING).asOre().harvestLevel(1);
+        event.setMaterial(Materials.Lead).asOre().asMetal(600, PLATE, PLATE_DENSE, ROD_LONG, FRAME, BOLT, RING).harvestLevel(1);
         event.setMaterial(Materials.Bismuth).asOre(PLATE, INGOT);
         //polonium
         //event.setMaterial(Astatine).asMetal(575, 0);
@@ -123,7 +123,7 @@ public class GT5RMaterialEvents {
         //event.setMaterial(Francium).asMetal(298, 0);
         //event.setMaterial(Radium).asMetal(973, 0);
         //event.setMaterial(Actinium).asMetal(1323, 0);
-        event.setMaterial(Materials.Thorium).asMetal(2115, 0, PLATE_DENSE).asOre();
+        event.setMaterial(Materials.Thorium).asOre().asMetal(2115, 0, PLATE_DENSE);
         //protactinium
         event.setMaterial(Materials.Uranium).asMetal(1405).harvestLevel(2);
         //event.setMaterial(Neptunium).asMetal(912, 0);
@@ -161,7 +161,7 @@ public class GT5RMaterialEvents {
         event.setMaterial(Materials.Magnalium).asMetal(870, PLATE, ROD_LONG, ALLOY);
         event.setMaterial(Materials.NeodymiumMagnetic).asMetal(1297, ROD_LONG);
         event.setMaterial(Materials.Neutronium).asMetal(10000, 10000, SCREW, BOLT, RING, FRAME);
-        event.setMaterial(Materials.Naquadah).asMetal(5400, 5400).asOre();
+        event.setMaterial(Materials.Naquadah).asOre().asMetal(5400, 5400);
         event.setMaterial(Materials.NaquadahAlloy).asMetal(7200, 7200);
         event.setMaterial(Materials.Naquadria).asMetal(9000, 9000, POSITIVE_CHANGING_RGB);
         event.setMaterial(Materials.Nichrome).asMetal(2700, 2700);
@@ -308,7 +308,7 @@ public class GT5RMaterialEvents {
         event.setMaterial(Materials.Pyrolusite).asOre().harvestLevel(2);
         event.setMaterial(Materials.Pyrope).asOre().harvestLevel(2);
         event.setMaterial(Materials.Saltpeter).asOre();
-        event.setMaterial(Materials.Scheelite).asDust(2500).asOre().harvestLevel(3);
+        event.setMaterial(Materials.Scheelite).asOre().asDust(2500).harvestLevel(3);
         event.setMaterial(Materials.Soapstone).asOre().harvestLevel(1); // TODO: Ore Gen;
         event.setMaterial(Materials.Spodumene).asOre().harvestLevel(2);
         event.setMaterial(Materials.Sperrylite).asOre().harvestLevel(2);
@@ -343,7 +343,7 @@ public class GT5RMaterialEvents {
         event.setMaterial(Materials.Amethyst).asGem(false).replaceItem(GEM_FLAWED, Items.AMETHYST_SHARD).asOre(3, 7, true);
         event.setMaterial(Materials.Sapphire).asGem(true, GT5RMaterialTypes.BOULE).asOre(3, 7, true);
         event.setMaterial(Materials.BlueTopaz).asGem(true).asOre(3, 7, true);
-        event.setMaterial(Materials.Glass).asFluid(0, 1500).asDust(PLATE, LENS, MOLTEN);
+        event.setMaterial(Materials.Glass).asDust(PLATE, LENS, MOLTEN).asFluid(0, 1500);
         event.setMaterial(Materials.GreenSapphire).asGem(true, GT5RMaterialTypes.BOULE).asOre(3, 7, true);
         event.setMaterial(Materials.Jade).asGem(false).asOre(3, 7, true);
         event.setMaterial(Materials.Lazurite).asGemBasic(false, PLATE).asOre(2, 5, true).harvestLevel(1);
