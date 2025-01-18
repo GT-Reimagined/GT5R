@@ -223,13 +223,13 @@ public class TierMaps {
         }
         {
             ImmutableMap.Builder<Tier, ItemBasic<?>> builder = ImmutableMap.builder();
-            builder.put(Tier.LV, GTCoreItems.CircuitBoardCoated);
-            builder.put(Tier.MV, GTCoreItems.CircuitBoardPhenolic);
-            builder.put(Tier.HV, GTCoreItems.CircuitBoardPlastic);
-            builder.put(Tier.EV, GTCoreItems.CircuitBoardEpoxy);
-            builder.put(Tier.IV, GTCoreItems.CircuitBoardFiber);
-            builder.put(Tier.LUV, GTCoreItems.CircuitBoardMultiFiber);
-            builder.put(Tier.ZPM, GTCoreItems.CircuitBoardWetware);
+            builder.put(Tier.LV, GT5RItems.CircuitBoardCoated);
+            builder.put(Tier.MV, GT5RItems.CircuitBoardPhenolic);
+            builder.put(Tier.HV, GT5RItems.CircuitBoardPlastic);
+            builder.put(Tier.EV, GT5RItems.CircuitBoardEpoxy);
+            builder.put(Tier.IV, GT5RItems.CircuitBoardFiber);
+            builder.put(Tier.LUV, GT5RItems.CircuitBoardMultiFiber);
+            builder.put(Tier.ZPM, GT5RItems.CircuitBoardWetware);
             TIER_BOARDS = builder.build();
         }
     }

@@ -330,7 +330,7 @@ public class GT5Reimagined extends AntimatterMod {
                     l.addAll(Arrays.asList(screwdriver_mv.getItem(), screwdriver_hv.getItem()));
                     l.add(GTCoreItems.BatteryRE);
                     if (!GT5RConfig.HARDER_CIRCUITS){
-                        l.addAll(Arrays.asList(GTCoreItems.CircuitBoardPhenolic, PLATE.get(Materials.FiberReinforcedEpoxyResin)));
+                        l.addAll(Arrays.asList(GT5RItems.CircuitBoardPhenolic, PLATE.get(Materials.FiberReinforcedEpoxyResin)));
                         l.addAll(Arrays.asList(GT5RItems.CircuitWetware, GT5RItems.MicroProcessor, GT5RItems.IntegratedProcessor, GT5RItems.NanoProcessor, GT5RItems.QuantumProcessor));
                     }
                 });

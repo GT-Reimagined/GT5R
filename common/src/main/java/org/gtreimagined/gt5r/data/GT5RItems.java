@@ -18,6 +18,7 @@ import org.gtreimagined.gt5r.items.ItemNuclearFuelRod;
 import org.gtreimagined.gt5r.items.ItemPortableScanner;
 import org.gtreimagined.gt5r.items.ItemPrintedPages;
 import org.gtreimagined.gt5r.items.ItemSprayCan;
+import org.gtreimagined.gtcore.GTCore;
 
 
 public class GT5RItems {
@@ -77,6 +78,26 @@ public class GT5RItems {
     public static ItemBasic<?> BlackSprayCan = new ItemSprayCan(DyeColor.BLACK);
     /** CIRCUIT ITEMS **/
 
+    public static ItemBasic<?> GlassTube = new ItemBasic<>(GT5RRef.ID, "glass_tube", "circuits/");
+    public static ItemBasic<?> VacuumTube = new ItemBasic<>(GT5RRef.ID, "vacuum_tube", "circuits/");
+
+    public static ItemBasic<?> Transistor = new ItemBasic<>(GT5RRef.ID, "transistor").tip("An integral part to Circuitry");
+    public static ItemBasic<?> SMDTransistor = new ItemBasic<>(GT5RRef.ID, "smd_transistor").tip("An integral part to Circuitry");
+    public static ItemBasic<?> Resistor = new ItemBasic<>(GT5RRef.ID, "resistor").tip("An integral part to Circuitry");
+    public static ItemBasic<?> SMDResistor = new ItemBasic<>(GT5RRef.ID, "smd_resistor").tip("An integral part to Circuitry");
+    public static ItemBasic<?> Diode = new ItemBasic<>(GT5RRef.ID, "diode").tip("An integral part to Circuitry");
+    public static ItemBasic<?> SMDDiode = new ItemBasic<>(GT5RRef.ID, "smd_diode").tip("An integral part to Circuitry");
+    public static ItemBasic<?> Capacitor = new ItemBasic<>(GT5RRef.ID, "capacitor").tip("An integral part to Circuitry");
+    public static ItemBasic<?> SMDCapacitor = new ItemBasic<>(GT5RRef.ID, "smd_capacitor").tip("An integral part to Circuitry");
+
+    public static ItemBasic<?> CircuitBoardCoated = new ItemBasic<>(GT5RRef.ID, "coated_circuit_board", "circuits/").tip("The most basic Board");
+    public static ItemBasic<?> CircuitBoardPhenolic = new ItemBasic<>(GT5RRef.ID, "phenolic_circuit_board", "circuits/").tip("A basic Board");
+    public static ItemBasic<?> CircuitBoardPlastic = new ItemBasic<>(GT5RRef.ID, "plastic_circuit_board", "circuits/").tip("An advanced Board");
+    public static ItemBasic<?> CircuitBoardEpoxy = new ItemBasic<>(GT5RRef.ID, "epoxy_circuit_board", "circuits/").tip("4th Tier Board");
+    public static ItemBasic<?> CircuitBoardFiber = new ItemBasic<>(GT5RRef.ID, "fiber_reinforced_circuit_board", "circuits/").tip("5th Tier Board");
+    public static ItemBasic<?> CircuitBoardMultiFiber = new ItemBasic<>(GT5RRef.ID, "multilayer_fiber_reinforced_circuit_board", "circuits/").tip("6th Tier Board");
+    public static ItemBasic<?> CircuitBoardWetware = new ItemBasic<>(GT5RRef.ID, "wetware_circuit_board", "circuits/").tip("7th Tier Board");
+
     public static ItemBasic<?> MicroProcessor = new ItemBasic<>(GT5RRef.ID, "microprocessor", "circuits/").tip("A Basic Circuit");
     public static ItemBasic<?> IntegratedProcessor = new ItemBasic<>(GT5RRef.ID, "integrated_processor", "circuits/").tip("A Good Circuit");
     public static ItemBasic<?> ProcessorAssembly = new ItemBasic<>(GT5RRef.ID, "processor_assembly", "circuits/").tip("An advanced Circuit");
@@ -90,7 +111,6 @@ public class GT5RItems {
     public static ItemBasic<?> CircuitWetware = new ItemBasic<>(GT5RRef.ID, "wetware_circuit", "circuits/").tip("You feel like it's watching you");
     public static ItemBasic<?> SmallCoil = new ItemBasic<>(GT5RRef.ID, "small_coil").tip("A part for circuits");
     public static ItemBasic<?> PetriDish = new ItemBasic<>(GT5RRef.ID, "petri_dish");
-    //public static ItemBasic<?> SiliconBoule = new ItemBasic<>(GT5RRef.ID, "monocrystalline_silicon_boule", "silicon/");
     public static ItemBasic<?> GlowstoneDopedSiliconBoule = new ItemBasic<>(GT5RRef.ID, "glowstone_doped_monocrystalline_silicon_boule", "silicon/");
     public static ItemBasic<?> NaquadahDopedSiliconBoule = new ItemBasic<>(GT5RRef.ID, "naquadah_doped_monocrystalline_silicon_boule", "silicon/");
     public static ItemBasic<?> Wafer = new ItemBasic<>(GT5RRef.ID, "wafer", "silicon/");
