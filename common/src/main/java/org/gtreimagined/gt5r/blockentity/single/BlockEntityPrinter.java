@@ -60,26 +60,25 @@ public class BlockEntityPrinter extends BlockEntityMachine<BlockEntityPrinter> i
                                 nbt.putString("author", "X: " + pos1.getX() + " Y: " + pos1.getY() + " Z: " + pos1.getZ() + " Dim: " + prospect.getString("dimension"));
                                 nbt.putBoolean("resolved", true);
                                 ListTag pages = new ListTag();
-                                CompoundTag page = new CompoundTag();
                                 StringBuilder stringBuilder = new StringBuilder();
-                                stringBuilder.append("Prospection Data From:");
-                                stringBuilder.append("\n").append("X: ").append(pos1.getX()).append(" Z: ").append(pos1.getZ()).append(" Dim: ").append(prospect.getString("dimension"));
-                                stringBuilder.append("\n").append("Produces ");
                                 if (prospect.contains("fluid")){
                                     CompoundTag fluid = prospect.getCompound("fluid");
                                     FluidHolder fluid1 = FluidPlatformUtils.createFluidStack(AntimatterPlatformUtils.INSTANCE.getFluidFromID(new ResourceLocation(fluid.getString("name"))), 1);
-                                    stringBuilder.append(fluid.getLong("maxYield")).append("L ");
-                                    pages.add(StringTag.valueOf(Component.Serializer.toJson(Utils.literal(stringBuilder.toString()))));
-                                    pages.add(StringTag.valueOf(Component.Serializer.toJson(Utils.translatable(fluid1.getTranslationKey()))));
-                                    stringBuilder = new StringBuilder();
+                                    pages.add(StringTag.valueOf(Component.Serializer.toJson(Utils.translatable("text.gt5r.prospected_book", pos1.getX(), pos1.getZ(), prospect.getString("dimension"),
+                                            fluid.getLong("maxYield"), Utils.translatable(fluid1.getTranslationKey())))));
                                 } else {
+                                    stringBuilder.append("Prospection Data From:");
+                                    stringBuilder.append("\n").append("X: ").append(pos1.getX()).append(" Z: ").append(pos1.getZ()).append(" Dim: ").append(prospect.getString("dimension"));
+                                    stringBuilder.append("\n").append("Produces ");
                                     stringBuilder.append("No oil");
+                                    pages.add(StringTag.valueOf(Component.Serializer.toJson(Utils.literal(stringBuilder.toString()))));
+                                    stringBuilder = new StringBuilder();
                                 }
 
                                 if (prospect.contains("ores")){
                                     CompoundTag ores = prospect.getCompound("ores");
                                     if (!ores.isEmpty()) {
-                                        stringBuilder.append("\n Prospected Ores:\n");
+                                        stringBuilder.append("Prospected Ores:\n");
                                         boolean addedFirst = false;
                                         for (String key : ores.getAllKeys()) {
                                             Material m = Material.get(key);

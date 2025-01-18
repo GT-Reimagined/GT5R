@@ -137,6 +137,7 @@ public class GT5RLocalizations {
             add("tooltip.gt5r.small_heat_exchanger.efficiency", "Efficiency: %s");
             add("tooltip.gt5r.boiler", "Generates Steam from water.");
             add("tooltip.macerator.0", "Crushes Raw ores down to crushed ore and byproducts. Macerator gives no byproducts, Pulverizer gives byproducts");
+            add("text.gt5r.prospected_book", "Prospection Data From:\nX: %s Z: %s Dim: %s\nProduces %sL %s");
             structureTranslations();
             advancements();
         }
