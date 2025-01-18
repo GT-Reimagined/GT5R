@@ -22,6 +22,7 @@ import org.gtreimagined.gt5r.GT5RRef;
 import org.gtreimagined.gt5r.data.GT5RBlocks;
 import org.gtreimagined.gt5r.data.GT5RCovers;
 import org.gtreimagined.gt5r.data.GT5RItems;
+import org.gtreimagined.gt5r.data.GT5RTags;
 import org.gtreimagined.gtcore.data.GTCoreCables;
 import org.gtreimagined.gtcore.data.GTCoreItems;
 import tesseract.FluidPlatformUtils;
@@ -347,26 +348,26 @@ public class Circuitry {
             boolean hasBad = SOLDER.has(SubTag.BAD_SOLDER, material);
             base *= hasBad ? (hasGood ? 2 : 4) : 1;
             //Basic
-            CIRCUIT_ASSEMBLER.RB().ii(of(GT5RItems.CircuitBoardPhenolic, 1), of(RESISTORS, 2),
+            CIRCUIT_ASSEMBLER.RB().ii(of(GT5RItems.CircuitBoardPhenolic, 1), of(GT5RTags.RESISTORS, 2),
                             WIRE_FINE.getMaterialIngredient(Copper, 4), of(GT5RItems.IntegratedLogicCircuit, 1))
                     .io(new ItemStack(CircuitBasic,1))
                     .fi(material.getLiquid(base * 4)).add("basic_circuit_using_" + material.getId(),200, 8);
             CIRCUIT_ASSEMBLER.RB().ii(of(GT5RItems.CircuitBoardPlastic), of(GT5RItems.IntegratedLogicCircuit, 4),
-                            of(RESISTORS, 4), of(CAPACITORS, 4),
-                            of(TRANSISTORS, 4), WIRE_FINE.getMaterialIngredient(Copper, 2))
+                            of(GT5RTags.RESISTORS, 4), of(GT5RTags.CAPACITORS, 4),
+                            of(GT5RTags.TRANSISTORS, 4), WIRE_FINE.getMaterialIngredient(Copper, 2))
                     .io(new ItemStack(GT5RItems.MicroProcessor, 4))
                     .fi(material.getLiquid(base * 4)).add("microprocessor_using_" + material.getId(), 200, 60);
             CIRCUIT_ASSEMBLER.RB().ii(of(GT5RItems.CircuitBoardPlastic), of(GT5RItems.SOC, 4), WIRE_FINE.getMaterialIngredient(Copper, 2))
                     .io(new ItemStack(GT5RItems.MicroProcessor, 4))
                     .fi(material.getLiquid(base * 4)).add("microprocessor_soc_using_" + material.getId(), 200, 60);
             //Good
-            CIRCUIT_ASSEMBLER.RB().ii(of(GT5RItems.CircuitBoardPhenolic, 1), of(RESISTORS, 4),of(CircuitBasic, 3),
+            CIRCUIT_ASSEMBLER.RB().ii(of(GT5RItems.CircuitBoardPhenolic, 1), of(GT5RTags.RESISTORS, 4),of(CircuitBasic, 3),
                             WIRE_FINE.getMaterialIngredient(Electrum, 8))
                     .io(new ItemStack(CircuitGood,1))
                     .fi(material.getLiquid(base * 4)).add("good_circuit_using_" + material.getId(),20*20, 16);
             CIRCUIT_ASSEMBLER.RB().ii(of(GT5RItems.CircuitBoardPlastic), of(GT5RItems.CentralProcessingUnit, 1),
-                            of(RESISTORS, 2), of(CAPACITORS, 2),
-                            of(TRANSISTORS, 2), WIRE_FINE.getMaterialIngredient(RedAlloy, 2))
+                            of(GT5RTags.RESISTORS, 2), of(GT5RTags.CAPACITORS, 2),
+                            of(GT5RTags.TRANSISTORS, 2), WIRE_FINE.getMaterialIngredient(RedAlloy, 2))
                     .io(new ItemStack(GT5RItems.IntegratedProcessor, 4))
                     .fi(material.getLiquid(base * 4)).add("integrated_processor_using_" + material.getId(), 200, 60);
             CIRCUIT_ASSEMBLER.RB().ii(of(GT5RItems.CircuitBoardPlastic), of(GT5RItems.SOC, 1), WIRE_FINE.getMaterialIngredient(RedAlloy, 2))
@@ -374,16 +375,16 @@ public class Circuitry {
                     .fi(material.getLiquid(base * 4)).add("integrated_processor_soc_using_" + material.getId(), 200, 60);
             //Advanced
             CIRCUIT_ASSEMBLER.RB().ii(of(CircuitGood, 2), of(GT5RItems.IntegratedLogicCircuit, 3),of(GT5RItems.RandomAccessMemoryChip, 1),
-                            of(TRANSISTORS, 4), WIRE_FINE.getMaterialIngredient(Electrum, 16))
+                            of(GT5RTags.TRANSISTORS, 4), WIRE_FINE.getMaterialIngredient(Electrum, 16))
                     .io(new ItemStack(CircuitAdv,1))
                     .fi(material.getLiquid(base * 4)).add("advanced_circuit_using_" + material.getId(),800, 28);
             CIRCUIT_ASSEMBLER.RB().ii(of(GT5RItems.CircuitBoardPlastic), of(GT5RItems.IntegratedProcessor, 2), of(GT5RItems.SmallCoil, 4),
-                    of(CAPACITORS, 4), of(GT5RItems.RandomAccessMemoryChip, 4), WIRE_FINE.getMaterialIngredient(RedAlloy, 12))
+                    of(GT5RTags.CAPACITORS, 4), of(GT5RItems.RandomAccessMemoryChip, 4), WIRE_FINE.getMaterialIngredient(RedAlloy, 12))
                     .io(GT5RItems.ProcessorAssembly)
                     .fi(material.getLiquid(base * 4)).add("processor_assembly_using_" + material.getId(), 200, 600);
             CIRCUIT_ASSEMBLER.RB().ii(of(GT5RItems.CircuitBoardEpoxy), of(GT5RItems.NanoCpu, 1),
-                            of(RESISTORS, 2), of(CAPACITORS, 2),
-                            of(TRANSISTORS, 2), WIRE_FINE.getMaterialIngredient(Electrum, 2))
+                            of(GT5RTags.RESISTORS, 2), of(GT5RTags.CAPACITORS, 2),
+                            of(GT5RTags.TRANSISTORS, 2), WIRE_FINE.getMaterialIngredient(Electrum, 2))
                     .io(new ItemStack(GT5RItems.NanoProcessor))
                     .fi(material.getLiquid(base * 4)).add("nano_processor_using_" + material.getId(), 200, 600);
             CIRCUIT_ASSEMBLER.RB().ii(of(GT5RItems.CircuitBoardPlastic), of(GT5RItems.ASoC, 1), WIRE_FINE.getMaterialIngredient(Electrum, 2))
@@ -391,7 +392,7 @@ public class Circuitry {
                     .fi(material.getLiquid(base * 4)).add("nano_processor_asoc_using_" + material.getId(), 300, 8192);
 
             //Extreme
-            CIRCUIT_ASSEMBLER.RB().ii(of(GT5RItems.CircuitBoardPlastic, 2), of(GT5RItems.ProcessorAssembly, 3), of(DIODES, 4),
+            CIRCUIT_ASSEMBLER.RB().ii(of(GT5RItems.CircuitBoardPlastic, 2), of(GT5RItems.ProcessorAssembly, 3), of(GT5RTags.DIODES, 4),
                             of(GT5RItems.RandomAccessMemoryChip, 4), WIRE_FINE.getMaterialIngredient(Electrum, 6))
                     .io(new ItemStack(GT5RItems.Workstation))
                     .fi(material.getLiquid(base * 8)).add("workstation_using_" + material.getId(), 400, 90);

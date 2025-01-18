@@ -26,10 +26,10 @@ public class GT5RItemTagProvider extends AntimatterItemTagProvider {
         //this.tag(GT5RTags.CIRCUITS_EXTREME).add(GT5RData.CircuitDataStorage);
         this.tag(CIRCUITS_ELITE).add(GT5RItems.NanoProcessor);
         this.tag(CIRCUITS_MASTER).add(GT5RItems.QuantumProcessor);
-        this.tag(RESISTORS).add(GT5RItems.Resistor, GT5RItems.SMDResistor);
-        this.tag(CAPACITORS).add(GT5RItems.Capacitor, GT5RItems.SMDCapacitor);
-        this.tag(TRANSISTORS).add(GT5RItems.Transistor, GT5RItems.SMDTransistor);
-        this.tag(DIODES).add(GT5RItems.Diode, GT5RItems.SMDDiode);
+        this.tag(GT5RTags.RESISTORS).add(GT5RItems.Resistor, GT5RItems.SMDResistor);
+        this.tag(GT5RTags.CAPACITORS).add(GT5RItems.Capacitor, GT5RItems.SMDCapacitor);
+        this.tag(GT5RTags.TRANSISTORS).add(GT5RItems.Transistor, GT5RItems.SMDTransistor);
+        this.tag(GT5RTags.DIODES).add(GT5RItems.Diode, GT5RItems.SMDDiode);
         this.tag(FIRESTARTER).add(Items.FLINT_AND_STEEL);
         this.tag(GEM.getMaterialTag(Amethyst)).remove(Items.AMETHYST_SHARD);
         this.tag(GEM.getTag()).remove(Items.AMETHYST_SHARD);
