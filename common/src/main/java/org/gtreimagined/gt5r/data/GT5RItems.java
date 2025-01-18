@@ -23,6 +23,7 @@ import org.gtreimagined.gt5r.items.ItemSprayCan;
 public class GT5RItems {
     public static ItemBasic<?> ComputerMonitor = new ItemBasic<>(GT5RRef.ID, "computer_monitor").tip("Can be placed on machines as a cover");
     public static ItemPortableScanner PortableScanner = new ItemPortableScanner();
+    public static ItemBasic<?> PDA = new ItemBasic<>(GT5RRef.ID, "pda");
     public static ItemFluidCell CellTin = new ItemFluidCell(GT5RRef.ID, Materials.Tin, 1000);
     public static ItemFluidCell CellSteel = new ItemFluidCell(GT5RRef.ID, Materials.Steel, 16000);
     public static ItemFluidCell CellTungstensteel = new ItemFluidCell(GT5RRef.ID, Materials.TungstenSteel, 64000);
