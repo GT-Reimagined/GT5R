@@ -177,6 +177,9 @@ public class GTRemapping {
         remap("casing_turbine_3", "titanium_turbine_casing");
         remap("casing_turbine_4", "tungstensteel_turbine_casing");
         AntimatterRemapping.remap(new ResourceLocation(GT5RRef.ID, "monocrystalline_silicon_boule"), new ResourceLocation(Ref.SHARED_ID, "boule_silicon"));
+        remap("cell_tin", "tin_cell");
+        remap("cell_steel", "steel_cell");
+        remap("cell_tungstensteel", "tungstensteel_cell");
     }
 
     private static void remap(String oldId, String newId){
