@@ -330,8 +330,20 @@ public class GT5Reimagined extends AntimatterMod {
                     l.addAll(Arrays.asList(screwdriver_mv.getItem(), screwdriver_hv.getItem()));
                     l.add(GTCoreItems.BatteryRE);
                     if (!GT5RConfig.HARDER_CIRCUITS){
-                        l.addAll(Arrays.asList(GT5RItems.CircuitBoardPhenolic, PLATE.get(Materials.FiberReinforcedEpoxyResin)));
-                        l.addAll(Arrays.asList(GT5RItems.CircuitWetware, GT5RItems.MicroProcessor, GT5RItems.IntegratedProcessor, GT5RItems.NanoProcessor, GT5RItems.QuantumProcessor));
+                        l.addAll(Arrays.asList(GT5RItems.CircuitBoardPhenolic, GT5RItems.CircuitBoardPlastic, GT5RItems.CircuitBoardFiber,
+                                GT5RItems.CircuitBoardMultiFiber, GT5RItems.CircuitBoardWetware, PLATE.get(Materials.FiberReinforcedEpoxyResin),
+                                GT5RItems.GlassTube, GT5RItems.VacuumTube, GT5RItems.Transistor, GT5RItems.SMDTransistor, GT5RItems.Resistor,
+                                GT5RItems.SMDResistor, GT5RItems.Diode, GT5RItems.SMDDiode, GT5RItems.Capacitor, GT5RItems.SMDCapacitor,
+                                GT5RItems.SmallCoil, GT5RItems.PetriDish));
+                        l.addAll(Arrays.asList(GT5RItems.ProcessorAssembly, GT5RItems.Workstation, GT5RItems.CircuitWetware,
+                                GT5RItems.MicroProcessor, GT5RItems.IntegratedProcessor, GT5RItems.NanoProcessor, GT5RItems.QuantumProcessor,
+                                GT5RItems.NanoprocessorAssembly, GT5RItems.Mainframe, GT5RItems.QuantumProcessorAssembly, GT5RItems.CrystalProcessor));
+                        l.addAll(Arrays.asList(GT5RItems.GlowstoneDopedSiliconBoule, GT5RItems.NaquadahDopedSiliconBoule, GT5RItems.GlowstoneDopedWafer, GT5RItems.NaquadahDopedWafer,
+                                GT5RItems.ASoCWafer, GT5RItems.ASoC, GT5RItems.CentralProcessingUnitWafer, GT5RItems.CentralProcessingUnit, GT5RItems.HPICWafer, GT5RItems.HighPowerIC,
+                                GT5RItems.IntegratedLogicCircuitWafer, GT5RItems.IntegratedLogicCircuit, GT5RItems.NANDMemoryChipWafer, GT5RItems.NANDMemoryChip,
+                                GT5RItems.NanoCpuWafer, GT5RItems.NanoCpu, GT5RItems.NorMemoryChipWafer, GT5RItems.NorMemoryChip, GT5RItems.PICWafer, GT5RItems.PowerIC,
+                                GT5RItems.QBitWafer, GT5RItems.QBitProcessingUnit, GT5RItems.RandomAccessMemoryChipWafer, GT5RItems.RandomAccessMemoryChip, GT5RItems.SOCWafer, GT5RItems.SOC));
+                        l.addAll(GT5RMachines.CIRCUIT_ASSEMBLER.getTiers().stream().map(GT5RMachines.CIRCUIT_ASSEMBLER::getBlockState).toList());
                     }
                 });
                 AntimatterJEIREIPlugin.addFluidsToHide(l -> {
