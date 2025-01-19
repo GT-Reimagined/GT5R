@@ -76,28 +76,15 @@ public class BlockEntityLargeSifter extends BlockEntityMultiMachine<BlockEntityL
 
     private static class LargeSifterMultiMachineItemHandler extends MultiMachineItemHandler<BlockEntityLargeSifter> {
         List<ITrackedHandler> outputList = new ArrayList<>();
-        Optional<ITrackedHandler> outputs = Optional.empty();
 
         public LargeSifterMultiMachineItemHandler(BlockEntityLargeSifter sifter) {
             super(sifter);
         }
 
         @Override
-        public boolean canOutputsFit(ItemStack[] a) {
-            return outputs.isPresent() && super.canOutputsFit(a);
-        }
-
-        @Override
         public void invalidate() {
             super.invalidate();
-            outputs = Optional.empty();
             outputList.clear();
-        }
-
-        @Override
-        public void onStructureBuild() {
-            super.onStructureBuild();
-            outputs = Optional.of(calculateOutputs());
         }
 
         @Override
@@ -105,14 +92,10 @@ public class BlockEntityLargeSifter extends BlockEntityMultiMachine<BlockEntityL
             return a.getTile().getBlockPos().getY() < b.getTile().getBlockPos().getY() ? 1 : -1;
         }
 
-        private ITrackedHandler calculateOutputs() {
+        @Override
+        protected ITrackedHandler calculateOutputs() {
             outputList = tile.getComponentsByHandlerId(outputComponentString()).stream().filter(t -> t.getItemHandler().isPresent()).map(t -> t.getItemHandler().get()).sorted(this::compareOutputBuses).map(MachineItemHandler::getOutputHandler).collect(Collectors.toList());
             return new MultiTrackedItemHandler(outputList.toArray(new ExtendedItemContainer[0]));
-        }
-
-        @Override
-        public ITrackedHandler getOutputHandler() {
-            return outputs.orElseGet(this::calculateOutputs);
         }
     }
 }
