@@ -20,11 +20,11 @@ public class GT5RMaterialTypes {
     public static void init(){
         BOULE.setIgnoreTextureSets();
         CHAMBER.setIgnoreTextureSets();
-        TURBINE_BLADE.unSplitName().setIgnoreTextureSets();
-        SMALL_BROKEN_TURBINE_ROTOR.unSplitName().setIgnoreTextureSets();
-        BROKEN_TURBINE_ROTOR.unSplitName().setIgnoreTextureSets();
-        LARGE_BROKEN_TURBINE_ROTOR.unSplitName().setIgnoreTextureSets();
-        HUGE_BROKEN_TURBINE_ROTOR.unSplitName().setIgnoreTextureSets();
+        TURBINE_BLADE.setLang(m -> m.getDisplayNameString() + " Turbine Blade").unSplitName().setIgnoreTextureSets();
+        SMALL_BROKEN_TURBINE_ROTOR.setLang(m -> "Broken Small " + m.getDisplayNameString() + " Turbine Rotor").unSplitName().setIgnoreTextureSets();
+        BROKEN_TURBINE_ROTOR.setLang(m -> "Broken " + m.getDisplayNameString() + " Turbine Rotor").unSplitName().setIgnoreTextureSets();
+        LARGE_BROKEN_TURBINE_ROTOR.setLang(m -> "Broken Large " + m.getDisplayNameString() + " Turbine Rotor").unSplitName().setIgnoreTextureSets();
+        HUGE_BROKEN_TURBINE_ROTOR.setLang(m -> "Broken Huge " + m.getDisplayNameString() + " Turbine Rotor").unSplitName().setIgnoreTextureSets();
         SMALL_BROKEN_TURBINE_ROTOR.dependents(TURBINE_BLADE);
         BROKEN_TURBINE_ROTOR.dependents(TURBINE_BLADE);
         LARGE_BROKEN_TURBINE_ROTOR.dependents(TURBINE_BLADE);
