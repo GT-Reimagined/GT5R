@@ -116,7 +116,7 @@ public class GT5RMaterialEvents {
         event.setMaterial(Materials.Mercury).asFluid();
         // thalium
         event.setMaterial(Materials.Lead).asOre().asMetal(600, PLATE, PLATE_DENSE, ROD_LONG, FRAME, BOLT, RING).harvestLevel(1);
-        event.setMaterial(Materials.Bismuth).asOre(PLATE, INGOT);
+        event.setMaterial(Materials.Bismuth).asOre(PLATE).asMetal(544);
         //polonium
         //event.setMaterial(Astatine).asMetal(575, 0);
         event.setMaterial(Materials.Radon).asGas().fluidDensity(9);
