@@ -7,8 +7,7 @@ import muramasa.antimatter.material.Material;
 import muramasa.antimatter.material.data.ToolData;
 import org.gtreimagined.gt5r.data.GT5RMaterialTags;
 
-import static muramasa.antimatter.material.MaterialTags.HAS_CUSTOM_SMELTING;
-import static muramasa.antimatter.material.MaterialTags.METAL;
+import static muramasa.antimatter.material.MaterialTags.*;
 
 public class GregTechMaterialEvent extends MaterialEvent<GregTechMaterialEvent> {
     public GregTechMaterialEvent asSolid(int meltingPoint, int blastFurnaceTemp, IMaterialTag... tags) {
@@ -24,7 +23,7 @@ public class GregTechMaterialEvent extends MaterialEvent<GregTechMaterialEvent> 
     }
 
     public GregTechMaterialEvent asMetal(int meltingPoint, int blastFurnaceTemp, IMaterialTag... tags) {
-        flags(METAL);
+        flags(METAL, MOLTEN);
         asSolid(meltingPoint, blastFurnaceTemp, tags);
         return this;
     }
