@@ -22,6 +22,9 @@ import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.item.crafting.ShapedRecipe;
 import org.gtreimagined.gt5r.GT5RRef;
+import org.gtreimagined.gt5r.machine.recipe.FusionRecipe;
+import org.gtreimagined.gt5r.machine.recipe.FusionRecipeBuilder;
+import org.gtreimagined.gt5r.machine.recipe.FusionRecipeSerializer;
 import org.gtreimagined.gtcore.data.RecipeBuilders;
 import org.gtreimagined.gtcore.data.RecipeBuilders.SteamBuilder;
 import tesseract.TesseractGraphWrappers;
@@ -133,8 +136,8 @@ public class RecipeMaps {
             new RecipeMap<>(GT5RRef.ID, "fluid_heater", new RecipeBuilder()));
     public static RecipeMap<RecipeBuilder> FLUID_SOLIDIFYER = AntimatterAPI.register(RecipeMap.class,
             new RecipeMap<>(GT5RRef.ID, "fluid_solidifyer", new RecipeBuilder()));
-    public static RecipeMap<RecipeBuilder> FUSION = AntimatterAPI.register(RecipeMap.class,
-            new RecipeMap<>(GT5RRef.ID, "fusion", new RecipeBuilder())).setGuiData(Guis.MULTI_DISPLAY);
+    public static RecipeMap<FusionRecipeBuilder> FUSION = AntimatterAPI.register(RecipeMap.class,
+            new RecipeMap<>(GT5RRef.ID, "fusion", new FusionRecipeBuilder())).setRecipeSerializer(FusionRecipeSerializer.INSTANCE).setGuiData(Guis.MULTI_DISPLAY);
     public static RecipeMap<RecipeBuilder> GAS_FUELS = AntimatterAPI.register(RecipeMap.class,
             new RecipeMap<>(GT5RRef.ID, "gas_fuels", new RecipeBuilder()));
     public static RecipeMap<RecipeBuilder> FORGE_HAMMER = AntimatterAPI.register(RecipeMap.class,
@@ -269,25 +272,30 @@ public class RecipeMaps {
 
     public static final IRecipeInfoRenderer FUSION_RENDERER = new IRecipeInfoRenderer() {
         public void render(PoseStack stack, IRecipe recipe, Font fontRenderer, int guiOffsetX, int guiOffsetY) {
-            if (recipe.getDuration() == 0 && recipe.getPower() == 0) return;
+            if (!(recipe instanceof FusionRecipe fusionRecipe)) return;
+            if (recipe.getDuration() == 0) return;
             String additional = recipe.getDuration() < 1200 ? "" : recipe.getDuration() < 36000 ? " (" + (recipe.getDuration() / 20.0f) + " secs)" : " (" + (recipe.getDuration() / 1200.0f) + " mins)";
             String power = "Duration: " + recipe.getDuration() + " ticks" + additional;
-            String output = recipe.getPower() < 0 ? "Output: " : "Input: ";
-            String euT = output + Math.abs(recipe.getPower()) + " " + (recipe.getPower() < 0 ? "H" : "E") + "U/t";
-            String total = "Total: " + Math.abs(recipe.getPower()) * recipe.getDuration() + " EU";
+            String euT = "EU/t: " + recipe.getPower();
+            String huT = "Creates " + fusionRecipe.getHuOutput() + " HU/t";
+            String total = "Total: " + recipe.getPower() * recipe.getDuration() + " EU";
             String start = "Start: " + recipe.getSpecialValue() + " EU";
-            Tier tier = Tier.getTier((Math.abs(recipe.getPower()) / recipe.getAmps()));
+            Tier tier = Tier.getTier(recipe.getPower() / recipe.getAmps());
+            Tier outputTier = Tier.getTier(fusionRecipe.getHuOutput());
             String formattedText = " (" + tier.getId().toUpperCase() + ")";
+            String formattedText1 = " (" + outputTier.getId().toUpperCase() + ")";
             renderString(stack, power, fontRenderer, 5, 0, guiOffsetX, guiOffsetY);
             renderString(stack, euT, fontRenderer, 5, 10, guiOffsetX, guiOffsetY);
             renderString(stack, formattedText, fontRenderer, 5 + stringWidth(euT, fontRenderer), 10, Tier.EV.getRarityFormatting().getColor(), guiOffsetX, guiOffsetY);
-            renderString(stack, total, fontRenderer, 5, 20, guiOffsetX, guiOffsetY);
-            renderString(stack, start, fontRenderer, 5, 30, guiOffsetX, guiOffsetY);
+            renderString(stack, huT, fontRenderer, 5, 20, guiOffsetX, guiOffsetY);
+            renderString(stack, formattedText1, fontRenderer, 5 + stringWidth(huT, fontRenderer), 20, Tier.ULV.getRarityFormatting().getColor(), guiOffsetX, guiOffsetY);
+            renderString(stack, total, fontRenderer, 5, 30, guiOffsetX, guiOffsetY);
+            renderString(stack, start, fontRenderer, 5, 40, guiOffsetX, guiOffsetY);
         }
 
         @Override
         public int getRows() {
-            return 4;
+            return 5;
         }
     };
 

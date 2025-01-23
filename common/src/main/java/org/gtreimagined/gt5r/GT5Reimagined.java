@@ -40,6 +40,7 @@ import org.gtreimagined.gt5r.data.GT5RData;
 import org.gtreimagined.gt5r.data.GT5RItems;
 import org.gtreimagined.gt5r.data.GT5RMachines;
 import org.gtreimagined.gt5r.data.GT5RMaterialTypes;
+import org.gtreimagined.gt5r.data.GT5RRecipeTypes;
 import org.gtreimagined.gt5r.data.GT5RSounds;
 import org.gtreimagined.gt5r.data.GT5RTags;
 import org.gtreimagined.gt5r.data.Guis;
@@ -128,6 +129,7 @@ import org.gtreimagined.gt5r.loader.multi.ImplosionCompressorLoader;
 import org.gtreimagined.gt5r.loader.multi.PyrolysisOvenLoader;
 import org.gtreimagined.gt5r.loader.multi.TreeGrowthSimulatorLoader;
 import org.gtreimagined.gt5r.loader.multi.VacuumFreezerLoader;
+import org.gtreimagined.gt5r.machine.recipe.FusionRecipeSerializer;
 import org.gtreimagined.gt5r.proxy.CommonHandler;
 import org.gtreimagined.gtcore.GTCore;
 import org.gtreimagined.gtcore.data.GTCoreItems;
@@ -275,6 +277,8 @@ public class GT5Reimagined extends AntimatterMod {
     public void onRegistrationEvent(RegistrationEvent event, Side side) {
         switch (event) {
             case DATA_INIT -> {
+                GT5RRecipeTypes.init();
+                FusionRecipeSerializer.init();
                 GT5RMaterialTypes.init();
                 ToolTypes.init();
                 Materials.init();
