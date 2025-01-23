@@ -10,7 +10,7 @@ import muramasa.antimatter.gui.SlotType;
 import muramasa.antimatter.machine.types.Machine;
 import muramasa.antimatter.recipe.IRecipe;
 import muramasa.antimatter.recipe.ingredient.RecipeIngredient;
-import muramasa.antimatter.recipe.serializer.AntimatterRecipeSerializer;
+import muramasa.antimatter.recipe.serializer.MachineRecipeSerializer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
@@ -73,10 +73,10 @@ public class BlockEntityScanner extends BlockEntityMachine<BlockEntityScanner> i
             public void deserialize(CompoundTag nbt) {
                 super.deserialize(nbt);
                 if (nbt.contains("activeRecipe")) {
-                    activeRecipe = AntimatterRecipeSerializer.INSTANCE.fromJson(new ResourceLocation(nbt.getString("AR")), (JsonObject) JsonParser.parseString(nbt.getString("activeRecipe")));
+                    activeRecipe = MachineRecipeSerializer.INSTANCE.fromJson(new ResourceLocation(nbt.getString("AR")), (JsonObject) JsonParser.parseString(nbt.getString("activeRecipe")));
                 }
                 if (nbt.contains("lastRecipe")) {
-                    lastRecipe = AntimatterRecipeSerializer.INSTANCE.fromJson(new ResourceLocation(nbt.getString("LR")), (JsonObject) JsonParser.parseString(nbt.getString("lastRecipe")));
+                    lastRecipe = MachineRecipeSerializer.INSTANCE.fromJson(new ResourceLocation(nbt.getString("LR")), (JsonObject) JsonParser.parseString(nbt.getString("lastRecipe")));
                 }
             }
         });
