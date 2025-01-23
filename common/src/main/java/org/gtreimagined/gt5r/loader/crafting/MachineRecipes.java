@@ -18,6 +18,7 @@ import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -789,6 +790,11 @@ public class MachineRecipes {
                             .put('G', Items.GLASS)
                             .put('H', hull)
                             .build(), "G", "H"));
+            add(SECONDARY_INPUT_HATCH, tier, (m, item) -> provider.shapeless(output, "", "machines", new ItemStack(item),
+                    INPUT_HATCH.getItem(tier)));
+
+            add(INPUT_HATCH, tier, (m, item) -> provider.shapeless(output, GT5RRef.ID, "input_hatch_" + tier.getId() + "_from_secondary", "machines", new ItemStack(item),
+                    SECONDARY_INPUT_HATCH.getItem(tier)));
 
             add(OUTPUT_BUS, tier, (m, item) ->  provider.addItemRecipe(output, "machines", item,
                     ImmutableMap.<Character, Object>builder()
@@ -801,6 +807,12 @@ public class MachineRecipes {
                             .put('G', Items.GLASS)
                             .put('H', hull)
                             .build(), "H", "G"));
+
+            add(SECONDARY_OUTPUT_HATCH, tier, (m, item) -> provider.shapeless(output, "", "machines", new ItemStack(item),
+                    OUTPUT_HATCH.getItem(tier)));
+
+            add(OUTPUT_HATCH, tier, (m, item) -> provider.shapeless(output, GT5RRef.ID, "output_hatch_" + tier.getId() + "_from_secondary", "machines", new ItemStack(item),
+                    SECONDARY_OUTPUT_HATCH.getItem(tier)));
 
             add(ENERGY_HATCH, tier, (m, item) ->  provider.addItemRecipe(output, "machines", item,
                     ImmutableMap.<Character, Object>builder()

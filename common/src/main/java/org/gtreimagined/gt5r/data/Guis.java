@@ -264,6 +264,8 @@ public class Guis {
         OUTPUT_BUS.add(EV, OUTPUT_BUS, HV);
         INPUT_HATCH.add(FL_IN, 79, 34).add(CELL_IN, 9, 22).add(CELL_OUT, 9, 58);
         OUTPUT_HATCH.add(FL_OUT, 79, 34).add(CELL_IN, 9, 22).add(CELL_OUT, 9, 58);
+        SECONDARY_INPUT_HATCH.add(FL_IN, 79, 34).add(CELL_IN, 9, 22).add(CELL_OUT, 9, 58);
+        SECONDARY_OUTPUT_HATCH.add(FL_OUT, 79, 34).add(CELL_IN, 9, 22).add(CELL_OUT, 9, 58);
         ELECTRIC_ITEM_FILTER
                 .add(DISPLAY_SETTABLE, 18, 6, new ResourceLocation(GT5RRef.ID, "blank")).add(DISPLAY_SETTABLE, 35, 6, new ResourceLocation(GT5RRef.ID, "blank")).add(DISPLAY_SETTABLE, 52, 6, new ResourceLocation(GT5RRef.ID, "blank"))
                 .add(DISPLAY_SETTABLE, 18, 23, new ResourceLocation(GT5RRef.ID, "blank")).add(DISPLAY_SETTABLE, 35, 23, new ResourceLocation(GT5RRef.ID, "blank")).add(DISPLAY_SETTABLE, 52, 23, new ResourceLocation(GT5RRef.ID, "blank"))

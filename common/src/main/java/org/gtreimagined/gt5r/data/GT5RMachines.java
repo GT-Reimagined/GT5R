@@ -356,6 +356,8 @@ public class GT5RMachines {
     public static HatchMachine OUTPUT_HATCH = new HatchMachine(GT5RRef.ID, "output_hatch", COVEROUTPUT, "fluid_output").addFlags(GUI, FLUID, CELL);
     public static HatchMachine INPUT_BUS = new HatchMachine(GT5RRef.ID, "input_bus", COVERINPUT, "item_input").setTiers(ULV, LV, MV, HV, EV).addFlags(GUI, ITEM).setTile(BlockEntityInputBus::new);
     public static HatchMachine OUTPUT_BUS = new HatchMachine(GT5RRef.ID, "output_bus", COVEROUTPUT, "item_output").setTiers(ULV, LV, MV, HV, EV).addFlags(GUI, ITEM);
+    public static HatchMachine SECONDARY_INPUT_HATCH = new HatchMachine(GT5RRef.ID, "secondary_input_hatch", COVERINPUT, "secondary_fluid_input").addFlags(GUI, FLUID, CELL).overlayTexture(INPUT_HATCH.getOverlayTextures());
+    public static HatchMachine SECONDARY_OUTPUT_HATCH = new HatchMachine(GT5RRef.ID, "secondary_output_hatch", COVEROUTPUT, "secondary_fluid_output").addFlags(GUI, FLUID, CELL).overlayTexture(OUTPUT_HATCH.getOverlayTextures());
     public static HatchMachine MUFFLER_HATCH = new HatchMachine(GT5RRef.ID, "muffler_hatch", COVERMUFFLER, "muffler").setTiers(LV).addFlags(GUI, ITEM).setClientTicking();
     /**
      ** Tanks
