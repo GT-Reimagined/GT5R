@@ -20,6 +20,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import org.gtreimagined.gt5r.GT5RRef;
+import org.gtreimagined.gt5r.machine.recipe.FusionRecipe;
 import tesseract.TesseractGraphWrappers;
 
 import static org.gtreimagined.gt5r.data.Materials.DistilledWater;
@@ -37,6 +38,7 @@ public class BlockEntityFusionReactor extends BlockEntityMultiMachine<BlockEntit
 
             @Override
             public boolean consumeResourceForRecipe(boolean simulate) {
+                if (activeRecipe == null) return false;
                 if (!consumedStartEu){
                     boolean tConsumedStartEu = energyHandler.map(e -> e.extractEu(activeRecipe.getSpecialValue(), true) == activeRecipe.getSpecialValue()).orElse(false);
                     if (tConsumedStartEu){
@@ -48,7 +50,11 @@ public class BlockEntityFusionReactor extends BlockEntityMultiMachine<BlockEntit
                         return false;
                     }
                 }
-                return super.consumeResourceForRecipe(simulate) && consumedStartEu && (activeRecipe.getPower() >= 0 || heatHandler.map(h -> h.insert((int) Math.abs(activeRecipe.getPower()), simulate) > 0).orElse(false));
+                boolean run = super.consumeResourceForRecipe(simulate) && consumedStartEu;
+                if (run) {
+                    heatHandler.ifPresent(h -> h.insert(((FusionRecipe)activeRecipe).getHuOutput(), simulate));
+                }
+                return run;
             }
 
             @Override
