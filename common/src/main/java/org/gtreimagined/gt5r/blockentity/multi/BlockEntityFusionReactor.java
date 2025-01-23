@@ -23,8 +23,7 @@ import org.gtreimagined.gt5r.GT5RRef;
 import org.gtreimagined.gt5r.machine.recipe.FusionRecipe;
 import tesseract.TesseractGraphWrappers;
 
-import static org.gtreimagined.gt5r.data.Materials.DistilledWater;
-import static org.gtreimagined.gt5r.data.Materials.Steam;
+import static org.gtreimagined.gt5r.data.Materials.*;
 
 public class BlockEntityFusionReactor extends BlockEntityMultiMachine<BlockEntityFusionReactor> {
 
@@ -89,20 +88,20 @@ public class BlockEntityFusionReactor extends BlockEntityMultiMachine<BlockEntit
         fluidHandler.ifPresent(f -> {
             if (f.getInputTanks() == null) return;
             heatHandler.ifPresent(h -> {
-                if (h.getHeat() >= 80){
+                if (h.getHeat() >= 30){
                     int recipeOffset = recipeHandler.map(r -> r.getLastRecipe().hasOutputFluids() ? r.getLastRecipe().getOutputFluids().length : 0).orElse(0);
-                    int heatMultiplier = h.getHeat() / 80;
-                    FluidTank waterTank = f.getInputTanks().getTank(f.getInputTanks().getFirstAvailableTank(DistilledWater.getLiquid(1), true));
-                    if (waterTank != null) {
-                        heatMultiplier = (int) Math.min(heatMultiplier, waterTank.getTankAmount() / TesseractGraphWrappers.dropletMultiplier);
-                        if (waterTank.extractFluid(DistilledWater.getLiquid(heatMultiplier), true).getFluidAmount() == heatMultiplier *  TesseractGraphWrappers.dropletMultiplier) {
+                    int heatMultiplier = h.getHeat() / 30;
+                    FluidTank coolantTank = f.getInputTanks().getTank(f.getInputTanks().getFirstAvailableTank(Helium.getGas(1), true));
+                    if (coolantTank != null) {
+                        heatMultiplier = (int) Math.min(heatMultiplier, coolantTank.getTankAmount() / TesseractGraphWrappers.dropletMultiplier);
+                        if (coolantTank.extractFluid(Helium.getGas(heatMultiplier), true).getFluidAmount() == heatMultiplier *  TesseractGraphWrappers.dropletMultiplier) {
                             if (f.getOutputTanks() != null && f.getOutputTanks().getSize() >= recipeOffset + 1) {
-                                long inserted = f.getOutputTanks().getTank(recipeOffset).internalInsert(Steam.getGas(heatMultiplier * 160), true);
+                                long inserted = f.getOutputTanks().getTank(recipeOffset).internalInsert(HotHelium.getGas(heatMultiplier), true);
                                 if (inserted >= TesseractGraphWrappers.dropletMultiplier){
-                                    heatMultiplier = (int) Math.min(heatMultiplier, (inserted / TesseractGraphWrappers.dropletMultiplier) / 160);
-                                    f.drainInput(DistilledWater.getLiquid(heatMultiplier), false);
-                                    f.getOutputTanks().getTank(recipeOffset).internalInsert(Steam.getGas(heatMultiplier * 160), false);
-                                    h.extract(heatMultiplier * 80, false);
+                                    heatMultiplier = (int) Math.min(heatMultiplier, (inserted / TesseractGraphWrappers.dropletMultiplier));
+                                    f.drainInput(Helium.getGas(heatMultiplier), false);
+                                    f.getOutputTanks().getTank(recipeOffset).internalInsert(HotHelium.getGas(heatMultiplier), false);
+                                    h.extract(heatMultiplier * 30, false);
                                 }
                             }
                         }
