@@ -338,8 +338,8 @@ public class GT5RLocalizations {
             add("tooltip.processing_array.0", "Controller Block for the Processing Array");
             add("tooltip.processing_array.1", "Runs supplied machines as if placed in the world");
             add("tooltip.processing_array.2", "Size(WxHxD):3x3x3 (Hollow), Controller (Front centered)");
-            add("tooltip.processing_array.3", "1x Input Hatch (Any casing)");
-            add("tooltip.processing_array.4", "1x Output Hatch (Any Casing)");
+            add("tooltip.processing_array.3", "1x Input Hatch/Bus (Any casing)");
+            add("tooltip.processing_array.4", "1x Output Hatch/Bus (Any Casing)");
             add("tooltip.processing_array.5", "1x Energy Hatch (Any Casing)");
             add("tooltip.processing_array.6", "Robust Tungstensteel Casings for the rest");
             add("tooltip.processing_array.7", "Place up to 16 Single Block Machines into the GUI Inventory");
