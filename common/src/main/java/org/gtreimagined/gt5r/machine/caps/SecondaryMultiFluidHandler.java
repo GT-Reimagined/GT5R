@@ -54,4 +54,12 @@ public class SecondaryMultiFluidHandler<T extends BlockEntityMultiMachine<T>> ex
         cacheSecondaryInputs();
         cacheSecondaryOutputs();
     }
+
+    public FluidTanks getSecondaryInputTanks(){
+        return secondaryTanks.get(FluidDirection.INPUT);
+    }
+
+    public FluidTanks getSecondaryOutputTanks(){
+        return secondaryTanks.get(FluidDirection.OUTPUT);
+    }
 }

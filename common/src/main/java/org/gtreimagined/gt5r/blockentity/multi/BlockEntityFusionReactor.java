@@ -20,6 +20,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import org.gtreimagined.gt5r.GT5RRef;
+import org.gtreimagined.gt5r.machine.caps.SecondaryMultiFluidHandler;
 import org.gtreimagined.gt5r.machine.recipe.FusionRecipe;
 import tesseract.TesseractGraphWrappers;
 
@@ -32,6 +33,7 @@ public class BlockEntityFusionReactor extends BlockEntityMultiMachine<BlockEntit
     public BlockEntityFusionReactor(Machine<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
         this.heatHandler.set(() -> new DefaultHeatHandler(this, 32768 * 8, 8192, 0));
+        this.fluidHandler.set(() -> new SecondaryMultiFluidHandler<>(this));
         this.recipeHandler.set(() -> new MachineRecipeHandler<>(this){
             boolean consumedStartEu = false;
 
@@ -86,21 +88,21 @@ public class BlockEntityFusionReactor extends BlockEntityMultiMachine<BlockEntit
     public void serverTick(Level level, BlockPos pos, BlockState state) {
         super.serverTick(level, pos, state);
         fluidHandler.ifPresent(f -> {
-            if (f.getInputTanks() == null) return;
+            if (!(f instanceof SecondaryMultiFluidHandler<?> mf)) return;
+            if (mf.getSecondaryInputTanks() == null) return;
             heatHandler.ifPresent(h -> {
                 if (h.getHeat() >= 30){
-                    int recipeOffset = recipeHandler.map(r -> r.getLastRecipe().hasOutputFluids() ? r.getLastRecipe().getOutputFluids().length : 0).orElse(0);
                     int heatMultiplier = h.getHeat() / 30;
-                    FluidTank coolantTank = f.getInputTanks().getTank(f.getInputTanks().getFirstAvailableTank(Helium.getGas(1), true));
+                    FluidTank coolantTank = mf.getSecondaryInputTanks().getTank(mf.getSecondaryInputTanks().getFirstAvailableTank(Helium.getGas(1), true));
                     if (coolantTank != null) {
                         heatMultiplier = (int) Math.min(heatMultiplier, coolantTank.getTankAmount() / TesseractGraphWrappers.dropletMultiplier);
                         if (coolantTank.extractFluid(Helium.getGas(heatMultiplier), true).getFluidAmount() == heatMultiplier *  TesseractGraphWrappers.dropletMultiplier) {
-                            if (f.getOutputTanks() != null && f.getOutputTanks().getSize() >= recipeOffset + 1) {
-                                long inserted = f.getOutputTanks().getTank(recipeOffset).internalInsert(HotHelium.getGas(heatMultiplier), true);
+                            if (mf.getSecondaryOutputTanks() != null && mf.getSecondaryOutputTanks().getSize() >= 1) {
+                                long inserted = mf.getSecondaryOutputTanks().internalInsert(HotHelium.getGas(heatMultiplier), true);
                                 if (inserted >= TesseractGraphWrappers.dropletMultiplier){
                                     heatMultiplier = (int) Math.min(heatMultiplier, (inserted / TesseractGraphWrappers.dropletMultiplier));
-                                    f.drainInput(Helium.getGas(heatMultiplier), false);
-                                    f.getOutputTanks().getTank(recipeOffset).internalInsert(HotHelium.getGas(heatMultiplier), false);
+                                    coolantTank.extractFluid(Helium.getGas(heatMultiplier), false);
+                                    mf.getSecondaryOutputTanks().internalInsert(HotHelium.getGas(heatMultiplier), false);
                                     h.extract(heatMultiplier * 30, false);
                                 }
                             }
