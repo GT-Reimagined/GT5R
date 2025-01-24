@@ -249,8 +249,8 @@ public class GT5RLocalizations {
             add("tooltip.large_centrifuge.0", "Controller Block for the Large Centrifuge");
             add("tooltip.large_centrifuge.1", "Runs up to 16 recipes at a time");
             add("tooltip.large_centrifuge.2", "Size(WxHxD): 3x2x3, Controller (Front middle at bottom)");
-            add("tooltip.large_centrifuge.3", "1x Input Hatch (Any casing except top middle)");
-            add("tooltip.large_centrifuge.4", "1x Output Hatch (Any casing except top middle)");
+            add("tooltip.large_centrifuge.3", "1x Input Hatch/Bus (Any casing except top middle)");
+            add("tooltip.large_centrifuge.4", "1x Output Hatch/Bus (Any casing except top middle)");
             add("tooltip.large_centrifuge.5", "1x Energy Hatch (Any casing except top middle)");
             add("tooltip.large_centrifuge.6", "Tungstensteel Casings for the rest (14 at most!)");
 
@@ -270,8 +270,8 @@ public class GT5RLocalizations {
             add("tooltip.large_electrolyzer.2", "Size(WxHxD): 5x2x5, Controller (Front middle at bottom)");
             add("tooltip.large_electrolyzer.3", "3x3 of Electrolytic Cells in top middle");
             add("tooltip.large_electrolyzer.4", "6 Nichrome coils to the left and right of the electrolytic cells(3 per side)");
-            add("tooltip.large_electrolyzer.5", "1x Input Hatch (Any casing except top middle)");
-            add("tooltip.large_electrolyzer.6", "1x Output Hatch (Any casing except top middle)");
+            add("tooltip.large_electrolyzer.5", "1x Input Hatch/Bus (Any casing except top middle)");
+            add("tooltip.large_electrolyzer.6", "1x Output Hatch/Bus (Any casing except top middle)");
             add("tooltip.large_electrolyzer.7", "1x Energy Hatch (Any casing except top middle)");
             add("tooltip.large_electrolyzer.8", "Stainless Steel Casings for the rest (32 at most!)");
 
