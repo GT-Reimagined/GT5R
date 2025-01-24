@@ -2,7 +2,9 @@ package org.gtreimagined.gt5r.cover;
 
 import earth.terrarium.botarium.common.fluid.base.PlatformFluidHandler;
 import earth.terrarium.botarium.common.fluid.utils.FluidHooks;
+import muramasa.antimatter.blockentity.BlockEntityMachine;
 import muramasa.antimatter.blockentity.pipe.BlockEntityFluidPipe;
+import muramasa.antimatter.capability.FluidHandler;
 import muramasa.antimatter.capability.ICoverHandler;
 import muramasa.antimatter.cover.BaseCover;
 import muramasa.antimatter.cover.CoverFactory;
@@ -39,9 +41,11 @@ public class CoverAirVent extends BaseCover {
         }
         if (tile.getLevel().isClientSide) return;
         Level level = tile.getLevel();
-        Optional<PlatformFluidHandler> cap = FluidHooks.safeGetBlockFluidManager(tile, side);
-        if (tile instanceof BlockEntityFluidPipe pipe){
+        Optional<PlatformFluidHandler> cap = Optional.empty();
+        if (tile instanceof BlockEntityFluidPipe<?> pipe){
             cap = pipe.getPipeCapHolder().side(side);
+        } else if (tile instanceof BlockEntityMachine<?> machine){
+            cap = machine.fluidHandler.map(FluidHandler::getInputTanks);
         }
         BlockPos offset = tile.getBlockPos().relative(side);
         BlockState state = level.getBlockState(offset);
