@@ -233,6 +233,13 @@ public class ArcFurnaceLoader {
         addRecyclingRecipe(GT5RBlocks.COIL_NAQUADAH_ALLOY, of(NaquadahAlloy, 8f));
         addRecyclingRecipe(Items.IRON_DOOR, of(Iron, 2.0f));
         addRecyclingRecipe(GT5RBlocks.MINING_PIPE_THIN, of(Steel, 0.5f));
+        addRecyclingRecipe(GT5RBlocks.LONG_DIST_ITEM_PIPE, of(Electrum, 12f, Plastic, 4f));
+        addRecyclingRecipe(GT5RBlocks.LONG_DIST_FLUID_PIPE, of(StainlessSteel, 12f, Plastic, 4f));
+        addRecyclingRecipe(GT5RBlocks.LONG_DIST_WIRE_EV, of(Tin, 16f, Rubber, 4f, Copper, 2f, Aluminium, 2f));
+        addRecyclingRecipe(GT5RBlocks.LONG_DIST_WIRE_IV, of(Copper, 18f, Rubber, 4f, Aluminium, 2f));
+        addRecyclingRecipe(GT5RBlocks.LONG_DIST_WIRE_LUV, of(Electrum, 16f, Rubber, 4f, Copper, 2f, Aluminium, 2f));
+        addRecyclingRecipe(GT5RBlocks.LONG_DIST_WIRE_ZPM, of(Aluminium, 18f, Rubber, 4f, Copper, 2f));
+        addRecyclingRecipe(GT5RBlocks.LONG_DIST_WIRE_UV, of(Platinum, 16f, Rubber, 4f, Copper, 2f, Aluminium, 2f));
     }
 
     private static void addRecyclingRecipe(ItemLike input, ImmutableMap<Material, Float> outputs){
