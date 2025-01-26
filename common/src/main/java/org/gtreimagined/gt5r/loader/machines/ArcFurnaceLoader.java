@@ -52,7 +52,7 @@ public class ArcFurnaceLoader {
             }
         });
         for (MaterialType<?> t : AntimatterAPI.all(MaterialType.class)) {
-            if (t.getUnitValue() <= 0 || t == DUST || t == DUST_TINY || t == DUST_SMALL || t == INGOT || t == NUGGET ||
+            if (t.getUnitValue() <= 0 || t == DUST || t == DUST_TINY || t == DUST_SMALL || t == INGOT || t == NUGGET || t == CHUNK ||
                     t == INGOT_HOT || t == GEM || t == GEM_CHIPPED || t == GEM_FLAWED || t == GEM_FLAWLESS || t == GEM_EXQUISITE) continue;
             double amount = (double) t.getUnitValue() / U;
             t.all().forEach(m -> {
@@ -253,42 +253,46 @@ public class ArcFurnaceLoader {
         mac.ii(input);
         long[] totalMassArc = new long[]{0};
         long[] totalMassMac = new long[]{0};
-        outputs.forEach((material, aFloat) -> {
+        outputs.forEach((material, floatAmount) -> {
             Material arcOutput = material.has(MaterialTags.RUBBERTOOLS) || material == Wood ? Ash : MaterialTags.ARC_SMELT_INTO.get(material);
             Material macOutput = MaterialTags.MACERATE_INTO.get(material);
-            int i = aFloat.intValue();
-            float arcFloat = aFloat;
-            if (material.has(MaterialTags.RUBBERTOOLS) || material == Wood) arcFloat = aFloat / 9;
-            int j = (int)arcFloat;
-            float leftover = aFloat - i;
-            float arcLeftover = arcFloat - j;
-            totalMassMac[0] += (long) (material.getMass() * aFloat);
+            int roundedAmount = floatAmount.intValue();
+            float arcFloatAmount = floatAmount;
+            if (material.has(MaterialTags.RUBBERTOOLS) || material == Wood) arcFloatAmount = floatAmount / 9;
+            int roundedArcAmount = (int)arcFloatAmount;
+            float leftover = floatAmount - roundedAmount;
+            float arcLeftover = arcFloatAmount - roundedArcAmount;
+            totalMassMac[0] += (long) (material.getMass() * floatAmount);
             if (leftover > 0){
-                float mExtraF = leftover * 4;
-                int mExtra = (int) (mExtraF);
-                float mLeftover = mExtraF - mExtra;
-                int aExtra = (int) (leftover * 9);
-                if (mLeftover > 0){
-                    mac.io(DUST_TINY.get(macOutput, (i * 9) + aExtra));
+                float smallLeftover = leftover * 4;
+                int smallExtra = (int) (smallLeftover);
+                float tinyLeftover = smallLeftover - smallExtra;
+                int tinyExtra = (int) (leftover * 9);
+                if (tinyLeftover > 0){
+                    mac.io(DUST_TINY.get(macOutput, (roundedAmount * 9) + tinyExtra));
                 } else {
-                    mac.io(DUST_SMALL.get(macOutput, (i * 4) + mExtra));
+                    mac.io(DUST_SMALL.get(macOutput, (roundedAmount * 4) + smallExtra));
                 }
             } else {
-                mac.io(DUST.get(macOutput, i));
+                mac.io(DUST.get(macOutput, roundedAmount));
             }
             if (arcOutput == Ash || arcOutput.has(INGOT)){
-
+                totalMassArc[0] += (long) (arcOutput.getMass() * arcFloatAmount);
                 if (arcLeftover > 0){
-                    int aExtra = (int) (arcLeftover * 9);
-                    if (aExtra > 0){
-                        totalMassArc[0] += (long) (arcOutput.getMass() * arcFloat);
+                    float smallLeftover = arcLeftover * 4;
+                    int smallExtra = (int) (smallLeftover);
+                    float tinyLeftover = smallLeftover - smallExtra;
+                    int tinyExtra = (int) (arcLeftover * 9);
+                    if (tinyLeftover > 0){
                         MaterialTypeItem<?> arcType = arcOutput == Ash ? DUST_TINY : NUGGET;
-                        arc.io(arcType.get(arcOutput, (j * 9) + aExtra));
+                        arc.io(arcType.get(arcOutput, (roundedArcAmount * 9) + tinyExtra));
+                    } else {
+                        MaterialTypeItem<?> arcType = arcOutput == Ash ? DUST_SMALL : CHUNK;
+                        arc.io(arcType.get(arcOutput, (roundedArcAmount * 4) + smallExtra));
                     }
                 } else {
-                    totalMassArc[0] += (long) (arcOutput.getMass() * arcFloat);
                     MaterialTypeItem<?> arcType = arcOutput == Ash ? DUST : INGOT;
-                    arc.io(arcType.get(arcOutput, j));
+                    arc.io(arcType.get(arcOutput, roundedArcAmount));
                 }
             }
 

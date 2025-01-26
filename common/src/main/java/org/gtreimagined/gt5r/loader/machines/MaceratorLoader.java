@@ -130,6 +130,9 @@ public class MaceratorLoader {
             if (t.has(NUGGET)){
                 PULVERIZER.RB().ii(RecipeIngredient.of(NUGGET.getMaterialTag(t),1)).io(DUST_TINY.get(MACERATE_INTO.get(t),1)).add("dust_tiny_" + t.getId(),10,2);
             }
+            if (t.has(CHUNK)){
+                PULVERIZER.RB().ii(RecipeIngredient.of(CHUNK.getMaterialTag(t),1)).io(DUST_SMALL.get(MACERATE_INTO.get(t),1)).add("dust_small_" + t.getId(),10,2);
+            }
         });
         BEARING_ROCK.all().forEach(r -> {
             if (r.has(DUST)){
