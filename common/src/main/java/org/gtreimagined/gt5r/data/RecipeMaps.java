@@ -14,7 +14,9 @@ import muramasa.antimatter.recipe.ingredient.RecipeIngredient;
 import muramasa.antimatter.recipe.map.Proxy;
 import muramasa.antimatter.recipe.map.RecipeBuilder;
 import muramasa.antimatter.recipe.map.RecipeMap;
+import muramasa.antimatter.recipe.map.SubCategory;
 import net.minecraft.client.gui.Font;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -422,6 +424,8 @@ public class RecipeMaps {
     }
 
     public static void clientMaps() {
+        PULVERIZER.addSubCategory("macerator_recycling", new SubCategory("jei.category.macerator_recycling", () -> new ResourceLocation(GT5RRef.ID, "textures/gui/icon/macerator_recycling.png"), r -> r.getTags().contains(GT5RRecipeTags.MACERATOR_RECYCLING)));
+        PULVERIZER.addSubCategory("macerator_ore_processing", new SubCategory("jei.category.macerator_ore_processing", () -> GT5RMachines.MACERATOR.getItem(Tier.LV), r -> r.getTags().contains(GT5RRecipeTags.MACERATOR_ORE_PROCESING)));
         E_BLAST_FURNACE.setInfoRenderer(InfoRenderers.BLASTING_RENDERER);
         PRIMITIVE_BLAST_FURNACE.setInfoRenderer(InfoRenderers.BASIC_RENDERER);
         COKE_OVEN.setInfoRenderer(InfoRenderers.BASIC_RENDERER);

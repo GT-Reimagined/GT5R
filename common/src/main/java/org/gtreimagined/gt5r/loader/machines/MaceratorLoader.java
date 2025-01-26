@@ -22,6 +22,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
+import org.gtreimagined.gt5r.data.GT5RRecipeTags;
 import org.gtreimagined.gt5r.data.Materials;
 import org.gtreimagined.gtcore.data.GTCoreItems;
 import org.gtreimagined.gtcore.data.GTCoreTags;
@@ -72,7 +73,7 @@ public class MaceratorLoader {
                 ints.add(0.1 * BY_PRODUCT_MULTI.getInt(m));
                 if (!stoneDust.isEmpty()) ints.add(0.5);
                 double[] chances = ints.stream().mapToDouble(i -> i).toArray();
-                rm.RB().ii(ore).io(stackArray).outputChances(chances).add("ore_" + m.getId() + "_" + s.getId(),400, 2);
+                rm.RB().ii(ore).io(stackArray).outputChances(chances).tags(GT5RRecipeTags.MACERATOR_ORE_PROCESING).add("ore_" + m.getId() + "_" + s.getId(),400, 2);
             });
         });
         AntimatterMaterialTypes.CRUSHED.all().forEach(m -> {
@@ -83,7 +84,7 @@ public class MaceratorLoader {
             Material aOreByProduct1 = !m.getByProducts().isEmpty() ? m.getByProducts().get(0) : MaterialTags.MACERATE_INTO.getMapping(m);
             Material aOreByProduct2 = m.getByProducts().size() > 1 ? m.getByProducts().get(1) : aOreByProduct1;
             Material aOreByProduct3 = m.getByProducts().size() > 2 ? m.getByProducts().get(2) : aOreByProduct2;
-            PULVERIZER.RB().ii(crushed).io(AntimatterMaterialTypes.DUST_IMPURE.get(MaterialTags.MACERATE_INTO.getMapping(m), 1), AntimatterMaterialTypes.DUST.get(aOreByProduct1, 1)).outputChances(1.0, 0.1).add("crushed_" + m.getId(),400, 2);
+            PULVERIZER.RB().ii(crushed).io(AntimatterMaterialTypes.DUST_IMPURE.get(MaterialTags.MACERATE_INTO.getMapping(m), 1), AntimatterMaterialTypes.DUST.get(aOreByProduct1, 1)).outputChances(1.0, 0.1).tags(GT5RRecipeTags.MACERATOR_ORE_PROCESING).add("crushed_" + m.getId(),400, 2);
 
             if (m.has(AntimatterMaterialTypes.CRUSHED_REFINED)) {
                 var rb = PULVERIZER.RB();
@@ -99,17 +100,17 @@ public class MaceratorLoader {
                     rb.io(DUST.get(m.getByProducts().get(4)));
                     chances.add(1000);
                 }
-                rb.outputChances(chances.stream().mapToInt(i -> i).toArray()).add("refined_" + m.getId(),400, 2);
+                rb.outputChances(chances.stream().mapToInt(i -> i).toArray()).tags(GT5RRecipeTags.MACERATOR_ORE_PROCESING).add("refined_" + m.getId(),400, 2);
             }
             if (m.has(AntimatterMaterialTypes.CRUSHED_PURIFIED) && m.has(AntimatterMaterialTypes.DUST_PURE)) {
-                PULVERIZER.RB().ii(AntimatterMaterialTypes.CRUSHED_PURIFIED.getIngredient(m, 1)).io(AntimatterMaterialTypes.DUST_PURE.get(MaterialTags.MACERATE_INTO.getMapping(m), 1), AntimatterMaterialTypes.DUST.get(aOreByProduct1, 1)).outputChances(1.0, 0.1).add("purified_" + m.getId(),400, 2);
+                PULVERIZER.RB().ii(AntimatterMaterialTypes.CRUSHED_PURIFIED.getIngredient(m, 1)).io(AntimatterMaterialTypes.DUST_PURE.get(MaterialTags.MACERATE_INTO.getMapping(m), 1), AntimatterMaterialTypes.DUST.get(aOreByProduct1, 1)).outputChances(1.0, 0.1).tags(GT5RRecipeTags.MACERATOR_ORE_PROCESING).add("purified_" + m.getId(),400, 2);
             }
         });
         RAW_ORE.all().forEach(m -> {
             if (!m.has(AntimatterMaterialTypes.DUST) && !m.has(AntimatterMaterialTypes.CRUSHED)) return;
             Material aOreByProduct1 = !m.getByProducts().isEmpty() ? m.getByProducts().get(0) : MaterialTags.MACERATE_INTO.getMapping(m);
             ItemStack crushedStack = (m.has(CRUSHED) ? AntimatterMaterialTypes.CRUSHED : DUST).get(m, ORE_MULTI.getInt(m));
-            PULVERIZER.RB().ii(RecipeIngredient.of(AntimatterMaterialTypes.RAW_ORE.getMaterialTag(m), 1)).io(Utils.ca((MaterialTags.ORE_MULTI.getInt(m)) * 2, crushedStack), AntimatterMaterialTypes.DUST.get(aOreByProduct1, 1)).outputChances(1.0, 0.1 * MaterialTags.BY_PRODUCT_MULTI.getInt(m)).add("raw_" + m.getId(),400, 2);
+            PULVERIZER.RB().ii(RecipeIngredient.of(AntimatterMaterialTypes.RAW_ORE.getMaterialTag(m), 1)).io(Utils.ca((MaterialTags.ORE_MULTI.getInt(m)) * 2, crushedStack), AntimatterMaterialTypes.DUST.get(aOreByProduct1, 1)).outputChances(1.0, 0.1 * MaterialTags.BY_PRODUCT_MULTI.getInt(m)).tags(GT5RRecipeTags.MACERATOR_ORE_PROCESING).add("raw_" + m.getId(),400, 2);
         });
         GEM_EXQUISITE.all().forEach(m -> {
             if (!m.has(AntimatterMaterialTypes.DUST)) return;
