@@ -299,10 +299,10 @@ public class ArcFurnaceLoader {
 
         });
         if (totalMassArc[0] > 0){
-            arc.fi(Oxygen.getGas(totalMassArc[0] * TesseractGraphWrappers.dropletMultiplier)).add(id, totalMassArc[0], 32);
+            arc.fi(Oxygen.getGas(totalMassArc[0] * TesseractGraphWrappers.dropletMultiplier)).tags(GT5RRecipeTags.RECYCLING).add(id, totalMassArc[0], 32);
         }
         if (totalMassMac[0] > 0) {
-            mac.tags(GT5RRecipeTags.MACERATOR_RECYCLING).add(id, totalMassMac[0] * 2, 4);
+            mac.tags(GT5RRecipeTags.RECYCLING).add(id, totalMassMac[0] * 2, 4);
         }
 
     }

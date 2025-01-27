@@ -10,6 +10,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import org.gtreimagined.gt5r.GT5RConfig;
 import org.gtreimagined.gt5r.data.GT5RItems;
 import org.gtreimagined.gt5r.data.GT5RMaterialTags;
+import org.gtreimagined.gt5r.data.GT5RRecipeTags;
 import org.gtreimagined.gtcore.data.GTCoreItems;
 import org.gtreimagined.gtcore.data.GTCoreMaterials;
 
@@ -56,32 +57,32 @@ public class AlloySmelterLoader {
                 .io(INGOT.get(Rubber, 1)).add("rubber_via_alloy_smelter",20, 10);
         PLATE.all().stream().filter(m -> !m.has(GT5RMaterialTags.NEEDS_BLAST_FURNACE) && m.has(INGOT)).forEach(m ->{
             int euPerTick = m.has(RUBBERTOOLS) ? 8 : 32;
-            ALLOY_SMELTER.RB().ii(INGOT.getMaterialIngredient(m, 2), RecipeIngredient.of(GTCoreItems.MoldPlate, 1).setNoConsume()).io(PLATE.get(m, 1)).add(m.getId() + "_plate", m.getMass() * 2, euPerTick);
+            ALLOY_SMELTER.RB().tags(GT5RRecipeTags.ALLOY_SMELTER_MOLDING).ii(INGOT.getMaterialIngredient(m, 2), RecipeIngredient.of(GTCoreItems.MoldPlate, 1).setNoConsume()).io(PLATE.get(m, 1)).add(m.getId() + "_plate", m.getMass() * 2, euPerTick);
             if (m.has(RUBBERTOOLS)) {
-                ALLOY_SMELTER.RB().ii(DUST.getMaterialIngredient(m, 2), RecipeIngredient.of(GTCoreItems.MoldPlate, 1).setNoConsume()).io(PLATE.get(m, 1)).add(m.getId() + "_plate_from_dust", m.getMass() * 2, euPerTick);
+                ALLOY_SMELTER.RB().tags(GT5RRecipeTags.ALLOY_SMELTER_MOLDING).ii(DUST.getMaterialIngredient(m, 2), RecipeIngredient.of(GTCoreItems.MoldPlate, 1).setNoConsume()).io(PLATE.get(m, 1)).add(m.getId() + "_plate_from_dust", m.getMass() * 2, euPerTick);
             }
         });
         INGOT.all().stream().filter(m -> !m.has(GT5RMaterialTags.NEEDS_BLAST_FURNACE)).forEach(m -> { //TODO other ingot recipes
             if (m.has(NUGGET)){
-                ALLOY_SMELTER.RB().ii(NUGGET.getMaterialIngredient(m, 9), RecipeIngredient.of(GTCoreItems.MoldIngot, 1).setNoConsume()).io(INGOT.get(m, 1)).add(m.getId() + "_ingot_from_nugget", 200, 2);
+                ALLOY_SMELTER.RB().tags(GT5RRecipeTags.ALLOY_SMELTER_MOLDING).ii(NUGGET.getMaterialIngredient(m, 9), RecipeIngredient.of(GTCoreItems.MoldIngot, 1).setNoConsume()).io(INGOT.get(m, 1)).add(m.getId() + "_ingot_from_nugget", 200, 2);
             }
             if (m.has(RUBBERTOOLS)) {
-                ALLOY_SMELTER.RB().ii(DUST.getMaterialIngredient(m, 1), RecipeIngredient.of(GTCoreItems.MoldIngot, 1).setNoConsume()).io(INGOT.get(m, 1)).add(m.getId() + "_ingot_from_dust", m.getMass(), 10);
+                ALLOY_SMELTER.RB().tags(GT5RRecipeTags.ALLOY_SMELTER_MOLDING).ii(DUST.getMaterialIngredient(m, 1), RecipeIngredient.of(GTCoreItems.MoldIngot, 1).setNoConsume()).io(INGOT.get(m, 1)).add(m.getId() + "_ingot_from_dust", m.getMass(), 10);
             }
         });
         ITEM_CASING.all().forEach(m -> {
-            ALLOY_SMELTER.RB().ii(INGOT.getMaterialIngredient(m, 2), of(GTCoreItems.MoldCasing, 1).setNoConsume()).io(ITEM_CASING.get(m, 3)).add(m.getId() + "_item_casing", Math.max(m.getMass() * 2 / 3, 1), 16);
+            ALLOY_SMELTER.RB().tags(GT5RRecipeTags.ALLOY_SMELTER_MOLDING).ii(INGOT.getMaterialIngredient(m, 2), of(GTCoreItems.MoldCasing, 1).setNoConsume()).io(ITEM_CASING.get(m, 3)).add(m.getId() + "_item_casing", Math.max(m.getMass() * 2 / 3, 1), 16);
         });
         GEAR.all().stream().filter(m -> !m.has(GT5RMaterialTags.NEEDS_BLAST_FURNACE) && m.has(INGOT)).forEach(m ->{
             int euPerTick = m.has(RUBBERTOOLS) ? 8 : 32;
-            ALLOY_SMELTER.RB().ii(INGOT.getMaterialIngredient(m, 8), RecipeIngredient.of(GTCoreItems.MoldGear, 1).setNoConsume()).io(GEAR.get(m, 1)).add(m.getId() + "_gear", m.getMass() * 8, euPerTick);
+            ALLOY_SMELTER.RB().tags(GT5RRecipeTags.ALLOY_SMELTER_MOLDING).ii(INGOT.getMaterialIngredient(m, 8), RecipeIngredient.of(GTCoreItems.MoldGear, 1).setNoConsume()).io(GEAR.get(m, 1)).add(m.getId() + "_gear", m.getMass() * 8, euPerTick);
             if (m.has(RUBBERTOOLS)) {
-                ALLOY_SMELTER.RB().ii(DUST.getMaterialIngredient(m, 8), RecipeIngredient.of(GTCoreItems.MoldGear, 1).setNoConsume()).io(GEAR.get(m, 1)).add(m.getId() + "_gear_from_dust", m.getMass() * 8, euPerTick);
+                ALLOY_SMELTER.RB().tags(GT5RRecipeTags.ALLOY_SMELTER_MOLDING).ii(DUST.getMaterialIngredient(m, 8), RecipeIngredient.of(GTCoreItems.MoldGear, 1).setNoConsume()).io(GEAR.get(m, 1)).add(m.getId() + "_gear_from_dust", m.getMass() * 8, euPerTick);
             }
         });
-        ALLOY_SMELTER.RB().ii(DUST.getMaterialIngredient(Glass, 1), RecipeIngredient.of(GTCoreItems.MoldBall, 1).setNoConsume()).io(GT5RItems.GlassTube).add("glass_tube", 160, 8);
-        ALLOY_SMELTER.RB().ii(DUST.getMaterialIngredient(Glass, 1), RecipeIngredient.of(GTCoreItems.MoldBottle, 1).setNoConsume()).io(Items.GLASS_BOTTLE).add("glass_bottle", 64, 4);
-        ALLOY_SMELTER.RB().ii(INGOT.getMaterialIngredient(Iron, 31), RecipeIngredient.of(GTCoreItems.MoldAnvil, 1).setNoConsume()).io(Items.ANVIL).add("anvil", 512, 64);
+        ALLOY_SMELTER.RB().tags(GT5RRecipeTags.ALLOY_SMELTER_MOLDING).ii(DUST.getMaterialIngredient(Glass, 1), RecipeIngredient.of(GTCoreItems.MoldBall, 1).setNoConsume()).io(GT5RItems.GlassTube).add("glass_tube", 160, 8);
+        ALLOY_SMELTER.RB().tags(GT5RRecipeTags.ALLOY_SMELTER_MOLDING).ii(DUST.getMaterialIngredient(Glass, 1), RecipeIngredient.of(GTCoreItems.MoldBottle, 1).setNoConsume()).io(Items.GLASS_BOTTLE).add("glass_bottle", 64, 4);
+        ALLOY_SMELTER.RB().tags(GT5RRecipeTags.ALLOY_SMELTER_MOLDING).ii(INGOT.getMaterialIngredient(Iron, 31), RecipeIngredient.of(GTCoreItems.MoldAnvil, 1).setNoConsume()).io(Items.ANVIL).add("anvil", 512, 64);
     }
 
     public static void addAlloyRecipes(ImmutableMap<Material, Integer> inputs, Material output){
