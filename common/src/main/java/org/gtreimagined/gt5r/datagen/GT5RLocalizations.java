@@ -279,6 +279,16 @@ public class GT5RLocalizations {
             add("tooltip.large_electrolyzer.7", "1x Energy Hatch (Any casing except top middle)");
             add("tooltip.large_electrolyzer.8", "Stainless Steel Casings for the rest (32 at most!)");
 
+            add("tooltip.large_ore_washer.0", "Controller Block for the Large Ore Washer");
+            add("tooltip.large_ore_washer.1", "Runs up to 8-4096 recipes at a time depending on the energy hatch tier(8 * 2ˣ)");
+            add("tooltip.large_ore_washer.2", "Size(WxHxD): 3x3x7, Controller (Front middle at bottom)");
+            add("tooltip.large_ore_washer.3", "3x2x7 Base of Titanium Walls (37 at most!)");
+            add("tooltip.large_ore_washer.4", "3x1x7 of Ore Washing Parts (On top of walls, exactly 21!)");
+            add("tooltip.large_ore_washer.5", "1x Input Bus (Any Wall)");
+            add("tooltip.large_ore_washer.6", "1x Input Hatch (Any Wall)");
+            add("tooltip.large_ore_washer.7", "1x Output Bus (Any Wall)");
+            add("tooltip.large_ore_washer.8", "1x Energy Hatch (Any Wall)");
+
             add("tooltip.large_pulverizer.0", "Controller Block for the Large Pulverizer(AKA Macerator)");
             add("tooltip.large_pulverizer.1", "Runs up to 16 recipes at a time");
             add("tooltip.large_pulverizer.2", "Size(WxHxD): 5x3x5, Controller (Front middle at bottom)");
