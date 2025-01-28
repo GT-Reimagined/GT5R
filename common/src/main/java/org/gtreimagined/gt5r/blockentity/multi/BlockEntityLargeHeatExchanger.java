@@ -27,6 +27,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import org.gtreimagined.gt5r.data.GT5RRecipeTags;
 import org.gtreimagined.gt5r.machine.caps.ParallelRecipeHandler;
 import org.gtreimagined.gtcore.item.ItemSelectorTag;
 import tesseract.TesseractGraphWrappers;
@@ -62,7 +63,7 @@ public class BlockEntityLargeHeatExchanger extends BlockEntityMultiMachine<Block
 
             @Override
             protected boolean validateRecipe(IRecipe r) {
-                return super.validateRecipe(r) && r.getSpecialValue() >= 0;
+                return super.validateRecipe(r) && !r.getTags().contains(GT5RRecipeTags.SMALL_HEAT_EXCHANGED_ONLY);
             }
 
             @Override

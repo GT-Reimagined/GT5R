@@ -259,7 +259,7 @@ public class RecipeMaps {
             String duration = "Duration: " + recipe.getDuration() + " ticks" + additional;
             String extraBurntime = "HU/t: " + recipe.getPower();
             String heatIncreaseMultiplier = "Total HU: " + (recipe.getPower() * recipe.getDuration());
-            String heatExchanger = recipe.getSpecialValue() == 1 ? "" : (recipe.getSpecialValue() == -1 ? "Small" : "Large") + " Heat Exchanger only";
+            String heatExchanger = recipe.getTags().contains(GT5RRecipeTags.LARGE_HEAT_EXCHANGED_ONLY) ? "Large Heat Exchanger only" : recipe.getTags().contains(GT5RRecipeTags.SMALL_HEAT_EXCHANGED_ONLY) ? "Small Heat Exchanger only" : "";
             renderString(stack, duration, fontRenderer, 5, 0, guiOffsetX, guiOffsetY);
             renderString(stack, extraBurntime, fontRenderer, 5, 10, guiOffsetX, guiOffsetY);
             renderString(stack, heatIncreaseMultiplier, fontRenderer, 5, 20, guiOffsetX, guiOffsetY);
