@@ -122,7 +122,7 @@ public class BlockEntityOreMiningRig extends BlockEntityDrillingRigBase<BlockEnt
             if (currentDrops == null) {
                 BlockState state1 = level.getBlockState(ore);
                 BlockEntity blockentity = state1.hasBlockEntity() ? level.getBlockEntity(ore) : null;
-                currentDrops = Block.getDrops(state, (ServerLevel) level, ore, blockentity, null, getMiningPickaxe()).toArray(new ItemStack[0]);
+                currentDrops = Block.getDrops(state1, (ServerLevel) level, ore, blockentity, null, getMiningPickaxe()).toArray(new ItemStack[0]);
             }
             if (!energyHandler.map(e -> e.getEnergy() >= euPerTick).orElse(false)){
                 runningState = RunningState.OUT_OF_ENERGY;
