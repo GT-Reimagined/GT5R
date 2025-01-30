@@ -203,6 +203,15 @@ public class BlockEntityLongDistancePipeEndpoint extends BlockEntityBasicMultiMa
                 continue;
             }
             mut.move(to.getOpposite());
+            if (mut.equals(this.getBlockPos())){
+                if (!switchDirection){
+                    switchDirection = true;
+                    mut = this.getBlockPos().mutable();
+                    to = this.getFacing().getOpposite();
+                    continue;
+                }
+                break;
+            }
             int failed = 0;
             int succeeded = 0;
             Direction oldTo = to;
