@@ -16,6 +16,14 @@ public class UnpackagerLoader {
                 UNPACKAGER.RB().ii(DUST.getMaterialIngredient(material, 1), GTCoreItems.SELECTOR_TAG_INGREDIENTS.get(4)).io(DUST_SMALL.get(material, 4)).add("dust_small_" + material.getId(),100, 2);
             }
         }
+        for (Material material : INGOT.all()) {
+            if (material.has(NUGGET)) {
+                UNPACKAGER.RB().ii(INGOT.getMaterialIngredient(material, 1), GTCoreItems.SELECTOR_TAG_INGREDIENTS.get(9)).io(NUGGET.get(material, 9)).add("nugget_" + material.getId(),100, 2);
+            }
+            if (material.has(CHUNK)) {
+                UNPACKAGER.RB().ii(INGOT.getMaterialIngredient(material, 1), GTCoreItems.SELECTOR_TAG_INGREDIENTS.get(4)).io(CHUNK.get(material, 4)).add("chunk_" + material.getId(),100, 2);
+            }
+        }
 
     }
 }
