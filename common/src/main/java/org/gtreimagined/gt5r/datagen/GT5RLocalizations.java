@@ -358,18 +358,18 @@ public class GT5RLocalizations {
             add("tooltip.processing_array.6", "Robust Tungstensteel Casings for the rest");
             add("tooltip.processing_array.7", "Place up to 16 Single Block Machines into the GUI Inventory");
 
-            add("tooltip.pyrolysis_oven.0", "Controller Block for the Pyrolyse Oven");
-            add("tooltip.pyrolysis_oven.1", "Industrial Charcoal producer and Oil from Plants");
-            add("tooltip.pyrolysis_oven.2", "Size(WxHxD):5x4x5 (Hollow), Controller (Bottom center)");
-            add("tooltip.pyrolysis_oven.3", "3x1x3 of Coil Blocks (At the center of the bottom layer)");
-            add("tooltip.pyrolysis_oven.4", "1x Input Hatch/Bus (Centered 3x1x3 area in Top layer)");
-            add("tooltip.pyrolysis_oven.5", "1x Output Hatch/Bus (Any bottom layer Casing)");
-            add("tooltip.pyrolysis_oven.6", "1x Muffler Hatch (Centered 3x1x3 area in Top layer)");
-            add("tooltip.pyrolysis_oven.7", "1x Energy Hatch (Any bottom layer casing)");
-            add("tooltip.pyrolysis_oven.8", "ULV Machine Casings for the rest (60 at least!)");
-            add("tooltip.pyrolysis_oven.9", "Processing speed scales linearly with Coil tier:");
-            add("tooltip.pyrolysis_oven.10", "CuN: 50%, FeAlCr: 100%, Ni4Cr: 150%, Fe50CW: 200%, ect.");
-            add("tooltip.pyrolysis_oven.11", "EU/t is not affected by Coil tier");
+            add("tooltip.pyrolyse_oven.0", "Controller Block for the Pyrolyse Oven");
+            add("tooltip.pyrolyse_oven.1", "Industrial Charcoal producer and Oil from Plants");
+            add("tooltip.pyrolyse_oven.2", "Size(WxHxD):5x4x5 (Hollow), Controller (Bottom center)");
+            add("tooltip.pyrolyse_oven.3", "3x1x3 of Coil Blocks (At the center of the bottom layer)");
+            add("tooltip.pyrolyse_oven.4", "1x Input Hatch/Bus (Centered 3x1x3 area in Top layer)");
+            add("tooltip.pyrolyse_oven.5", "1x Output Hatch/Bus (Any bottom layer Casing)");
+            add("tooltip.pyrolyse_oven.6", "1x Muffler Hatch (Centered 3x1x3 area in Top layer)");
+            add("tooltip.pyrolyse_oven.7", "1x Energy Hatch (Any bottom layer casing)");
+            add("tooltip.pyrolyse_oven.8", "ULV Machine Casings for the rest (60 at least!)");
+            add("tooltip.pyrolyse_oven.9", "Processing speed scales linearly with Coil tier:");
+            add("tooltip.pyrolyse_oven.10", "CuN: 50%, FeAlCr: 100%, Ni4Cr: 150%, Fe50CW: 200%, ect.");
+            add("tooltip.pyrolyse_oven.11", "EU/t is not affected by Coil tier");
 
             add("tooltip.vacuum_freezer.0", "Controller Block for the Vacuum Freezer");
             add("tooltip.vacuum_freezer.1", "Super cools hot ingots and gases like Nitrogen");

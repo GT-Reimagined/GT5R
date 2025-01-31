@@ -176,8 +176,8 @@ public class RecipeMaps {
             new RecipeMap<>(GT5RRef.ID, "forming_press", new RecipeBuilder()));
     public static RecipeMap<RecipeBuilder> PRINTING = AntimatterAPI.register(RecipeMap.class,
             new RecipeMap<>(GT5RRef.ID, "printing", new RecipeBuilder()));
-    public static RecipeMap<RecipeBuilder> PYROLYSIS_OVEN = AntimatterAPI.register(RecipeMap.class,
-            new RecipeMap<>(GT5RRef.ID, "pyrolysis_oven", new RecipeBuilder())).setGuiData(Guis.MULTI_DISPLAY);
+    public static RecipeMap<RecipeBuilder> PYROLYSE_OVEN = AntimatterAPI.register(RecipeMap.class,
+            new RecipeMap<>(GT5RRef.ID, "pyrolyse_oven", new RecipeBuilder())).setGuiData(Guis.MULTI_DISPLAY);
 
     public static RecipeMap<RecipeBuilder> ROASTER = AntimatterAPI.register(RecipeMap.class,
             new RecipeMap<>(GT5RRef.ID, "roaster", new RecipeBuilder()));

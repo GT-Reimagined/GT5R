@@ -2,7 +2,6 @@ package org.gtreimagined.gt5r.data;
 
 import com.gtnewhorizon.structurelib.structure.IStructureElement;
 import com.gtnewhorizon.structurelib.structure.StructureUtility;
-import muramasa.antimatter.blockentity.BlockEntityMachine;
 import muramasa.antimatter.machine.Tier;
 import muramasa.antimatter.structure.FakeTileElement;
 import muramasa.antimatter.util.int3;
@@ -291,7 +290,7 @@ public class Structures {
                 .offset(1, 1, 0).min(1, ENERGY_HATCH).build()
         );
 
-        PYROLYSIS_OVEN.setStructure(BlockEntityPyrolysisOven.class, b -> b.part("main")
+        PYROLYSE_OVEN.setStructure(BlockEntityPyrolysisOven.class, b -> b.part("main")
                 .of("UUUUU", "UHHHU", "UHHHU", "UHHHU", "UUUUU").of("UUUUU", "U---U", "U---U", "U---U", "UUUUU").of(1)
                 .of("BB~BB", "BCCCB", "BCCCB", "BCCCB", "BBBBB").build()
                 .atElement('C', ofCoil(BlockEntityPyrolysisOven::setCoilData, BlockEntityPyrolysisOven::getCoilData)).at('B', GT5RBlocks.CASING_ULV, OUTPUT_BUS, ENERGY_HATCH, OUTPUT_HATCH)

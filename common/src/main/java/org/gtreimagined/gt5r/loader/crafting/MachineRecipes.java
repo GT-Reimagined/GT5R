@@ -989,7 +989,7 @@ public class MachineRecipes {
                         .put('L', BatteryEnergyOrb)
                         .put('M', HULL.getItem(EV))
                         .put('S', GT5RBlocks.FLUID_PIPE_STAINLESS_STEEL.getBlockItem(PipeSize.LARGE)).build(), "CLC", "RMR", "CSC"));
-        provider.addItemRecipe(output, "machines", PYROLYSIS_OVEN.getItem(PYROLYSIS_OVEN.getFirstTier()),
+        provider.addItemRecipe(output, "machines", PYROLYSE_OVEN.getItem(PYROLYSE_OVEN.getFirstTier()),
                 ImmutableMap.<Character, Object>builder()
                         .put('H', HULL.getItem(MV))
                         .put('C', CIRCUITS_GOOD)
