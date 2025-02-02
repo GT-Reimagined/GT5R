@@ -18,6 +18,7 @@ public class GT5RConfig {
     public static ConfigEntry.BoolValue HARD_CARBON;
     public static ConfigEntry.BoolValue GT6_ORE_GEN;
     public static ConfigEntry.DoubleValue ASPHALT_MULTIPLIER;
+    public static ConfigEntry.BoolValue ADD_LOOT;
     static ConfigHandler CONFIG;
 
     public static void createConfig(){
@@ -31,6 +32,7 @@ public class GT5RConfig {
         ASPHALT_MULTIPLIER = section.addDouble("asphalt_multiplier", 1.1, "Default speed multiplier applied by concrete.");
         HARD_CARBON = section.addBool("hard_carbon", false, "Makes carbon fibre require the hard recipe from gt5u. - Default: false");
         COMPLICATED_CHEMICAL_PROCESSING = section.addBool("complicated_chemical_processing", false, "Enables complicated chemical recipes");
+        ADD_LOOT = section.addBool("add_loot", true, "Enables chest loot for GT5R. - Default: true");
         CONFIG = AntimatterPlatformUtils.INSTANCE.createConfig(GT5RRef.ID, config);
         CONFIG.register();
     }

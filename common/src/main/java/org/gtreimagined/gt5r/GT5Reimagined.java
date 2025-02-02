@@ -61,6 +61,7 @@ import org.gtreimagined.gt5r.integration.AppliedEnergisticsRegistrar;
 import org.gtreimagined.gt5r.integration.SpaceModRegistrar;
 import org.gtreimagined.gt5r.integration.ThermalRegistrar;
 import org.gtreimagined.gt5r.integration.rei.REIRegistrar;
+import org.gtreimagined.gt5r.loader.LootLoader;
 import org.gtreimagined.gt5r.loader.crafting.BlockParts;
 import org.gtreimagined.gt5r.loader.crafting.ElectricToolRecipes;
 import org.gtreimagined.gt5r.loader.crafting.MachineRecipes;
@@ -327,6 +328,7 @@ public class GT5Reimagined extends AntimatterMod {
                 Structures.init();
                 GT5RTwilightStalctites.init();
                 GTRemapping.init();
+                LootLoader.init();
                 AntimatterJEIREIPlugin.addItemsToHide(GT5RBlocks.LAVA);
                 AntimatterJEIREIPlugin.addItemsToHide(l -> {
                     IAntimatterTool screwdriver_mv = AntimatterAPI.get(IAntimatterTool.class, "electric_screwdriver_mv", GTCore.ID);
