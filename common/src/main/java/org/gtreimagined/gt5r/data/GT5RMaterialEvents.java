@@ -147,6 +147,7 @@ public class GT5RMaterialEvents {
         event.setMaterial(Materials.CdInAGAlloy).asMetal(752, ROD, ALLOY);
         event.setMaterial(Materials.CobaltBrass).asMetal(1500, GEAR, ALLOY);
         event.setMaterial(Materials.Cupronickel).asMetal(1728, PLATE, ALLOY);
+        event.setMaterial(DamascusSteel).asMetal(2000, 1500, PLATE).forceBF(false);
         event.setMaterial(Materials.Duranium).asMetal(295, MOLTEN);
         event.setMaterial(Materials.Electrum).asMetal(1330, PLATE, FOIL, ROD_LONG, WIRE_FINE, ALLOY);
         event.setMaterial(Materials.EnrichedNaquadah).asMetal(4500, 4500, POSITIVE_CHANGING_RGB);
@@ -641,6 +642,7 @@ public class GT5RMaterialEvents {
         event.setMaterial(Materials.CdInAGAlloy).mats(of(Materials.Cadmium, 1, Materials.Indium, 1, Silver, 1));
         event.setMaterial(Materials.CobaltBrass).mats(of(Materials.Brass, 7, Materials.Aluminium, 1, Materials.Cobalt, 1));
         event.setMaterial(Materials.Cupronickel).mats(of(Copper, 1, Materials.Nickel, 1));
+        event.setMaterial(DamascusSteel).mats(of(Steel, 1));
         event.setMaterial(Materials.Electrum).mats(of(Silver, 1, Gold, 1));
         event.setMaterial(Materials.HSSE).mats(of(Materials.HSSG, 6, Materials.Cobalt, 1, Materials.Manganese, 1, Materials.Silicon, 1));
         event.setMaterial(Materials.HSSG).mats(of(Materials.TungstenSteel, 5, Materials.Chromium, 1, Materials.Molybdenum, 2, Materials.Vanadium, 1));
@@ -1029,6 +1031,7 @@ public class GT5RMaterialEvents {
         event.setMaterial(Materials.Bronze).tool().toolDamage(2).toolSpeed(6).toolDurability(448).toolQuality(2).toolEnchantments(of(Enchantments.SHARPNESS, 1)).build()
                 .addArmor(new int[]{2, 6, 5, 2}, 0.0F, 0.0F, 12);
         event.setMaterial(Materials.CobaltBrass).tool().toolDamage(2).toolSpeed(8).toolDurability(256).toolQuality(2).toolEnchantments(of(Enchantments.SHARPNESS, 2)).build();
+        event.setMaterial(DamascusSteel).tool().toolDamage(6).toolDurability(1280).toolSpeed(8).toolQuality(3).toolEnchantments(of(Enchantments.SHARPNESS, 5)).build();
         //event.setMaterial(Duranium).addHandleStat(620, -1.0F, of(Enchantments.SILK_TOUCH, 1))
                 //.addTools(6.5F, 16.0F, 5120, 5);
         event.setMaterial(Materials.Electrum).tool().toolDamage(2).toolSpeed(12).toolDurability(64).toolQuality(2).toolEnchantments(of(Enchantments.SMITE, 3)).build();
@@ -1323,7 +1326,7 @@ public class GT5RMaterialEvents {
         GT5RMaterialTags.CALCITE2X.add(Materials.Pyrite, Materials.YellowLimonite);
         GT5RMaterialTags.CALCITE3X.add(Iron, Materials.BrownLimonite);
         GT5RMaterialTags.CENT5.add(/*Chrysolite*/ Flint, /*Niter*/ Materials.Glass, /*Perlite*/ Materials.WroughtIron, Materials.DarkAsh, Materials.AnnealedCopper,
-                Materials.Cinnabar);
+                Materials.Cinnabar, DamascusSteel);
         GT5RMaterialTags.CENT10.add(Materials.Magnalium, Materials.VanadiumMagnetite, Materials.BrownLimonite, Materials.YellowLimonite, Materials.BlackGranite, Materials.Cupronickel, Materials.NiobiumTitanium, Materials.BorosilicateGlass,
                 Materials.GalliumArsenide, Materials.Marble, Materials.Limestone, Materials.Invar, Materials.TinAlloy, Materials.TungstenCarbide, EnderEye, Materials.Powellite, Materials.VanadiumGallium, Blaze,
                 Materials.TungstenSteel, Materials.Brass, Materials.Nichrome, Materials.Electrum, Materials.Bronze, Materials.Stibnite, Materials.Wulfenite, Materials.RedAlloy, Materials.SterlingSilver, Materials.RoseGold, Materials.BatteryAlloy, Materials.SolderingAlloy, Materials.TricalciumPhosphate);

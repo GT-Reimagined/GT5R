@@ -154,6 +154,7 @@ public class Materials {
     public static Material CdInAGAlloy = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "cd_in_ag_alloy", 0x646480, METALLIC)).setDisplayNameString("Cd-In-Ag-Alloy");
     public static Material CobaltBrass = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "cobalt_brass", 0xb4b4a0, METALLIC));
     public static Material Cupronickel = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "cupronickel", 0xe39680, METALLIC));
+    public static Material DamascusSteel = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "damascus_steel", 0x6e6e6e, METALLIC));
     public static Material Duranium = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "duranium", 0xffffff, METALLIC));
     public static Material Electrum = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "electrum", 0xffff64, SHINY));
     public static Material EnrichedNaquadah = AntimatterAPI.register(Material.class, new Material(GT5RRef.ID, "enriched_naquadah", 0x323232, SHINY));
