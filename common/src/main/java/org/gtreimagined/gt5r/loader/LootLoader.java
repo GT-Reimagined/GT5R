@@ -21,7 +21,7 @@ public class LootLoader {
         AntimatterLoot.addItem(BuiltInLootTables.SIMPLE_DUNGEON, INGOT.get(Steel, 1), 1, 6, 60);
         AntimatterLoot.addItem(BuiltInLootTables.SIMPLE_DUNGEON, INGOT.get(Bronze, 1), 1, 6, 60);
         AntimatterLoot.addItem(BuiltInLootTables.SIMPLE_DUNGEON, INGOT.get(Manganese, 1), 1, 6, 60);
-        //AntimatterLoot.addItem(BuiltInLootTables.SIMPLE_DUNGEON, INGOT.get(DamascusSteel, 1), 1, 6, 10);
+        AntimatterLoot.addItem(BuiltInLootTables.SIMPLE_DUNGEON, INGOT.get(DamascusSteel, 1), 1, 6, 10);
         AntimatterLoot.addItem(BuiltInLootTables.SIMPLE_DUNGEON, GEM.get(Emerald, 1), 1, 6, 20);
         AntimatterLoot.addItem(BuiltInLootTables.SIMPLE_DUNGEON, GEM.get(Ruby, 1), 1, 6, 20);
         AntimatterLoot.addItem(BuiltInLootTables.SIMPLE_DUNGEON, GEM.get(Sapphire, 1), 1, 6, 20);
@@ -66,8 +66,8 @@ public class LootLoader {
         AntimatterLoot.addItem(BuiltInLootTables.ABANDONED_MINESHAFT, GEM.get(YellowGarnet, 1), 1, 4, 4);
         AntimatterLoot.addItem(BuiltInLootTables.ABANDONED_MINESHAFT, GEM.get(Ruby, 1), 1, 4, 2);
         AntimatterLoot.addItem(BuiltInLootTables.ABANDONED_MINESHAFT, GEM.get(Emerald, 1), 1, 4, 2);
-        //AntimatterLoot.addItem(BuiltInLootTables.ABANDONED_MINESHAFT, INGOT.get(DamascusSteel, 1), 3, 12, 1);
-        //AntimatterLoot.addItem(BuiltInLootTables.ABANDONED_MINESHAFT, INGOT.get(DamascusSteel, 1), 1, 4, 1);
+        AntimatterLoot.addItem(BuiltInLootTables.ABANDONED_MINESHAFT, PICKAXE_HEAD.get(DamascusSteel, 1), 1, 4, 1);
+        AntimatterLoot.addItem(BuiltInLootTables.ABANDONED_MINESHAFT, SHOVEL_HEAD.get(DamascusSteel, 1), 1, 4, 1);
 
         AntimatterLoot.addItem(BuiltInLootTables.VILLAGE_WEAPONSMITH, DUST.get(Chromium, 1), 1, 4, 6);
         AntimatterLoot.addItem(BuiltInLootTables.VILLAGE_WEAPONSMITH, DUST.get(Neodymium, 1), 2, 8, 6);
@@ -75,13 +75,16 @@ public class LootLoader {
         AntimatterLoot.addItem(BuiltInLootTables.VILLAGE_WEAPONSMITH, INGOT.get(Steel, 1), 4, 12, 12);
         AntimatterLoot.addItem(BuiltInLootTables.VILLAGE_WEAPONSMITH, INGOT.get(Bronze, 1), 4, 12, 12);
         AntimatterLoot.addItem(BuiltInLootTables.VILLAGE_WEAPONSMITH, INGOT.get(Brass, 1), 4, 12, 12);
-        //AntimatterLoot.addItem(BuiltInLootTables.VILLAGE_WEAPONSMITH, INGOT.get(DamascusSteel, 1), 4, 12, 1);
+        AntimatterLoot.addItem(BuiltInLootTables.VILLAGE_WEAPONSMITH, INGOT.get(DamascusSteel, 1), 4, 12, 1);
 
-        //AntimatterLoot.addItem(BuiltInLootTables.STRONGHOLD_CROSSING, INGOT.get(DamascusSteel, 1), 4, 8, 6);
+        AntimatterLoot.addItem(BuiltInLootTables.STRONGHOLD_CROSSING, INGOT.get(DamascusSteel, 1), 4, 8, 6);
         AntimatterLoot.addItem(BuiltInLootTables.STRONGHOLD_CROSSING, INGOT.get(Steel, 1), 8, 16, 12);
         AntimatterLoot.addItem(BuiltInLootTables.STRONGHOLD_CROSSING, INGOT.get(Bronze, 1), 8, 16, 12);
         AntimatterLoot.addItem(BuiltInLootTables.STRONGHOLD_CROSSING, INGOT.get(Manganese, 1), 4, 8, 12);
         AntimatterLoot.addItem(BuiltInLootTables.STRONGHOLD_CROSSING, DUST.get(Neodymium, 1), 4, 8, 6);
         AntimatterLoot.addItem(BuiltInLootTables.STRONGHOLD_CROSSING, DUST.get(Chromium, 1), 2, 4, 6);
+
+        AntimatterLoot.addItem(BuiltInLootTables.STRONGHOLD_CORRIDOR, SWORD_BLADE.get(DamascusSteel, 1), 1, 4, 6);
+        AntimatterLoot.addItem(BuiltInLootTables.STRONGHOLD_CORRIDOR, AXE_HEAD.get(DamascusSteel, 1), 1, 4, 6);
     }
 }
